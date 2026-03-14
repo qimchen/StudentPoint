@@ -30,16 +30,16 @@ export async function updatePassword(newPwd: string): Promise<boolean> {
 
 /**
  * 校验当前是否已登录。
- * @returns {boolean} 是否已登录
+ * @returns {Promise<boolean>} 是否已登录
  */
-export function isLoggedIn(): boolean {
+export async function isLoggedIn(): Promise<boolean> {
   return cookies().has('admin_token');
 }
 
 /**
  * 登出管理员。
- * @returns {void} 无返回
+ * @returns {Promise<void>} 无返回
  */
-export function logout(): void {
+export async function logout(): Promise<void> {
   cookies().delete('admin_token');
 }
