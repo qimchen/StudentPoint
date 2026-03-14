@@ -1,376 +1,270 @@
 import React from 'react';
-import { redirect } from 'next/navigation';
-import { cookies } from 'next/headers';
-import { initData, getValue, setValue } from '../../lib/kv';
-import { logout } from '../../lib/auth';
-import type {
-  Student,
-  ScoreItem,
-  ScoreRecord,
-  ExchangeRecord,
-} from '../../lib/types';
+import { initData, getValue } from '../lib/kv';
+import type { Student, ScoreRecord, ExchangeRecord, ScoreItem } from '../lib/types';
+import { 
+  Chart as ChartJS, 
+  CategoryScale, 
+  LinearScale, 
+  BarElement, 
+  Title, 
+  Tooltip, 
+  Legend,
+  ArcElement,
+  PieController
+} from 'chart.js';
+import { Bar, Pie } from 'react-chartjs-2';
 
-/**
- * 新增或更新积分项。
- * @param {FormData} formData 表单数据
- * @returns {Promise<void>} 无返回
- */
-async function saveScoreItem(formData: FormData): Promise<void> {
-  'use server';
-  const id = (formData.get('id') as string) || '';
-  const subject = formData.get('subject') as ScoreItem['subject'];
-  const name = (formData.get('name') as string)?.trim();
-  const points = Number(formData.get('points') || 0);
+// 注册Chart.js组件
+ChartJS.register(
+  CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend,
+  ArcElement, PieController
+);
 
-  if (!subject || !name || !points) return;
-
-  const items = await getValue<ScoreItem[]>('scoreItems', []);
-  const now = Date.now().toString();
-
-  let next: ScoreItem[];
-  if (id) {
-    next = items.map((item) =>
-      item.id === id ? { ...item, subject, name, points } : item,
-    );
-  } else {
-    next = [
-      ...items,
-      {
-        id: `item-${now}`,
-        subject,
-        name,
-        points,
-      },
-    ];
-  }
-
-  await setValue('scoreItems', next);
-  redirect('/admin');
-}
-
-/**
- * 删除积分项。
- * @param {FormData} formData 表单数据
- * @returns {Promise<void>} 无返回
- */
-async function deleteScoreItem(formData: FormData): Promise<void> {
-  'use server';
-  const id = formData.get('id') as string;
-  if (!id) return;
-
-  const items = await getValue<ScoreItem[]>('scoreItems', []);
-  const next = items.filter((item) => item.id !== id);
-  await setValue('scoreItems', next);
-  redirect('/admin');
-}
-
-/**
- * 录入分数。
- * @param {FormData} formData 表单数据
- * @returns {Promise<void>} 无返回
- */
-async function addScore(formData: FormData): Promise<void> {
-  'use server';
-  const studentId = formData.get('student') as string;
-  const itemId = formData.get('item') as string;
-  const week = (formData.get('week') as string) || '';
-
-  const students = await getValue<Student[]>('students', []);
-  const items = await getValue<ScoreItem[]>('scoreItems', []);
-  const records = await getValue<ScoreRecord[]>('scoreRecords', []);
-
-  const student = students.find((s) => s.id === studentId);
-  const item = items.find((i) => i.id === itemId);
-  if (!student || !item || !week) return;
-
-  student.totalPoints += item.points;
-  student.subjectPoints[item.subject] += item.points;
-
-  const record: ScoreRecord = {
-    id: `score-${Date.now().toString()}`,
-    studentId,
-    itemId,
-    week,
-    points: item.points,
-    createTime: new Date().toLocaleString(),
-  };
-
-  await setValue('students', students);
-  await setValue('scoreRecords', [...records, record]);
-  redirect('/admin');
-}
-
-/**
- * 兑换积分。
- * @param {FormData} formData 表单数据
- * @returns {Promise<void>} 无返回
- */
-async function exchangePoints(formData: FormData): Promise<void> {
-  'use server';
-  const studentId = formData.get('student') as string;
-  const num = Number(formData.get('num') || 0);
-  const reason = (formData.get('reason') as string) || '';
-
-  const students = await getValue<Student[]>('students', []);
-  const exRecords = await getValue<ExchangeRecord[]>('exchangeRecords', []);
-  const student = students.find((s) => s.id === studentId);
-  if (!student || !num || !reason.trim()) return;
-
-  if (num > student.totalPoints) {
-    redirect('/admin?error=points-not-enough');
-  }
-
-  if (student.totalPoints >= 100) {
-    const max = (student.totalPoints * student.exchangeRate) / 100;
-    if (num > max) {
-      redirect('/admin?error=over-limit');
-    }
-  }
-
-  student.totalPoints -= num;
-
-  const record: ExchangeRecord = {
-    id: `exchange-${Date.now().toString()}`,
-    studentId,
-    points: num,
-    reason,
-    createTime: new Date().toLocaleString(),
-  };
-
-  await setValue('students', students);
-  await setValue('exchangeRecords', [...exRecords, record]);
-  redirect('/admin');
-}
-
-/**
- * 更新学生兑换比例。
- * @param {FormData} formData 表单数据
- * @returns {Promise<void>} 无返回
- */
-async function updateExchangeRate(formData: FormData): Promise<void> {
-  'use server';
-  const studentId = formData.get('studentId') as string;
-  const rate = Number(formData.get('exchangeRate') || 0);
-  if (!studentId || !rate) return;
-
-  const students = await getValue<Student[]>('students', []);
-  const next = students.map((s) =>
-    s.id === studentId ? { ...s, exchangeRate: rate } : s,
-  );
-  await setValue('students', next);
-  redirect('/admin');
-}
-
-/**
- * 退出登录。
- * @returns {Promise<void>} 无返回
- */
-async function doLogout(): Promise<void> {
-  'use server';
-  await logout();
-  redirect('/');
-}
-
-/**
- * 管理后台页面：积分项管理、录分数、积分兑换、修改密码等。
- */
-export default async function AdminPage() {
+export default async function Home() {
   await initData();
 
-  const token = cookies().get('admin_token');
-  if (!token) {
-    redirect('/login');
-  }
-
-  const [students, items] = await Promise.all([
+  const [students, records, exRecords, items] = await Promise.all([
     getValue<Student[]>('students', []),
+    getValue<ScoreRecord[]>('scoreRecords', []),
+    getValue<ExchangeRecord[]>('exchangeRecords', []),
     getValue<ScoreItem[]>('scoreItems', []),
   ]);
 
-  const today = new Date().toISOString().slice(0, 10);
+  const thisWeek = new Date().toISOString().slice(0, 10);
+
+  const recordsByStudent = new Map<string, ScoreRecord[]>();
+  records.forEach((r) => {
+    const list = recordsByStudent.get(r.studentId) ?? [];
+    list.push(r);
+    recordsByStudent.set(r.studentId, list);
+  });
+
+  // 构建图表数据
+  const buildChartData = () => {
+    // 1. 学生总分对比（柱状图）
+    const barData = {
+      labels: students.map(s => s.name),
+      datasets: [
+        {
+          label: '语文',
+          data: students.map(s => s.subjectPoints.语文),
+          backgroundColor: '#3b82f6',
+        },
+        {
+          label: '数学',
+          data: students.map(s => s.subjectPoints.数学),
+          backgroundColor: '#10b981',
+        },
+        {
+          label: '英语',
+          data: students.map(s => s.subjectPoints.英语),
+          backgroundColor: '#f59e0b',
+        },
+      ],
+    };
+
+    // 2. 积分来源占比（饼图）- 取第一个学生示例
+    const firstStudent = students[0];
+    const pieData = firstStudent ? (() => {
+      const itemStat = new Map<string, number>();
+      const studentRecords = recordsByStudent.get(firstStudent.id) ?? [];
+      studentRecords.forEach((r) => {
+        const item = items.find((i) => i.id === r.itemId);
+        if (!item) return;
+        const key = `${item.subject}-${item.name}`;
+        itemStat.set(key, (itemStat.get(key) ?? 0) + r.points);
+      });
+
+      return {
+        labels: Array.from(itemStat.keys()),
+        datasets: [
+          {
+            data: Array.from(itemStat.values()),
+            backgroundColor: [
+              '#3b82f6', '#10b981', '#f59e0b', '#ef4444', '#8b5cf6', '#ec4899'
+            ],
+          },
+        ],
+      };
+    })() : { labels: [], datasets: [{ data: [] }] };
+
+    return { barData, pieData };
+  };
+
+  const { barData, pieData } = buildChartData();
+  const chartOptions = {
+    responsive: true,
+    plugins: {
+      legend: {
+        position: 'bottom',
+      },
+      title: {
+        display: true,
+        font: { size: 14 },
+      },
+    },
+  };
 
   return (
-    <div className="space-y-4">
-      <div className="flex items-center justify-between gap-3 flex-wrap">
-        <h1 className="text-2xl font-bold">⚙️ 管理后台</h1>
-        <form action={doLogout}>
-          <button className="btn btn-danger px-4 py-2 text-sm md:text-base">
-            登出
-          </button>
-        </form>
+    <div className="space-y-6">
+      <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+        <h1 className="text-2xl font-bold text-gray-800">📊 积分总览</h1>
+        <div className="flex gap-2">
+          <span className="stat-card">
+            <span className="stat-value">{students.reduce((sum, s) => sum + s.totalPoints, 0)}</span>
+            <span className="stat-label">总积分</span>
+          </span>
+          <span className="stat-card">
+            <span className="stat-value">{exRecords.length}</span>
+            <span className="stat-label">兑换次数</span>
+          </span>
+        </div>
       </div>
 
-      <section className="card">
-        <h2 className="text-lg font-semibold mb-3">📌 积分项管理</h2>
-        <div className="space-y-3">
-          <form action={saveScoreItem} className="grid gap-2 md:grid-cols-4">
-            <select
-              name="subject"
-              className="p-2 border rounded text-sm md:text-base"
-              required
-            >
-              <option value="语文">语文</option>
-              <option value="数学">数学</option>
-              <option value="英语">英语</option>
-            </select>
-            <input
-              name="name"
-              placeholder="积分项名称"
-              className="p-2 border rounded text-sm md:text-base"
-              required
+      {/* 图表区域 */}
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
+        <div className="card">
+          <h2 className="text-lg font-semibold mb-3">📈 学科积分对比</h2>
+          <div className="h-80">
+            <Bar 
+              data={barData} 
+              options={{ ...chartOptions, title: { text: '各学生学科积分分布' } }} 
             />
-            <input
-              name="points"
-              type="number"
-              placeholder="分值"
-              className="p-2 border rounded text-sm md:text-base"
-              required
-            />
-            <button className="btn btn-success w-full md:w-auto text-sm md:text-base">
-              新增积分项
-            </button>
-          </form>
-
-          <div className="max-h-80 overflow-y-auto border rounded-md p-2 bg-gray-50">
-            {['语文', '数学', '英语'].map((subject) => (
-              <div key={subject} className="mb-3">
-                <h3 className="font-medium mb-1 text-sm md:text-base">
-                  {subject}
-                </h3>
-                <div className="space-y-1">
-                  {items
-                    .filter((i) => i.subject === subject)
-                    .map((item) => (
-                      <div
-                        key={item.id}
-                        className="flex items-center justify-between gap-2 text-xs md:text-sm"
-                      >
-                        <span className="flex-1 truncate">
-                          {item.name}（+{item.points}）
-                        </span>
-                        <form
-                          action={deleteScoreItem}
-                          className="shrink-0 flex items-center gap-1"
-                        >
-                          <input type="hidden" name="id" value={item.id} />
-                          <button className="text-red-500 text-xs md:text-sm">
-                            删除
-                          </button>
-                        </form>
-                      </div>
-                    ))}
-                </div>
-              </div>
-            ))}
           </div>
         </div>
-      </section>
-
-      <section className="card">
-        <h2 className="text-lg font-semibold mb-3">✏️ 录入分数</h2>
-        <form
-          action={addScore}
-          className="space-y-3 md:grid md:grid-cols-4 md:gap-3 md:space-y-0"
-        >
-          <select
-            name="student"
-            className="w-full p-2 border rounded text-sm md:text-base"
-            required
-          >
-            {students.map((s) => (
-              <option key={s.id} value={s.id}>
-                {s.name}
-              </option>
-            ))}
-          </select>
-          <select
-            name="item"
-            className="w-full p-2 border rounded text-sm md:text-base"
-            required
-          >
-            {items.map((i) => (
-              <option key={i.id} value={i.id}>
-                {i.subject}-{i.name} (+{i.points})
-              </option>
-            ))}
-          </select>
-          <input
-            name="week"
-            defaultValue={today}
-            className="w-full p-2 border rounded text-sm md:text-base"
-            required
-          />
-          <button className="btn btn-primary w-full md:w-auto text-sm md:text-base">
-            确认录入
-          </button>
-        </form>
-      </section>
-
-      <section className="card">
-        <h2 className="text-lg font-semibold mb-3">💱 积分兑换</h2>
-        <form
-          action={exchangePoints}
-          className="space-y-3 md:grid md:grid-cols-4 md:gap-3 md:space-y-0"
-        >
-          <select
-            name="student"
-            className="w-full p-2 border rounded text-sm md:text-base"
-            required
-          >
-            {students.map((s) => (
-              <option key={s.id} value={s.id}>
-                {s.name}（总积分：{s.totalPoints}）
-              </option>
-            ))}
-          </select>
-          <input
-            name="num"
-            type="number"
-            min={1}
-            placeholder="兑换积分"
-            className="w-full p-2 border rounded text-sm md:text-base"
-            required
-          />
-          <input
-            name="reason"
-            placeholder="兑换原因"
-            className="w-full p-2 border rounded text-sm md:text-base"
-            required
-          />
-          <button className="btn btn-success w-full md:w-auto text-sm md:text-base">
-            确认兑换
-          </button>
-        </form>
-        <p className="mt-2 text-xs text-gray-500 md:text-sm">
-          提示：总积分小于 100 时无限制；总积分大于等于 100 时，陈姝淼最多兑换总积分的 40%，陈书辰最多兑换总积分的
-          50%（可在下面修改）。
-        </p>
-      </section>
-
-      <section className="card">
-        <h2 className="text-lg font-semibold mb-3">⚖️ 兑换比例设置</h2>
-        <div className="space-y-3">
-          {students.map((s) => (
-            <form
-              key={s.id}
-              action={updateExchangeRate}
-              className="flex items-center gap-2 flex-wrap text-sm md:text-base"
-            >
-              <span className="w-20">{s.name}</span>
-              <input type="hidden" name="studentId" value={s.id} />
-              <input
-                name="exchangeRate"
-                type="number"
-                defaultValue={s.exchangeRate}
-                className="w-24 p-2 border rounded text-sm md:text-base"
+        <div className="card">
+          <h2 className="text-lg font-semibold mb-3">🥧 积分来源占比（{students[0]?.name || '暂无数据'}）</h2>
+          <div className="h-80 flex items-center justify-center">
+            {pieData.labels.length > 0 ? (
+              <Pie 
+                data={pieData} 
+                options={{ ...chartOptions, title: { text: '积分来源统计' } }} 
               />
-              <span>%（总积分可兑换上限）</span>
-              <button className="btn btn-primary px-3 py-1 text-xs md:text-sm">
-                保存
-              </button>
-            </form>
-          ))}
+            ) : (
+              <p className="text-gray-500 text-sm">暂无积分数据</p>
+            )}
+          </div>
         </div>
+      </div>
+
+      {/* 学生详情 */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+        {students.map((s) => {
+          const allRecords = recordsByStudent.get(s.id) ?? [];
+          const weekRecords = allRecords.filter((r) => r.week === thisWeek);
+
+          const itemStat = new Map<string, number>();
+          allRecords.forEach((r) => {
+            const item = items.find((i) => i.id === r.itemId);
+            if (!item) return;
+            const key = `${item.subject}-${item.name}`;
+            itemStat.set(key, (itemStat.get(key) ?? 0) + r.points);
+          });
+
+          return (
+            <div key={s.id} className="card">
+              <div className="flex justify-between items-start mb-3">
+                <h2 className="text-xl font-bold text-blue-600">{s.name}</h2>
+                <span className="bg-blue-100 text-blue-800 px-2 py-1 rounded-full text-xs font-medium">
+                  总积分：{s.totalPoints}
+                </span>
+              </div>
+              
+              <div className="grid grid-cols-3 gap-2 mb-4">
+                <div className="bg-gray-50 rounded p-2 text-center">
+                  <div className="text-sm text-gray-500">语文</div>
+                  <div className="font-bold">{s.subjectPoints.语文}</div>
+                </div>
+                <div className="bg-gray-50 rounded p-2 text-center">
+                  <div className="text-sm text-gray-500">数学</div>
+                  <div className="font-bold">{s.subjectPoints.数学}</div>
+                </div>
+                <div className="bg-gray-50 rounded p-2 text-center">
+                  <div className="text-sm text-gray-500">英语</div>
+                  <div className="font-bold">{s.subjectPoints.英语}</div>
+                </div>
+              </div>
+
+              <div className="mb-4">
+                <h3 className="text-sm font-semibold mb-2 flex items-center gap-1">
+                  <span>📅 本周新增（{thisWeek}）</span>
+                </h3>
+                {weekRecords.length === 0 ? (
+                  <p className="text-xs text-gray-500 mt-1 bg-gray-50 rounded p-2">本周暂无积分记录</p>
+                ) : (
+                  <ul className="mt-1 space-y-1 text-sm bg-gray-50 rounded p-2 max-h-32 overflow-y-auto">
+                    {weekRecords.map((r) => {
+                      const item = items.find((i) => i.id === r.itemId);
+                      return (
+                        <li key={r.id} className="flex justify-between">
+                          <span>{item?.subject}-{item?.name}</span>
+                          <span className="text-green-600 font-medium">+{r.points}</span>
+                        </li>
+                      );
+                    })}
+                  </ul>
+                )}
+              </div>
+
+              <div>
+                <h3 className="text-sm font-semibold mb-2 flex items-center gap-1">
+                  <span>📋 累计积分来源</span>
+                </h3>
+                {itemStat.size === 0 ? (
+                  <p className="text-xs text-gray-500 mt-1 bg-gray-50 rounded p-2">暂无历史积分记录</p>
+                ) : (
+                  <ul className="mt-1 space-y-1 text-sm bg-gray-50 rounded p-2 max-h-32 overflow-y-auto">
+                    {Array.from(itemStat.entries()).map(([key, sum]) => (
+                      <li key={key} className="flex justify-between">
+                        <span>{key}</span>
+                        <span className="font-medium">{sum} 分</span>
+                      </li>
+                    ))}
+                  </ul>
+                )}
+              </div>
+            </div>
+          );
+        })}
+      </div>
+
+      {/* 兑换历史 */}
+      <section className="card">
+        <h2 className="text-lg font-semibold mb-3 flex items-center gap-1">
+          <span>⏳ 积分兑换历史</span>
+          <span className="bg-gray-100 text-gray-700 px-2 py-0.5 rounded text-xs">
+            共 {exRecords.length} 条
+          </span>
+        </h2>
+        {exRecords.length === 0 ? (
+          <p className="text-sm text-gray-500 bg-gray-50 rounded p-3">暂时还没有兑换记录</p>
+        ) : (
+          <div className="overflow-x-auto">
+            <table className="min-w-full divide-y divide-gray-200 text-sm">
+              <thead className="bg-gray-50">
+                <tr>
+                  <th className="px-3 py-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">时间</th>
+                  <th className="px-3 py-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">学生</th>
+                  <th className="px-3 py-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">兑换积分</th>
+                  <th className="px-3 py-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">兑换原因</th>
+                </tr>
+              </thead>
+              <tbody className="bg-white divide-y divide-gray-200">
+                {exRecords.map((r) => {
+                  const student = students.find((s) => s.id === r.studentId);
+                  return (
+                    <tr key={r.id} className="hover:bg-gray-50">
+                      <td className="px-3 py-2 whitespace-nowrap text-gray-600">{r.createTime}</td>
+                      <td className="px-3 py-2 whitespace-nowrap font-medium">{student?.name || '未知学生'}</td>
+                      <td className="px-3 py-2 whitespace-nowrap text-red-600">-{r.points}</td>
+                      <td className="px-3 py-2 text-gray-600">{r.reason}</td>
+                    </tr>
+                  );
+                })}
+              </tbody>
+            </table>
+          </div>
+        )}
       </section>
     </div>
   );
