@@ -1,4 +1,4 @@
-import { Redis } from '@upstash/redis';
+import { kv } from '@vercel/kv';
 import type {
   Student,
   ScoreItem,
@@ -7,31 +7,11 @@ import type {
   Config,
 } from './types';
 
-// ✅ 核心：自动解析 Vercel 自动注入的 student_REDIS_URL（redis:// 格式）
-const redisUrl = process.env.student_REDIS_URL as string;
-if (!redisUrl) {
-  throw new Error('student_REDIS_URL 环境变量未配置，请检查 Vercel Redis 连接');
-}
-
-// 解析 redis://default:TOKEN@HOST:PORT 格式
-const urlParts = redisUrl.replace('redis://', '').split('@');
-const token = urlParts[0].split(':')[1]; // 提取 Token
-const [host, port] = urlParts[1].split(':'); // 提取 HOST 和 PORT
-
-// 转换成 Upstash SDK 兼容的 HTTPS URL
-const upstashRestUrl = `https://${host}:${port}`;
-
-// 创建 Redis 客户端（完美适配 Vercel 自动配置）
-const redis = new Redis({
-  url: upstashRestUrl,
-  token: token,
-});
-
 /**
  * 获取指定 key 的值，如果不存在则返回默认值。
  */
 export async function getValue<T>(key: string, fallback: T): Promise<T> {
-  const value = await redis.get<T>(key);
+  const value = await kv.get<T>(key);
   return (value ?? fallback) as T;
 }
 
@@ -42,16 +22,16 @@ export async function setValue(
   key: 'students' | 'scoreItems' | 'scoreRecords' | 'exchangeRecords' | 'config',
   value: unknown,
 ): Promise<void> {
-  await redis.set(key, value);
+  await kv.set(key, value);
 }
 
 /**
- * 初始化默认数据（保留原有逻辑）
+ * 初始化默认数据（逻辑不变）
  */
 export async function initData(): Promise<void> {
-  const students = await redis.get<Student[]>('students');
-  const scoreItems = await redis.get<ScoreItem[]>('scoreItems');
-  const config = await redis.get<Config>('config');
+  const students = await kv.get<Student[]>('students');
+  const scoreItems = await kv.get<ScoreItem[]>('scoreItems');
+  const config = await kv.get<Config>('config');
 
   if (!students || students.length === 0) {
     const defaultStudents: Student[] = [
@@ -70,7 +50,7 @@ export async function initData(): Promise<void> {
         subjectPoints: { 语文: 0, 数学: 0, 英语: 0 },
       },
     ];
-    await redis.set('students', defaultStudents);
+    await kv.set('students', defaultStudents);
   }
 
   if (!scoreItems || scoreItems.length === 0) {
@@ -98,23 +78,23 @@ export async function initData(): Promise<void> {
         });
       });
     });
-    await redis.set('scoreItems', defaultItems);
+    await kv.set('scoreItems', defaultItems);
   }
 
   if (!config) {
     const defaultConfig: Config = {
       password: 'admin123',
     };
-    await redis.set('config', defaultConfig);
+    await kv.set('config', defaultConfig);
   }
 
-  const scoreRecords = await redis.get<ScoreRecord[]>('scoreRecords');
+  const scoreRecords = await kv.get<ScoreRecord[]>('scoreRecords');
   if (!scoreRecords) {
-    await redis.set('scoreRecords', []);
+    await kv.set('scoreRecords', []);
   }
 
-  const exchangeRecords = await redis.get<ExchangeRecord[]>('exchangeRecords');
+  const exchangeRecords = await kv.get<ExchangeRecord[]>('exchangeRecords');
   if (!exchangeRecords) {
-    await redis.set('exchangeRecords', []);
+    await kv.set('exchangeRecords', []);
   }
 }
