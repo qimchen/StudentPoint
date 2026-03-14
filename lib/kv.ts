@@ -7,15 +7,26 @@ import type {
   Config,
 } from './types';
 
-// ✅ 方案1：直接用 redis:// 格式的 URL 初始化（Upstash 官方支持）
-// 无需手动解析 token/url/端口，彻底避免解析错误
+// ✅ 核心：自动解析 Vercel 自动注入的 student_REDIS_URL（redis:// 格式）
+const redisUrl = process.env.student_REDIS_URL as string;
+if (!redisUrl) {
+  throw new Error('student_REDIS_URL 环境变量未配置，请检查 Vercel Redis 连接');
+}
+
+// 解析 redis://default:TOKEN@HOST:PORT 格式
+const urlParts = redisUrl.replace('redis://', '').split('@');
+const token = urlParts[0].split(':')[1]; // 提取 Token
+const [host, port] = urlParts[1].split(':'); // 提取 HOST 和 PORT
+
+// 转换成 Upstash SDK 兼容的 HTTPS URL
+const upstashRestUrl = `https://${host}:${port}`;
+
+// 创建 Redis 客户端（完美适配 Vercel 自动配置）
 const redis = new Redis({
-  url: process.env.student_REDIS_URL as string,
-  // 这里留空即可，Upstash 会自动从 redis:// URL 中解析认证信息
-  token: '', 
+  url: upstashRestUrl,
+  token: token,
 });
 
-// 👇 下面的 getValue/setValue/initData 逻辑完全不变，保留你原来的代码
 /**
  * 获取指定 key 的值，如果不存在则返回默认值。
  */
@@ -35,10 +46,9 @@ export async function setValue(
 }
 
 /**
- * 初始化默认数据（保留你的原有代码，无需修改）
+ * 初始化默认数据（保留原有逻辑）
  */
 export async function initData(): Promise<void> {
-  // 👇 这里粘贴你原来的 initData 逻辑，完全不变
   const students = await redis.get<Student[]>('students');
   const scoreItems = await redis.get<ScoreItem[]>('scoreItems');
   const config = await redis.get<Config>('config');
@@ -88,7 +98,6 @@ export async function initData(): Promise<void> {
         });
       });
     });
-
     await redis.set('scoreItems', defaultItems);
   }
 
