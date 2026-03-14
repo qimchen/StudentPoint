@@ -1,9 +1,14 @@
 import React from 'react';
 import { redirect } from 'next/navigation';
 import { cookies } from 'next/headers';
-import { initData, getValue, setValue } from '@/lib/kv';
-import { logout } from '@/lib/auth';
-import type { Student, ScoreItem, ScoreRecord, ExchangeRecord } from '@/lib/types';
+import { initData, getValue, setValue } from '../../lib/kv';
+import { logout } from '../../lib/auth';
+import type {
+  Student,
+  ScoreItem,
+  ScoreRecord,
+  ExchangeRecord,
+} from '../../lib/types';
 
 /**
  * 新增或更新积分项。

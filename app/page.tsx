@@ -1,11 +1,11 @@
 import React from 'react';
-import { initData, getValue } from '@/lib/kv';
+import { initData, getValue } from '../lib/kv';
 import type {
   Student,
   ScoreRecord,
   ExchangeRecord,
   ScoreItem,
-} from '@/lib/types';
+} from '../lib/types';
 
 export default async function Home(): Promise<React.JSX.Element> {
   await initData();

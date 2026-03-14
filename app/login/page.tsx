@@ -1,6 +1,6 @@
 import React from 'react';
 import { redirect } from 'next/navigation';
-import { login, isLoggedIn } from '@/lib/auth';
+import { login, isLoggedIn } from '../../lib/auth';
 
 /**
  * 处理登录表单提交。
