@@ -8,7 +8,7 @@
     "start": "next start"
   },
   "dependencies": {
-    "ioredis": "^5.3.2", // ✅ 核心：改用原生 Redis 客户端
+    "ioredis": "^5.3.2",
     "next": "14.1.0",
     "react": "18.2.0",
     "react-dom": "18.2.0"
