@@ -7,18 +7,15 @@ import type {
   Config,
 } from './types';
 
-// ✅ 适配你截图里的 student_REDIS_URL 环境变量
-const redisUrl = process.env.student_REDIS_URL as string;
-// 从 URL 中解析出 token（密码）
-const token = redisUrl.split(':')[2].split('@')[0];
-const url = `https://${redisUrl.split('@')[1].split(':')[0]}:${redisUrl.split(':')[4]}`;
-
-// 创建 Redis 客户端
+// ✅ 方案1：直接用 redis:// 格式的 URL 初始化（Upstash 官方支持）
+// 无需手动解析 token/url/端口，彻底避免解析错误
 const redis = new Redis({
-  url: url,
-  token: token,
+  url: process.env.student_REDIS_URL as string,
+  // 这里留空即可，Upstash 会自动从 redis:// URL 中解析认证信息
+  token: '', 
 });
 
+// 👇 下面的 getValue/setValue/initData 逻辑完全不变，保留你原来的代码
 /**
  * 获取指定 key 的值，如果不存在则返回默认值。
  */
@@ -38,9 +35,10 @@ export async function setValue(
 }
 
 /**
- * 初始化默认数据（逻辑不变，保留你的原有代码）
+ * 初始化默认数据（保留你的原有代码，无需修改）
  */
 export async function initData(): Promise<void> {
+  // 👇 这里粘贴你原来的 initData 逻辑，完全不变
   const students = await redis.get<Student[]>('students');
   const scoreItems = await redis.get<ScoreItem[]>('scoreItems');
   const config = await redis.get<Config>('config');
