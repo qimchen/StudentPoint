@@ -1,4 +1,4 @@
-import { kv } from '@vercel/kv';
+import { Redis } from '@upstash/redis';
 import type {
   Student,
   ScoreItem,
@@ -8,6 +8,12 @@ import type {
 } from './types';
 
 /** @typedef {'students' | 'scoreItems' | 'scoreRecords' | 'exchangeRecords' | 'config'} KvKey */
+
+const redis = new Redis({
+  // 这里使用 Vercel Redis / Upstash 在项目中自动注入的环境变量名称
+  url: process.env.student_REDIS_URL as string,
+  token: process.env.student_REDIS_TOKEN as string,
+});
 
 /**
  * 获取指定 key 的值，如果不存在则返回默认值。
@@ -22,7 +28,7 @@ export async function getValue<T>(key: 'scoreRecords', fallback: T): Promise<T>;
 export async function getValue<T>(key: 'exchangeRecords', fallback: T): Promise<T>;
 export async function getValue<T>(key: 'config', fallback: T): Promise<T>;
 export async function getValue<T>(key: string, fallback: T): Promise<T> {
-  const value = await kv.get<T>(key);
+  const value = await redis.get<T>(key);
   return (value ?? fallback) as T;
 }
 
@@ -36,7 +42,7 @@ export async function setValue(
   key: 'students' | 'scoreItems' | 'scoreRecords' | 'exchangeRecords' | 'config',
   value: unknown,
 ): Promise<void> {
-  await kv.set(key, value);
+  await redis.set(key, value);
 }
 
 /**
@@ -45,9 +51,9 @@ export async function setValue(
  * @returns {Promise<void>} 无返回
  */
 export async function initData(): Promise<void> {
-  const students = await kv.get<Student[]>('students');
-  const scoreItems = await kv.get<ScoreItem[]>('scoreItems');
-  const config = await kv.get<Config>('config');
+  const students = await redis.get<Student[]>('students');
+  const scoreItems = await redis.get<ScoreItem[]>('scoreItems');
+  const config = await redis.get<Config>('config');
 
   if (!students || students.length === 0) {
     const defaultStudents: Student[] = [
@@ -66,7 +72,7 @@ export async function initData(): Promise<void> {
         subjectPoints: { 语文: 0, 数学: 0, 英语: 0 },
       },
     ];
-    await kv.set('students', defaultStudents);
+    await redis.set('students', defaultStudents);
   }
 
   if (!scoreItems || scoreItems.length === 0) {
@@ -95,23 +101,23 @@ export async function initData(): Promise<void> {
       });
     });
 
-    await kv.set('scoreItems', defaultItems);
+    await redis.set('scoreItems', defaultItems);
   }
 
   if (!config) {
     const defaultConfig: Config = {
       password: 'admin123',
     };
-    await kv.set('config', defaultConfig);
+    await redis.set('config', defaultConfig);
   }
 
-  const scoreRecords = await kv.get<ScoreRecord[]>('scoreRecords');
+  const scoreRecords = await redis.get<ScoreRecord[]>('scoreRecords');
   if (!scoreRecords) {
-    await kv.set('scoreRecords', []);
+    await redis.set('scoreRecords', []);
   }
 
-  const exchangeRecords = await kv.get<ExchangeRecord[]>('exchangeRecords');
+  const exchangeRecords = await redis.get<ExchangeRecord[]>('exchangeRecords');
   if (!exchangeRecords) {
-    await kv.set('exchangeRecords', []);
+    await redis.set('exchangeRecords', []);
   }
 }
