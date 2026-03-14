@@ -7,26 +7,21 @@ import type {
   Config,
 } from './types';
 
-/** @typedef {'students' | 'scoreItems' | 'scoreRecords' | 'exchangeRecords' | 'config'} KvKey */
+// ✅ 适配你截图里的 student_REDIS_URL 环境变量
+const redisUrl = process.env.student_REDIS_URL as string;
+// 从 URL 中解析出 token（密码）
+const token = redisUrl.split(':')[2].split('@')[0];
+const url = `https://${redisUrl.split('@')[1].split(':')[0]}:${redisUrl.split(':')[4]}`;
 
+// 创建 Redis 客户端
 const redis = new Redis({
-  // 这里使用 Vercel Redis / Upstash 在项目中自动注入的环境变量名称
-  url: process.env.student_REDIS_URL as string,
-  token: process.env.student_REDIS_TOKEN as string,
+  url: url,
+  token: token,
 });
 
 /**
  * 获取指定 key 的值，如果不存在则返回默认值。
- * @template T
- * @param {KvKey} key KV 存储键名
- * @param {T} fallback 默认值
- * @returns {Promise<T>} 实际存储的值或默认值
  */
-export async function getValue<T>(key: 'students', fallback: T): Promise<T>;
-export async function getValue<T>(key: 'scoreItems', fallback: T): Promise<T>;
-export async function getValue<T>(key: 'scoreRecords', fallback: T): Promise<T>;
-export async function getValue<T>(key: 'exchangeRecords', fallback: T): Promise<T>;
-export async function getValue<T>(key: 'config', fallback: T): Promise<T>;
 export async function getValue<T>(key: string, fallback: T): Promise<T> {
   const value = await redis.get<T>(key);
   return (value ?? fallback) as T;
@@ -34,9 +29,6 @@ export async function getValue<T>(key: string, fallback: T): Promise<T> {
 
 /**
  * 写入 KV。
- * @param {KvKey} key KV 存储键名
- * @param {unknown} value 要写入的值
- * @returns {Promise<void>} 无返回
  */
 export async function setValue(
   key: 'students' | 'scoreItems' | 'scoreRecords' | 'exchangeRecords' | 'config',
@@ -46,9 +38,7 @@ export async function setValue(
 }
 
 /**
- * 初始化默认数据：两个学生、默认积分项、空记录以及默认管理员密码。
- * 在首页渲染和部分 server action 中调用，确保数据结构存在。
- * @returns {Promise<void>} 无返回
+ * 初始化默认数据（逻辑不变，保留你的原有代码）
  */
 export async function initData(): Promise<void> {
   const students = await redis.get<Student[]>('students');
