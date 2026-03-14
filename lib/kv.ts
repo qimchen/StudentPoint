@@ -1,109 +1,117 @@
-'use client';
-import { useState, useEffect } from 'react';
-import { db } from '@/lib/kv';
-import { updatePassword, logout } from '@/lib/auth';
-import { useRouter } from 'next/navigation';
+import { kv } from '@vercel/kv';
+import type {
+  Student,
+  ScoreItem,
+  ScoreRecord,
+  ExchangeRecord,
+  Config,
+} from './types';
 
-export default function Admin() {
-  const router = useRouter();
-  const [students, setStudents] = useState([]);
-  const [items, setItems] = useState([]);
-  const [tab, setTab] = useState('points');
+/** @typedef {'students' | 'scoreItems' | 'scoreRecords' | 'exchangeRecords' | 'config'} KvKey */
 
-  useEffect(() => { loadData(); }, []);
-  async function loadData() {
-    setStudents(await db.get('students'));
-    setItems(await db.get('scoreItems'));
+/**
+ * 获取指定 key 的值，如果不存在则返回默认值。
+ * @template T
+ * @param {KvKey} key KV 存储键名
+ * @param {T} fallback 默认值
+ * @returns {Promise<T>} 实际存储的值或默认值
+ */
+export async function getValue<T>(key: 'students', fallback: T): Promise<T>;
+export async function getValue<T>(key: 'scoreItems', fallback: T): Promise<T>;
+export async function getValue<T>(key: 'scoreRecords', fallback: T): Promise<T>;
+export async function getValue<T>(key: 'exchangeRecords', fallback: T): Promise<T>;
+export async function getValue<T>(key: 'config', fallback: T): Promise<T>;
+export async function getValue<T>(key: string, fallback: T): Promise<T> {
+  const value = await kv.get<T>(key);
+  return (value ?? fallback) as T;
+}
+
+/**
+ * 写入 KV。
+ * @param {KvKey} key KV 存储键名
+ * @param {unknown} value 要写入的值
+ * @returns {Promise<void>} 无返回
+ */
+export async function setValue(
+  key: 'students' | 'scoreItems' | 'scoreRecords' | 'exchangeRecords' | 'config',
+  value: unknown,
+): Promise<void> {
+  await kv.set(key, value);
+}
+
+/**
+ * 初始化默认数据：两个学生、默认积分项、空记录以及默认管理员密码。
+ * 在首页渲染和部分 server action 中调用，确保数据结构存在。
+ * @returns {Promise<void>} 无返回
+ */
+export async function initData(): Promise<void> {
+  const students = await kv.get<Student[]>('students');
+  const scoreItems = await kv.get<ScoreItem[]>('scoreItems');
+  const config = await kv.get<Config>('config');
+
+  if (!students || students.length === 0) {
+    const defaultStudents: Student[] = [
+      {
+        id: 'chen-shumiao',
+        name: '陈姝淼',
+        exchangeRate: 40,
+        totalPoints: 0,
+        subjectPoints: { 语文: 0, 数学: 0, 英语: 0 },
+      },
+      {
+        id: 'chen-shuchen',
+        name: '陈书辰',
+        exchangeRate: 50,
+        totalPoints: 0,
+        subjectPoints: { 语文: 0, 数学: 0, 英语: 0 },
+      },
+    ];
+    await kv.set('students', defaultStudents);
   }
 
-  // 录入分数
-  async function addScore(e) {
-    e.preventDefault();
-    const sId = e.target.student.value;
-    const itemId = e.target.item.value;
-    const week = e.target.week.value;
-    const item = items.find(i => i.id === itemId);
-    const s = students.find(s => s.id === sId);
-    
-    s.totalPoints += item.points;
-    s.subjectPoints[item.subject] += item.points;
-    
-    const records = await db.get('scoreRecords');
-    records.push({ id: Date.now().toString(), studentId: sId, itemId, week, points: item.points, createTime: new Date().toLocaleString() });
-    
-    await db.set('students', students);
-    await db.set('scoreRecords', records);
-    loadData(); alert('录入成功');
+  if (!scoreItems || scoreItems.length === 0) {
+    const baseItems: Array<Omit<ScoreItem, 'id' | 'subject'>> = [
+      { name: '课后全对', points: 1 },
+      { name: '抄写作业、课堂作业全对', points: 3 },
+      { name: '听写、默写全对', points: 7 },
+      { name: '练习册全对', points: 30 },
+      { name: '周末题单（特色作业）全对', points: 30 },
+      { name: '单元考满分', points: 100 },
+      { name: '期中考满分', points: 500 },
+      { name: '期末考满分', points: 1000 },
+    ];
+
+    const subjects: Array<ScoreItem['subject']> = ['语文', '数学', '英语'];
+    const defaultItems: ScoreItem[] = [];
+
+    subjects.forEach((subject) => {
+      baseItems.forEach((item, index) => {
+        defaultItems.push({
+          id: `${subject}-${index}`,
+          subject,
+          name: item.name,
+          points: item.points,
+        });
+      });
+    });
+
+    await kv.set('scoreItems', defaultItems);
   }
 
-  // 积分兑换
-  async function exchange(e) {
-    e.preventDefault();
-    const sId = e.target.student.value;
-    const num = Number(e.target.num.value);
-    const reason = e.target.reason.value;
-    const s = students.find(s => s.id === sId);
-
-    if (num > s.totalPoints) return alert('积分不足');
-    if (s.totalPoints >= 100) {
-      const max = s.totalPoints * (s.exchangeRate / 100);
-      if (num > max) return alert(`超出限制！最多可兑换${max.toFixed(0)}分`);
-    }
-
-    s.totalPoints -= num;
-    const ex = await db.get('exchangeRecords');
-    ex.push({ id: Date.now().toString(), studentId: sId, points: num, reason, createTime: new Date().toLocaleString() });
-    
-    await db.set('students', students);
-    await db.set('exchangeRecords', ex);
-    loadData(); alert('兑换成功');
+  if (!config) {
+    const defaultConfig: Config = {
+      password: 'admin123',
+    };
+    await kv.set('config', defaultConfig);
   }
 
-  return (
-    <div>
-      <h1 className="text-2xl font-bold mb-4">⚙️ 管理后台</h1>
-      <div className="flex gap-2 mb-4 flex-wrap">
-        <button onClick={() => setTab('points')} className="btn btn-primary">录分数</button>
-        <button onClick={() => setTab('exchange')} className="btn btn-success">兑积分</button>
-        <button onClick={() => setTab('settings')} className="btn">改密码</button>
-        <button onClick={() => { logout(); router.push('/'); }} className="btn btn-danger">登出</button>
-      </div>
+  const scoreRecords = await kv.get<ScoreRecord[]>('scoreRecords');
+  if (!scoreRecords) {
+    await kv.set('scoreRecords', []);
+  }
 
-      {/* 录分数 */}
-      {tab === 'points' && (
-        <form onSubmit={addScore} className="card space-y-3">
-          <select name="student" className="w-full p-2 border" required>
-            {students.map(s => <option key={s.id} value={s.id}>{s.name}</option>)}
-          </select>
-          <select name="item" className="w-full p-2 border" required>
-            {items.map(i => <option key={i.id} value={i.id}>{i.subject}-{i.name} (+{i.points})</option>)}
-          </select>
-          <input name="week" defaultValue={new Date().toISOString().slice(0,10)} className="w-full p-2 border" />
-          <button className="btn btn-primary w-full">确认录入</button>
-        </form>
-      )}
-
-      {/* 兑积分 */}
-      {tab === 'exchange' && (
-        <form onSubmit={exchange} className="card space-y-3">
-          <select name="student" className="w-full p-2 border" required>
-            {students.map(s => <option key={s.id} value={s.id}>{s.name}（总积分：{s.totalPoints}）</option>)}
-          </select>
-          <input name="num" type="number" placeholder="兑换积分" className="w-full p-2 border" required />
-          <input name="reason" placeholder="兑换原因" className="w-full p-2 border" required />
-          <button className="btn btn-success w-full">确认兑换</button>
-        </form>
-      )}
-
-      {/* 改密码 */}
-      {tab === 'settings' && (
-        <div className="card">
-          <form onSubmit={async e => { e.preventDefault(); await updatePassword(e.target.pwd.value); alert('修改成功'); }}>
-            <input name="pwd" type="password" placeholder="新密码" className="w-full p-2 border mb-3" required />
-            <button className="btn btn-primary w-full">修改密码</button>
-          </form>
-        </div>
-      )}
-    </div>
-  );
+  const exchangeRecords = await kv.get<ExchangeRecord[]>('exchangeRecords');
+  if (!exchangeRecords) {
+    await kv.set('exchangeRecords', []);
+  }
 }
