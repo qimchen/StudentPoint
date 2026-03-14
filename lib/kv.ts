@@ -1,4 +1,4 @@
-import { createClient } from '@vercel/kv';
+import Redis from 'ioredis';
 import type {
   Student,
   ScoreItem,
@@ -7,39 +7,35 @@ import type {
   Config,
 } from './types';
 
-// ✅ 核心：解析 Vercel 自动注入的 student_REDIS_URL
-const redisUrl = process.env.student_REDIS_URL;
-if (!redisUrl) {
-  throw new Error('student_REDIS_URL 环境变量未配置，请检查 Vercel Redis 连接');
-}
-
-// 解析 redis://default:<TOKEN>@<HOST>:<PORT> 格式
-const urlParts = redisUrl.replace('redis://', '').split('@');
-const token = urlParts[0].split(':')[1]; // 提取 Token
-const [host, port] = urlParts[1].split(':'); // 提取 HOST 和 PORT
-
-// 手动创建 @vercel/kv 客户端（适配 student_REDIS_URL）
-const kv = createClient({
-  url: `https://${host}:${port}`,
-  token: token,
-});
+// ✅ 直接用 Vercel 自动注入的 student_REDIS_URL 初始化原生 Redis 客户端
+const redis = new Redis(process.env.student_REDIS_URL || '');
 
 /**
- * 获取指定 key 的值，如果不存在则返回默认值。
+ * 获取指定 key 的值（原生 Redis 需要手动序列化/反序列化）
  */
 export async function getValue<T>(key: string, fallback: T): Promise<T> {
-  const value = await kv.get<T>(key);
-  return (value ?? fallback) as T;
+  try {
+    const value = await redis.get(key);
+    return value ? (JSON.parse(value) as T) : fallback;
+  } catch (error) {
+    console.error('Redis 获取数据失败:', error);
+    return fallback;
+  }
 }
 
 /**
- * 写入 KV。
+ * 写入 KV（原生 Redis 需要手动序列化）
  */
 export async function setValue(
   key: 'students' | 'scoreItems' | 'scoreRecords' | 'exchangeRecords' | 'config',
   value: unknown,
 ): Promise<void> {
-  await kv.set(key, value);
+  try {
+    await redis.set(key, JSON.stringify(value));
+  } catch (error) {
+    console.error('Redis 写入数据失败:', error);
+    throw error;
+  }
 }
 
 /**
