@@ -11,7 +11,7 @@ export default function RootLayout({
   children,
 }: {
   children: React.ReactNode;
-}): React.JSX.Element {
+}) {
   return (
     <html lang="zh-CN">
       <body className="max-w-5xl mx-auto px-3 py-4">
