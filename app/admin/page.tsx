@@ -173,9 +173,8 @@ async function doLogout(): Promise<void> {
 
 /**
  * 管理后台页面：积分项管理、录分数、积分兑换、修改密码等。
- * @returns {Promise<JSX.Element>} 页面 JSX
  */
-export default async function AdminPage(): Promise<React.JSX.Element> {
+export default async function AdminPage() {
   await initData();
 
   const token = cookies().get('admin_token');

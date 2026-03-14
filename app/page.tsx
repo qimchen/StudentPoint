@@ -7,7 +7,7 @@ import type {
   ScoreItem,
 } from '../lib/types';
 
-export default async function Home(): Promise<React.JSX.Element> {
+export default async function Home() {
   await initData();
 
   const [students, records, exRecords, items] = await Promise.all([

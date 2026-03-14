@@ -18,7 +18,7 @@ async function handleLogin(formData: FormData): Promise<void> {
   }
 }
 
-export default async function LoginPage(): Promise<React.JSX.Element> {
+export default async function LoginPage() {
   if (await isLoggedIn()) {
     redirect('/admin');
   }
