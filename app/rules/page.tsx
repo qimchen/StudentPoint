@@ -1,93 +1,208 @@
 export default function Rules() {
+  const scoreItems = [
+    { name: '课后全对', points: 1, icon: '✏️', color: 'blue' },
+    { name: '抄写作业、课堂作业全对', points: 3, icon: '📝', color: 'green' },
+    { name: '听写、默写全对', points: 7, icon: '📖', color: 'amber' },
+    { name: '练习册全对', points: 30, icon: '📚', color: 'purple' },
+    { name: '周末题单（特色作业）全对', points: 30, icon: '⭐', color: 'pink' },
+    { name: '单元考满分', points: 100, icon: '🏆', color: 'indigo' },
+    { name: '期中考满分', points: 500, icon: '🎖️', color: 'orange' },
+    { name: '期末考满分', points: 1000, icon: '👑', color: 'red' },
+  ];
+
+  const subjects = [
+    { name: '语文', icon: '📖', color: 'from-blue-400 to-blue-600', bgColor: 'bg-blue-50', borderColor: 'border-blue-200' },
+    { name: '数学', icon: '🔢', color: 'from-green-400 to-green-600', bgColor: 'bg-green-50', borderColor: 'border-green-200' },
+    { name: '英语', icon: '🔤', color: 'from-amber-400 to-amber-600', bgColor: 'bg-amber-50', borderColor: 'border-amber-200' },
+  ];
+
+  const students = [
+    { name: '陈姝淼', rate: 40, color: 'pink', avatar: '👧' },
+    { name: '陈书辰', rate: 50, color: 'blue', avatar: '👦' },
+  ];
+
   return (
     <div className="space-y-6">
-      <h1 className="text-2xl font-bold text-gray-800">📜 积分规则说明</h1>
-      
+      <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+        <div>
+          <h1 className="text-2xl font-bold gradient-text">积分规则说明</h1>
+          <p className="text-sm text-gray-500 mt-1">了解积分获取与兑换规则</p>
+        </div>
+      </div>
+
       <div className="card">
-        <h2 className="text-xl font-semibold mb-4 flex items-center gap-2">
-          <span>✅ 积分积累规则</span>
-          <span className="bg-blue-100 text-blue-800 px-2 py-0.5 rounded text-xs font-medium">
-            加分项
-          </span>
-        </h2>
+        <div className="flex items-center gap-3 mb-6">
+          <div className="w-10 h-10 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-xl flex items-center justify-center">
+            <span className="text-xl">✅</span>
+          </div>
+          <div>
+            <h2 className="text-xl font-bold">积分积累规则</h2>
+            <p className="text-sm text-gray-500">通过学习表现获取积分</p>
+          </div>
+        </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
-          <div className="bg-gray-50 rounded-lg p-3 border border-gray-100">
-            <h3 className="font-bold text-blue-600 mb-2">语文</h3>
-            <ul className="space-y-1 text-sm">
-              <li>• 课后全对 +1 分</li>
-              <li>• 作业全对 +3 分</li>
-              <li>• 听写默写 +7 分</li>
-              <li>• 练习册 +30 分</li>
-              <li>• 周末题单 +30 分</li>
-              <li>• 单元考 +100 分</li>
-              <li>• 期中 +500 分</li>
-              <li>• 期末 +1000 分</li>
-            </ul>
-          </div>
-          
-          <div className="bg-gray-50 rounded-lg p-3 border border-gray-100">
-            <h3 className="font-bold text-green-600 mb-2">数学</h3>
-            <ul className="space-y-1 text-sm">
-              <li>• 课后全对 +1 分</li>
-              <li>• 作业全对 +3 分</li>
-              <li>• 听写默写 +7 分</li>
-              <li>• 练习册 +30 分</li>
-              <li>• 周末题单 +30 分</li>
-              <li>• 单元考 +100 分</li>
-              <li>• 期中 +500 分</li>
-              <li>• 期末 +1000 分</li>
-            </ul>
-          </div>
-          
-          <div className="bg-gray-50 rounded-lg p-3 border border-gray-100">
-            <h3 className="font-bold text-amber-600 mb-2">英语</h3>
-            <ul className="space-y-1 text-sm">
-              <li>• 课后全对 +1 分</li>
-              <li>• 作业全对 +3 分</li>
-              <li>• 听写默写 +7 分</li>
-              <li>• 练习册 +30 分</li>
-              <li>• 周末题单 +30 分</li>
-              <li>• 单元考 +100 分</li>
-              <li>• 期中 +500 分</li>
-              <li>• 期末 +1000 分</li>
-            </ul>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+          {subjects.map((subject) => (
+            <div key={subject.name} className={`${subject.bgColor} rounded-xl p-4 border ${subject.borderColor}`}>
+              <div className="flex items-center gap-2 mb-4">
+                <div className={`w-10 h-10 bg-gradient-to-br ${subject.color} rounded-lg flex items-center justify-center text-white text-lg`}>
+                  {subject.icon}
+                </div>
+                <h3 className="font-bold text-lg">{subject.name}</h3>
+              </div>
+              <ul className="space-y-2">
+                {scoreItems.map((item, idx) => (
+                  <li key={idx} className="flex justify-between items-center text-sm bg-white/60 rounded-lg px-3 py-2">
+                    <span className="flex items-center gap-2">
+                      <span>{item.icon}</span>
+                      <span className="text-gray-700">{item.name}</span>
+                    </span>
+                    <span className={`font-bold text-${item.color}-600`}>+{item.points}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+
+        <div className="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-xl p-4 border border-blue-100">
+          <div className="flex items-start gap-3">
+            <div className="w-8 h-8 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0">
+              <svg className="w-4 h-4 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+            </div>
+            <div>
+              <p className="text-sm font-medium text-gray-700">积分说明</p>
+              <p className="text-xs text-gray-500 mt-1">以上积分项适用于语文、数学、英语三个科目，管理员可在后台自定义添加或修改积分项。</p>
+            </div>
           </div>
         </div>
       </div>
       
       <div className="card">
-        <h2 className="text-xl font-semibold mb-4 flex items-center gap-2">
-          <span>💱 积分兑换规则</span>
-          <span className="bg-green-100 text-green-800 px-2 py-0.5 rounded text-xs font-medium">
-            兑换限制
-          </span>
-        </h2>
+        <div className="flex items-center gap-3 mb-6">
+          <div className="w-10 h-10 bg-gradient-to-br from-amber-500 to-orange-600 rounded-xl flex items-center justify-center">
+            <span className="text-xl">💱</span>
+          </div>
+          <div>
+            <h2 className="text-xl font-bold">积分兑换规则</h2>
+            <p className="text-sm text-gray-500">积分可兑换奖励</p>
+          </div>
+        </div>
         
         <div className="space-y-4">
-          <div className="p-3 bg-gray-50 rounded-lg">
-            <h3 className="font-bold mb-2 text-gray-800">基础规则</h3>
-            <p className="text-sm">1. 总积分＜100：无限制兑换</p>
-            <p className="text-sm">2. 总积分≥100：必须平衡发展</p>
+          <div className="bg-gray-50 rounded-xl p-4">
+            <h3 className="font-bold mb-3 flex items-center gap-2">
+              <span className="w-6 h-6 bg-blue-100 rounded flex items-center justify-center text-sm">📋</span>
+              基础规则
+            </h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+              <div className="bg-white rounded-lg p-3 border border-gray-200">
+                <div className="flex items-center gap-2 mb-1">
+                  <span className="text-green-500">✓</span>
+                  <span className="font-medium text-sm">总积分 &lt; 100</span>
+                </div>
+                <p className="text-xs text-gray-500 ml-6">无限制兑换</p>
+              </div>
+              <div className="bg-white rounded-lg p-3 border border-gray-200">
+                <div className="flex items-center gap-2 mb-1">
+                  <span className="text-amber-500">⚠</span>
+                  <span className="font-medium text-sm">总积分 ≥ 100</span>
+                </div>
+                <p className="text-xs text-gray-500 ml-6">需要平衡发展</p>
+              </div>
+            </div>
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <div className="bg-pink-50 rounded-lg p-3 border border-pink-100">
-              <h3 className="font-bold text-pink-600 mb-2">🧒 陈姝淼</h3>
-              <p className="text-sm">每科最多兑换总积分的 40%</p>
-            </div>
-            
-            <div className="bg-sky-50 rounded-lg p-3 border border-sky-100">
-              <h3 className="font-bold text-sky-600 mb-2">👦 陈书辰</h3>
-              <p className="text-sm">每科最多兑换总积分的 50%</p>
-            </div>
+            {students.map((student) => (
+              <div key={student.name} className={`bg-${student.color}-50 rounded-xl p-4 border border-${student.color}-200`}>
+                <div className="flex items-center gap-3 mb-3">
+                  <div className={`w-12 h-12 bg-gradient-to-br from-${student.color}-400 to-${student.color}-600 rounded-xl flex items-center justify-center text-2xl`}>
+                    {student.avatar}
+                  </div>
+                  <div>
+                    <h3 className="font-bold text-lg">{student.name}</h3>
+                    <p className="text-xs text-gray-500">兑换比例限制</p>
+                  </div>
+                </div>
+                <div className="bg-white rounded-lg p-3">
+                  <div className="flex items-center justify-between mb-2">
+                    <span className="text-sm text-gray-600">每科最多兑换</span>
+                    <span className={`font-bold text-${student.color}-600`}>{student.rate}%</span>
+                  </div>
+                  <div className="progress-bar">
+                    <div 
+                      className={`progress-bar-fill bg-gradient-to-r from-${student.color}-400 to-${student.color}-600`}
+                      style={{ width: `${student.rate}%` }}
+                    ></div>
+                  </div>
+                </div>
+              </div>
+            ))}
           </div>
           
-          <div className="p-3 bg-blue-50 rounded-lg text-sm text-blue-700">
-            <p className="font-medium mb-1">📝 规则说明</p>
-            <p>• 兑换积分将从总积分中扣除</p>
-            <p>• 兑换比例可在管理后台调整</p>
-            <p>• 兑换记录会永久保存，可在首页查看</p>
+          <div className="bg-gradient-to-r from-amber-50 to-orange-50 rounded-xl p-4 border border-amber-100">
+            <div className="flex items-start gap-3">
+              <div className="w-8 h-8 bg-amber-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                <svg className="w-4 h-4 text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+                </svg>
+              </div>
+              <div>
+                <p className="text-sm font-medium text-gray-700">平衡发展说明</p>
+                <p className="text-xs text-gray-500 mt-1">
+                  当兑换积分≥100时，需要确保各科目积分均衡发展。例如陈姝淼每科积分占比需≥40%，陈书辰需≥50%。
+                </p>
+                <p className="text-xs text-gray-500 mt-1">
+                  这样可以鼓励小朋友全面发展，不偏科。
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div className="card">
+        <div className="flex items-center gap-3 mb-6">
+          <div className="w-10 h-10 bg-gradient-to-br from-green-500 to-emerald-600 rounded-xl flex items-center justify-center">
+            <span className="text-xl">📝</span>
+          </div>
+          <div>
+            <h2 className="text-xl font-bold">其他说明</h2>
+            <p className="text-sm text-gray-500">使用须知</p>
+          </div>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div className="bg-gray-50 rounded-xl p-4 text-center">
+            <div className="w-12 h-12 mx-auto mb-3 bg-blue-100 rounded-xl flex items-center justify-center">
+              <svg className="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+            </div>
+            <h3 className="font-medium mb-1">积分永久有效</h3>
+            <p className="text-xs text-gray-500">积分不会过期，可累积使用</p>
+          </div>
+          <div className="bg-gray-50 rounded-xl p-4 text-center">
+            <div className="w-12 h-12 mx-auto mb-3 bg-green-100 rounded-xl flex items-center justify-center">
+              <svg className="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+            </div>
+            <h3 className="font-medium mb-1">兑换灵活</h3>
+            <p className="text-xs text-gray-500">可随时兑换，无最低限制</p>
+          </div>
+          <div className="bg-gray-50 rounded-xl p-4 text-center">
+            <div className="w-12 h-12 mx-auto mb-3 bg-amber-100 rounded-xl flex items-center justify-center">
+              <svg className="w-6 h-6 text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+              </svg>
+            </div>
+            <h3 className="font-medium mb-1">比例可调</h3>
+            <p className="text-xs text-gray-500">管理员可调整兑换比例</p>
           </div>
         </div>
       </div>

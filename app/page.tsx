@@ -10,14 +10,19 @@ import {
   Tooltip, 
   Legend,
   ArcElement,
-  PieController
+  PieController,
+  PointElement,
+  LineElement,
+  LineController,
+  Filler
 } from 'chart.js';
-import { Bar, Pie } from 'react-chartjs-2';
+import { Bar, Pie, Line, Doughnut } from 'react-chartjs-2';
 
-// 注册Chart.js组件
+export const dynamic = 'force-dynamic';
+
 ChartJS.register(
   CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend,
-  ArcElement, PieController
+  ArcElement, PieController, PointElement, LineElement, LineController, Filler
 );
 
 export default async function Home() {
@@ -30,7 +35,9 @@ export default async function Home() {
     getValue<ScoreItem[]>('scoreItems', []),
   ]);
 
-  const thisWeek = new Date().toISOString().slice(0, 10);
+  const today = new Date();
+  const thisWeek = today.toISOString().slice(0, 10);
+  const weekAgo = new Date(today.getTime() - 7 * 24 * 60 * 60 * 1000).toISOString().slice(0, 10);
 
   const recordsByStudent = new Map<string, ScoreRecord[]>();
   records.forEach((r) => {
@@ -39,230 +46,384 @@ export default async function Home() {
     recordsByStudent.set(r.studentId, list);
   });
 
-  // 构建图表数据
   const buildChartData = () => {
-    // 1. 学生总分对比（柱状图）
     const barData = {
       labels: students.map(s => s.name),
       datasets: [
         {
           label: '语文',
           data: students.map(s => s.subjectPoints.语文),
-          backgroundColor: '#3b82f6',
+          backgroundColor: 'rgba(59, 130, 246, 0.8)',
+          borderColor: 'rgb(59, 130, 246)',
+          borderWidth: 2,
+          borderRadius: 6,
         },
         {
           label: '数学',
           data: students.map(s => s.subjectPoints.数学),
-          backgroundColor: '#10b981',
+          backgroundColor: 'rgba(16, 185, 129, 0.8)',
+          borderColor: 'rgb(16, 185, 129)',
+          borderWidth: 2,
+          borderRadius: 6,
         },
         {
           label: '英语',
           data: students.map(s => s.subjectPoints.英语),
-          backgroundColor: '#f59e0b',
+          backgroundColor: 'rgba(245, 158, 11, 0.8)',
+          borderColor: 'rgb(245, 158, 11)',
+          borderWidth: 2,
+          borderRadius: 6,
         },
       ],
     };
 
-    // 2. 积分来源占比（饼图）- 取第一个学生示例
-    const firstStudent = students[0];
-    const pieData = firstStudent ? (() => {
+    const doughnutData = students.map((student) => {
       const itemStat = new Map<string, number>();
-      const studentRecords = recordsByStudent.get(firstStudent.id) ?? [];
+      const studentRecords = recordsByStudent.get(student.id) ?? [];
       studentRecords.forEach((r) => {
         const item = items.find((i) => i.id === r.itemId);
         if (!item) return;
-        const key = `${item.subject}-${item.name}`;
+        const key = item.name;
         itemStat.set(key, (itemStat.get(key) ?? 0) + r.points);
       });
-
       return {
-        labels: Array.from(itemStat.keys()),
-        datasets: [
-          {
-            data: Array.from(itemStat.values()),
+        student,
+        data: {
+          labels: Array.from(itemStat.keys()).slice(0, 6),
+          datasets: [{
+            data: Array.from(itemStat.values()).slice(0, 6),
             backgroundColor: [
-              '#3b82f6', '#10b981', '#f59e0b', '#ef4444', '#8b5cf6', '#ec4899'
+              'rgba(59, 130, 246, 0.8)',
+              'rgba(16, 185, 129, 0.8)',
+              'rgba(245, 158, 11, 0.8)',
+              'rgba(239, 68, 68, 0.8)',
+              'rgba(139, 92, 246, 0.8)',
+              'rgba(236, 72, 153, 0.8)',
             ],
-          },
-        ],
+            borderColor: '#fff',
+            borderWidth: 3,
+          }],
+        },
       };
-    })() : { labels: [], datasets: [{ data: [] }] };
+    });
 
-    return { barData, pieData };
+    const last7Days: string[] = [];
+    for (let i = 6; i >= 0; i--) {
+      const d = new Date(today.getTime() - i * 24 * 60 * 60 * 1000);
+      last7Days.push(d.toISOString().slice(0, 10));
+    }
+
+    const lineData = {
+      labels: last7Days.map(d => d.slice(5)),
+      datasets: students.map((s, idx) => {
+        const studentRecords = recordsByStudent.get(s.id) ?? [];
+        const dailyPoints = last7Days.map(day => {
+          return studentRecords
+            .filter(r => r.week === day)
+            .reduce((sum, r) => sum + r.points, 0);
+        });
+        const colors = ['rgb(59, 130, 246)', 'rgb(16, 185, 129)'];
+        return {
+          label: s.name,
+          data: dailyPoints,
+          borderColor: colors[idx],
+          backgroundColor: colors[idx].replace('rgb', 'rgba').replace(')', ', 0.1)'),
+          fill: true,
+          tension: 0.4,
+          pointRadius: 4,
+          pointHoverRadius: 6,
+        };
+      }),
+    };
+
+    return { barData, doughnutData, lineData };
   };
 
-  const { barData, pieData } = buildChartData();
+  const { barData, doughnutData, lineData } = buildChartData();
+  
   const chartOptions = {
     responsive: true,
+    maintainAspectRatio: false,
     plugins: {
       legend: {
-        position: 'bottom',
-      },
-      title: {
-        display: true,
-        font: { size: 14 },
+        position: 'bottom' as const,
+        labels: {
+          padding: 15,
+          usePointStyle: true,
+          pointStyle: 'circle' as const,
+        },
       },
     },
   };
 
+  const totalPoints = students.reduce((sum, s) => sum + s.totalPoints, 0);
+  const totalExchanges = exRecords.length;
+  const totalExchangedPoints = exRecords.reduce((sum, r) => sum + r.points, 0);
+
   return (
     <div className="space-y-6">
       <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
-        <h1 className="text-2xl font-bold text-gray-800">📊 积分总览</h1>
-        <div className="flex gap-2">
-          <span className="stat-card">
-            <span className="stat-value">{students.reduce((sum, s) => sum + s.totalPoints, 0)}</span>
-            <span className="stat-label">总积分</span>
-          </span>
-          <span className="stat-card">
-            <span className="stat-value">{exRecords.length}</span>
-            <span className="stat-label">兑换次数</span>
-          </span>
+        <div>
+          <h1 className="text-2xl font-bold gradient-text">积分总览</h1>
+          <p className="text-sm text-gray-500 mt-1">记录成长 · 激励学习</p>
+        </div>
+        <div className="flex gap-3 flex-wrap">
+          <div className="stat-card hover-lift">
+            <div className="w-10 h-10 bg-blue-100 rounded-xl flex items-center justify-center">
+              <svg className="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+              </svg>
+            </div>
+            <div>
+              <span className="stat-value">{totalPoints}</span>
+              <span className="stat-label">总积分</span>
+            </div>
+          </div>
+          <div className="stat-card hover-lift">
+            <div className="w-10 h-10 bg-green-100 rounded-xl flex items-center justify-center">
+              <svg className="w-5 h-5 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+            </div>
+            <div>
+              <span className="stat-value">{records.length}</span>
+              <span className="stat-label">积分记录</span>
+            </div>
+          </div>
+          <div className="stat-card hover-lift">
+            <div className="w-10 h-10 bg-amber-100 rounded-xl flex items-center justify-center">
+              <svg className="w-5 h-5 text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+            </div>
+            <div>
+              <span className="stat-value">{totalExchangedPoints}</span>
+              <span className="stat-label">已兑换</span>
+            </div>
+          </div>
         </div>
       </div>
 
-      {/* 图表区域 */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
-        <div className="card">
-          <h2 className="text-lg font-semibold mb-3">📈 学科积分对比</h2>
-          <div className="h-80">
+        <div className="card hover-lift">
+          <div className="flex items-center justify-between mb-4">
+            <h2 className="text-lg font-semibold flex items-center gap-2">
+              <span className="w-8 h-8 bg-blue-100 rounded-lg flex items-center justify-center">�</span>
+              学科积分对比
+            </h2>
+          </div>
+          <div className="h-72">
             <Bar 
               data={barData} 
-              options={{ ...chartOptions, title: { text: '各学生学科积分分布' } }} 
+              options={{
+                ...chartOptions,
+                plugins: {
+                  ...chartOptions.plugins,
+                  title: { display: false },
+                },
+                scales: {
+                  x: { grid: { display: false } },
+                  y: { beginAtZero: true, grid: { color: 'rgba(0,0,0,0.05)' } },
+                },
+              }} 
             />
           </div>
         </div>
-        <div className="card">
-          <h2 className="text-lg font-semibold mb-3">🥧 积分来源占比（{students[0]?.name || '暂无数据'}）</h2>
-          <div className="h-80 flex items-center justify-center">
-            {pieData.labels.length > 0 ? (
-              <Pie 
-                data={pieData} 
-                options={{ ...chartOptions, title: { text: '积分来源统计' } }} 
-              />
-            ) : (
-              <p className="text-gray-500 text-sm">暂无积分数据</p>
-            )}
+
+        <div className="card hover-lift">
+          <div className="flex items-center justify-between mb-4">
+            <h2 className="text-lg font-semibold flex items-center gap-2">
+              <span className="w-8 h-8 bg-green-100 rounded-lg flex items-center justify-center">📈</span>
+              近7天积分趋势
+            </h2>
+          </div>
+          <div className="h-72">
+            <Line 
+              data={lineData} 
+              options={{
+                ...chartOptions,
+                plugins: {
+                  ...chartOptions.plugins,
+                  title: { display: false },
+                },
+                scales: {
+                  x: { grid: { display: false } },
+                  y: { beginAtZero: true, grid: { color: 'rgba(0,0,0,0.05)' } },
+                },
+              }} 
+            />
           </div>
         </div>
       </div>
 
-      {/* 学生详情 */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
         {students.map((s) => {
           const allRecords = recordsByStudent.get(s.id) ?? [];
           const weekRecords = allRecords.filter((r) => r.week === thisWeek);
+          const weekPoints = weekRecords.reduce((sum, r) => sum + r.points, 0);
 
           const itemStat = new Map<string, number>();
           allRecords.forEach((r) => {
             const item = items.find((i) => i.id === r.itemId);
             if (!item) return;
-            const key = `${item.subject}-${item.name}`;
+            const key = item.name;
             itemStat.set(key, (itemStat.get(key) ?? 0) + r.points);
           });
 
+          const studentDoughnut = doughnutData.find(d => d.student.id === s.id);
+
           return (
-            <div key={s.id} className="card">
-              <div className="flex justify-between items-start mb-3">
-                <h2 className="text-xl font-bold text-blue-600">{s.name}</h2>
-                <span className="bg-blue-100 text-blue-800 px-2 py-1 rounded-full text-xs font-medium">
-                  总积分：{s.totalPoints}
-                </span>
+            <div key={s.id} className="card hover-lift">
+              <div className="flex justify-between items-start mb-4">
+                <div className="flex items-center gap-3">
+                  <div className={`w-12 h-12 rounded-xl flex items-center justify-center text-white font-bold text-lg ${
+                    s.id === 'chen-shumiao' ? 'bg-gradient-to-br from-pink-400 to-pink-600' : 'bg-gradient-to-br from-blue-400 to-blue-600'
+                  }`}>
+                    {s.name.charAt(0)}
+                  </div>
+                  <div>
+                    <h2 className="text-xl font-bold text-gray-800">{s.name}</h2>
+                    <p className="text-xs text-gray-500">今日新增 {weekPoints} 分</p>
+                  </div>
+                </div>
+                <div className="text-right">
+                  <p className="text-2xl font-bold text-blue-600">{s.totalPoints}</p>
+                  <p className="text-xs text-gray-500">总积分</p>
+                </div>
               </div>
               
-              <div className="grid grid-cols-3 gap-2 mb-4">
-                <div className="bg-gray-50 rounded p-2 text-center">
-                  <div className="text-sm text-gray-500">语文</div>
-                  <div className="font-bold">{s.subjectPoints.语文}</div>
-                </div>
-                <div className="bg-gray-50 rounded p-2 text-center">
-                  <div className="text-sm text-gray-500">数学</div>
-                  <div className="font-bold">{s.subjectPoints.数学}</div>
-                </div>
-                <div className="bg-gray-50 rounded p-2 text-center">
-                  <div className="text-sm text-gray-500">英语</div>
-                  <div className="font-bold">{s.subjectPoints.英语}</div>
-                </div>
+              <div className="grid grid-cols-3 gap-3 mb-4">
+                {(['语文', '数学', '英语'] as const).map((subject) => {
+                  const colors = {
+                    语文: 'from-blue-400 to-blue-600',
+                    数学: 'from-green-400 to-green-600',
+                    英语: 'from-amber-400 to-amber-600',
+                  };
+                  const icons = {
+                    语文: '📖',
+                    数学: '🔢',
+                    英语: '🔤',
+                  };
+                  return (
+                    <div key={subject} className="bg-gray-50 rounded-xl p-3 text-center hover:bg-gray-100 transition-colors">
+                      <div className={`w-8 h-8 mx-auto mb-1 rounded-lg bg-gradient-to-br ${colors[subject]} flex items-center justify-center text-white text-sm`}>
+                        {icons[subject]}
+                      </div>
+                      <div className="text-xs text-gray-500 mb-1">{subject}</div>
+                      <div className="font-bold text-lg">{s.subjectPoints[subject]}</div>
+                    </div>
+                  );
+                })}
               </div>
 
-              <div className="mb-4">
-                <h3 className="text-sm font-semibold mb-2 flex items-center gap-1">
-                  <span>📅 本周新增（{thisWeek}）</span>
-                </h3>
-                {weekRecords.length === 0 ? (
-                  <p className="text-xs text-gray-500 mt-1 bg-gray-50 rounded p-2">本周暂无积分记录</p>
-                ) : (
-                  <ul className="mt-1 space-y-1 text-sm bg-gray-50 rounded p-2 max-h-32 overflow-y-auto">
-                    {weekRecords.map((r) => {
-                      const item = items.find((i) => i.id === r.itemId);
-                      return (
-                        <li key={r.id} className="flex justify-between">
-                          <span>{item?.subject}-{item?.name}</span>
-                          <span className="text-green-600 font-medium">+{r.points}</span>
-                        </li>
-                      );
-                    })}
-                  </ul>
-                )}
-              </div>
+              <div className="grid grid-cols-2 gap-4">
+                <div>
+                  <h3 className="text-sm font-semibold mb-2 flex items-center gap-1 text-gray-600">
+                    <span>📅</span> 今日新增
+                  </h3>
+                  {weekRecords.length === 0 ? (
+                    <div className="bg-gray-50 rounded-lg p-3 text-center">
+                      <p className="text-xs text-gray-400">暂无积分记录</p>
+                    </div>
+                  ) : (
+                    <ul className="space-y-1.5 text-sm max-h-28 overflow-y-auto">
+                      {weekRecords.slice(0, 5).map((r) => {
+                        const item = items.find((i) => i.id === r.itemId);
+                        return (
+                          <li key={r.id} className="flex justify-between items-center bg-gray-50 rounded-lg px-3 py-1.5">
+                            <span className="text-gray-600 truncate">{item?.name}</span>
+                            <span className="text-green-600 font-bold text-xs">+{r.points}</span>
+                          </li>
+                        );
+                      })}
+                      {weekRecords.length > 5 && (
+                        <li className="text-xs text-gray-400 text-center">还有 {weekRecords.length - 5} 条...</li>
+                      )}
+                    </ul>
+                  )}
+                </div>
 
-              <div>
-                <h3 className="text-sm font-semibold mb-2 flex items-center gap-1">
-                  <span>📋 累计积分来源</span>
-                </h3>
-                {itemStat.size === 0 ? (
-                  <p className="text-xs text-gray-500 mt-1 bg-gray-50 rounded p-2">暂无历史积分记录</p>
-                ) : (
-                  <ul className="mt-1 space-y-1 text-sm bg-gray-50 rounded p-2 max-h-32 overflow-y-auto">
-                    {Array.from(itemStat.entries()).map(([key, sum]) => (
-                      <li key={key} className="flex justify-between">
-                        <span>{key}</span>
-                        <span className="font-medium">{sum} 分</span>
-                      </li>
-                    ))}
-                  </ul>
-                )}
+                <div>
+                  <h3 className="text-sm font-semibold mb-2 flex items-center gap-1 text-gray-600">
+                    <span>🥧</span> 积分来源
+                  </h3>
+                  {studentDoughnut && studentDoughnut.data.labels.length > 0 ? (
+                    <div className="h-28">
+                      <Doughnut 
+                        data={studentDoughnut.data} 
+                        options={{
+                          responsive: true,
+                          maintainAspectRatio: false,
+                          plugins: {
+                            legend: { display: false },
+                          },
+                          cutout: '60%',
+                        }} 
+                      />
+                    </div>
+                  ) : (
+                    <div className="bg-gray-50 rounded-lg p-3 text-center h-28 flex items-center justify-center">
+                      <p className="text-xs text-gray-400">暂无数据</p>
+                    </div>
+                  )}
+                </div>
               </div>
             </div>
           );
         })}
       </div>
 
-      {/* 兑换历史 */}
       <section className="card">
-        <h2 className="text-lg font-semibold mb-3 flex items-center gap-1">
-          <span>⏳ 积分兑换历史</span>
-          <span className="bg-gray-100 text-gray-700 px-2 py-0.5 rounded text-xs">
+        <div className="flex items-center justify-between mb-4">
+          <h2 className="text-lg font-semibold flex items-center gap-2">
+            <span className="w-8 h-8 bg-amber-100 rounded-lg flex items-center justify-center">⏳</span>
+            积分兑换历史
+          </h2>
+          <span className="badge badge-primary">
             共 {exRecords.length} 条
           </span>
-        </h2>
+        </div>
         {exRecords.length === 0 ? (
-          <p className="text-sm text-gray-500 bg-gray-50 rounded p-3">暂时还没有兑换记录</p>
+          <div className="empty-state">
+            <svg className="empty-state-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" />
+            </svg>
+            <p>暂时还没有兑换记录</p>
+          </div>
         ) : (
           <div className="overflow-x-auto">
             <table className="min-w-full divide-y divide-gray-200 text-sm">
               <thead className="bg-gray-50">
                 <tr>
-                  <th className="px-3 py-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">时间</th>
-                  <th className="px-3 py-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">学生</th>
-                  <th className="px-3 py-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">兑换积分</th>
-                  <th className="px-3 py-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">兑换原因</th>
+                  <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">时间</th>
+                  <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">学生</th>
+                  <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">兑换积分</th>
+                  <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">兑换原因</th>
                 </tr>
               </thead>
-              <tbody className="bg-white divide-y divide-gray-200">
-                {exRecords.map((r) => {
+              <tbody className="bg-white divide-y divide-gray-100">
+                {exRecords.slice(0, 10).map((r) => {
                   const student = students.find((s) => s.id === r.studentId);
                   return (
-                    <tr key={r.id} className="hover:bg-gray-50">
-                      <td className="px-3 py-2 whitespace-nowrap text-gray-600">{r.createTime}</td>
-                      <td className="px-3 py-2 whitespace-nowrap font-medium">{student?.name || '未知学生'}</td>
-                      <td className="px-3 py-2 whitespace-nowrap text-red-600">-{r.points}</td>
-                      <td className="px-3 py-2 text-gray-600">{r.reason}</td>
+                    <tr key={r.id} className="hover:bg-gray-50 transition-colors">
+                      <td className="px-4 py-3 whitespace-nowrap text-gray-600 text-xs">{r.createTime}</td>
+                      <td className="px-4 py-3 whitespace-nowrap">
+                        <span className="font-medium">{student?.name || '未知学生'}</span>
+                      </td>
+                      <td className="px-4 py-3 whitespace-nowrap">
+                        <span className="badge badge-danger">-{r.points}</span>
+                      </td>
+                      <td className="px-4 py-3 text-gray-600">{r.reason}</td>
                     </tr>
                   );
                 })}
               </tbody>
             </table>
+            {exRecords.length > 10 && (
+              <p className="text-center text-xs text-gray-500 mt-3">
+                仅显示最近10条记录
+              </p>
+            )}
           </div>
         )}
       </section>

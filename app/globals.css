@@ -2,74 +2,193 @@
 @tailwind components;
 @tailwind utilities;
 
-/* 全局基础样式增强 */
 body { 
-  @apply bg-gray-50 text-gray-800 antialiased; 
+  @apply bg-gradient-to-br from-gray-50 to-gray-100 text-gray-800 antialiased; 
 }
 
-/* 自定义组件样式增强 */
 .card { 
-  @apply bg-white rounded-xl p-5 shadow-md mb-5 hover:shadow-lg transition-shadow duration-200 border border-gray-100; 
+  @apply bg-white rounded-xl p-5 shadow-md mb-5 hover:shadow-xl transition-all duration-300 border border-gray-100 backdrop-blur-sm; 
 }
+
 .btn { 
-  @apply inline-flex items-center justify-center px-3 py-2 rounded-lg font-medium cursor-pointer transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-1; 
+  @apply inline-flex items-center justify-center px-4 py-2.5 rounded-lg font-medium cursor-pointer transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 active:scale-95; 
 }
 .btn-primary { 
-  @apply bg-blue-600 text-white hover:bg-blue-700 focus:ring-blue-500; 
+  @apply bg-gradient-to-r from-blue-500 to-blue-600 text-white hover:from-blue-600 hover:to-blue-700 focus:ring-blue-500 shadow-md hover:shadow-lg; 
 }
 .btn-danger { 
-  @apply bg-red-600 text-white hover:bg-red-700 focus:ring-red-500; 
+  @apply bg-gradient-to-r from-red-500 to-red-600 text-white hover:from-red-600 hover:to-red-700 focus:ring-red-500 shadow-md hover:shadow-lg; 
 }
 .btn-success { 
-  @apply bg-green-600 text-white hover:bg-green-700 focus:ring-green-500; 
+  @apply bg-gradient-to-r from-green-500 to-green-600 text-white hover:from-green-600 hover:to-green-700 focus:ring-green-500 shadow-md hover:shadow-lg; 
+}
+.btn-warning {
+  @apply bg-gradient-to-r from-amber-500 to-amber-600 text-white hover:from-amber-600 hover:to-amber-700 focus:ring-amber-500 shadow-md hover:shadow-lg;
 }
 .btn-outline { 
-  @apply border border-gray-300 hover:bg-gray-100 focus:ring-gray-400; 
+  @apply border-2 border-gray-300 text-gray-700 hover:bg-gray-50 hover:border-gray-400 focus:ring-gray-400; 
+}
+.btn-sm {
+  @apply px-3 py-1.5 text-sm;
+}
+.btn-lg {
+  @apply px-6 py-3 text-lg;
 }
 
-/* 表单控件增强 */
 .input-control {
-  @apply w-full p-2.5 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors;
+  @apply w-full p-3 border-2 border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200 bg-white hover:border-gray-300;
 }
 .select-control {
-  @apply w-full p-2.5 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white;
+  @apply w-full p-3 border-2 border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200 bg-white hover:border-gray-300 cursor-pointer;
 }
 
-/* 模态框样式 */
 .modal-overlay {
-  @apply fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4;
+  @apply fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center z-50 p-4;
 }
 .modal-container {
-  @apply bg-white rounded-xl p-6 w-full max-w-md shadow-2xl animate-fade-in;
+  @apply bg-white rounded-2xl p-6 w-full max-w-md shadow-2xl animate-scale-in border border-gray-100;
 }
+.modal-lg {
+  @apply max-w-2xl;
+}
+.modal-xl {
+  @apply max-w-4xl;
+}
+
+@keyframes scale-in {
+  from { opacity: 0; transform: scale(0.9); }
+  to { opacity: 1; transform: scale(1); }
+}
+.animate-scale-in {
+  animation: scale-in 0.2s ease-out;
+}
+
+@keyframes slide-in {
+  from { opacity: 0; transform: translateX(100%); }
+  to { opacity: 1; transform: translateX(0); }
+}
+.animate-slide-in {
+  animation: slide-in 0.3s ease-out;
+}
+
 @keyframes fade-in {
   from { opacity: 0; transform: translateY(-10px); }
   to { opacity: 1; transform: translateY(0); }
 }
+.animate-fade-in {
+  animation: fade-in 0.3s ease-out;
+}
 
-/* 加载状态 */
+@keyframes bounce-in {
+  0% { opacity: 0; transform: scale(0.3); }
+  50% { transform: scale(1.05); }
+  70% { transform: scale(0.9); }
+  100% { opacity: 1; transform: scale(1); }
+}
+.animate-bounce-in {
+  animation: bounce-in 0.5s ease-out;
+}
+
 .loading-spinner {
   @apply inline-block w-5 h-5 border-2 border-gray-300 border-t-blue-600 rounded-full animate-spin;
 }
 
-/* 提示消息 */
 .alert {
-  @apply p-3 rounded-lg text-sm mb-4;
+  @apply p-4 rounded-xl text-sm mb-4 flex items-center gap-3;
 }
 .alert-error {
-  @apply bg-red-50 text-red-700 border border-red-200;
+  @apply bg-red-50 text-red-700 border-2 border-red-200;
 }
 .alert-success {
-  @apply bg-green-50 text-green-700 border border-green-200;
+  @apply bg-green-50 text-green-700 border-2 border-green-200;
+}
+.alert-warning {
+  @apply bg-amber-50 text-amber-700 border-2 border-amber-200;
+}
+.alert-info {
+  @apply bg-blue-50 text-blue-700 border-2 border-blue-200;
 }
 
-/* 统计卡片 */
 .stat-card {
-  @apply bg-white rounded-lg p-4 shadow-sm border border-gray-100 flex items-center gap-3;
+  @apply bg-white rounded-xl p-5 shadow-md border border-gray-100 flex items-center gap-4 hover:shadow-lg transition-all duration-300;
 }
 .stat-value {
-  @apply text-2xl font-bold text-blue-600;
+  @apply text-3xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent;
 }
 .stat-label {
-  @apply text-sm text-gray-500;
+  @apply text-sm text-gray-500 font-medium;
+}
+
+.progress-bar {
+  @apply h-2 bg-gray-200 rounded-full overflow-hidden;
+}
+.progress-bar-fill {
+  @apply h-full rounded-full transition-all duration-500 ease-out;
+}
+
+.tab-container {
+  @apply flex gap-1 p-1 bg-gray-100 rounded-xl;
+}
+.tab-item {
+  @apply px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 cursor-pointer;
+}
+.tab-item-active {
+  @apply bg-white text-blue-600 shadow-sm;
+}
+.tab-item-inactive {
+  @apply text-gray-600 hover:text-gray-800;
+}
+
+.badge {
+  @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium;
+}
+.badge-primary {
+  @apply bg-blue-100 text-blue-800;
+}
+.badge-success {
+  @apply bg-green-100 text-green-800;
+}
+.badge-warning {
+  @apply bg-amber-100 text-amber-800;
+}
+.badge-danger {
+  @apply bg-red-100 text-red-800;
+}
+
+.divider {
+  @apply border-t border-gray-200 my-4;
+}
+
+.empty-state {
+  @apply flex flex-col items-center justify-center py-12 text-gray-400;
+}
+.empty-state-icon {
+  @apply w-16 h-16 mb-4 text-gray-300;
+}
+
+.gradient-text {
+  @apply bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 bg-clip-text text-transparent;
+}
+
+.glass-card {
+  @apply bg-white/80 backdrop-blur-md rounded-xl p-5 shadow-lg border border-white/20;
+}
+
+.hover-lift {
+  @apply transition-transform duration-300 hover:-translate-y-1;
+}
+
+.pulse-dot {
+  @apply w-2 h-2 bg-green-500 rounded-full animate-pulse;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  @apply bg-gray-100 rounded-full;
+}
+::-webkit-scrollbar-thumb {
+  @apply bg-gray-300 rounded-full hover:bg-gray-400;
 }
