@@ -2,6 +2,15 @@ import { NextResponse } from 'next/server';
 import { getValue, setValue } from '@/lib/kv';
 import type { ScoreItem } from '@/lib/types';
 
+export async function GET() {
+  try {
+    const items = await getValue<ScoreItem[]>('scoreItems', []);
+    return NextResponse.json(items);
+  } catch {
+    return NextResponse.json([]);
+  }
+}
+
 export async function POST(request: Request) {
   try {
     const body = await request.json();

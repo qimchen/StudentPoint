@@ -1,0 +1,278 @@
+TimeUTC,timestampInMs,requestPath,requestMethod,requestQueryString,responseStatusCode,requestId,requestUserAgent,level,environment,branch,vercelCache,type,function,host,deploymentDomain,deploymentId,durationMs,region,maxMemoryUsed,memorySize,message,projectId,traceId,sessionId,invocationId,instanceId,concurrency
+2026-03-15 02:10:40,1773540640976,student-point.vercel.app/,GET,,500,hpsqn-1773540640533-64ab8e6d227f,"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36",error,production,main,MISS,function,/,student-point.vercel.app,student-point-lmhwzk63b-chatdatas-projects.vercel.app,dpl_5Bdhp3BcRMXJSvEruB57ioJKuQKP,,,,,"TypeError: (0 , r.useRef) is not a function
+    at /var/task/.next/server/app/page.js:16:155242
+    at em (/var/task/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:131878)
+    at /var/task/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:142926
+    at Object.toJSON (/var/task/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:146504)
+    at stringify (<anonymous>)
+    at eR (/var/task/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:134889)
+    at eP (/var/task/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:135332)
+    at Timeout._onTimeout (/var/task/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:132112)
+    at listOnTimeout (node:internal/timers:605:17)
+    at process.processTimers (node:internal/timers:541:7)",prj_7WI7ZZviRrwA83nmqx03p13RE2hE,,,,,
+2026-03-15 02:10:40,1773540640976,student-point.vercel.app/,GET,,500,hpsqn-1773540640533-64ab8e6d227f,"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36",error,production,main,MISS,function,/,student-point.vercel.app,student-point-lmhwzk63b-chatdatas-projects.vercel.app,dpl_5Bdhp3BcRMXJSvEruB57ioJKuQKP,,,,,"TypeError: (0 , r.useRef) is not a function
+    at /var/task/.next/server/app/page.js:16:155242
+    at em (/var/task/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:131878)
+    at /var/task/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:142926
+    at Object.toJSON (/var/task/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:146504)
+    at stringify (<anonymous>)
+    at eR (/var/task/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:134889)
+    at eP (/var/task/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:135332)
+    at Timeout._onTimeout (/var/task/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:132112)
+    at listOnTimeout (node:internal/timers:605:17)
+    at process.processTimers (node:internal/timers:541:7)",prj_7WI7ZZviRrwA83nmqx03p13RE2hE,,,,,
+2026-03-15 02:10:40,1773540640977,student-point.vercel.app/,GET,,500,hpsqn-1773540640533-64ab8e6d227f,"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36",error,production,main,MISS,function,/,student-point.vercel.app,student-point-lmhwzk63b-chatdatas-projects.vercel.app,dpl_5Bdhp3BcRMXJSvEruB57ioJKuQKP,,,,,"TypeError: (0 , r.useRef) is not a function
+    at /var/task/.next/server/app/page.js:16:155242
+    at em (/var/task/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:131878)
+    at /var/task/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:142926
+    at Object.toJSON (/var/task/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:146504)
+    at stringify (<anonymous>)
+    at eR (/var/task/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:134889)
+    at eP (/var/task/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:135332)
+    at Timeout._onTimeout (/var/task/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:132112)
+    at listOnTimeout (node:internal/timers:605:17)
+    at process.processTimers (node:internal/timers:541:7)",prj_7WI7ZZviRrwA83nmqx03p13RE2hE,,,,,
+2026-03-15 02:10:40,1773540640979,student-point.vercel.app/,GET,,500,hpsqn-1773540640533-64ab8e6d227f,"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36",error,production,main,MISS,function,/,student-point.vercel.app,student-point-lmhwzk63b-chatdatas-projects.vercel.app,dpl_5Bdhp3BcRMXJSvEruB57ioJKuQKP,,,,,"[Error: An error occurred in the Server Components render. The specific message is omitted in production builds to avoid leaking sensitive details. A digest property is included on this error instance which may provide additional details about the nature of the error.] {
+  digest: '3439289016'
+}",prj_7WI7ZZviRrwA83nmqx03p13RE2hE,,,,,
+2026-03-15 02:10:40,1773540640533,student-point.vercel.app/,GET,,500,hpsqn-1773540640533-64ab8e6d227f,"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36",,production,main,MISS,function,/,student-point.vercel.app,student-point-lmhwzk63b-chatdatas-projects.vercel.app,dpl_5Bdhp3BcRMXJSvEruB57ioJKuQKP,70,iad1,255,2048,,prj_7WI7ZZviRrwA83nmqx03p13RE2hE,,,01KKQM524GVMCFZF7371N8ET7A,ukZlstivyqPW,1
+2026-03-15 02:10:32,1773540632207,student-point.vercel.app/api/exchange-records,GET,,304,lhl94-1773540632207-c675ac2c4bf8,"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36",,production,main,HIT,static,/api/exchange-records,student-point.vercel.app,student-point-lmhwzk63b-chatdatas-projects.vercel.app,dpl_5Bdhp3BcRMXJSvEruB57ioJKuQKP,41,sin1,,,,prj_7WI7ZZviRrwA83nmqx03p13RE2hE,,,,,
+2026-03-15 02:10:32,1773540632188,student-point.vercel.app/api/students,GET,,304,zmskn-1773540632188-f7ad1290b446,"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36",,production,main,HIT,static,/api/students,student-point.vercel.app,student-point-lmhwzk63b-chatdatas-projects.vercel.app,dpl_5Bdhp3BcRMXJSvEruB57ioJKuQKP,25,sin1,,,,prj_7WI7ZZviRrwA83nmqx03p13RE2hE,,,,,
+2026-03-15 02:10:32,1773540632187,student-point.vercel.app/api/score-items,GET,,405,zmwh8-1773540632187-587e53c59617,"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36",,production,main,MISS,function,/api/score-items,student-point.vercel.app,student-point-lmhwzk63b-chatdatas-projects.vercel.app,dpl_5Bdhp3BcRMXJSvEruB57ioJKuQKP,12,iad1,237,2048,,prj_7WI7ZZviRrwA83nmqx03p13RE2hE,,,01KKQM4SQRFA211BXT32F3RSY6,CUHyYpCrEdLQ,1
+2026-03-15 02:10:32,1773540632187,student-point.vercel.app/api/score-records,GET,,405,hpsqn-1773540632187-af5a63638eee,"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36",,production,main,MISS,function,/api/score-records,student-point.vercel.app,student-point-lmhwzk63b-chatdatas-projects.vercel.app,dpl_5Bdhp3BcRMXJSvEruB57ioJKuQKP,61,iad1,235,2048,,prj_7WI7ZZviRrwA83nmqx03p13RE2hE,,,01KKQM4SQ9FA33ZDRZW60BA9RD,CUHyYpCrEdLQ,1
+2026-03-15 02:10:31,1773540631924,student-point.vercel.app/admin,GET,,304,gzlxp-1773540631924-7938e6a5d8b9,"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36",,production,main,HIT,middleware,middleware,student-point.vercel.app,student-point-lmhwzk63b-chatdatas-projects.vercel.app,dpl_5Bdhp3BcRMXJSvEruB57ioJKuQKP,25,sin1,251,2048,,prj_7WI7ZZviRrwA83nmqx03p13RE2hE,,,01KKQM4SDF4YNGNWGG1EAJJ6SV,9H6EvFVIGAxP,1
+2026-03-15 02:10:31,1773540631924,student-point.vercel.app/admin,GET,,304,gzlxp-1773540631924-7938e6a5d8b9,"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36",,production,main,HIT,static,/admin,student-point.vercel.app,student-point-lmhwzk63b-chatdatas-projects.vercel.app,dpl_5Bdhp3BcRMXJSvEruB57ioJKuQKP,127,sin1,,,,prj_7WI7ZZviRrwA83nmqx03p13RE2hE,,,,,
+2026-03-15 02:10:18,1773540618252,student-point.vercel.app/api/exchange-records,GET,,200,dxs9f-1773540618252-c093e2348f78,"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36",,production,main,PRERENDER,static,/api/exchange-records,student-point.vercel.app,student-point-lmhwzk63b-chatdatas-projects.vercel.app,dpl_5Bdhp3BcRMXJSvEruB57ioJKuQKP,510,sin1,,,,prj_7WI7ZZviRrwA83nmqx03p13RE2hE,,,,,
+2026-03-15 02:10:18,1773540618251,student-point.vercel.app/api/score-items,GET,,405,r9cxx-1773540618251-a3465e08fb48,"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36",,production,main,MISS,function,/api/score-items,student-point.vercel.app,student-point-lmhwzk63b-chatdatas-projects.vercel.app,dpl_5Bdhp3BcRMXJSvEruB57ioJKuQKP,10,iad1,245,2048,,prj_7WI7ZZviRrwA83nmqx03p13RE2hE,,,01KKQM4CFSXHJ7YPD7JEP2JJ80,bceox9RwEAtB,1
+2026-03-15 02:10:18,1773540618251,student-point.vercel.app/api/score-records,GET,,405,hq67r-1773540618251-d1bdcdf16fb9,"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36",,production,main,MISS,function,/api/score-records,student-point.vercel.app,student-point-lmhwzk63b-chatdatas-projects.vercel.app,dpl_5Bdhp3BcRMXJSvEruB57ioJKuQKP,176,iad1,248,2048,,prj_7WI7ZZviRrwA83nmqx03p13RE2hE,,,01KKQM4CCDTJD77F4BXBVF13VG,bceox9RwEAtB,1
+2026-03-15 02:10:18,1773540618251,student-point.vercel.app/api/students,GET,,200,69dc8-1773540618251-36ee31aa918f,"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36",,production,main,PRERENDER,static,/api/students,student-point.vercel.app,student-point-lmhwzk63b-chatdatas-projects.vercel.app,dpl_5Bdhp3BcRMXJSvEruB57ioJKuQKP,566,sin1,,,,prj_7WI7ZZviRrwA83nmqx03p13RE2hE,,,,,
+2026-03-15 02:10:16,1773540616369,student-point.vercel.app/admin,GET,,200,fv6sz-1773540616369-fe0681c9c4ac,"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36",,production,main,PRERENDER,middleware,middleware,student-point.vercel.app,student-point-lmhwzk63b-chatdatas-projects.vercel.app,dpl_5Bdhp3BcRMXJSvEruB57ioJKuQKP,58,sin1,253,2048,,prj_7WI7ZZviRrwA83nmqx03p13RE2hE,,,01KKQM4AEJHZMTW4T83BAG33D7,9H6EvFVIGAxP,1
+2026-03-15 02:10:16,1773540616369,student-point.vercel.app/admin,GET,,200,fv6sz-1773540616369-fe0681c9c4ac,"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36",,production,main,PRERENDER,static,/admin,student-point.vercel.app,student-point-lmhwzk63b-chatdatas-projects.vercel.app,dpl_5Bdhp3BcRMXJSvEruB57ioJKuQKP,925,sin1,,,,prj_7WI7ZZviRrwA83nmqx03p13RE2hE,,,,,
+2026-03-15 02:10:08,1773540608865,student-point-lmhwzk63b-chatdatas-projects.vercel.app/,GET,,500,f5lz8-1773540608764-dd29089761d0,vercel-favicon/1.0,error,production,main,MISS,function,/,student-point-lmhwzk63b-chatdatas-projects.vercel.app,student-point-lmhwzk63b-chatdatas-projects.vercel.app,dpl_5Bdhp3BcRMXJSvEruB57ioJKuQKP,,,,,"TypeError: (0 , r.useRef) is not a function
+    at /var/task/.next/server/app/page.js:16:155242
+    at em (/var/task/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:131878)
+    at /var/task/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:142926
+    at Object.toJSON (/var/task/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:146504)
+    at stringify (<anonymous>)
+    at eR (/var/task/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:134889)
+    at eP (/var/task/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:135332)
+    at Timeout._onTimeout (/var/task/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:132112)
+    at listOnTimeout (node:internal/timers:605:17)
+    at process.processTimers (node:internal/timers:541:7)",prj_7WI7ZZviRrwA83nmqx03p13RE2hE,,,,,
+2026-03-15 02:10:08,1773540608865,student-point-lmhwzk63b-chatdatas-projects.vercel.app/,GET,,500,f5lz8-1773540608764-dd29089761d0,vercel-favicon/1.0,error,production,main,MISS,function,/,student-point-lmhwzk63b-chatdatas-projects.vercel.app,student-point-lmhwzk63b-chatdatas-projects.vercel.app,dpl_5Bdhp3BcRMXJSvEruB57ioJKuQKP,,,,,"TypeError: (0 , r.useRef) is not a function
+    at /var/task/.next/server/app/page.js:16:155242
+    at em (/var/task/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:131878)
+    at /var/task/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:142926
+    at Object.toJSON (/var/task/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:146504)
+    at stringify (<anonymous>)
+    at eR (/var/task/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:134889)
+    at eP (/var/task/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:135332)
+    at Timeout._onTimeout (/var/task/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:132112)
+    at listOnTimeout (node:internal/timers:605:17)
+    at process.processTimers (node:internal/timers:541:7)",prj_7WI7ZZviRrwA83nmqx03p13RE2hE,,,,,
+2026-03-15 02:10:08,1773540608865,student-point-lmhwzk63b-chatdatas-projects.vercel.app/,GET,,500,f5lz8-1773540608764-dd29089761d0,vercel-favicon/1.0,error,production,main,MISS,function,/,student-point-lmhwzk63b-chatdatas-projects.vercel.app,student-point-lmhwzk63b-chatdatas-projects.vercel.app,dpl_5Bdhp3BcRMXJSvEruB57ioJKuQKP,,,,,"TypeError: (0 , r.useRef) is not a function
+    at /var/task/.next/server/app/page.js:16:155242
+    at em (/var/task/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:131878)
+    at /var/task/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:142926
+    at Object.toJSON (/var/task/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:146504)
+    at stringify (<anonymous>)
+    at eR (/var/task/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:134889)
+    at eP (/var/task/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:135332)
+    at Timeout._onTimeout (/var/task/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:132112)
+    at listOnTimeout (node:internal/timers:605:17)
+    at process.processTimers (node:internal/timers:541:7)",prj_7WI7ZZviRrwA83nmqx03p13RE2hE,,,,,
+2026-03-15 02:10:08,1773540608868,student-point-lmhwzk63b-chatdatas-projects.vercel.app/,GET,,500,f5lz8-1773540608764-dd29089761d0,vercel-favicon/1.0,error,production,main,MISS,function,/,student-point-lmhwzk63b-chatdatas-projects.vercel.app,student-point-lmhwzk63b-chatdatas-projects.vercel.app,dpl_5Bdhp3BcRMXJSvEruB57ioJKuQKP,,,,,"[Error: An error occurred in the Server Components render. The specific message is omitted in production builds to avoid leaking sensitive details. A digest property is included on this error instance which may provide additional details about the nature of the error.] {
+  digest: '3439289016'
+}",prj_7WI7ZZviRrwA83nmqx03p13RE2hE,,,,,
+2026-03-15 02:10:08,1773540608764,student-point-lmhwzk63b-chatdatas-projects.vercel.app/,GET,,500,f5lz8-1773540608764-dd29089761d0,vercel-favicon/1.0,,production,main,MISS,function,/,student-point-lmhwzk63b-chatdatas-projects.vercel.app,student-point-lmhwzk63b-chatdatas-projects.vercel.app,dpl_5Bdhp3BcRMXJSvEruB57ioJKuQKP,62,iad1,254,2048,,prj_7WI7ZZviRrwA83nmqx03p13RE2hE,,,01KKQM42S3AGG5FHCBV1Z5Q7NV,ukZlstivyqPW,1
+2026-03-15 02:10:07,1773540607649,student-point-lmhwzk63b-chatdatas-projects.vercel.app/,GET,,500,xq4rf-1773540607504-538e0457a60b,vercel-favicon/1.0,error,production,main,MISS,function,/,student-point-lmhwzk63b-chatdatas-projects.vercel.app,student-point-lmhwzk63b-chatdatas-projects.vercel.app,dpl_5Bdhp3BcRMXJSvEruB57ioJKuQKP,,,,,"(node:10) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+(Use `node --trace-deprecation ...` to show where the warning was created)",prj_7WI7ZZviRrwA83nmqx03p13RE2hE,,,,,
+2026-03-15 02:10:07,1773540607675,student-point-lmhwzk63b-chatdatas-projects.vercel.app/,GET,,500,xq4rf-1773540607504-538e0457a60b,vercel-favicon/1.0,error,production,main,MISS,function,/,student-point-lmhwzk63b-chatdatas-projects.vercel.app,student-point-lmhwzk63b-chatdatas-projects.vercel.app,dpl_5Bdhp3BcRMXJSvEruB57ioJKuQKP,,,,,"TypeError: (0 , r.useRef) is not a function
+    at /var/task/.next/server/app/page.js:16:155242
+    at em (/var/task/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:131878)
+    at /var/task/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:142926
+    at Object.toJSON (/var/task/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:146504)
+    at stringify (<anonymous>)
+    at eR (/var/task/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:134889)
+    at eP (/var/task/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:135332)
+    at Timeout._onTimeout (/var/task/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:132112)
+    at listOnTimeout (node:internal/timers:605:17)
+    at process.processTimers (node:internal/timers:541:7)",prj_7WI7ZZviRrwA83nmqx03p13RE2hE,,,,,
+2026-03-15 02:10:07,1773540607676,student-point-lmhwzk63b-chatdatas-projects.vercel.app/,GET,,500,xq4rf-1773540607504-538e0457a60b,vercel-favicon/1.0,error,production,main,MISS,function,/,student-point-lmhwzk63b-chatdatas-projects.vercel.app,student-point-lmhwzk63b-chatdatas-projects.vercel.app,dpl_5Bdhp3BcRMXJSvEruB57ioJKuQKP,,,,,"TypeError: (0 , r.useRef) is not a function
+    at /var/task/.next/server/app/page.js:16:155242
+    at em (/var/task/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:131878)
+    at /var/task/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:142926
+    at Object.toJSON (/var/task/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:146504)
+    at stringify (<anonymous>)
+    at eR (/var/task/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:134889)
+    at eP (/var/task/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:135332)
+    at Timeout._onTimeout (/var/task/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:132112)
+    at listOnTimeout (node:internal/timers:605:17)
+    at process.processTimers (node:internal/timers:541:7)",prj_7WI7ZZviRrwA83nmqx03p13RE2hE,,,,,
+2026-03-15 02:10:07,1773540607677,student-point-lmhwzk63b-chatdatas-projects.vercel.app/,GET,,500,xq4rf-1773540607504-538e0457a60b,vercel-favicon/1.0,error,production,main,MISS,function,/,student-point-lmhwzk63b-chatdatas-projects.vercel.app,student-point-lmhwzk63b-chatdatas-projects.vercel.app,dpl_5Bdhp3BcRMXJSvEruB57ioJKuQKP,,,,,"TypeError: (0 , r.useRef) is not a function
+    at /var/task/.next/server/app/page.js:16:155242
+    at em (/var/task/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:131878)
+    at /var/task/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:142926
+    at Object.toJSON (/var/task/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:146504)
+    at stringify (<anonymous>)
+    at eR (/var/task/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:134889)
+    at eP (/var/task/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:135332)
+    at Timeout._onTimeout (/var/task/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:132112)
+    at listOnTimeout (node:internal/timers:605:17)
+    at process.processTimers (node:internal/timers:541:7)",prj_7WI7ZZviRrwA83nmqx03p13RE2hE,,,,,
+2026-03-15 02:10:07,1773540607686,student-point-lmhwzk63b-chatdatas-projects.vercel.app/,GET,,500,xq4rf-1773540607504-538e0457a60b,vercel-favicon/1.0,error,production,main,MISS,function,/,student-point-lmhwzk63b-chatdatas-projects.vercel.app,student-point-lmhwzk63b-chatdatas-projects.vercel.app,dpl_5Bdhp3BcRMXJSvEruB57ioJKuQKP,,,,,"[Error: An error occurred in the Server Components render. The specific message is omitted in production builds to avoid leaking sensitive details. A digest property is included on this error instance which may provide additional details about the nature of the error.] {
+  digest: '3439289016'
+}",prj_7WI7ZZviRrwA83nmqx03p13RE2hE,,,,,
+2026-03-15 02:10:07,1773540607504,student-point-lmhwzk63b-chatdatas-projects.vercel.app/,GET,,500,xq4rf-1773540607504-538e0457a60b,vercel-favicon/1.0,,production,main,MISS,function,/,student-point-lmhwzk63b-chatdatas-projects.vercel.app,student-point-lmhwzk63b-chatdatas-projects.vercel.app,dpl_5Bdhp3BcRMXJSvEruB57ioJKuQKP,171,iad1,253,2048,,prj_7WI7ZZviRrwA83nmqx03p13RE2hE,,,01KKQM41HPBQZ1M7TKFF1SDHJF,ukZlstivyqPW,1
+2026-03-15 02:09:55,1773540595010,student-point-lmhwzk63b-chatdatas-projects.vercel.app/,GET,,500,9425q-1773540594942-fd96f3800cb0,vercel-screenshot/1.0,error,production,main,MISS,function,/,student-point-lmhwzk63b-chatdatas-projects.vercel.app,student-point-lmhwzk63b-chatdatas-projects.vercel.app,dpl_5Bdhp3BcRMXJSvEruB57ioJKuQKP,,,,,"TypeError: (0 , r.useRef) is not a function
+    at /var/task/.next/server/app/page.js:16:155242
+    at em (/var/task/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:131878)
+    at /var/task/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:142926
+    at Object.toJSON (/var/task/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:146504)
+    at stringify (<anonymous>)
+    at eR (/var/task/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:134889)
+    at eP (/var/task/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:135332)
+    at Timeout._onTimeout (/var/task/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:132112)
+    at listOnTimeout (node:internal/timers:605:17)
+    at process.processTimers (node:internal/timers:541:7)",prj_7WI7ZZviRrwA83nmqx03p13RE2hE,,,,,
+2026-03-15 02:09:55,1773540595010,student-point-lmhwzk63b-chatdatas-projects.vercel.app/,GET,,500,9425q-1773540594942-fd96f3800cb0,vercel-screenshot/1.0,error,production,main,MISS,function,/,student-point-lmhwzk63b-chatdatas-projects.vercel.app,student-point-lmhwzk63b-chatdatas-projects.vercel.app,dpl_5Bdhp3BcRMXJSvEruB57ioJKuQKP,,,,,"TypeError: (0 , r.useRef) is not a function
+    at /var/task/.next/server/app/page.js:16:155242
+    at em (/var/task/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:131878)
+    at /var/task/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:142926
+    at Object.toJSON (/var/task/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:146504)
+    at stringify (<anonymous>)
+    at eR (/var/task/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:134889)
+    at eP (/var/task/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:135332)
+    at Timeout._onTimeout (/var/task/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:132112)
+    at listOnTimeout (node:internal/timers:605:17)
+    at process.processTimers (node:internal/timers:541:7)",prj_7WI7ZZviRrwA83nmqx03p13RE2hE,,,,,
+2026-03-15 02:09:55,1773540595010,student-point-lmhwzk63b-chatdatas-projects.vercel.app/,GET,,500,9425q-1773540594942-fd96f3800cb0,vercel-screenshot/1.0,error,production,main,MISS,function,/,student-point-lmhwzk63b-chatdatas-projects.vercel.app,student-point-lmhwzk63b-chatdatas-projects.vercel.app,dpl_5Bdhp3BcRMXJSvEruB57ioJKuQKP,,,,,"TypeError: (0 , r.useRef) is not a function
+    at /var/task/.next/server/app/page.js:16:155242
+    at em (/var/task/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:131878)
+    at /var/task/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:142926
+    at Object.toJSON (/var/task/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:146504)
+    at stringify (<anonymous>)
+    at eR (/var/task/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:134889)
+    at eP (/var/task/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:135332)
+    at Timeout._onTimeout (/var/task/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:132112)
+    at listOnTimeout (node:internal/timers:605:17)
+    at process.processTimers (node:internal/timers:541:7)",prj_7WI7ZZviRrwA83nmqx03p13RE2hE,,,,,
+2026-03-15 02:09:55,1773540595013,student-point-lmhwzk63b-chatdatas-projects.vercel.app/,GET,,500,9425q-1773540594942-fd96f3800cb0,vercel-screenshot/1.0,error,production,main,MISS,function,/,student-point-lmhwzk63b-chatdatas-projects.vercel.app,student-point-lmhwzk63b-chatdatas-projects.vercel.app,dpl_5Bdhp3BcRMXJSvEruB57ioJKuQKP,,,,,"[Error: An error occurred in the Server Components render. The specific message is omitted in production builds to avoid leaking sensitive details. A digest property is included on this error instance which may provide additional details about the nature of the error.] {
+  digest: '3439289016'
+}",prj_7WI7ZZviRrwA83nmqx03p13RE2hE,,,,,
+2026-03-15 02:09:54,1773540594942,student-point-lmhwzk63b-chatdatas-projects.vercel.app/,GET,,500,9425q-1773540594942-fd96f3800cb0,vercel-screenshot/1.0,,production,main,MISS,function,/,student-point-lmhwzk63b-chatdatas-projects.vercel.app,student-point-lmhwzk63b-chatdatas-projects.vercel.app,dpl_5Bdhp3BcRMXJSvEruB57ioJKuQKP,42,iad1,253,2048,,prj_7WI7ZZviRrwA83nmqx03p13RE2hE,,,01KKQM3N91MJ9RVQFF0Z3K3CF0,tJJuaNeT2ZS0,1
+2026-03-15 02:09:54,1773540594704,student-point-lmhwzk63b-chatdatas-projects.vercel.app/,GET,,500,6vslw-1773540594533-41eb687f7b9d,vercel-screenshot/1.0,error,production,main,MISS,function,/,student-point-lmhwzk63b-chatdatas-projects.vercel.app,student-point-lmhwzk63b-chatdatas-projects.vercel.app,dpl_5Bdhp3BcRMXJSvEruB57ioJKuQKP,,,,,"TypeError: (0 , r.useRef) is not a function
+    at /var/task/.next/server/app/page.js:16:155242
+    at em (/var/task/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:131878)
+    at /var/task/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:142926
+    at Object.toJSON (/var/task/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:146504)
+    at stringify (<anonymous>)
+    at eR (/var/task/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:134889)
+    at eP (/var/task/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:135332)
+    at Timeout._onTimeout (/var/task/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:132112)
+    at listOnTimeout (node:internal/timers:605:17)
+    at process.processTimers (node:internal/timers:541:7)",prj_7WI7ZZviRrwA83nmqx03p13RE2hE,,,,,
+2026-03-15 02:09:54,1773540594704,student-point-lmhwzk63b-chatdatas-projects.vercel.app/,GET,,500,6vslw-1773540594533-41eb687f7b9d,vercel-screenshot/1.0,error,production,main,MISS,function,/,student-point-lmhwzk63b-chatdatas-projects.vercel.app,student-point-lmhwzk63b-chatdatas-projects.vercel.app,dpl_5Bdhp3BcRMXJSvEruB57ioJKuQKP,,,,,"TypeError: (0 , r.useRef) is not a function
+    at /var/task/.next/server/app/page.js:16:155242
+    at em (/var/task/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:131878)
+    at /var/task/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:142926
+    at Object.toJSON (/var/task/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:146504)
+    at stringify (<anonymous>)
+    at eR (/var/task/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:134889)
+    at eP (/var/task/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:135332)
+    at Timeout._onTimeout (/var/task/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:132112)
+    at listOnTimeout (node:internal/timers:605:17)
+    at process.processTimers (node:internal/timers:541:7)",prj_7WI7ZZviRrwA83nmqx03p13RE2hE,,,,,
+2026-03-15 02:09:54,1773540594705,student-point-lmhwzk63b-chatdatas-projects.vercel.app/,GET,,500,6vslw-1773540594533-41eb687f7b9d,vercel-screenshot/1.0,error,production,main,MISS,function,/,student-point-lmhwzk63b-chatdatas-projects.vercel.app,student-point-lmhwzk63b-chatdatas-projects.vercel.app,dpl_5Bdhp3BcRMXJSvEruB57ioJKuQKP,,,,,"TypeError: (0 , r.useRef) is not a function
+    at /var/task/.next/server/app/page.js:16:155242
+    at em (/var/task/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:131878)
+    at /var/task/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:142926
+    at Object.toJSON (/var/task/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:146504)
+    at stringify (<anonymous>)
+    at eR (/var/task/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:134889)
+    at eP (/var/task/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:135332)
+    at Timeout._onTimeout (/var/task/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:132112)
+    at listOnTimeout (node:internal/timers:605:17)
+    at process.processTimers (node:internal/timers:541:7)",prj_7WI7ZZviRrwA83nmqx03p13RE2hE,,,,,
+2026-03-15 02:09:54,1773540594708,student-point-lmhwzk63b-chatdatas-projects.vercel.app/,GET,,500,6vslw-1773540594533-41eb687f7b9d,vercel-screenshot/1.0,error,production,main,MISS,function,/,student-point-lmhwzk63b-chatdatas-projects.vercel.app,student-point-lmhwzk63b-chatdatas-projects.vercel.app,dpl_5Bdhp3BcRMXJSvEruB57ioJKuQKP,,,,,"[Error: An error occurred in the Server Components render. The specific message is omitted in production builds to avoid leaking sensitive details. A digest property is included on this error instance which may provide additional details about the nature of the error.] {
+  digest: '3439289016'
+}",prj_7WI7ZZviRrwA83nmqx03p13RE2hE,,,,,
+2026-03-15 02:09:54,1773540594533,student-point-lmhwzk63b-chatdatas-projects.vercel.app/,GET,,500,6vslw-1773540594533-41eb687f7b9d,vercel-screenshot/1.0,,production,main,MISS,function,/,student-point-lmhwzk63b-chatdatas-projects.vercel.app,student-point-lmhwzk63b-chatdatas-projects.vercel.app,dpl_5Bdhp3BcRMXJSvEruB57ioJKuQKP,39,iad1,267,2048,,prj_7WI7ZZviRrwA83nmqx03p13RE2hE,,,01KKQM3MZ8SBH2P7T350VWBS9M,cRUjK4Bd5EH9,1
+2026-03-15 02:09:54,1773540594744,student-point-lmhwzk63b-chatdatas-projects.vercel.app/,GET,,500,lqm2m-1773540593912-b31428e6471d,vercel-screenshot/1.0,error,production,main,MISS,function,/,student-point-lmhwzk63b-chatdatas-projects.vercel.app,student-point-lmhwzk63b-chatdatas-projects.vercel.app,dpl_5Bdhp3BcRMXJSvEruB57ioJKuQKP,,,,,"(node:10) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+(Use `node --trace-deprecation ...` to show where the warning was created)",prj_7WI7ZZviRrwA83nmqx03p13RE2hE,,,,,
+2026-03-15 02:09:54,1773540594793,student-point-lmhwzk63b-chatdatas-projects.vercel.app/,GET,,500,lqm2m-1773540593912-b31428e6471d,vercel-screenshot/1.0,error,production,main,MISS,function,/,student-point-lmhwzk63b-chatdatas-projects.vercel.app,student-point-lmhwzk63b-chatdatas-projects.vercel.app,dpl_5Bdhp3BcRMXJSvEruB57ioJKuQKP,,,,,"TypeError: (0 , r.useRef) is not a function
+    at /var/task/.next/server/app/page.js:16:155242
+    at em (/var/task/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:131878)
+    at /var/task/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:142926
+    at Object.toJSON (/var/task/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:146504)
+    at stringify (<anonymous>)
+    at eR (/var/task/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:134889)
+    at eP (/var/task/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:135332)
+    at Timeout._onTimeout (/var/task/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:132112)
+    at listOnTimeout (node:internal/timers:605:17)
+    at process.processTimers (node:internal/timers:541:7)",prj_7WI7ZZviRrwA83nmqx03p13RE2hE,,,,,
+2026-03-15 02:09:54,1773540594794,student-point-lmhwzk63b-chatdatas-projects.vercel.app/,GET,,500,lqm2m-1773540593912-b31428e6471d,vercel-screenshot/1.0,error,production,main,MISS,function,/,student-point-lmhwzk63b-chatdatas-projects.vercel.app,student-point-lmhwzk63b-chatdatas-projects.vercel.app,dpl_5Bdhp3BcRMXJSvEruB57ioJKuQKP,,,,,"TypeError: (0 , r.useRef) is not a function
+    at /var/task/.next/server/app/page.js:16:155242
+    at em (/var/task/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:131878)
+    at /var/task/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:142926
+    at Object.toJSON (/var/task/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:146504)
+    at stringify (<anonymous>)
+    at eR (/var/task/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:134889)
+    at eP (/var/task/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:135332)
+    at Timeout._onTimeout (/var/task/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:132112)
+    at listOnTimeout (node:internal/timers:605:17)
+    at process.processTimers (node:internal/timers:541:7)",prj_7WI7ZZviRrwA83nmqx03p13RE2hE,,,,,
+2026-03-15 02:09:54,1773540594794,student-point-lmhwzk63b-chatdatas-projects.vercel.app/,GET,,500,lqm2m-1773540593912-b31428e6471d,vercel-screenshot/1.0,error,production,main,MISS,function,/,student-point-lmhwzk63b-chatdatas-projects.vercel.app,student-point-lmhwzk63b-chatdatas-projects.vercel.app,dpl_5Bdhp3BcRMXJSvEruB57ioJKuQKP,,,,,"TypeError: (0 , r.useRef) is not a function
+    at /var/task/.next/server/app/page.js:16:155242
+    at em (/var/task/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:131878)
+    at /var/task/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:142926
+    at Object.toJSON (/var/task/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:146504)
+    at stringify (<anonymous>)
+    at eR (/var/task/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:134889)
+    at eP (/var/task/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:135332)
+    at Timeout._onTimeout (/var/task/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:132112)
+    at listOnTimeout (node:internal/timers:605:17)
+    at process.processTimers (node:internal/timers:541:7)",prj_7WI7ZZviRrwA83nmqx03p13RE2hE,,,,,
+2026-03-15 02:09:54,1773540594797,student-point-lmhwzk63b-chatdatas-projects.vercel.app/,GET,,500,lqm2m-1773540593912-b31428e6471d,vercel-screenshot/1.0,error,production,main,MISS,function,/,student-point-lmhwzk63b-chatdatas-projects.vercel.app,student-point-lmhwzk63b-chatdatas-projects.vercel.app,dpl_5Bdhp3BcRMXJSvEruB57ioJKuQKP,,,,,"[Error: An error occurred in the Server Components render. The specific message is omitted in production builds to avoid leaking sensitive details. A digest property is included on this error instance which may provide additional details about the nature of the error.] {
+  digest: '3439289016'
+}",prj_7WI7ZZviRrwA83nmqx03p13RE2hE,,,,,
+2026-03-15 02:09:53,1773540593912,student-point-lmhwzk63b-chatdatas-projects.vercel.app/,GET,,500,lqm2m-1773540593912-b31428e6471d,vercel-screenshot/1.0,,production,main,MISS,function,/,student-point-lmhwzk63b-chatdatas-projects.vercel.app,student-point-lmhwzk63b-chatdatas-projects.vercel.app,dpl_5Bdhp3BcRMXJSvEruB57ioJKuQKP,539,iad1,245,2048,,prj_7WI7ZZviRrwA83nmqx03p13RE2hE,,,01KKQM3MFCX0MAG3316Z9WT5XK,tJJuaNeT2ZS0,1
+2026-03-15 02:09:54,1773540594334,student-point-lmhwzk63b-chatdatas-projects.vercel.app/,GET,,500,nf55z-1773540593890-7f30e444aef0,vercel-screenshot/1.0,error,production,main,MISS,function,/,student-point-lmhwzk63b-chatdatas-projects.vercel.app,student-point-lmhwzk63b-chatdatas-projects.vercel.app,dpl_5Bdhp3BcRMXJSvEruB57ioJKuQKP,,,,,"(node:10) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+(Use `node --trace-deprecation ...` to show where the warning was created)",prj_7WI7ZZviRrwA83nmqx03p13RE2hE,,,,,
+2026-03-15 02:09:54,1773540594394,student-point-lmhwzk63b-chatdatas-projects.vercel.app/,GET,,500,nf55z-1773540593890-7f30e444aef0,vercel-screenshot/1.0,error,production,main,MISS,function,/,student-point-lmhwzk63b-chatdatas-projects.vercel.app,student-point-lmhwzk63b-chatdatas-projects.vercel.app,dpl_5Bdhp3BcRMXJSvEruB57ioJKuQKP,,,,,"TypeError: (0 , r.useRef) is not a function
+    at /var/task/.next/server/app/page.js:16:155242
+    at em (/var/task/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:131878)
+    at /var/task/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:142926
+    at Object.toJSON (/var/task/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:146504)
+    at stringify (<anonymous>)
+    at eR (/var/task/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:134889)
+    at eP (/var/task/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:135332)
+    at Timeout._onTimeout (/var/task/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:132112)
+    at listOnTimeout (node:internal/timers:605:17)
+    at process.processTimers (node:internal/timers:541:7)",prj_7WI7ZZviRrwA83nmqx03p13RE2hE,,,,,
+2026-03-15 02:09:54,1773540594395,student-point-lmhwzk63b-chatdatas-projects.vercel.app/,GET,,500,nf55z-1773540593890-7f30e444aef0,vercel-screenshot/1.0,error,production,main,MISS,function,/,student-point-lmhwzk63b-chatdatas-projects.vercel.app,student-point-lmhwzk63b-chatdatas-projects.vercel.app,dpl_5Bdhp3BcRMXJSvEruB57ioJKuQKP,,,,,"TypeError: (0 , r.useRef) is not a function
+    at /var/task/.next/server/app/page.js:16:155242
+    at em (/var/task/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:131878)
+    at /var/task/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:142926
+    at Object.toJSON (/var/task/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:146504)
+    at stringify (<anonymous>)
+    at eR (/var/task/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:134889)
+    at eP (/var/task/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:135332)
+    at Timeout._onTimeout (/var/task/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:132112)
+    at listOnTimeout (node:internal/timers:605:17)
+    at process.processTimers (node:internal/timers:541:7)",prj_7WI7ZZviRrwA83nmqx03p13RE2hE,,,,,
+2026-03-15 02:09:54,1773540594395,student-point-lmhwzk63b-chatdatas-projects.vercel.app/,GET,,500,nf55z-1773540593890-7f30e444aef0,vercel-screenshot/1.0,error,production,main,MISS,function,/,student-point-lmhwzk63b-chatdatas-projects.vercel.app,student-point-lmhwzk63b-chatdatas-projects.vercel.app,dpl_5Bdhp3BcRMXJSvEruB57ioJKuQKP,,,,,"TypeError: (0 , r.useRef) is not a function
+    at /var/task/.next/server/app/page.js:16:155242
+    at em (/var/task/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:131878)
+    at /var/task/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:142926
+    at Object.toJSON (/var/task/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:146504)
+    at stringify (<anonymous>)
+    at eR (/var/task/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:134889)
+    at eP (/var/task/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:135332)
+    at Timeout._onTimeout (/var/task/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:132112)
+    at listOnTimeout (node:internal/timers:605:17)
+    at process.processTimers (node:internal/timers:541:7)",prj_7WI7ZZviRrwA83nmqx03p13RE2hE,,,,,
+2026-03-15 02:09:54,1773540594399,student-point-lmhwzk63b-chatdatas-projects.vercel.app/,GET,,500,nf55z-1773540593890-7f30e444aef0,vercel-screenshot/1.0,error,production,main,MISS,function,/,student-point-lmhwzk63b-chatdatas-projects.vercel.app,student-point-lmhwzk63b-chatdatas-projects.vercel.app,dpl_5Bdhp3BcRMXJSvEruB57ioJKuQKP,,,,,"[Error: An error occurred in the Server Components render. The specific message is omitted in production builds to avoid leaking sensitive details. A digest property is included on this error instance which may provide additional details about the nature of the error.] {
+  digest: '3439289016'
+}",prj_7WI7ZZviRrwA83nmqx03p13RE2hE,,,,,
+2026-03-15 02:09:53,1773540593890,student-point-lmhwzk63b-chatdatas-projects.vercel.app/,GET,,500,nf55z-1773540593890-7f30e444aef0,vercel-screenshot/1.0,,production,main,MISS,function,/,student-point-lmhwzk63b-chatdatas-projects.vercel.app,student-point-lmhwzk63b-chatdatas-projects.vercel.app,dpl_5Bdhp3BcRMXJSvEruB57ioJKuQKP,350,iad1,267,2048,,prj_7WI7ZZviRrwA83nmqx03p13RE2hE,,,01KKQM3MFA2YQC5FJMTSWE2HP8,cRUjK4Bd5EH9,1
