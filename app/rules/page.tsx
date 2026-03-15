@@ -1,24 +1,24 @@
 export default function Rules() {
   const scoreItems = [
-    { name: '课后全对', points: 1, icon: '✏️', color: 'blue' },
-    { name: '抄写作业、课堂作业全对', points: 3, icon: '📝', color: 'green' },
-    { name: '听写、默写全对', points: 7, icon: '📖', color: 'amber' },
-    { name: '练习册全对', points: 30, icon: '📚', color: 'purple' },
-    { name: '周末题单（特色作业）全对', points: 30, icon: '⭐', color: 'pink' },
-    { name: '单元考满分', points: 100, icon: '🏆', color: 'indigo' },
-    { name: '期中考满分', points: 500, icon: '🎖️', color: 'orange' },
-    { name: '期末考满分', points: 1000, icon: '👑', color: 'red' },
+    { name: '课后全对', points: 1, icon: '✏️', colorClass: 'text-blue-600' },
+    { name: '抄写作业、课堂作业全对', points: 3, icon: '📝', colorClass: 'text-green-600' },
+    { name: '听写、默写全对', points: 7, icon: '📖', colorClass: 'text-amber-600' },
+    { name: '练习册全对', points: 30, icon: '📚', colorClass: 'text-purple-600' },
+    { name: '周末题单（特色作业）全对', points: 30, icon: '⭐', colorClass: 'text-pink-600' },
+    { name: '单元考满分', points: 100, icon: '🏆', colorClass: 'text-indigo-600' },
+    { name: '期中考满分', points: 500, icon: '🎖️', colorClass: 'text-orange-600' },
+    { name: '期末考满分', points: 1000, icon: '👑', colorClass: 'text-red-600' },
   ];
 
   const subjects = [
-    { name: '语文', icon: '📖', color: 'from-blue-400 to-blue-600', bgColor: 'bg-blue-50', borderColor: 'border-blue-200' },
-    { name: '数学', icon: '🔢', color: 'from-green-400 to-green-600', bgColor: 'bg-green-50', borderColor: 'border-green-200' },
-    { name: '英语', icon: '🔤', color: 'from-amber-400 to-amber-600', bgColor: 'bg-amber-50', borderColor: 'border-amber-200' },
+    { name: '语文', icon: '📖', gradientClass: 'from-blue-400 to-blue-600', bgClass: 'bg-blue-50', borderClass: 'border-blue-200' },
+    { name: '数学', icon: '🔢', gradientClass: 'from-green-400 to-green-600', bgClass: 'bg-green-50', borderClass: 'border-green-200' },
+    { name: '英语', icon: '🔤', gradientClass: 'from-amber-400 to-amber-600', bgClass: 'bg-amber-50', borderClass: 'border-amber-200' },
   ];
 
   const students = [
-    { name: '陈姝淼', rate: 40, color: 'pink', avatar: '👧' },
-    { name: '陈书辰', rate: 50, color: 'blue', avatar: '👦' },
+    { name: '陈姝淼', rate: 40, avatar: '👧', bgClass: 'bg-pink-50', borderClass: 'border-pink-200', gradientClass: 'from-pink-400 to-pink-600', textClass: 'text-pink-600' },
+    { name: '陈书辰', rate: 50, avatar: '👦', bgClass: 'bg-blue-50', borderClass: 'border-blue-200', gradientClass: 'from-blue-400 to-blue-600', textClass: 'text-blue-600' },
   ];
 
   return (
@@ -33,7 +33,9 @@ export default function Rules() {
       <div className="card">
         <div className="flex items-center gap-3 mb-6">
           <div className="w-10 h-10 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-xl flex items-center justify-center">
-            <span className="text-xl">✅</span>
+            <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
           </div>
           <div>
             <h2 className="text-xl font-bold">积分积累规则</h2>
@@ -43,9 +45,9 @@ export default function Rules() {
         
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
           {subjects.map((subject) => (
-            <div key={subject.name} className={`${subject.bgColor} rounded-xl p-4 border ${subject.borderColor}`}>
+            <div key={subject.name} className={`${subject.bgClass} rounded-xl p-4 border ${subject.borderClass}`}>
               <div className="flex items-center gap-2 mb-4">
-                <div className={`w-10 h-10 bg-gradient-to-br ${subject.color} rounded-lg flex items-center justify-center text-white text-lg`}>
+                <div className={`w-10 h-10 bg-gradient-to-br ${subject.gradientClass} rounded-lg flex items-center justify-center text-white text-lg`}>
                   {subject.icon}
                 </div>
                 <h3 className="font-bold text-lg">{subject.name}</h3>
@@ -54,10 +56,10 @@ export default function Rules() {
                 {scoreItems.map((item, idx) => (
                   <li key={idx} className="flex justify-between items-center text-sm bg-white/60 rounded-lg px-3 py-2">
                     <span className="flex items-center gap-2">
-                      <span>{item.icon}</span>
+                      <span className="text-base">{item.icon}</span>
                       <span className="text-gray-700">{item.name}</span>
                     </span>
-                    <span className={`font-bold text-${item.color}-600`}>+{item.points}</span>
+                    <span className={`font-bold ${item.colorClass}`}>+{item.points}</span>
                   </li>
                 ))}
               </ul>
@@ -83,7 +85,9 @@ export default function Rules() {
       <div className="card">
         <div className="flex items-center gap-3 mb-6">
           <div className="w-10 h-10 bg-gradient-to-br from-amber-500 to-orange-600 rounded-xl flex items-center justify-center">
-            <span className="text-xl">💱</span>
+            <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" />
+            </svg>
           </div>
           <div>
             <h2 className="text-xl font-bold">积分兑换规则</h2>
@@ -94,20 +98,28 @@ export default function Rules() {
         <div className="space-y-4">
           <div className="bg-gray-50 rounded-xl p-4">
             <h3 className="font-bold mb-3 flex items-center gap-2">
-              <span className="w-6 h-6 bg-blue-100 rounded flex items-center justify-center text-sm">📋</span>
+              <span className="w-6 h-6 bg-blue-100 rounded flex items-center justify-center">
+                <svg className="w-3.5 h-3.5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
+                </svg>
+              </span>
               基础规则
             </h3>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
               <div className="bg-white rounded-lg p-3 border border-gray-200">
                 <div className="flex items-center gap-2 mb-1">
-                  <span className="text-green-500">✓</span>
+                  <svg className="w-4 h-4 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  </svg>
                   <span className="font-medium text-sm">总积分 &lt; 100</span>
                 </div>
                 <p className="text-xs text-gray-500 ml-6">无限制兑换</p>
               </div>
               <div className="bg-white rounded-lg p-3 border border-gray-200">
                 <div className="flex items-center gap-2 mb-1">
-                  <span className="text-amber-500">⚠</span>
+                  <svg className="w-4 h-4 text-amber-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+                  </svg>
                   <span className="font-medium text-sm">总积分 ≥ 100</span>
                 </div>
                 <p className="text-xs text-gray-500 ml-6">需要平衡发展</p>
@@ -117,10 +129,10 @@ export default function Rules() {
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {students.map((student) => (
-              <div key={student.name} className={`bg-${student.color}-50 rounded-xl p-4 border border-${student.color}-200`}>
+              <div key={student.name} className={`${student.bgClass} rounded-xl p-4 border ${student.borderClass}`}>
                 <div className="flex items-center gap-3 mb-3">
-                  <div className={`w-12 h-12 bg-gradient-to-br from-${student.color}-400 to-${student.color}-600 rounded-xl flex items-center justify-center text-2xl`}>
-                    {student.avatar}
+                  <div className={`w-12 h-12 bg-gradient-to-br ${student.gradientClass} rounded-xl flex items-center justify-center`}>
+                    <span className="text-2xl">{student.avatar}</span>
                   </div>
                   <div>
                     <h3 className="font-bold text-lg">{student.name}</h3>
@@ -130,11 +142,11 @@ export default function Rules() {
                 <div className="bg-white rounded-lg p-3">
                   <div className="flex items-center justify-between mb-2">
                     <span className="text-sm text-gray-600">每科最多兑换</span>
-                    <span className={`font-bold text-${student.color}-600`}>{student.rate}%</span>
+                    <span className={`font-bold ${student.textClass}`}>{student.rate}%</span>
                   </div>
                   <div className="progress-bar">
                     <div 
-                      className={`progress-bar-fill bg-gradient-to-r from-${student.color}-400 to-${student.color}-600`}
+                      className={`progress-bar-fill bg-gradient-to-r ${student.gradientClass}`}
                       style={{ width: `${student.rate}%` }}
                     ></div>
                   </div>
@@ -167,7 +179,9 @@ export default function Rules() {
       <div className="card">
         <div className="flex items-center gap-3 mb-6">
           <div className="w-10 h-10 bg-gradient-to-br from-green-500 to-emerald-600 rounded-xl flex items-center justify-center">
-            <span className="text-xl">📝</span>
+            <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
           </div>
           <div>
             <h2 className="text-xl font-bold">其他说明</h2>
