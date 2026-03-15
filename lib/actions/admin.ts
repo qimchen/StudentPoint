@@ -9,7 +9,7 @@ export async function updatePassword(newPwd: string): Promise<{ success: boolean
     }
     await setValue('config', { password: newPwd });
     return { success: true, message: '密码修改成功' };
-  } catch (error) {
+  } catch {
     return { success: false, message: '修改失败，请重试' };
   }
 }
@@ -27,7 +27,7 @@ export async function addScoreItem(item: Omit<ScoreItem, 'id'>): Promise<{ succe
     };
     await setValue('scoreItems', [...items, newItem]);
     return { success: true, message: '添加成功' };
-  } catch (error) {
+  } catch {
     return { success: false, message: '添加失败' };
   }
 }
@@ -42,7 +42,7 @@ export async function updateScoreItem(item: ScoreItem): Promise<{ success: boole
     items[index] = item;
     await setValue('scoreItems', items);
     return { success: true, message: '修改成功' };
-  } catch (error) {
+  } catch {
     return { success: false, message: '修改失败' };
   }
 }
@@ -53,7 +53,7 @@ export async function deleteScoreItem(id: string): Promise<{ success: boolean; m
     const filtered = items.filter((i) => i.id !== id);
     await setValue('scoreItems', filtered);
     return { success: true, message: '删除成功' };
-  } catch (error) {
+  } catch {
     return { success: false, message: '删除失败' };
   }
 }
@@ -72,7 +72,7 @@ export async function updateStudentExchangeRate(studentId: string, rate: number)
     students[index].exchangeRate = rate;
     await setValue('students', students);
     return { success: true, message: '兑换比例修改成功' };
-  } catch (error) {
+  } catch {
     return { success: false, message: '修改失败' };
   }
 }
@@ -103,6 +103,7 @@ export async function addScoreRecord(
       id: `record-${Date.now()}`,
       studentId,
       itemId,
+      subject: item.subject,
       week,
       points: item.points,
       createTime: new Date().toISOString().slice(0, 19).replace('T', ' '),
@@ -117,7 +118,7 @@ export async function addScoreRecord(
     ]);
 
     return { success: true, message: `成功录入 +${item.points} 分` };
-  } catch (error) {
+  } catch {
     return { success: false, message: '录入失败' };
   }
 }
@@ -150,15 +151,13 @@ export async function exchangePoints(
 
     if (points >= 100) {
       const totalPoints = student.totalPoints;
-      const maxPerSubject = (points * student.exchangeRate) / 100;
-      
       const subjects = ['语文', '数学', '英语'] as const;
       const exceededSubjects: string[] = [];
       
       for (const subject of subjects) {
         const subjectPoints = student.subjectPoints[subject];
-        const subjectRatio = (subjectPoints / totalPoints) * 100;
-        if (subjectPoints < maxPerSubject && subjectRatio < student.exchangeRate) {
+        const subjectRatio = totalPoints > 0 ? (subjectPoints / totalPoints) * 100 : 0;
+        if (subjectRatio < student.exchangeRate) {
           exceededSubjects.push(`${subject}(占比${subjectRatio.toFixed(1)}%,需≥${student.exchangeRate}%)`);
         }
       }
@@ -172,15 +171,40 @@ export async function exchangePoints(
       }
     }
 
+    const subjects = ['语文', '数学', '英语'] as const;
+    const totalSubjectPoints = subjects.reduce(
+      (sum, subject) => sum + student.subjectPoints[subject],
+      0
+    );
+
+    const deductedSubjectPoints: { 语文: number; 数学: number; 英语: number } = {
+      语文: 0,
+      数学: 0,
+      英语: 0,
+    };
+
+    if (totalSubjectPoints > 0) {
+      for (const subject of subjects) {
+        const ratio = student.subjectPoints[subject] / totalSubjectPoints;
+        const deductPoints = Math.round(points * ratio);
+        deductedSubjectPoints[subject] = deductPoints;
+        students[studentIndex].subjectPoints[subject] = Math.max(
+          0,
+          student.subjectPoints[subject] - deductPoints
+        );
+      }
+    }
+
+    students[studentIndex].totalPoints -= points;
+
     const newRecord: ExchangeRecord = {
       id: `exchange-${Date.now()}`,
       studentId,
       points,
       reason,
       createTime: new Date().toISOString().slice(0, 19).replace('T', ' '),
+      subjectPoints: deductedSubjectPoints,
     };
-
-    students[studentIndex].totalPoints -= points;
 
     await Promise.all([
       setValue('students', students),
@@ -188,7 +212,7 @@ export async function exchangePoints(
     ]);
 
     return { success: true, message: `成功兑换 ${points} 积分` };
-  } catch (error) {
+  } catch {
     return { success: false, message: '兑换失败' };
   }
 }
@@ -216,10 +240,18 @@ export async function deleteScoreRecord(id: string): Promise<{ success: boolean;
 
     const studentIndex = students.findIndex((s) => s.id === record.studentId);
     if (studentIndex !== -1) {
-      const item = items.find((i) => i.id === record.itemId);
-      if (item) {
+      let subject: '语文' | '数学' | '英语' | undefined = record.subject;
+      
+      if (!subject) {
+        const item = items.find((i) => i.id === record.itemId);
+        if (item) {
+          subject = item.subject;
+        }
+      }
+      
+      if (subject) {
         students[studentIndex].totalPoints -= record.points;
-        students[studentIndex].subjectPoints[item.subject] -= record.points;
+        students[studentIndex].subjectPoints[subject] -= record.points;
       }
     }
 
@@ -229,7 +261,7 @@ export async function deleteScoreRecord(id: string): Promise<{ success: boolean;
     ]);
 
     return { success: true, message: '删除成功' };
-  } catch (error) {
+  } catch {
     return { success: false, message: '删除失败' };
   }
 }
@@ -249,6 +281,15 @@ export async function deleteExchangeRecord(id: string): Promise<{ success: boole
     const studentIndex = students.findIndex((s) => s.id === record.studentId);
     if (studentIndex !== -1) {
       students[studentIndex].totalPoints += record.points;
+
+      if (record.subjectPoints) {
+        const subjects = ['语文', '数学', '英语'] as const;
+        for (const subject of subjects) {
+          if (record.subjectPoints[subject]) {
+            students[studentIndex].subjectPoints[subject] += record.subjectPoints[subject];
+          }
+        }
+      }
     }
 
     await Promise.all([
@@ -257,7 +298,7 @@ export async function deleteExchangeRecord(id: string): Promise<{ success: boole
     ]);
 
     return { success: true, message: '删除成功，积分已返还' };
-  } catch (error) {
+  } catch {
     return { success: false, message: '删除失败' };
   }
 }

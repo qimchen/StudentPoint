@@ -24,6 +24,7 @@ export interface ScoreRecord {
   id: string;
   studentId: string;
   itemId: string;
+  subject: '语文' | '数学' | '英语';
   week: string;
   points: number;
   createTime: string;
@@ -36,6 +37,11 @@ export interface ExchangeRecord {
   points: number;
   reason: string;
   createTime: string;
+  subjectPoints?: {
+    语文: number;
+    数学: number;
+    英语: number;
+  };
 }
 
 // 管理员配置

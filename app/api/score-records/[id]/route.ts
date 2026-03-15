@@ -20,10 +20,18 @@ export async function DELETE(
 
     const studentIndex = students.findIndex((s: Student) => s.id === record.studentId);
     if (studentIndex !== -1) {
-      const item = items.find((i: ScoreItem) => i.id === record.itemId);
-      if (item) {
+      let subject: '语文' | '数学' | '英语' | undefined = record.subject;
+      
+      if (!subject) {
+        const item = items.find((i: ScoreItem) => i.id === record.itemId);
+        if (item) {
+          subject = item.subject;
+        }
+      }
+      
+      if (subject) {
         students[studentIndex].totalPoints -= record.points;
-        students[studentIndex].subjectPoints[item.subject] -= record.points;
+        students[studentIndex].subjectPoints[subject] -= record.points;
       }
     }
 

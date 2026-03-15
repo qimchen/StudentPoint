@@ -28,15 +28,13 @@ export async function POST(request: Request) {
 
     if (points >= 100) {
       const totalPoints = student.totalPoints;
-      const maxPerSubject = (points * student.exchangeRate) / 100;
-      
       const subjects = ['语文', '数学', '英语'] as const;
       const exceededSubjects: string[] = [];
       
       for (const subject of subjects) {
         const subjectPoints = student.subjectPoints[subject];
-        const subjectRatio = (subjectPoints / totalPoints) * 100;
-        if (subjectPoints < maxPerSubject && subjectRatio < student.exchangeRate) {
+        const subjectRatio = totalPoints > 0 ? (subjectPoints / totalPoints) * 100 : 0;
+        if (subjectRatio < student.exchangeRate) {
           exceededSubjects.push(`${subject}(占比${subjectRatio.toFixed(1)}%,需≥${student.exchangeRate}%)`);
         }
       }
@@ -50,15 +48,40 @@ export async function POST(request: Request) {
       }
     }
 
+    const subjects = ['语文', '数学', '英语'] as const;
+    const totalSubjectPoints = subjects.reduce(
+      (sum, subject) => sum + student.subjectPoints[subject],
+      0
+    );
+
+    const deductedSubjectPoints: { 语文: number; 数学: number; 英语: number } = {
+      语文: 0,
+      数学: 0,
+      英语: 0,
+    };
+
+    if (totalSubjectPoints > 0) {
+      for (const subject of subjects) {
+        const ratio = student.subjectPoints[subject] / totalSubjectPoints;
+        const deductPoints = Math.round(points * ratio);
+        deductedSubjectPoints[subject] = deductPoints;
+        students[studentIndex].subjectPoints[subject] = Math.max(
+          0,
+          student.subjectPoints[subject] - deductPoints
+        );
+      }
+    }
+
+    students[studentIndex].totalPoints -= points;
+
     const newRecord: ExchangeRecord = {
       id: `exchange-${Date.now()}`,
       studentId,
       points,
       reason,
       createTime: new Date().toISOString().slice(0, 19).replace('T', ' '),
+      subjectPoints: deductedSubjectPoints,
     };
-
-    students[studentIndex].totalPoints -= points;
 
     await Promise.all([
       setValue('students', students),

@@ -35,6 +35,7 @@ export async function POST(request: Request) {
       id: `record-${Date.now()}`,
       studentId,
       itemId,
+      subject: item.subject,
       week,
       points: item.points,
       createTime: new Date().toISOString().slice(0, 19).replace('T', ' '),

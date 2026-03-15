@@ -20,6 +20,15 @@ export async function DELETE(
     const studentIndex = students.findIndex((s: Student) => s.id === record.studentId);
     if (studentIndex !== -1) {
       students[studentIndex].totalPoints += record.points;
+
+      if (record.subjectPoints) {
+        const subjects = ['语文', '数学', '英语'] as const;
+        for (const subject of subjects) {
+          if (record.subjectPoints[subject]) {
+            students[studentIndex].subjectPoints[subject] += record.subjectPoints[subject];
+          }
+        }
+      }
     }
 
     await Promise.all([
