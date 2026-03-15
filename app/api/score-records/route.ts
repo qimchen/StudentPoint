@@ -2,10 +2,16 @@ import { NextResponse } from 'next/server';
 import { getValue, setValue } from '@/lib/kv';
 import type { ScoreRecord, Student, ScoreItem } from '@/lib/types';
 
+export const dynamic = 'force-dynamic';
+
 export async function GET() {
   try {
     const records = await getValue<ScoreRecord[]>('scoreRecords', []);
-    return NextResponse.json(records);
+    return NextResponse.json(records, {
+      headers: {
+        'Cache-Control': 'no-store, must-revalidate',
+      },
+    });
   } catch {
     return NextResponse.json([]);
   }
