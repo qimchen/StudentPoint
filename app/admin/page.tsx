@@ -58,12 +58,12 @@ export default function AdminPage() {
     router.push('/login');
   };
 
-  const tabs: { key: TabType; label: string; icon: string }[] = [
-    { key: 'score', label: '录入积分', icon: '📝' },
-    { key: 'exchange', label: '积分兑换', icon: '💱' },
-    { key: 'items', label: '积分项管理', icon: '📋' },
-    { key: 'records', label: '记录管理', icon: '📊' },
-    { key: 'password', label: '修改密码', icon: '🔐' },
+  const tabs: { key: TabType; label: string; icon: React.ReactNode }[] = [
+    { key: 'score', label: '录入积分', icon: <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" /></svg> },
+    { key: 'exchange', label: '积分兑换', icon: <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" /></svg> },
+    { key: 'items', label: '积分项管理', icon: <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01" /></svg> },
+    { key: 'records', label: '记录管理', icon: <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" /></svg> },
+    { key: 'password', label: '修改密码', icon: <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" /></svg> },
   ];
 
   return (
@@ -197,7 +197,11 @@ function PasswordTab({ showToast }: { showToast: (msg: string, type: 'success' |
   return (
     <div className="card max-w-md">
       <h2 className="text-lg font-semibold mb-4 flex items-center gap-2">
-        <span className="w-8 h-8 bg-blue-100 rounded-lg flex items-center justify-center">🔐</span>
+        <span className="w-8 h-8 bg-blue-100 rounded-lg flex items-center justify-center">
+          <svg className="w-4 h-4 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+          </svg>
+        </span>
         修改密码
       </h2>
       <form onSubmit={handleSubmit} className="space-y-4">
@@ -513,7 +517,11 @@ function ScoreEntryTab({
   return (
     <div className="card max-w-lg">
       <h2 className="text-lg font-semibold mb-4 flex items-center gap-2">
-        <span className="w-8 h-8 bg-green-100 rounded-lg flex items-center justify-center">📝</span>
+        <span className="w-8 h-8 bg-green-100 rounded-lg flex items-center justify-center">
+          <svg className="w-4 h-4 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
+          </svg>
+        </span>
         录入积分
       </h2>
       
@@ -762,7 +770,11 @@ function ExchangeTab({
 
       <div className="card max-w-lg">
         <h2 className="text-lg font-semibold mb-4 flex items-center gap-2">
-          <span className="w-8 h-8 bg-amber-100 rounded-lg flex items-center justify-center">💱</span>
+          <span className="w-8 h-8 bg-amber-100 rounded-lg flex items-center justify-center">
+            <svg className="w-4 h-4 text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" />
+            </svg>
+          </span>
           积分兑换
         </h2>
 

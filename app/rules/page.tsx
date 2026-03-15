@@ -1,25 +1,91 @@
 export default function Rules() {
   const scoreItems = [
-    { name: '课后全对', points: 1, icon: '✏️', colorClass: 'text-blue-600' },
-    { name: '抄写作业、课堂作业全对', points: 3, icon: '📝', colorClass: 'text-green-600' },
-    { name: '听写、默写全对', points: 7, icon: '📖', colorClass: 'text-amber-600' },
-    { name: '练习册全对', points: 30, icon: '📚', colorClass: 'text-purple-600' },
-    { name: '周末题单（特色作业）全对', points: 30, icon: '⭐', colorClass: 'text-pink-600' },
-    { name: '单元考满分', points: 100, icon: '🏆', colorClass: 'text-indigo-600' },
-    { name: '期中考满分', points: 500, icon: '🎖️', colorClass: 'text-orange-600' },
-    { name: '期末考满分', points: 1000, icon: '👑', colorClass: 'text-red-600' },
+    { name: '课后全对', points: 1, iconType: 'pencil', colorClass: 'text-blue-600' },
+    { name: '抄写作业、课堂作业全对', points: 3, iconType: 'edit', colorClass: 'text-green-600' },
+    { name: '听写、默写全对', points: 7, iconType: 'book', colorClass: 'text-amber-600' },
+    { name: '练习册全对', points: 30, iconType: 'books', colorClass: 'text-purple-600' },
+    { name: '周末题单（特色作业）全对', points: 30, iconType: 'star', colorClass: 'text-pink-600' },
+    { name: '单元考满分', points: 100, iconType: 'trophy', colorClass: 'text-indigo-600' },
+    { name: '期中考满分', points: 500, iconType: 'medal', colorClass: 'text-orange-600' },
+    { name: '期末考满分', points: 1000, iconType: 'crown', colorClass: 'text-red-600' },
   ];
 
   const subjects = [
-    { name: '语文', icon: '📖', gradientClass: 'from-blue-400 to-blue-600', bgClass: 'bg-blue-50', borderClass: 'border-blue-200' },
-    { name: '数学', icon: '🔢', gradientClass: 'from-green-400 to-green-600', bgClass: 'bg-green-50', borderClass: 'border-green-200' },
-    { name: '英语', icon: '🔤', gradientClass: 'from-amber-400 to-amber-600', bgClass: 'bg-amber-50', borderClass: 'border-amber-200' },
+    { name: '语文', iconType: 'book', gradientClass: 'from-blue-400 to-blue-600', bgClass: 'bg-blue-50', borderClass: 'border-blue-200' },
+    { name: '数学', iconType: 'calculator', gradientClass: 'from-green-400 to-green-600', bgClass: 'bg-green-50', borderClass: 'border-green-200' },
+    { name: '英语', iconType: 'language', gradientClass: 'from-amber-400 to-amber-600', bgClass: 'bg-amber-50', borderClass: 'border-amber-200' },
   ];
 
   const students = [
-    { name: '陈姝淼', rate: 40, avatar: '👧', bgClass: 'bg-pink-50', borderClass: 'border-pink-200', gradientClass: 'from-pink-400 to-pink-600', textClass: 'text-pink-600' },
-    { name: '陈书辰', rate: 50, avatar: '👦', bgClass: 'bg-blue-50', borderClass: 'border-blue-200', gradientClass: 'from-blue-400 to-blue-600', textClass: 'text-blue-600' },
+    { name: '陈姝淼', rate: 40, avatarType: 'girl', bgClass: 'bg-pink-50', borderClass: 'border-pink-200', gradientClass: 'from-pink-400 to-pink-600', textClass: 'text-pink-600' },
+    { name: '陈书辰', rate: 50, avatarType: 'boy', bgClass: 'bg-blue-50', borderClass: 'border-blue-200', gradientClass: 'from-blue-400 to-blue-600', textClass: 'text-blue-600' },
   ];
+
+  const renderIcon = (type: string, className: string = 'w-4 h-4') => {
+    const icons: Record<string, JSX.Element> = {
+      pencil: (
+        <svg className={className} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
+        </svg>
+      ),
+      edit: (
+        <svg className={className} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
+        </svg>
+      ),
+      book: (
+        <svg className={className} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+        </svg>
+      ),
+      books: (
+        <svg className={className} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+        </svg>
+      ),
+      star: (
+        <svg className={className} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" />
+        </svg>
+      ),
+      trophy: (
+        <svg className={className} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
+        </svg>
+      ),
+      medal: (
+        <svg className={className} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
+        </svg>
+      ),
+      crown: (
+        <svg className={className} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 3l3.5 7L12 6l3.5 4L19 3v11a2 2 0 01-2 2H7a2 2 0 01-2-2V3z" />
+        </svg>
+      ),
+      calculator: (
+        <svg className={className} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
+        </svg>
+      ),
+      language: (
+        <svg className={className} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129" />
+        </svg>
+      ),
+      girl: (
+        <svg className={className} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+        </svg>
+      ),
+      boy: (
+        <svg className={className} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+        </svg>
+      ),
+    };
+    return icons[type] || icons.book;
+  };
 
   return (
     <div className="space-y-6">
@@ -47,8 +113,8 @@ export default function Rules() {
           {subjects.map((subject) => (
             <div key={subject.name} className={`${subject.bgClass} rounded-xl p-4 border ${subject.borderClass}`}>
               <div className="flex items-center gap-2 mb-4">
-                <div className={`w-10 h-10 bg-gradient-to-br ${subject.gradientClass} rounded-lg flex items-center justify-center text-white text-lg`}>
-                  {subject.icon}
+                <div className={`w-10 h-10 bg-gradient-to-br ${subject.gradientClass} rounded-lg flex items-center justify-center text-white`}>
+                  {renderIcon(subject.iconType, 'w-5 h-5')}
                 </div>
                 <h3 className="font-bold text-lg">{subject.name}</h3>
               </div>
@@ -56,7 +122,7 @@ export default function Rules() {
                 {scoreItems.map((item, idx) => (
                   <li key={idx} className="flex justify-between items-center text-sm bg-white/60 rounded-lg px-3 py-2">
                     <span className="flex items-center gap-2">
-                      <span className="text-base">{item.icon}</span>
+                      <span className={`${item.colorClass}`}>{renderIcon(item.iconType, 'w-4 h-4')}</span>
                       <span className="text-gray-700">{item.name}</span>
                     </span>
                     <span className={`font-bold ${item.colorClass}`}>+{item.points}</span>
@@ -132,7 +198,7 @@ export default function Rules() {
               <div key={student.name} className={`${student.bgClass} rounded-xl p-4 border ${student.borderClass}`}>
                 <div className="flex items-center gap-3 mb-3">
                   <div className={`w-12 h-12 bg-gradient-to-br ${student.gradientClass} rounded-xl flex items-center justify-center`}>
-                    <span className="text-2xl">{student.avatar}</span>
+                    {renderIcon(student.avatarType, 'w-6 h-6 text-white')}
                   </div>
                   <div>
                     <h3 className="font-bold text-lg">{student.name}</h3>
