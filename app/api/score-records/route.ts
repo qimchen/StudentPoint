@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server';
 import { getValue, setValue } from '@/lib/kv';
+import { getNowInGMT8 } from '@/lib/utils/date';
 import type { ScoreRecord, Student, ScoreItem } from '@/lib/types';
 
 export const dynamic = 'force-dynamic';
@@ -44,7 +45,7 @@ export async function POST(request: Request) {
       subject: item.subject,
       week,
       points: item.points,
-      createTime: new Date().toISOString().slice(0, 19).replace('T', ' '),
+      createTime: getNowInGMT8(),
     };
 
     students[studentIndex].totalPoints += item.points;

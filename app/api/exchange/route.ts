@@ -1,6 +1,9 @@
 import { NextResponse } from 'next/server';
 import { getValue, setValue } from '@/lib/kv';
+import { getNowInGMT8 } from '@/lib/utils/date';
 import type { ExchangeRecord, Student } from '@/lib/types';
+
+export const dynamic = 'force-dynamic';
 
 export async function POST(request: Request) {
   try {
@@ -79,7 +82,7 @@ export async function POST(request: Request) {
       studentId,
       points,
       reason,
-      createTime: new Date().toISOString().slice(0, 19).replace('T', ' '),
+      createTime: getNowInGMT8(),
       subjectPoints: deductedSubjectPoints,
     };
 

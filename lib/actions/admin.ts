@@ -1,5 +1,6 @@
 'use server';
 import { getValue, setValue } from '../kv';
+import { getNowInGMT8 } from '../utils/date';
 import type { Student, ScoreItem, ScoreRecord, ExchangeRecord } from '../types';
 
 export async function updatePassword(newPwd: string): Promise<{ success: boolean; message: string }> {
@@ -106,7 +107,7 @@ export async function addScoreRecord(
       subject: item.subject,
       week,
       points: item.points,
-      createTime: new Date().toISOString().slice(0, 19).replace('T', ' '),
+      createTime: getNowInGMT8(),
     };
 
     students[studentIndex].totalPoints += item.points;
@@ -202,7 +203,7 @@ export async function exchangePoints(
       studentId,
       points,
       reason,
-      createTime: new Date().toISOString().slice(0, 19).replace('T', ' '),
+      createTime: getNowInGMT8(),
       subjectPoints: deductedSubjectPoints,
     };
 
