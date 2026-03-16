@@ -1,10 +1,12 @@
 'use client';
 import React, { useEffect, useState, Suspense } from 'react';
-import { useSearchParams } from 'next/navigation';
+import { useSearchParams, useRouter } from 'next/navigation';
+import Link from 'next/link';
 import { isLoggedIn } from '../../lib/auth';
 import { handleLogin } from '../../lib/actions/login';
 
 function LoginForm() {
+  const router = useRouter();
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
   const [showPassword, setShowPassword] = useState(false);
@@ -13,7 +15,7 @@ function LoginForm() {
   useEffect(() => {
     const checkLogin = async () => {
       if (await isLoggedIn()) {
-        window.location.href = '/admin';
+        router.push('/admin');
       }
     };
     checkLogin();
@@ -21,7 +23,7 @@ function LoginForm() {
     if (searchParams.get('error')) {
       setError('密码错误，请重试');
     }
-  }, [searchParams]);
+  }, [searchParams, router]);
 
   const onSubmit = async (formData: FormData) => {
     setLoading(true);
@@ -152,9 +154,9 @@ export default function LoginPage() {
         </Suspense>
 
         <div className="text-center mt-6">
-          <a href="/" className="text-sm text-gray-500 hover:text-blue-600 transition-colors">
+          <Link href="/" className="text-sm text-gray-500 hover:text-blue-600 transition-colors">
             ← 返回首页
-          </a>
+          </Link>
         </div>
       </div>
     </div>
