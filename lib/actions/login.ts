@@ -1,12 +1,13 @@
 'use server';
+import { redirect } from 'next/navigation';
 import { login } from '../../lib/auth';
 
-export async function handleLogin(formData: FormData): Promise<{ success: boolean; redirect?: string }> {
+export async function handleLogin(formData: FormData) {
   const pwd = (formData.get('pwd') as string) || '';
   const ok = await login(pwd);
   if (ok) {
-    return { success: true, redirect: '/admin' };
+    redirect('/admin');
   } else {
-    return { success: false, redirect: '/login?error=1' };
+    redirect('/login?error=1');
   }
 }

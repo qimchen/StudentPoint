@@ -1,11 +1,12 @@
 'use client';
 import React, { useEffect, useState, Suspense } from 'react';
-import { useSearchParams } from 'next/navigation';
+import { useSearchParams, useRouter } from 'next/navigation';
+import Link from 'next/link';
 import { isLoggedIn } from '../../lib/auth';
 import { handleLogin } from '../../lib/actions/login';
-import { SmartLink } from '../components/SmartLink';
 
 function LoginForm() {
+  const router = useRouter();
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
   const [showPassword, setShowPassword] = useState(false);
@@ -14,8 +15,7 @@ function LoginForm() {
   useEffect(() => {
     const checkLogin = async () => {
       if (await isLoggedIn()) {
-        const basePath = window.location.pathname.startsWith('/student') ? '/student' : '';
-        window.location.href = basePath + '/admin';
+        router.push('/admin');
       }
     };
     checkLogin();
@@ -23,17 +23,13 @@ function LoginForm() {
     if (searchParams.get('error')) {
       setError('密码错误，请重试');
     }
-  }, [searchParams]);
+  }, [searchParams, router]);
 
   const onSubmit = async (formData: FormData) => {
     setLoading(true);
     setError('');
     try {
-      const result = await handleLogin(formData);
-      if (result.redirect) {
-        const basePath = window.location.pathname.startsWith('/student') ? '/student' : '';
-        window.location.href = basePath + result.redirect;
-      }
+      await handleLogin(formData);
     } catch (err) {
       setError('登录失败，请稍后重试');
       setLoading(false);
@@ -158,9 +154,9 @@ export default function LoginPage() {
         </Suspense>
 
         <div className="text-center mt-6">
-          <SmartLink href="/" className="text-sm text-gray-500 hover:text-blue-600 transition-colors">
+          <Link href="/" className="text-sm text-gray-500 hover:text-blue-600 transition-colors">
             ← 返回首页
-          </SmartLink>
+          </Link>
         </div>
       </div>
     </div>
