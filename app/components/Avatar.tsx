@@ -202,14 +202,14 @@ export default function Avatar({
         <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4" onClick={handleClose}>
           <div 
             className="bg-white dark:bg-gray-800 rounded-2xl w-full max-w-sm"
-            style={{ height: '520px', maxHeight: '90vh', display: 'flex', flexDirection: 'column' }}
+            style={{ maxHeight: '80vh', display: 'flex', flexDirection: 'column' }}
             onClick={e => e.stopPropagation()}
           >
             <div className="p-4 border-b border-gray-200 dark:border-gray-700 flex-shrink-0">
               <h3 className="text-lg font-bold text-center">选择头像</h3>
             </div>
             
-            <div className="p-4 overflow-y-auto flex-1">
+            <div className="p-4 overflow-y-auto flex-1" style={{ maxHeight: 'calc(80vh - 140px)' }}>
               {selectedAvatar && (
                 <div className="mb-3 p-3 bg-blue-50 dark:bg-blue-900/20 rounded-xl">
                   <p className="text-xs text-center text-gray-600 dark:text-gray-300 mb-2">已选头像</p>
@@ -237,7 +237,7 @@ export default function Avatar({
               </div>
             </div>
             
-            <div className="p-4 border-t border-gray-200 dark:border-gray-700 flex gap-3 flex-shrink-0">
+            <div className="p-4 border-t border-gray-200 dark:border-gray-700 flex gap-3 flex-shrink-0 bg-white dark:bg-gray-800 rounded-b-2xl">
               <button
                 type="button"
                 className="flex-1 px-4 py-2 rounded-lg border-2 border-gray-300 text-gray-700 font-medium hover:bg-gray-50 transition-colors dark:border-gray-600 dark:text-gray-200 dark:hover:bg-gray-700"
