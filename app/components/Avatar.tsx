@@ -1,6 +1,7 @@
 'use client';
 import React, { useState, useCallback } from 'react';
 import ProgressRing from './ProgressRing';
+import { apiFetch } from '../../lib/utils/api';
 
 interface AvatarProps {
   studentId: string;
@@ -92,7 +93,7 @@ export default function Avatar({
 
   const handleAvatarSelect = useCallback(async (avatarUrl: string) => {
     try {
-      const response = await fetch('/api/avatar', {
+      const response = await apiFetch('/api/avatar', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ studentId, avatarUrl }),
