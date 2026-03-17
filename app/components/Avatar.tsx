@@ -87,30 +87,38 @@ export default function Avatar({
   onAvatarChange 
 }: AvatarProps) {
   const [showPicker, setShowPicker] = useState(false);
+  const [selectedAvatar, setSelectedAvatar] = useState<string | null>(null);
+  const [isSaving, setIsSaving] = useState(false);
   
   const level = getLevel(totalPoints);
   const progressPercent = Math.min((totalPoints / 2000) * 100, 100);
 
-  const handleAvatarSelect = useCallback(async (avatarUrl: string) => {
+  const handleConfirm = useCallback(async () => {
+    if (!selectedAvatar) return;
+    
+    setIsSaving(true);
     try {
       const response = await apiFetch('/api/avatar', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ studentId, avatarUrl }),
+        body: JSON.stringify({ studentId, avatarUrl: selectedAvatar }),
       });
 
       if (response.ok) {
-        onAvatarChange?.(avatarUrl);
+        onAvatarChange?.(selectedAvatar);
+        setShowPicker(false);
+        setSelectedAvatar(null);
       } else {
         alert('设置头像失败，请重试');
       }
     } catch {
       alert('设置头像失败，请重试');
     }
-    setShowPicker(false);
-  }, [studentId, onAvatarChange]);
+    setIsSaving(false);
+  }, [studentId, selectedAvatar, onAvatarChange]);
 
   const handleDoubleClick = useCallback(() => {
+    setSelectedAvatar(null);
     setShowPicker(true);
   }, []);
 
@@ -186,26 +194,50 @@ export default function Avatar({
       </div>
 
       {showPicker && (
-        <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4" onClick={() => setShowPicker(false)}>
+        <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4" onClick={() => { setShowPicker(false); setSelectedAvatar(null); }}>
           <div className="bg-white dark:bg-gray-800 rounded-2xl p-6 max-w-md w-full max-h-[80vh] overflow-y-auto" onClick={e => e.stopPropagation()}>
             <h3 className="text-lg font-bold mb-4 text-center">选择头像</h3>
+            
+            {selectedAvatar && (
+              <div className="mb-4 p-4 bg-blue-50 dark:bg-blue-900/20 rounded-xl">
+                <p className="text-sm text-center text-gray-600 dark:text-gray-300 mb-3">预览已选头像</p>
+                <div className="flex justify-center">
+                  <div className="w-20 h-20 rounded-full overflow-hidden border-4 border-blue-500 bg-white">
+                    <img src={selectedAvatar} alt="预览" className="w-full h-full object-cover" />
+                  </div>
+                </div>
+              </div>
+            )}
+            
             <div className="grid grid-cols-4 gap-3">
               {PRESET_AVATARS.map((url, index) => (
                 <button
                   key={index}
-                  className="w-14 h-14 rounded-full overflow-hidden border-2 border-transparent hover:border-blue-500 transition-colors bg-gray-100"
-                  onClick={() => handleAvatarSelect(url)}
+                  className={`w-14 h-14 rounded-full overflow-hidden border-2 transition-colors bg-gray-100 ${
+                    selectedAvatar === url ? 'border-blue-500 ring-2 ring-blue-300' : 'border-transparent hover:border-blue-500'
+                  }`}
+                  onClick={() => setSelectedAvatar(url)}
                 >
                   <img src={url} alt={`头像 ${index + 1}`} className="w-full h-full object-cover" />
                 </button>
               ))}
             </div>
-            <button
-              className="mt-4 w-full btn btn-outline"
-              onClick={() => setShowPicker(false)}
-            >
-              取消
-            </button>
+            
+            <div className="mt-4 flex gap-3">
+              <button
+                className="flex-1 btn btn-outline"
+                onClick={() => { setShowPicker(false); setSelectedAvatar(null); }}
+              >
+                取消
+              </button>
+              <button
+                className="flex-1 btn btn-primary"
+                onClick={handleConfirm}
+                disabled={!selectedAvatar || isSaving}
+              >
+                {isSaving ? '保存中...' : '确认'}
+              </button>
+            </div>
           </div>
         </div>
       )}
