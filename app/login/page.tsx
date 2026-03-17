@@ -15,7 +15,7 @@ function LoginForm() {
   useEffect(() => {
     const checkLogin = async () => {
       if (await isLoggedIn()) {
-        router.push('/admin');
+        router.push('/student/admin');
       }
     };
     checkLogin();
