@@ -149,7 +149,7 @@ export default function Avatar({
         </ProgressRing>
       ) : (
         <div 
-          className="rounded-full bg-gradient-to-br {level.color} flex items-center justify-center overflow-hidden"
+          className={`rounded-full bg-gradient-to-br ${level.color} flex items-center justify-center overflow-hidden`}
           style={{ width: size, height: size }}
         >
           {avatarUrl ? (

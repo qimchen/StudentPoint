@@ -117,7 +117,7 @@ export default function HomeClient({ students: initialStudents, records, exRecor
                     borderColor: '#fff',
                     borderWidth: 3,
                 }],
-            ],
+            },
         };
     });
 
@@ -163,8 +163,6 @@ export default function HomeClient({ students: initialStudents, records, exRecor
                 },
             },
         },
-    };
-
     };
 
     const totalPoints = students.reduce((sum, s) => sum + s.totalPoints, 0);
