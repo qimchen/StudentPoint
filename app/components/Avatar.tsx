@@ -200,46 +200,53 @@ export default function Avatar({
 
       {showPicker && (
         <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4" onClick={handleClose}>
-          <div className="bg-white dark:bg-gray-800 rounded-2xl p-6 max-w-md w-full max-h-[80vh] overflow-y-auto" onClick={e => e.stopPropagation()}>
-            <h3 className="text-lg font-bold mb-4 text-center">选择头像</h3>
-            
-            {selectedAvatar && (
-              <div className="mb-4 p-4 bg-blue-50 dark:bg-blue-900/20 rounded-xl">
-                <p className="text-sm text-center text-gray-600 dark:text-gray-300 mb-3">预览已选头像</p>
-                <div className="flex justify-center">
-                  <div className="w-20 h-20 rounded-full overflow-hidden border-4 border-blue-500 bg-white">
-                    <img src={selectedAvatar} alt="预览" className="w-full h-full object-cover" />
-                  </div>
-                </div>
-              </div>
-            )}
-            
-            <div className="grid grid-cols-4 gap-3">
-              {PRESET_AVATARS.map((url, index) => (
-                <button
-                  key={index}
-                  type="button"
-                  className={`w-14 h-14 rounded-full overflow-hidden border-2 transition-colors bg-gray-100 ${
-                    selectedAvatar === url ? 'border-blue-500 ring-2 ring-blue-300' : 'border-transparent hover:border-blue-500'
-                  }`}
-                  onClick={() => setSelectedAvatar(url)}
-                >
-                  <img src={url} alt={`头像 ${index + 1}`} className="w-full h-full object-cover" />
-                </button>
-              ))}
+          <div 
+            className="bg-white dark:bg-gray-800 rounded-2xl w-full max-w-sm flex flex-col max-h-[90vh]"
+            onClick={e => e.stopPropagation()}
+          >
+            <div className="p-4 border-b border-gray-200 dark:border-gray-700">
+              <h3 className="text-lg font-bold text-center">选择头像</h3>
             </div>
             
-            <div className="flex gap-3 mt-4">
+            <div className="p-4 overflow-y-auto flex-1">
+              {selectedAvatar && (
+                <div className="mb-3 p-3 bg-blue-50 dark:bg-blue-900/20 rounded-xl">
+                  <p className="text-xs text-center text-gray-600 dark:text-gray-300 mb-2">已选头像</p>
+                  <div className="flex justify-center">
+                    <div className="w-16 h-16 rounded-full overflow-hidden border-3 border-blue-500 bg-white">
+                      <img src={selectedAvatar} alt="预览" className="w-full h-full object-cover" />
+                    </div>
+                  </div>
+                </div>
+              )}
+              
+              <div className="grid grid-cols-4 gap-2">
+                {PRESET_AVATARS.map((url, index) => (
+                  <button
+                    key={index}
+                    type="button"
+                    className={`aspect-square rounded-full overflow-hidden border-2 transition-colors bg-gray-100 ${
+                      selectedAvatar === url ? 'border-blue-500 ring-2 ring-blue-300' : 'border-transparent hover:border-blue-400'
+                    }`}
+                    onClick={() => setSelectedAvatar(url)}
+                  >
+                    <img src={url} alt={`头像 ${index + 1}`} className="w-full h-full object-cover" />
+                  </button>
+                ))}
+              </div>
+            </div>
+            
+            <div className="p-4 border-t border-gray-200 dark:border-gray-700 flex gap-3">
               <button
                 type="button"
-                className="flex-1 px-4 py-2.5 rounded-lg border-2 border-gray-300 text-gray-700 font-medium hover:bg-gray-50 transition-colors dark:border-gray-600 dark:text-gray-200 dark:hover:bg-gray-700"
+                className="flex-1 px-4 py-2 rounded-lg border-2 border-gray-300 text-gray-700 font-medium hover:bg-gray-50 transition-colors dark:border-gray-600 dark:text-gray-200 dark:hover:bg-gray-700"
                 onClick={handleClose}
               >
                 取消
               </button>
               <button
                 type="button"
-                className={`flex-1 px-4 py-2.5 rounded-lg font-medium transition-colors ${
+                className={`flex-1 px-4 py-2 rounded-lg font-medium transition-colors ${
                   selectedAvatar && !isSaving
                     ? 'bg-blue-500 text-white hover:bg-blue-600' 
                     : 'bg-gray-300 text-gray-500 cursor-not-allowed'
