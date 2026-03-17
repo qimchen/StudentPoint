@@ -122,6 +122,11 @@ export default function Avatar({
     setShowPicker(true);
   }, []);
 
+  const handleClose = useCallback(() => {
+    setShowPicker(false);
+    setSelectedAvatar(null);
+  }, []);
+
   const displayUrl = avatarUrl || `https://api.dicebear.com/7.x/initials/svg?seed=${name}&backgroundColor=random`;
 
   return (
@@ -194,7 +199,7 @@ export default function Avatar({
       </div>
 
       {showPicker && (
-        <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4" onClick={() => { setShowPicker(false); setSelectedAvatar(null); }}>
+        <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4" onClick={handleClose}>
           <div className="bg-white dark:bg-gray-800 rounded-2xl p-6 max-w-md w-full max-h-[80vh] overflow-y-auto" onClick={e => e.stopPropagation()}>
             <h3 className="text-lg font-bold mb-4 text-center">选择头像</h3>
             
@@ -213,6 +218,7 @@ export default function Avatar({
               {PRESET_AVATARS.map((url, index) => (
                 <button
                   key={index}
+                  type="button"
                   className={`w-14 h-14 rounded-full overflow-hidden border-2 transition-colors bg-gray-100 ${
                     selectedAvatar === url ? 'border-blue-500 ring-2 ring-blue-300' : 'border-transparent hover:border-blue-500'
                   }`}
@@ -223,15 +229,21 @@ export default function Avatar({
               ))}
             </div>
             
-            <div className="mt-4 flex gap-3">
+            <div className="flex gap-3 mt-4">
               <button
-                className="flex-1 btn btn-outline"
-                onClick={() => { setShowPicker(false); setSelectedAvatar(null); }}
+                type="button"
+                className="flex-1 px-4 py-2.5 rounded-lg border-2 border-gray-300 text-gray-700 font-medium hover:bg-gray-50 transition-colors dark:border-gray-600 dark:text-gray-200 dark:hover:bg-gray-700"
+                onClick={handleClose}
               >
                 取消
               </button>
               <button
-                className="flex-1 btn btn-primary"
+                type="button"
+                className={`flex-1 px-4 py-2.5 rounded-lg font-medium transition-colors ${
+                  selectedAvatar && !isSaving
+                    ? 'bg-blue-500 text-white hover:bg-blue-600' 
+                    : 'bg-gray-300 text-gray-500 cursor-not-allowed'
+                }`}
                 onClick={handleConfirm}
                 disabled={!selectedAvatar || isSaving}
               >
