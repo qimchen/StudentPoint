@@ -1,5 +1,5 @@
-import { getValue } from '../lib/kv';
-import type { Student, ScoreItem } from '../lib/types';
+import { getValue } from '../../lib/kv';
+import type { Student, ScoreItem } from '../../lib/types';
 import RulesClient from './components/RulesClient';
 
 export const dynamic = 'force-dynamic';
