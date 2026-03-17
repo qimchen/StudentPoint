@@ -2,13 +2,14 @@
 export interface Student {
   id: string;
   name: string;
-  exchangeRate: number; // 兑换比例：陈姝淼40%，陈书辰50%
+  exchangeRate: number;
   totalPoints: number;
   subjectPoints: {
     语文: number;
     数学: number;
     英语: number;
   };
+  avatarUrl?: string;
 }
 
 // 积分项
