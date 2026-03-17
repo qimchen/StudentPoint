@@ -1,5 +1,5 @@
 'use client';
-import React from 'react';
+import React, { useState } from 'react';
 import { 
   Chart as ChartJS, 
   CategoryScale, 
@@ -17,6 +17,9 @@ import {
 } from 'chart.js';
 import { Bar, Doughnut, Line } from 'react-chartjs-2';
 import type { Student, ScoreRecord, ExchangeRecord, ScoreItem } from '../../lib/types';
+import AnimatedNumber from '../components/AnimatedNumber';
+import ProgressRing from '../components/ProgressRing';
+import Confetti from '../components/Confetti';
 
 ChartJS.register(
   CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend,
@@ -30,7 +33,17 @@ interface HomeClientProps {
   items: ScoreItem[];
 }
 
+const getLevel = (points: number): { name: string; icon: string; color: string } => {
+  if (points >= 2000) return { name: '钻石大师', icon: '💎', color: 'from-purple-400 to-purple-600' };
+  if (points >= 1000) return { name: '黄金达人', icon: '🥇', color: 'from-yellow-400 to-yellow-600' };
+  if (points >= 500) return { name: '白银高手', icon: '🥈', color: 'from-gray-300 to-gray-500' };
+  if (points >= 100) return { name: '青铜新星', icon: '🥉', color: 'from-amber-400 to-amber-600' };
+  if (points >= 50) return { name: '积分学徒', icon: '⭐', color: 'from-blue-400 to-blue-600' };
+  return { name: '初学者', icon: '🌱', color: 'from-green-400 to-green-600' };
+};
+
 export default function HomeClient({ students, records, exRecords, items }: HomeClientProps) {
+  const [showConfetti, setShowConfetti] = useState(false);
   const today = new Date();
   const thisWeek = today.toISOString().slice(0, 10);
 
@@ -150,42 +163,44 @@ export default function HomeClient({ students, records, exRecords, items }: Home
 
   return (
     <div className="space-y-6">
+      <Confetti trigger={showConfetti} onComplete={() => setShowConfetti(false)} />
+      
       <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
         <div>
           <h1 className="text-2xl font-bold gradient-text">积分总览</h1>
-          <p className="text-sm text-gray-500 mt-1">记录成长 · 激励学习</p>
+          <p className="text-sm text-gray-500 dark:text-gray-400 mt-1">记录成长 · 激励学习</p>
         </div>
         <div className="flex gap-3 flex-wrap">
           <div className="stat-card hover-lift">
-            <div className="w-10 h-10 bg-blue-100 rounded-xl flex items-center justify-center">
-              <svg className="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <div className="w-10 h-10 bg-blue-100 dark:bg-blue-900/30 rounded-xl flex items-center justify-center">
+              <svg className="w-5 h-5 text-blue-600 dark:text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
               </svg>
             </div>
             <div>
-              <span className="stat-value">{totalPoints}</span>
+              <span className="stat-value"><AnimatedNumber value={totalPoints} /></span>
               <span className="stat-label">总积分</span>
             </div>
           </div>
           <div className="stat-card hover-lift">
-            <div className="w-10 h-10 bg-green-100 rounded-xl flex items-center justify-center">
-              <svg className="w-5 h-5 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <div className="w-10 h-10 bg-green-100 dark:bg-green-900/30 rounded-xl flex items-center justify-center">
+              <svg className="w-5 h-5 text-green-600 dark:text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
               </svg>
             </div>
             <div>
-              <span className="stat-value">{records.length}</span>
+              <span className="stat-value"><AnimatedNumber value={records.length} /></span>
               <span className="stat-label">积分记录</span>
             </div>
           </div>
           <div className="stat-card hover-lift">
-            <div className="w-10 h-10 bg-amber-100 rounded-xl flex items-center justify-center">
-              <svg className="w-5 h-5 text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <div className="w-10 h-10 bg-amber-100 dark:bg-amber-900/30 rounded-xl flex items-center justify-center">
+              <svg className="w-5 h-5 text-amber-600 dark:text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
               </svg>
             </div>
             <div>
-              <span className="stat-value">{totalExchangedPoints}</span>
+              <span className="stat-value"><AnimatedNumber value={totalExchangedPoints} /></span>
               <span className="stat-label">已兑换</span>
             </div>
           </div>
@@ -196,8 +211,8 @@ export default function HomeClient({ students, records, exRecords, items }: Home
         <div className="card hover-lift">
           <div className="flex items-center justify-between mb-4">
             <h2 className="text-lg font-semibold flex items-center gap-2">
-              <span className="w-8 h-8 bg-blue-100 rounded-lg flex items-center justify-center">
-                <svg className="w-4 h-4 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <span className="w-8 h-8 bg-blue-100 dark:bg-blue-900/30 rounded-lg flex items-center justify-center">
+                <svg className="w-4 h-4 text-blue-600 dark:text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
                 </svg>
               </span>
@@ -225,8 +240,8 @@ export default function HomeClient({ students, records, exRecords, items }: Home
         <div className="card hover-lift">
           <div className="flex items-center justify-between mb-4">
             <h2 className="text-lg font-semibold flex items-center gap-2">
-              <span className="w-8 h-8 bg-green-100 rounded-lg flex items-center justify-center">
-                <svg className="w-4 h-4 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <span className="w-8 h-8 bg-green-100 dark:bg-green-900/30 rounded-lg flex items-center justify-center">
+                <svg className="w-4 h-4 text-green-600 dark:text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 12l3-3 3 3 4-4M8 21l4-4 4 4M3 4h18M4 4h16v12a1 1 0 01-1 1H5a1 1 0 01-1-1V4z" />
                 </svg>
               </span>
@@ -257,26 +272,44 @@ export default function HomeClient({ students, records, exRecords, items }: Home
           const allRecords = recordsByStudent.get(s.id) ?? [];
           const weekRecords = allRecords.filter((r) => r.week === thisWeek);
           const weekPoints = weekRecords.reduce((sum, r) => sum + r.points, 0);
-
+          const level = getLevel(s.totalPoints);
           const studentDoughnut = doughnutData.find(d => d.student.id === s.id);
+          const maxSubjectPoints = Math.max(s.subjectPoints.语文, s.subjectPoints.数学, s.subjectPoints.英语);
+          const progressPercent = maxSubjectPoints > 0 ? Math.round((s.totalPoints / 2000) * 100) : 0;
 
           return (
-            <div key={s.id} className="card hover-lift">
-              <div className="flex justify-between items-start mb-4">
-                <div className="flex items-center gap-3">
-                  <div className={`w-12 h-12 rounded-xl flex items-center justify-center text-white font-bold text-lg ${
-                    s.id === 'chen-shumiao' ? 'bg-gradient-to-br from-pink-400 to-pink-600' : 'bg-gradient-to-br from-blue-400 to-blue-600'
-                  }`}>
-                    {s.name.charAt(0)}
+            <div key={s.id} className="card hover-lift overflow-hidden">
+              <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-blue-100/50 to-purple-100/50 dark:from-blue-900/20 dark:to-purple-900/20 rounded-full -translate-y-16 translate-x-16" />
+              
+              <div className="relative flex justify-between items-start mb-4">
+                <div className="flex items-center gap-4">
+                  <div className="relative">
+                    <ProgressRing
+                      progress={progressPercent}
+                      size={72}
+                      strokeWidth={6}
+                      color={s.id === 'chen-shumiao' ? '#EC4899' : '#3B82F6'}
+                    >
+                      <div className={`w-14 h-14 rounded-full bg-gradient-to-br ${level.color} flex items-center justify-center text-white text-2xl`}>
+                        {level.icon}
+                      </div>
+                    </ProgressRing>
                   </div>
                   <div>
-                    <h2 className="text-xl font-bold text-gray-800">{s.name}</h2>
-                    <p className="text-xs text-gray-500">今日新增 {weekPoints} 分</p>
+                    <div className="flex items-center gap-2">
+                      <h2 className="text-xl font-bold text-gray-800 dark:text-gray-100">{s.name}</h2>
+                      <span className={`text-xs px-2 py-0.5 rounded-full bg-gradient-to-r ${level.color} text-white`}>
+                        {level.name}
+                      </span>
+                    </div>
+                    <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">今日新增 {weekPoints} 分</p>
                   </div>
                 </div>
                 <div className="text-right">
-                  <p className="text-2xl font-bold text-blue-600">{s.totalPoints}</p>
-                  <p className="text-xs text-gray-500">总积分</p>
+                  <p className="text-3xl font-bold text-blue-600 dark:text-blue-400">
+                    <AnimatedNumber value={s.totalPoints} />
+                  </p>
+                  <p className="text-xs text-gray-500 dark:text-gray-400">总积分</p>
                 </div>
               </div>
               
@@ -287,20 +320,20 @@ export default function HomeClient({ students, records, exRecords, items }: Home
                     数学: 'from-green-400 to-green-600',
                     英语: 'from-amber-400 to-amber-600',
                   };
-                  const iconColors = {
-                    语文: 'text-blue-100',
-                    数学: 'text-green-100',
-                    英语: 'text-amber-100',
+                  const bgColors = {
+                    语文: 'bg-blue-50 dark:bg-blue-900/20',
+                    数学: 'bg-green-50 dark:bg-green-900/20',
+                    英语: 'bg-amber-50 dark:bg-amber-900/20',
                   };
                   return (
-                    <div key={subject} className="bg-gray-50 rounded-xl p-3 text-center hover:bg-gray-100 transition-colors">
+                    <div key={subject} className={`${bgColors[subject]} rounded-xl p-3 text-center hover:scale-105 transition-transform`}>
                       <div className={`w-8 h-8 mx-auto mb-1 rounded-lg bg-gradient-to-br ${colors[subject]} flex items-center justify-center`}>
-                        <svg className={`w-4 h-4 ${iconColors[subject]}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
                         </svg>
                       </div>
-                      <div className="text-xs text-gray-500 mb-1">{subject}</div>
-                      <div className="font-bold text-lg">{s.subjectPoints[subject]}</div>
+                      <div className="text-xs text-gray-500 dark:text-gray-400 mb-1">{subject}</div>
+                      <div className="font-bold text-lg text-gray-800 dark:text-gray-100">{s.subjectPoints[subject]}</div>
                     </div>
                   );
                 })}
@@ -308,14 +341,14 @@ export default function HomeClient({ students, records, exRecords, items }: Home
 
               <div className="grid grid-cols-2 gap-4">
                 <div>
-                  <h3 className="text-sm font-semibold mb-2 flex items-center gap-1 text-gray-600">
+                  <h3 className="text-sm font-semibold mb-2 flex items-center gap-1 text-gray-600 dark:text-gray-300">
                     <svg className="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
                     </svg>
                     今日新增
                   </h3>
                   {weekRecords.length === 0 ? (
-                    <div className="bg-gray-50 rounded-lg p-3 text-center">
+                    <div className="bg-gray-50 dark:bg-gray-800/50 rounded-lg p-3 text-center">
                       <p className="text-xs text-gray-400">暂无积分记录</p>
                     </div>
                   ) : (
@@ -323,9 +356,9 @@ export default function HomeClient({ students, records, exRecords, items }: Home
                       {weekRecords.slice(0, 5).map((r) => {
                         const item = items.find((i) => i.id === r.itemId);
                         return (
-                          <li key={r.id} className="flex justify-between items-center bg-gray-50 rounded-lg px-3 py-1.5">
-                            <span className="text-gray-600 truncate">{item?.name}</span>
-                            <span className="text-green-600 font-bold text-xs">+{r.points}</span>
+                          <li key={r.id} className="flex justify-between items-center bg-gray-50 dark:bg-gray-800/50 rounded-lg px-3 py-1.5">
+                            <span className="text-gray-600 dark:text-gray-300 truncate">{item?.name}</span>
+                            <span className="text-green-600 dark:text-green-400 font-bold text-xs">+{r.points}</span>
                           </li>
                         );
                       })}
@@ -337,7 +370,7 @@ export default function HomeClient({ students, records, exRecords, items }: Home
                 </div>
 
                 <div>
-                  <h3 className="text-sm font-semibold mb-2 flex items-center gap-1 text-gray-600">
+                  <h3 className="text-sm font-semibold mb-2 flex items-center gap-1 text-gray-600 dark:text-gray-300">
                     <svg className="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11 3.055A9.001 9.001 0 1020.945 13H11V3.055z" />
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20.488 9H15V3.512A9.025 9.025 0 0120.488 9z" />
@@ -359,7 +392,7 @@ export default function HomeClient({ students, records, exRecords, items }: Home
                       />
                     </div>
                   ) : (
-                    <div className="bg-gray-50 rounded-lg p-3 text-center h-28 flex items-center justify-center">
+                    <div className="bg-gray-50 dark:bg-gray-800/50 rounded-lg p-3 text-center h-28 flex items-center justify-center">
                       <p className="text-xs text-gray-400">暂无数据</p>
                     </div>
                   )}
@@ -373,8 +406,8 @@ export default function HomeClient({ students, records, exRecords, items }: Home
       <section className="card">
         <div className="flex items-center justify-between mb-4">
           <h2 className="text-lg font-semibold flex items-center gap-2">
-            <span className="w-8 h-8 bg-amber-100 rounded-lg flex items-center justify-center">
-              <svg className="w-4 h-4 text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <span className="w-8 h-8 bg-amber-100 dark:bg-amber-900/30 rounded-lg flex items-center justify-center">
+              <svg className="w-4 h-4 text-amber-600 dark:text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
               </svg>
             </span>
@@ -393,35 +426,35 @@ export default function HomeClient({ students, records, exRecords, items }: Home
           </div>
         ) : (
           <div className="overflow-x-auto">
-            <table className="min-w-full divide-y divide-gray-200 text-sm">
-              <thead className="bg-gray-50">
+            <table className="min-w-full divide-y divide-gray-200 dark:divide-gray-700 text-sm">
+              <thead className="bg-gray-50 dark:bg-gray-800/50">
                 <tr>
-                  <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">时间</th>
-                  <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">学生</th>
-                  <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">兑换积分</th>
-                  <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">兑换原因</th>
+                  <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">时间</th>
+                  <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">学生</th>
+                  <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">兑换积分</th>
+                  <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">兑换原因</th>
                 </tr>
               </thead>
-              <tbody className="bg-white divide-y divide-gray-100">
+              <tbody className="bg-white dark:bg-gray-800 divide-y divide-gray-100 dark:divide-gray-700">
                 {exRecords.slice(0, 10).map((r) => {
                   const student = students.find((s) => s.id === r.studentId);
                   return (
-                    <tr key={r.id} className="hover:bg-gray-50 transition-colors">
-                      <td className="px-4 py-3 whitespace-nowrap text-gray-600 text-xs">{r.createTime}</td>
+                    <tr key={r.id} className="hover:bg-gray-50 dark:hover:bg-gray-700/50 transition-colors">
+                      <td className="px-4 py-3 whitespace-nowrap text-gray-600 dark:text-gray-300 text-xs">{r.createTime}</td>
                       <td className="px-4 py-3 whitespace-nowrap">
-                        <span className="font-medium">{student?.name || '未知学生'}</span>
+                        <span className="font-medium text-gray-800 dark:text-gray-100">{student?.name || '未知学生'}</span>
                       </td>
                       <td className="px-4 py-3 whitespace-nowrap">
                         <span className="badge badge-danger">-{r.points}</span>
                       </td>
-                      <td className="px-4 py-3 text-gray-600">{r.reason}</td>
+                      <td className="px-4 py-3 text-gray-600 dark:text-gray-300">{r.reason}</td>
                     </tr>
                   );
                 })}
               </tbody>
             </table>
             {exRecords.length > 10 && (
-              <p className="text-center text-xs text-gray-500 mt-3">
+              <p className="text-center text-xs text-gray-500 dark:text-gray-400 mt-3">
                 仅显示最近10条记录
               </p>
             )}
