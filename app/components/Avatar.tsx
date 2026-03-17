@@ -1,5 +1,5 @@
 'use client';
-import React, { useRef, useState, useCallback } from 'react';
+import React, { useState, useCallback } from 'react';
 import ProgressRing from './ProgressRing';
 
 interface AvatarProps {
@@ -11,6 +11,25 @@ interface AvatarProps {
   showLevelRing?: boolean;
   onAvatarChange?: (url: string) => void;
 }
+
+const PRESET_AVATARS = [
+  'https://api.dicebear.com/7.x/adventurer/svg?seed=Felix&backgroundColor=b6e3f4',
+  'https://api.dicebear.com/7.x/adventurer/svg?seed=Aneka&backgroundColor=ffd5dc',
+  'https://api.dicebear.com/7.x/adventurer/svg?seed=Luna&backgroundColor=c0aede',
+  'https://api.dicebear.com/7.x/adventurer/svg?seed=Leo&backgroundColor=d1d4e9',
+  'https://api.dicebear.com/7.x/adventurer/svg?seed=Mia&backgroundColor=ffdfbf',
+  'https://api.dicebear.com/7.x/adventurer/svg?seed=Max&backgroundColor=c1e1ff',
+  'https://api.dicebear.com/7.x/adventurer/svg?seed=Zoe&backgroundColor=bde0fe',
+  'https://api.dicebear.com/7.x/adventurer/svg?seed=Sam&backgroundColor=ffecc7',
+  'https://api.dicebear.com/7.x/fun-emoji/svg?seed=happy&backgroundColor=ffdfbf',
+  'https://api.dicebear.com/7.x/fun-emoji/svg?seed=smile&backgroundColor=c0aede',
+  'https://api.dicebear.com/7.x/fun-emoji/svg?seed=joy&backgroundColor=b6e3f4',
+  'https://api.dicebear.com/7.x/fun-emoji/svg?seed=sunny&backgroundColor=ffd5dc',
+  'https://api.dicebear.com/7.x/bottts/svg?seed=cool&backgroundColor=d1d4e9',
+  'https://api.dicebear.com/7.x/bottts/svg?seed=awesome&backgroundColor=c1e1ff',
+  'https://api.dicebear.com/7.x/bottts/svg?seed=great&backgroundColor=bde0fe',
+  'https://api.dicebear.com/7.x/lorelei/svg?seed=beautiful&backgroundColor=ffecc7',
+];
 
 const getLevel = (points: number): { name: string; icon: string; color: string; ringColor: string; decorations: string[] } => {
   if (points >= 2000) return { 
@@ -66,153 +85,129 @@ export default function Avatar({
   showLevelRing = true,
   onAvatarChange 
 }: AvatarProps) {
-  const fileInputRef = useRef<HTMLInputElement>(null);
-  const [isUploading, setIsUploading] = useState(false);
-  const [showTip, setShowTip] = useState(false);
+  const [showPicker, setShowPicker] = useState(false);
   
   const level = getLevel(totalPoints);
   const progressPercent = Math.min((totalPoints / 2000) * 100, 100);
 
-  const handleDoubleClick = useCallback(() => {
-    fileInputRef.current?.click();
-  }, []);
-
-  const handleFileChange = useCallback(async (e: React.ChangeEvent<HTMLInputElement>) => {
-    const file = e.target.files?.[0];
-    if (!file) return;
-
-    if (!file.type.startsWith('image/')) {
-      alert('请选择图片文件');
-      return;
-    }
-
-    if (file.size > 2 * 1024 * 1024) {
-      alert('图片大小不能超过2MB');
-      return;
-    }
-
-    setIsUploading(true);
+  const handleAvatarSelect = useCallback(async (avatarUrl: string) => {
     try {
-      const reader = new FileReader();
-      reader.onload = async (event) => {
-        const base64 = event.target?.result as string;
-        
-        const response = await fetch('/api/avatar', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ studentId, avatarUrl: base64 }),
-        });
+      const response = await fetch('/api/avatar', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ studentId, avatarUrl }),
+      });
 
-        if (response.ok) {
-          onAvatarChange?.(base64);
-        } else {
-          alert('上传失败，请重试');
-        }
-        setIsUploading(false);
-      };
-      reader.readAsDataURL(file);
+      if (response.ok) {
+        onAvatarChange?.(avatarUrl);
+      } else {
+        alert('设置头像失败，请重试');
+      }
     } catch {
-      setIsUploading(false);
-      alert('上传失败，请重试');
+      alert('设置头像失败，请重试');
     }
-    
-    if (fileInputRef.current) {
-      fileInputRef.current.value = '';
-    }
+    setShowPicker(false);
   }, [studentId, onAvatarChange]);
 
-  const avatarContent = (
-    <div 
-      className="relative cursor-pointer group"
-      onDoubleClick={handleDoubleClick}
-      onMouseEnter={() => setShowTip(true)}
-      onMouseLeave={() => setShowTip(false)}
-    >
-      {showLevelRing ? (
-        <ProgressRing
-          progress={progressPercent}
-          size={size}
-          strokeWidth={4}
-          color={level.ringColor}
-        >
-          <div className={`w-[${size - 12}px] h-[${size - 12}px] rounded-full bg-gradient-to-br ${level.color} flex items-center justify-center overflow-hidden`}>
-            {avatarUrl ? (
+  const handleDoubleClick = useCallback(() => {
+    setShowPicker(true);
+  }, []);
+
+  const displayUrl = avatarUrl || `https://api.dicebear.com/7.x/initials/svg?seed=${name}&backgroundColor=random`;
+
+  return (
+    <>
+      <div 
+        className="relative cursor-pointer group"
+        onDoubleClick={handleDoubleClick}
+      >
+        {showLevelRing ? (
+          <ProgressRing
+            progress={progressPercent}
+            size={size}
+            strokeWidth={4}
+            color={level.ringColor}
+          >
+            <div 
+              className={`rounded-full bg-gradient-to-br ${level.color} flex items-center justify-center overflow-hidden`}
+              style={{ width: size - 12, height: size - 12 }}
+            >
               <img 
-                src={avatarUrl} 
+                src={displayUrl} 
                 alt={name}
-                className="w-full h-full object-cover"
+                className="w-full h-full object-cover bg-white"
               />
-            ) : (
-              <span className="text-white text-2xl font-bold">{name.charAt(0)}</span>
-            )}
-          </div>
-        </ProgressRing>
-      ) : (
-        <div 
-          className={`rounded-full bg-gradient-to-br ${level.color} flex items-center justify-center overflow-hidden`}
-          style={{ width: size, height: size }}
-        >
-          {avatarUrl ? (
+            </div>
+          </ProgressRing>
+        ) : (
+          <div 
+            className={`rounded-full bg-gradient-to-br ${level.color} flex items-center justify-center overflow-hidden`}
+            style={{ width: size, height: size }}
+          >
             <img 
-              src={avatarUrl} 
+              src={displayUrl} 
               alt={name}
-              className="w-full h-full object-cover"
+              className="w-full h-full object-cover bg-white"
             />
-          ) : (
-            <span className="text-white text-2xl font-bold">{name.charAt(0)}</span>
-          )}
+          </div>
+        )}
+
+        <div className="absolute -bottom-1 -right-1 w-6 h-6 rounded-full bg-white dark:bg-gray-800 shadow-lg flex items-center justify-center text-sm border-2 border-white dark:border-gray-700">
+          {level.icon}
         </div>
-      )}
 
-      <div className="absolute -bottom-1 -right-1 w-6 h-6 rounded-full bg-white dark:bg-gray-800 shadow-lg flex items-center justify-center text-sm border-2 border-white dark:border-gray-700">
-        {level.icon}
-      </div>
+        {level.decorations.includes('crown') && (
+          <div className="absolute -top-2 left-1/2 -translate-x-1/2 text-lg animate-bounce">
+            👑
+          </div>
+        )}
 
-      {level.decorations.includes('crown') && (
-        <div className="absolute -top-2 left-1/2 -translate-x-1/2 text-lg animate-bounce">
-          👑
+        {level.decorations.includes('sparkle') && (
+          <>
+            <div className="absolute -top-1 -right-1 text-xs animate-pulse">✨</div>
+            <div className="absolute -bottom-1 -left-1 text-xs animate-pulse" style={{ animationDelay: '0.5s' }}>✨</div>
+          </>
+        )}
+
+        {level.decorations.includes('glow') && (
+          <div className="absolute inset-0 rounded-full animate-pulse-glow opacity-50" style={{ color: level.ringColor }} />
+        )}
+
+        <div className="absolute inset-0 rounded-full bg-black/0 group-hover:bg-black/20 transition-colors flex items-center justify-center opacity-0 group-hover:opacity-100">
+          <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
+          </svg>
         </div>
-      )}
 
-      {level.decorations.includes('sparkle') && (
-        <>
-          <div className="absolute -top-1 -right-1 text-xs animate-pulse">✨</div>
-          <div className="absolute -bottom-1 -left-1 text-xs animate-pulse" style={{ animationDelay: '0.5s' }}>✨</div>
-        </>
-      )}
-
-      {level.decorations.includes('glow') && (
-        <div className="absolute inset-0 rounded-full animate-pulse-glow opacity-50" style={{ color: level.ringColor }} />
-      )}
-
-      {isUploading && (
-        <div className="absolute inset-0 rounded-full bg-black/50 flex items-center justify-center">
-          <div className="loading-spinner" />
-        </div>
-      )}
-
-      <div className="absolute inset-0 rounded-full bg-black/0 group-hover:bg-black/20 transition-colors flex items-center justify-center opacity-0 group-hover:opacity-100">
-        <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z" />
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 13a3 3 0 11-6 0 3 3 0 016 0z" />
-        </svg>
-      </div>
-
-      {showTip && (
-        <div className="absolute -bottom-8 left-1/2 -translate-x-1/2 bg-gray-800 text-white text-xs px-2 py-1 rounded whitespace-nowrap z-10">
+        <div className="absolute -bottom-8 left-1/2 -translate-x-1/2 bg-gray-800 text-white text-xs px-2 py-1 rounded whitespace-nowrap z-10 opacity-0 group-hover:opacity-100 transition-opacity">
           双击更换头像
         </div>
+      </div>
+
+      {showPicker && (
+        <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4" onClick={() => setShowPicker(false)}>
+          <div className="bg-white dark:bg-gray-800 rounded-2xl p-6 max-w-md w-full max-h-[80vh] overflow-y-auto" onClick={e => e.stopPropagation()}>
+            <h3 className="text-lg font-bold mb-4 text-center">选择头像</h3>
+            <div className="grid grid-cols-4 gap-3">
+              {PRESET_AVATARS.map((url, index) => (
+                <button
+                  key={index}
+                  className="w-14 h-14 rounded-full overflow-hidden border-2 border-transparent hover:border-blue-500 transition-colors bg-gray-100"
+                  onClick={() => handleAvatarSelect(url)}
+                >
+                  <img src={url} alt={`头像 ${index + 1}`} className="w-full h-full object-cover" />
+                </button>
+              ))}
+            </div>
+            <button
+              className="mt-4 w-full btn btn-outline"
+              onClick={() => setShowPicker(false)}
+            >
+              取消
+            </button>
+          </div>
+        </div>
       )}
-
-      <input
-        ref={fileInputRef}
-        type="file"
-        accept="image/*"
-        className="hidden"
-        onChange={handleFileChange}
-      />
-    </div>
+    </>
   );
-
-  return avatarContent;
 }
