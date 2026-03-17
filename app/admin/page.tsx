@@ -56,7 +56,7 @@ export default function AdminPage() {
 
   const handleLogout = async () => {
     await logout();
-    router.push('/student/login');
+    router.push('/login');
   };
 
   const tabs: { key: TabType; label: string; icon: React.ReactNode }[] = [

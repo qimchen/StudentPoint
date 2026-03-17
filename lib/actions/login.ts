@@ -6,8 +6,8 @@ export async function handleLogin(formData: FormData) {
   const pwd = (formData.get('pwd') as string) || '';
   const ok = await login(pwd);
   if (ok) {
-    redirect('/student/admin');
+    redirect('/admin');
   } else {
-    redirect('/student/login?error=1');
+    redirect('/login?error=1');
   }
 }
