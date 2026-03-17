@@ -263,6 +263,53 @@ export default function RulesClient({ students, scoreItems }: RulesClientProps) 
 
       <div className="card">
         <div className="flex items-center gap-3 mb-6">
+          <div className="w-10 h-10 bg-gradient-to-br from-purple-500 to-pink-600 rounded-xl flex items-center justify-center">
+            <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
+            </svg>
+          </div>
+          <div>
+            <h2 className="text-xl font-bold">等级系统</h2>
+            <p className="text-sm text-gray-500">积分越多，等级越高</p>
+          </div>
+        </div>
+
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3">
+          {[
+            { name: '初学者', icon: '🌱', color: 'from-green-400 to-green-600', bg: 'bg-green-50', border: 'border-green-200', range: '0-49' },
+            { name: '积分学徒', icon: '⭐', color: 'from-blue-400 to-blue-600', bg: 'bg-blue-50', border: 'border-blue-200', range: '50-99' },
+            { name: '青铜新星', icon: '🥉', color: 'from-amber-400 to-amber-600', bg: 'bg-amber-50', border: 'border-amber-200', range: '100-499' },
+            { name: '白银高手', icon: '🥈', color: 'from-gray-300 to-gray-500', bg: 'bg-gray-50', border: 'border-gray-200', range: '500-999' },
+            { name: '黄金达人', icon: '🥇', color: 'from-yellow-400 to-yellow-600', bg: 'bg-yellow-50', border: 'border-yellow-200', range: '1000-1999' },
+            { name: '钻石大师', icon: '💎', color: 'from-purple-400 to-purple-600', bg: 'bg-purple-50', border: 'border-purple-200', range: '2000+' },
+          ].map((level) => (
+            <div key={level.name} className={`${level.bg} rounded-xl p-4 border ${level.border} text-center hover:scale-105 transition-transform`}>
+              <div className={`w-12 h-12 mx-auto mb-2 rounded-full bg-gradient-to-br ${level.color} flex items-center justify-center text-2xl`}>
+                {level.icon}
+              </div>
+              <h3 className="font-bold text-sm">{level.name}</h3>
+              <p className="text-xs text-gray-500 mt-1">{level.range}分</p>
+            </div>
+          ))}
+        </div>
+
+        <div className="mt-4 bg-gradient-to-r from-purple-50 to-pink-50 rounded-xl p-4 border border-purple-100">
+          <div className="flex items-start gap-3">
+            <div className="w-8 h-8 bg-purple-100 rounded-lg flex items-center justify-center flex-shrink-0">
+              <svg className="w-4 h-4 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+              </svg>
+            </div>
+            <div>
+              <p className="text-sm font-medium text-gray-700">升级提示</p>
+              <p className="text-xs text-gray-500 mt-1">努力积累积分，解锁更高等级！等级越高，代表学习越出色，加油！</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div className="card">
+        <div className="flex items-center gap-3 mb-6">
           <div className="w-10 h-10 bg-gradient-to-br from-green-500 to-emerald-600 rounded-xl flex items-center justify-center">
             <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
