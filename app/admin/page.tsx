@@ -2,6 +2,7 @@
 import React, { useEffect, useState, useCallback } from 'react';
 import { useRouter } from 'next/navigation';
 import { logout } from '../../lib/auth';
+import { apiFetch } from '../../lib/utils/api';
 import type { Student, ScoreItem, ScoreRecord, ExchangeRecord } from '../../lib/types';
 import ConfirmModal from '../components/ConfirmModal';
 import LoadingOverlay, { LoadingSpinner } from '../components/Loading';
@@ -27,10 +28,10 @@ export default function AdminPage() {
     setLoading(true);
     try {
       const [studentsRes, itemsRes, recordsRes, exchangesRes] = await Promise.all([
-        fetch('/api/students'),
-        fetch('/api/score-items'),
-        fetch('/api/score-records'),
-        fetch('/api/exchange-records'),
+        apiFetch('/api/students'),
+        apiFetch('/api/score-items'),
+        apiFetch('/api/score-records'),
+        apiFetch('/api/exchange-records'),
       ]);
       const [studentsData, itemsData, recordsData, exchangesData] = await Promise.all([
         studentsRes.json(),
@@ -157,7 +158,6 @@ export default function AdminPage() {
 }
 
 function PasswordTab({ showToast }: { showToast: (msg: string, type: 'success' | 'error') => void }) {
-  const [currentPwd, setCurrentPwd] = useState('');
   const [newPwd, setNewPwd] = useState('');
   const [confirmPwd, setConfirmPwd] = useState('');
   const [submitting, setSubmitting] = useState(false);
@@ -174,14 +174,13 @@ function PasswordTab({ showToast }: { showToast: (msg: string, type: 'success' |
     }
     setSubmitting(true);
     try {
-      const res = await fetch('/api/admin/password', {
+      const res = await apiFetch('/api/admin/password', {
         method: 'POST',
         body: JSON.stringify({ newPassword: newPwd }),
       });
       const data = await res.json();
       if (data.success) {
         showToast('密码修改成功', 'success');
-        setCurrentPwd('');
         setNewPwd('');
         setConfirmPwd('');
       } else {
@@ -287,7 +286,7 @@ function ScoreItemsTab({
         ? { ...formData, id: editingItem.id }
         : formData;
       
-      const res = await fetch(url, {
+      const res = await apiFetch(url, {
         method,
         body: JSON.stringify(body),
       });
@@ -309,7 +308,7 @@ function ScoreItemsTab({
   const handleDelete = async (id: string) => {
     setSubmitting(true);
     try {
-      const res = await fetch(`/api/score-items/${id}`, { method: 'DELETE' });
+      const res = await apiFetch(`/api/score-items/${id}`, { method: 'DELETE' });
       const data = await res.json();
       if (data.success) {
         showToast('删除成功', 'success');
@@ -491,7 +490,7 @@ function ScoreEntryTab({
     }
     setSubmitting(true);
     try {
-      const res = await fetch('/api/score-records', {
+      const res = await apiFetch('/api/score-records', {
         method: 'POST',
         body: JSON.stringify({
           studentId: selectedStudent,
@@ -656,7 +655,7 @@ function ExchangeTab({
     }
     setSubmitting(true);
     try {
-      const res = await fetch('/api/exchange', {
+      const res = await apiFetch('/api/exchange', {
         method: 'POST',
         body: JSON.stringify({
           studentId: selectedStudent,
@@ -692,7 +691,7 @@ function ExchangeTab({
     }
     setSubmitting(true);
     try {
-      const res = await fetch(`/api/students/${studentId}/rate`, {
+      const res = await apiFetch(`/api/students/${studentId}/rate`, {
         method: 'PUT',
         body: JSON.stringify({ rate: rateNum }),
       });
@@ -888,7 +887,7 @@ function RecordsTab({
       const url = deleteConfirm.type === 'score' 
         ? `/api/score-records/${deleteConfirm.id}`
         : `/api/exchange-records/${deleteConfirm.id}`;
-      const res = await fetch(url, { method: 'DELETE' });
+      const res = await apiFetch(url, { method: 'DELETE' });
       const data = await res.json();
       if (data.success) {
         showToast(data.message, 'success');
