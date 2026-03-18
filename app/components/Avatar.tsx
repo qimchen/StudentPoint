@@ -199,59 +199,85 @@ export default function Avatar({
       </div>
 
       {showPicker && (
-        <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4" onClick={handleClose}>
+        <div 
+          style={{ position: 'fixed', top: 0, left: 0, right: 0, bottom: 0, backgroundColor: 'rgba(0,0,0,0.5)', display: 'flex', alignItems: 'center', justifyContent: 'center', zIndex: 50, padding: '16px' }}
+          onClick={handleClose}
+        >
           <div 
-            className="bg-white dark:bg-gray-800 rounded-2xl w-full max-w-sm"
-            style={{ maxHeight: '80vh', display: 'flex', flexDirection: 'column' }}
+            style={{ backgroundColor: 'white', borderRadius: '16px', width: '100%', maxWidth: '384px', height: '480px', display: 'flex', flexDirection: 'column', overflow: 'hidden' }}
             onClick={e => e.stopPropagation()}
           >
-            <div className="p-4 border-b border-gray-200 dark:border-gray-700 flex-shrink-0">
-              <h3 className="text-lg font-bold text-center">选择头像</h3>
+            <div style={{ padding: '16px', borderBottom: '1px solid #e5e7eb', flexShrink: 0 }}>
+              <h3 style={{ fontSize: '18px', fontWeight: 'bold', textAlign: 'center', margin: 0 }}>选择头像</h3>
             </div>
             
-            <div className="p-4 overflow-y-auto flex-1" style={{ maxHeight: 'calc(80vh - 140px)' }}>
+            <div style={{ padding: '16px', overflowY: 'auto', flex: '1 1 auto' }}>
               {selectedAvatar && (
-                <div className="mb-3 p-3 bg-blue-50 dark:bg-blue-900/20 rounded-xl">
-                  <p className="text-xs text-center text-gray-600 dark:text-gray-300 mb-2">已选头像</p>
-                  <div className="flex justify-center">
-                    <div className="w-16 h-16 rounded-full overflow-hidden border-3 border-blue-500 bg-white">
-                      <img src={selectedAvatar} alt="预览" className="w-full h-full object-cover" />
+                <div style={{ marginBottom: '12px', padding: '12px', backgroundColor: '#eff6ff', borderRadius: '12px' }}>
+                  <p style={{ fontSize: '12px', textAlign: 'center', color: '#6b7280', marginBottom: '8px', margin: 0 }}>已选头像</p>
+                  <div style={{ display: 'flex', justifyContent: 'center', marginTop: '8px' }}>
+                    <div style={{ width: '64px', height: '64px', borderRadius: '50%', overflow: 'hidden', border: '3px solid #3b82f6', backgroundColor: 'white' }}>
+                      <img src={selectedAvatar} alt="预览" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                     </div>
                   </div>
                 </div>
               )}
               
-              <div className="grid grid-cols-4 gap-2">
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '8px' }}>
                 {PRESET_AVATARS.map((url, index) => (
                   <button
                     key={index}
                     type="button"
-                    className={`aspect-square rounded-full overflow-hidden border-2 transition-colors bg-gray-100 ${
-                      selectedAvatar === url ? 'border-blue-500 ring-2 ring-blue-300' : 'border-transparent hover:border-blue-400'
-                    }`}
+                    style={{
+                      aspectRatio: '1/1',
+                      borderRadius: '50%',
+                      overflow: 'hidden',
+                      border: selectedAvatar === url ? '2px solid #3b82f6' : '2px solid transparent',
+                      backgroundColor: '#f3f4f6',
+                      cursor: 'pointer',
+                      padding: 0,
+                      outline: selectedAvatar === url ? '2px solid #93c5fd' : 'none',
+                      outlineOffset: '2px'
+                    }}
                     onClick={() => setSelectedAvatar(url)}
                   >
-                    <img src={url} alt={`头像 ${index + 1}`} className="w-full h-full object-cover" />
+                    <img src={url} alt={`头像 ${index + 1}`} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                   </button>
                 ))}
               </div>
             </div>
             
-            <div className="p-4 border-t border-gray-200 dark:border-gray-700 flex gap-3 flex-shrink-0 bg-white dark:bg-gray-800 rounded-b-2xl">
+            <div style={{ padding: '16px', borderTop: '1px solid #e5e7eb', display: 'flex', gap: '12px', flexShrink: 0, backgroundColor: 'white' }}>
               <button
                 type="button"
-                className="flex-1 px-4 py-2 rounded-lg border-2 border-gray-300 text-gray-700 font-medium hover:bg-gray-50 transition-colors dark:border-gray-600 dark:text-gray-200 dark:hover:bg-gray-700"
+                style={{
+                  flex: 1,
+                  padding: '8px 16px',
+                  borderRadius: '8px',
+                  border: '2px solid #d1d5db',
+                  backgroundColor: 'white',
+                  color: '#374151',
+                  fontWeight: '500',
+                  cursor: 'pointer',
+                  fontSize: '14px'
+                }}
                 onClick={handleClose}
               >
                 取消
               </button>
               <button
                 type="button"
-                className={`flex-1 px-4 py-2 rounded-lg font-medium transition-colors ${
-                  selectedAvatar && !isSaving
-                    ? 'bg-blue-500 text-white hover:bg-blue-600' 
-                    : 'bg-gray-300 text-gray-500 cursor-not-allowed'
-                }`}
+                style={{
+                  flex: 1,
+                  padding: '8px 16px',
+                  borderRadius: '8px',
+                  border: 'none',
+                  backgroundColor: selectedAvatar && !isSaving ? '#3b82f6' : '#d1d5db',
+                  color: selectedAvatar && !isSaving ? 'white' : '#6b7280',
+                  fontWeight: '500',
+                  cursor: selectedAvatar && !isSaving ? 'pointer' : 'not-allowed',
+                  fontSize: '14px'
+                }}
                 onClick={handleConfirm}
                 disabled={!selectedAvatar || isSaving}
               >
