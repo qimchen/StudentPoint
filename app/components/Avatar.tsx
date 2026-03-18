@@ -204,26 +204,26 @@ export default function Avatar({
           onClick={handleClose}
         >
           <div 
-            style={{ backgroundColor: 'white', borderRadius: '16px', width: '100%', maxWidth: '360px', height: '400px', display: 'flex', flexDirection: 'column', overflow: 'hidden' }}
+            style={{ backgroundColor: 'white', borderRadius: '12px', width: '100%', maxWidth: '240px', height: '270px', display: 'flex', flexDirection: 'column', overflow: 'hidden' }}
             onClick={e => e.stopPropagation()}
           >
-            <div style={{ padding: '12px', borderBottom: '1px solid #e5e7eb', flexShrink: 0 }}>
-              <h3 style={{ fontSize: '16px', fontWeight: 'bold', textAlign: 'center', margin: 0 }}>选择头像</h3>
+            <div style={{ padding: '8px', borderBottom: '1px solid #e5e7eb', flexShrink: 0 }}>
+              <h3 style={{ fontSize: '14px', fontWeight: 'bold', textAlign: 'center', margin: 0 }}>选择头像</h3>
             </div>
             
-            <div style={{ padding: '12px', overflowY: 'auto', flex: '1 1 auto' }}>
+            <div style={{ padding: '8px', overflowY: 'auto', flex: '1 1 auto' }}>
               {selectedAvatar && (
-                <div style={{ marginBottom: '8px', padding: '8px', backgroundColor: '#eff6ff', borderRadius: '12px' }}>
-                  <p style={{ fontSize: '12px', textAlign: 'center', color: '#6b7280', marginBottom: '4px', margin: 0 }}>已选头像</p>
-                  <div style={{ display: 'flex', justifyContent: 'center', marginTop: '4px' }}>
-                    <div style={{ width: '48px', height: '48px', borderRadius: '50%', overflow: 'hidden', border: '2px solid #3b82f6', backgroundColor: 'white' }}>
+                <div style={{ marginBottom: '6px', padding: '6px', backgroundColor: '#eff6ff', borderRadius: '8px' }}>
+                  <p style={{ fontSize: '10px', textAlign: 'center', color: '#6b7280', marginBottom: '2px', margin: 0 }}>已选头像</p>
+                  <div style={{ display: 'flex', justifyContent: 'center', marginTop: '2px' }}>
+                    <div style={{ width: '32px', height: '32px', borderRadius: '50%', overflow: 'hidden', border: '2px solid #3b82f6', backgroundColor: 'white' }}>
                       <img src={selectedAvatar} alt="预览" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                     </div>
                   </div>
                 </div>
               )}
               
-              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '6px' }}>
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '4px' }}>
                 {PRESET_AVATARS.map((url, index) => (
                   <button
                     key={index}
@@ -232,12 +232,12 @@ export default function Avatar({
                       aspectRatio: '1/1',
                       borderRadius: '50%',
                       overflow: 'hidden',
-                      border: selectedAvatar === url ? '2px solid #3b82f6' : '2px solid transparent',
+                      border: selectedAvatar === url ? '2px solid #3b82f6' : '1px solid transparent',
                       backgroundColor: '#f3f4f6',
                       cursor: 'pointer',
                       padding: 0,
-                      outline: selectedAvatar === url ? '2px solid #93c5fd' : 'none',
-                      outlineOffset: '2px'
+                      outline: selectedAvatar === url ? '1px solid #93c5fd' : 'none',
+                      outlineOffset: '1px'
                     }}
                     onClick={() => setSelectedAvatar(url)}
                   >
@@ -247,19 +247,19 @@ export default function Avatar({
               </div>
             </div>
             
-            <div style={{ padding: '12px', borderTop: '1px solid #e5e7eb', display: 'flex', gap: '8px', flexShrink: 0, backgroundColor: 'white' }}>
+            <div style={{ padding: '8px', borderTop: '1px solid #e5e7eb', display: 'flex', gap: '6px', flexShrink: 0, backgroundColor: 'white' }}>
               <button
                 type="button"
                 style={{
                   flex: 1,
-                  padding: '8px 12px',
-                  borderRadius: '8px',
-                  border: '2px solid #d1d5db',
+                  padding: '6px 8px',
+                  borderRadius: '6px',
+                  border: '1px solid #d1d5db',
                   backgroundColor: 'white',
                   color: '#374151',
                   fontWeight: '500',
                   cursor: 'pointer',
-                  fontSize: '14px'
+                  fontSize: '12px'
                 }}
                 onClick={handleClose}
               >
@@ -269,14 +269,14 @@ export default function Avatar({
                 type="button"
                 style={{
                   flex: 1,
-                  padding: '8px 12px',
-                  borderRadius: '8px',
+                  padding: '6px 8px',
+                  borderRadius: '6px',
                   border: 'none',
                   backgroundColor: selectedAvatar && !isSaving ? '#3b82f6' : '#d1d5db',
                   color: selectedAvatar && !isSaving ? 'white' : '#6b7280',
                   fontWeight: '500',
                   cursor: selectedAvatar && !isSaving ? 'pointer' : 'not-allowed',
-                  fontSize: '14px'
+                  fontSize: '12px'
                 }}
                 onClick={handleConfirm}
                 disabled={!selectedAvatar || isSaving}
