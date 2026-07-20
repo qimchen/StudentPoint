@@ -1,3 +1,4 @@
+import { getRequestContext } from '@cloudflare/next-on-pages';
 import type {
   Student,
   ScoreItem,
@@ -6,40 +7,27 @@ import type {
   Config,
 } from './types';
 
-// ✅ Cloudflare Pages Edge Runtime 只能使用 HTTP 协议访问 Redis
-// 使用 Upstash Redis REST API（基于 fetch），不能再用 ioredis（依赖 TCP）
-const REDIS_REST_URL = process.env.UPSTASH_REDIS_REST_URL || '';
-const REDIS_REST_TOKEN = process.env.UPSTASH_REDIS_REST_TOKEN || '';
+// ✅ 使用 Cloudflare KV（Pages 项目已绑定 KV_NAMESPACE）
+// Edge Runtime 通过 getRequestContext().env 访问绑定资源
+declare global {
+  interface Env {
+    KV_NAMESPACE: KVNamespace;
+  }
+}
 
-async function redisCommand<T = unknown>(args: string[]): Promise<T | null> {
-  if (!REDIS_REST_URL || !REDIS_REST_TOKEN) {
-    throw new Error('Missing UPSTASH_REDIS_REST_URL or UPSTASH_REDIS_REST_TOKEN');
-  }
-  const res = await fetch(`${REDIS_REST_URL}`, {
-    method: 'POST',
-    headers: {
-      Authorization: `Bearer ${REDIS_REST_TOKEN}`,
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify(args),
-  });
-  if (!res.ok) {
-    const text = await res.text();
-    throw new Error(`Redis REST error ${res.status}: ${text}`);
-  }
-  const data = (await res.json()) as { result?: T | null };
-  return data.result ?? null;
+function kv(): KVNamespace {
+  return getRequestContext().env.KV_NAMESPACE;
 }
 
 /**
- * 获取指定 key 的值（Redis REST 返回字符串，需手动反序列化）
+ * 获取指定 key 的值（KV 中存储 JSON 字符串，需手动反序列化）
  */
 export async function getValue<T>(key: string, fallback: T): Promise<T> {
   try {
-    const value = await redisCommand<string>(['GET', key]);
+    const value = await kv().get(key);
     return value ? (JSON.parse(value) as T) : fallback;
   } catch (error) {
-    console.error('Redis 获取数据失败:', error);
+    console.error('KV 获取数据失败:', error);
     return fallback;
   }
 }
@@ -52,9 +40,9 @@ export async function setValue(
   value: unknown,
 ): Promise<void> {
   try {
-    await redisCommand(['SET', key, JSON.stringify(value)]);
+    await kv().put(key, JSON.stringify(value));
   } catch (error) {
-    console.error('Redis 写入数据失败:', error);
+    console.error('KV 写入数据失败:', error);
     throw error;
   }
 }
