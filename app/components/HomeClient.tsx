@@ -21,6 +21,8 @@ import { summarizeStudentLoans } from '../../lib/utils/loan';
 import AnimatedNumber from './AnimatedNumber';
 import Avatar from './Avatar';
 import Confetti from './Confetti';
+import CreditProfile from './CreditProfile';
+import Link from 'next/link';
 
 ChartJS.register(
   CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend,
@@ -409,70 +411,20 @@ export default function HomeClient({ students: initialStudents, records, exRecor
                                 </div>
                             </div>
 
-                            {/* 借贷情况 */}
-                            <div className="mt-4 pt-4 border-t border-gray-100 dark:border-gray-700">
-                                <h3 className="text-sm font-semibold mb-2 flex items-center gap-1 text-gray-600 dark:text-gray-300">
-                                    <svg className="w-4 h-4 text-purple-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            {/* 信用档案（紧凑模式） */}
+                            <CreditProfile student={s} loans={loans} compact now={now} />
+
+                            {/* 查看完整信用档案 */}
+                            <div className="mt-3 text-center">
+                                <Link
+                                    href={`/students/${s.id}`}
+                                    className="inline-flex items-center gap-1 text-xs px-3 py-1.5 rounded-full bg-purple-50 dark:bg-purple-900/20 text-purple-600 dark:text-purple-300 hover:bg-purple-100 dark:hover:bg-purple-900/40 transition-colors"
+                                >
+                                    <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                                     </svg>
-                                    借贷情况
-                                </h3>
-                                {loanStat.activeCount === 0 && loanStat.closedCount === 0 ? (
-                                    <div className="bg-gray-50 dark:bg-gray-800/50 rounded-lg p-3 text-center">
-                                        <p className="text-xs text-gray-400">暂无借贷记录</p>
-                                    </div>
-                                ) : (
-                                    <div className="space-y-2">
-                                        <div className="grid grid-cols-3 gap-2 text-center text-xs">
-                                            <div className="bg-red-50 dark:bg-red-900/20 rounded-lg p-2">
-                                                <div className="text-gray-500 dark:text-gray-400">当前欠款</div>
-                                                <div className="text-base font-bold text-red-600 dark:text-red-400 mt-0.5">
-                                                    {fmtLoan(loanStat.totalDebt)}
-                                                </div>
-                                            </div>
-                                            <div className="bg-amber-50 dark:bg-amber-900/20 rounded-lg p-2">
-                                                <div className="text-gray-500 dark:text-gray-400">待结利息</div>
-                                                <div className="text-base font-bold text-amber-600 dark:text-amber-400 mt-0.5">
-                                                    {fmtLoan(loanStat.totalAccruedInterest)}
-                                                </div>
-                                            </div>
-                                            <div className="bg-green-50 dark:bg-green-900/20 rounded-lg p-2">
-                                                <div className="text-gray-500 dark:text-gray-400">累计已还</div>
-                                                <div className="text-base font-bold text-green-600 dark:text-green-400 mt-0.5">
-                                                    {fmtLoan(loanStat.totalRepaid)}
-                                                </div>
-                                            </div>
-                                        </div>
-                                        {loanStat.activeCount > 0 && (
-                                            <div className="space-y-1">
-                                                {loanStat.activeLoans.map((loan) => {
-                                                    const weeks = Math.floor((now - loan.lastResetTimestamp) / (7 * 24 * 60 * 60 * 1000));
-                                                    const debt = loan.currentPrincipal * Math.pow(1 + loan.weeklyInterestRate, Math.max(0, weeks));
-                                                    return (
-                                                        <div key={loan.id} className="flex justify-between items-center bg-gray-50 dark:bg-gray-800/50 rounded-lg px-3 py-1.5 text-xs">
-                                                            <span className="text-gray-600 dark:text-gray-300 truncate">
-                                                                {loan.purpose}
-                                                                <span className="text-gray-400 ml-1">
-                                                                    · {(loan.weeklyInterestRate * 100).toFixed(2)}%/周
-                                                                </span>
-                                                                {!loan.contractSigned && (
-                                                                    <span className="ml-1 text-amber-500">· 未签合同</span>
-                                                                )}
-                                                            </span>
-                                                            <span className="text-red-600 dark:text-red-400 font-bold whitespace-nowrap ml-2">
-                                                                欠 {fmtLoan(debt)}
-                                                            </span>
-                                                        </div>
-                                                    );
-                                                })}
-                                            </div>
-                                        )}
-                                        <div className="flex justify-between text-xs text-gray-400 pt-1">
-                                            <span>累计借出 {fmtLoan(loanStat.totalBorrowed)} · 已结清 {loanStat.closedCount} 笔</span>
-                                            <span>进行中 {loanStat.activeCount} 笔</span>
-                                        </div>
-                                    </div>
-                                )}
+                                    查看完整信用档案 →
+                                </Link>
                             </div>
                         </div>
                     );

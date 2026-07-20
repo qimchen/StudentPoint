@@ -85,7 +85,7 @@
       "continue": true
     },
     {
-      "src": "^/student/_next/data/aWBsyJvY3g8M_PMFyQQAc/(.*).json",
+      "src": "^/student/_next/data/5uR8nQQeoFLagXz2XKLoF/(.*).json",
       "dest": "/student/$1",
       "override": true,
       "continue": true,
@@ -129,7 +129,7 @@
         {
           "type": "header",
           "key": "x-prerender-revalidate",
-          "value": "88cd553a045c138a09f33a01d28cbf0b"
+          "value": "bf6f86bf854094a9fba71a4611983f37"
         }
       ],
       "middlewarePath": "student/middleware",
@@ -145,7 +145,7 @@
         {
           "type": "header",
           "key": "x-prerender-revalidate",
-          "value": "88cd553a045c138a09f33a01d28cbf0b"
+          "value": "bf6f86bf854094a9fba71a4611983f37"
         }
       ],
       "middlewarePath": "student/middleware",
@@ -162,7 +162,7 @@
           "key": "x-nextjs-data"
         }
       ],
-      "dest": "/student/_next/data/aWBsyJvY3g8M_PMFyQQAc/index.json",
+      "dest": "/student/_next/data/5uR8nQQeoFLagXz2XKLoF/index.json",
       "continue": true,
       "override": true
     },
@@ -174,7 +174,7 @@
           "key": "x-nextjs-data"
         }
       ],
-      "dest": "/student/_next/data/aWBsyJvY3g8M_PMFyQQAc/$1.json",
+      "dest": "/student/_next/data/5uR8nQQeoFLagXz2XKLoF/$1.json",
       "continue": true,
       "override": true
     },
@@ -214,7 +214,7 @@
       "handle": "filesystem"
     },
     {
-      "src": "^/student/_next/data/aWBsyJvY3g8M_PMFyQQAc/(.*).json",
+      "src": "^/student/_next/data/5uR8nQQeoFLagXz2XKLoF/(.*).json",
       "dest": "/student/$1",
       "continue": true,
       "has": [
@@ -295,7 +295,7 @@
           "key": "x-nextjs-data"
         }
       ],
-      "dest": "/student/_next/data/aWBsyJvY3g8M_PMFyQQAc/index.json",
+      "dest": "/student/_next/data/5uR8nQQeoFLagXz2XKLoF/index.json",
       "continue": true
     },
     {
@@ -306,36 +306,40 @@
           "key": "x-nextjs-data"
         }
       ],
-      "dest": "/student/_next/data/aWBsyJvY3g8M_PMFyQQAc/$1.json",
+      "dest": "/student/_next/data/5uR8nQQeoFLagXz2XKLoF/$1.json",
       "continue": true
     },
     {
-      "src": "^/student/_next/data/aWBsyJvY3g8M_PMFyQQAc/api/exchange\\-records/(?<nxtPid>[^/]+?)(?:/)?.json$",
+      "src": "^/student/_next/data/5uR8nQQeoFLagXz2XKLoF/api/exchange\\-records/(?<nxtPid>[^/]+?)(?:/)?.json$",
       "dest": "/student/api/exchange-records/[id]?nxtPid=$nxtPid"
     },
     {
-      "src": "^/student/_next/data/aWBsyJvY3g8M_PMFyQQAc/api/loans/(?<nxtPid>[^/]+?)(?:/)?.json$",
+      "src": "^/student/_next/data/5uR8nQQeoFLagXz2XKLoF/api/loans/(?<nxtPid>[^/]+?)(?:/)?.json$",
       "dest": "/student/api/loans/[id]?nxtPid=$nxtPid"
     },
     {
-      "src": "^/student/_next/data/aWBsyJvY3g8M_PMFyQQAc/api/loans/(?<nxtPid>[^/]+?)/repay(?:/)?.json$",
+      "src": "^/student/_next/data/5uR8nQQeoFLagXz2XKLoF/api/loans/(?<nxtPid>[^/]+?)/repay(?:/)?.json$",
       "dest": "/student/api/loans/[id]/repay?nxtPid=$nxtPid"
     },
     {
-      "src": "^/student/_next/data/aWBsyJvY3g8M_PMFyQQAc/api/loans/(?<nxtPid>[^/]+?)/sign(?:/)?.json$",
+      "src": "^/student/_next/data/5uR8nQQeoFLagXz2XKLoF/api/loans/(?<nxtPid>[^/]+?)/sign(?:/)?.json$",
       "dest": "/student/api/loans/[id]/sign?nxtPid=$nxtPid"
     },
     {
-      "src": "^/student/_next/data/aWBsyJvY3g8M_PMFyQQAc/api/score\\-items/(?<nxtPid>[^/]+?)(?:/)?.json$",
+      "src": "^/student/_next/data/5uR8nQQeoFLagXz2XKLoF/api/score\\-items/(?<nxtPid>[^/]+?)(?:/)?.json$",
       "dest": "/student/api/score-items/[id]?nxtPid=$nxtPid"
     },
     {
-      "src": "^/student/_next/data/aWBsyJvY3g8M_PMFyQQAc/api/score\\-records/(?<nxtPid>[^/]+?)(?:/)?.json$",
+      "src": "^/student/_next/data/5uR8nQQeoFLagXz2XKLoF/api/score\\-records/(?<nxtPid>[^/]+?)(?:/)?.json$",
       "dest": "/student/api/score-records/[id]?nxtPid=$nxtPid"
     },
     {
-      "src": "^/student/_next/data/aWBsyJvY3g8M_PMFyQQAc/api/students/(?<nxtPid>[^/]+?)/rate(?:/)?.json$",
+      "src": "^/student/_next/data/5uR8nQQeoFLagXz2XKLoF/api/students/(?<nxtPid>[^/]+?)/rate(?:/)?.json$",
       "dest": "/student/api/students/[id]/rate?nxtPid=$nxtPid"
+    },
+    {
+      "src": "^/student/_next/data/5uR8nQQeoFLagXz2XKLoF/students/(?<nxtPid>[^/]+?)(?:/)?.json$",
+      "dest": "/student/students/[id]?nxtPid=$nxtPid"
     },
     {
       "src": "^/student/api/exchange\\-records/(?<nxtPid>[^/]+?)(?:\\.rsc)(?:/)?$",
@@ -394,7 +398,15 @@
       "dest": "/student/api/students/[id]/rate?nxtPid=$nxtPid"
     },
     {
-      "src": "^/student/_next/data/aWBsyJvY3g8M_PMFyQQAc/(.*).json",
+      "src": "^/student/students/(?<nxtPid>[^/]+?)(?:\\.rsc)(?:/)?$",
+      "dest": "/student/students/[id].rsc?nxtPid=$nxtPid"
+    },
+    {
+      "src": "^/student/students/(?<nxtPid>[^/]+?)(?:/)?$",
+      "dest": "/student/students/[id]?nxtPid=$nxtPid"
+    },
+    {
+      "src": "^/student/_next/data/5uR8nQQeoFLagXz2XKLoF/(.*).json",
       "headers": {
         "x-nextjs-matched-path": "/$1"
       },
@@ -402,14 +414,14 @@
       "override": true
     },
     {
-      "src": "^/student/_next/data/aWBsyJvY3g8M_PMFyQQAc/(.*).json",
+      "src": "^/student/_next/data/5uR8nQQeoFLagXz2XKLoF/(.*).json",
       "dest": "__next_data_catchall"
     },
     {
       "handle": "hit"
     },
     {
-      "src": "/student/_next/static/(?:[^/]+/pages|pages|chunks|runtime|css|image|media|aWBsyJvY3g8M_PMFyQQAc)/.+",
+      "src": "/student/_next/static/(?:[^/]+/pages|pages|chunks|runtime|css|image|media|5uR8nQQeoFLagXz2XKLoF)/.+",
       "headers": {
         "cache-control": "public,max-age=31536000,immutable"
       },

@@ -2,6 +2,8 @@
 import React, { useEffect, useState, useCallback } from 'react';
 import { apiFetch } from '@/lib/utils/api';
 import type { Loan, Student } from '@/lib/types';
+import LoanContract from '@/app/components/LoanContract';
+import Link from 'next/link';
 
 interface LoanWithComputed extends Loan {
   studentName?: string;
@@ -30,7 +32,7 @@ export default function LoanManagement({ students, onRefresh, showToast }: Props
   const [filter, setFilter] = useState<'all' | 'active' | 'closed'>('all');
   const [filterStudent, setFilterStudent] = useState<string>('all');
 
-  // 新建借款表单
+  // 新建借款表单（步骤1）
   const [showCreate, setShowCreate] = useState(false);
   const [createForm, setCreateForm] = useState({
     studentId: '',
@@ -40,15 +42,19 @@ export default function LoanManagement({ students, onRefresh, showToast }: Props
     signer: '',
     contractSigned: true,
   });
+
+  // 步骤2：合同签约（创建借款后弹出）
+  const [pendingLoan, setPendingLoan] = useState<Loan | null>(null);
+  const [pendingStudent, setPendingStudent] = useState<Student | null>(null);
+
+  // 查看已有合同
+  const [viewLoan, setViewLoan] = useState<Loan | null>(null);
+
   const [submitting, setSubmitting] = useState(false);
 
   // 还款弹窗
   const [repayTarget, setRepayTarget] = useState<LoanWithComputed | null>(null);
   const [repayAmount, setRepayAmount] = useState<number>(0);
-
-  // 签署弹窗
-  const [signTarget, setSignTarget] = useState<LoanWithComputed | null>(null);
-  const [signerName, setSignerName] = useState<string>('');
 
   const fetchLoans = useCallback(async () => {
     setLoading(true);
@@ -89,32 +95,37 @@ export default function LoanManagement({ students, onRefresh, showToast }: Props
 
     setSubmitting(true);
     try {
+      // 步骤1：创建借款（不带 signer，先创建为未签合同状态）
       const res = await apiFetch('/api/loans', {
         method: 'POST',
         body: JSON.stringify({
           studentId,
           principal,
-          weeklyInterestRate: weeklyInterestRate / 100, // 百分比转小数
+          weeklyInterestRate: weeklyInterestRate / 100,
           purpose: purpose.trim(),
-          signer: contractSigned ? signer.trim() : undefined,
+          // 不传 signer，先创建未签状态，签约后再调 sign API
         }),
       });
-      const data = (await res.json()) as { success: boolean; message: string };
-      if (data.success) {
-        showToast(data.message, 'success');
+      const data = (await res.json()) as { success: boolean; message: string; loan?: Loan };
+      if (data.success && data.loan) {
+        showToast('借款已创建，请完成合同签署', 'success');
         setShowCreate(false);
+        const stu = students.find((s) => s.id === studentId) ?? null;
+        // 步骤2：弹出合同签署界面
+        setPendingStudent(stu);
+        setPendingLoan(data.loan);
         setCreateForm({
           studentId: '',
           principal: 100,
           weeklyInterestRate: 2.5,
           purpose: '',
-          signer: '',
+          signer: signer || stu?.name || '',
           contractSigned: true,
         });
         await fetchLoans();
         onRefresh();
       } else {
-        showToast(data.message, 'error');
+        showToast(data.message || '创建失败', 'error');
       }
     } catch {
       showToast('创建借款失败', 'error');
@@ -122,6 +133,51 @@ export default function LoanManagement({ students, onRefresh, showToast }: Props
       setSubmitting(false);
     }
   };
+
+  // 合同签约完成回调（新建借款的步骤2）
+  const handlePendingSigned = useCallback(
+    async (signature: string, signerName: string) => {
+      if (!pendingLoan) return;
+      const res = await apiFetch(`/api/loans/${pendingLoan.id}/sign`, {
+        method: 'POST',
+        body: JSON.stringify({ signer: signerName, signature }),
+      });
+      const data = (await res.json()) as { success: boolean; message: string };
+      if (data.success) {
+        showToast('合同签署成功', 'success');
+        setPendingLoan(null);
+        setPendingStudent(null);
+        await fetchLoans();
+        onRefresh();
+      } else {
+        showToast(data.message || '签署失败', 'error');
+        throw new Error(data.message);
+      }
+    },
+    [pendingLoan, fetchLoans, onRefresh, showToast],
+  );
+
+  // 列表中已有贷款的补签
+  const handleViewSigned = useCallback(
+    async (signature: string, signerName: string) => {
+      if (!viewLoan) return;
+      const res = await apiFetch(`/api/loans/${viewLoan.id}/sign`, {
+        method: 'POST',
+        body: JSON.stringify({ signer: signerName, signature }),
+      });
+      const data = (await res.json()) as { success: boolean; message: string };
+      if (data.success) {
+        showToast('合同签署成功', 'success');
+        setViewLoan(null);
+        await fetchLoans();
+        onRefresh();
+      } else {
+        showToast(data.message || '签署失败', 'error');
+        throw new Error(data.message);
+      }
+    },
+    [viewLoan, fetchLoans, onRefresh, showToast],
+  );
 
   const handleRepay = async () => {
     if (!repayTarget) return;
@@ -147,34 +203,6 @@ export default function LoanManagement({ students, onRefresh, showToast }: Props
       }
     } catch {
       showToast('还款失败', 'error');
-    } finally {
-      setSubmitting(false);
-    }
-  };
-
-  const handleSign = async () => {
-    if (!signTarget) return;
-    if (!signerName.trim()) {
-      showToast('请填写签署人姓名', 'error');
-      return;
-    }
-    setSubmitting(true);
-    try {
-      const res = await apiFetch(`/api/loans/${signTarget.id}/sign`, {
-        method: 'POST',
-        body: JSON.stringify({ signer: signerName.trim() }),
-      });
-      const data = (await res.json()) as { success: boolean; message: string };
-      if (data.success) {
-        showToast(data.message, 'success');
-        setSignTarget(null);
-        setSignerName('');
-        await fetchLoans();
-      } else {
-        showToast(data.message, 'error');
-      }
-    } catch {
-      showToast('签署失败', 'error');
     } finally {
       setSubmitting(false);
     }
@@ -306,72 +334,79 @@ export default function LoanManagement({ students, onRefresh, showToast }: Props
                 </tr>
               </thead>
               <tbody className="divide-y divide-gray-100 dark:divide-gray-700">
-                {filtered.map((loan) => (
-                  <tr key={loan.id} className="hover:bg-gray-50 dark:hover:bg-gray-700/30">
-                    <td className="px-3 py-2">
-                      <div className="font-medium text-gray-800 dark:text-gray-100">{loan.studentName ?? '未知'}</div>
-                      <div className="text-xs text-gray-500 truncate max-w-[150px]">{loan.purpose}</div>
-                    </td>
-                    <td className="px-3 py-2 text-xs text-gray-600 dark:text-gray-300 whitespace-nowrap">{loan.borrowTime}</td>
-                    <td className="px-3 py-2 text-right text-blue-600 dark:text-blue-400 font-medium">{fmt(loan.principal)}</td>
-                    <td className="px-3 py-2 text-right text-gray-600 dark:text-gray-300">{pct(loan.weeklyInterestRate)}</td>
-                    <td className="px-3 py-2 text-right text-red-600 dark:text-red-400 font-bold">{fmt(loan.currentDebt)}</td>
-                    <td className="px-3 py-2 text-right text-amber-600 dark:text-amber-400">{fmt(loan.accruedInterest)}</td>
-                    <td className="px-3 py-2 text-center text-gray-600 dark:text-gray-300">{loan.elapsedWeeks}</td>
-                    <td className="px-3 py-2 text-center">
-                      {loan.contractSigned ? (
-                        <span className="text-xs text-green-600 dark:text-green-400" title={`${loan.contractSigner} · ${loan.contractSignTime}`}>
-                          ✓ 已签
+                {filtered.map((loan) => {
+                  const stu = students.find((s) => s.id === loan.studentId);
+                  return (
+                    <tr key={loan.id} className="hover:bg-gray-50 dark:hover:bg-gray-700/30">
+                      <td className="px-3 py-2">
+                        <div className="font-medium text-gray-800 dark:text-gray-100">{loan.studentName ?? '未知'}</div>
+                        <div className="text-xs text-gray-500 truncate max-w-[150px]">{loan.purpose}</div>
+                        {stu && (
+                          <Link
+                            href={`/students/${stu.id}`}
+                            className="text-[10px] text-purple-500 hover:underline"
+                          >
+                            查看信用档案 →
+                          </Link>
+                        )}
+                      </td>
+                      <td className="px-3 py-2 text-xs text-gray-600 dark:text-gray-300 whitespace-nowrap">{loan.borrowTime}</td>
+                      <td className="px-3 py-2 text-right text-blue-600 dark:text-blue-400 font-medium">{fmt(loan.principal)}</td>
+                      <td className="px-3 py-2 text-right text-gray-600 dark:text-gray-300">{pct(loan.weeklyInterestRate)}</td>
+                      <td className="px-3 py-2 text-right text-red-600 dark:text-red-400 font-bold">{fmt(loan.currentDebt)}</td>
+                      <td className="px-3 py-2 text-right text-amber-600 dark:text-amber-400">{fmt(loan.accruedInterest)}</td>
+                      <td className="px-3 py-2 text-center text-gray-600 dark:text-gray-300">{loan.elapsedWeeks}</td>
+                      <td className="px-3 py-2 text-center">
+                        <button
+                          onClick={() => setViewLoan(loan)}
+                          className={`text-xs underline hover:no-underline ${
+                            loan.contractSigned
+                              ? 'text-green-600 dark:text-green-400'
+                              : 'text-amber-600 dark:text-amber-400'
+                          }`}
+                          title={loan.contractSigned ? `${loan.contractSigner} · ${loan.contractSignTime}` : '点击查看/补签合同'}
+                        >
+                          {loan.contractSigned ? '✓ 已签' : '未签 · 补签'}
+                        </button>
+                      </td>
+                      <td className="px-3 py-2 text-center">
+                        <span className={`badge ${loan.status === 'active' ? 'badge-warning' : 'badge-success'}`}>
+                          {loan.status === 'active' ? '进行中' : '已结清'}
                         </span>
-                      ) : (
+                      </td>
+                      <td className="px-3 py-2 text-center whitespace-nowrap">
+                        {loan.status === 'active' && (
+                          <button
+                            onClick={() => {
+                              setRepayTarget(loan);
+                              setRepayAmount(Math.ceil(loan.currentDebt));
+                            }}
+                            className="text-xs px-2 py-1 rounded bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-300 hover:bg-green-200 dark:hover:bg-green-900/50 mr-1"
+                          >
+                            还款
+                          </button>
+                        )}
                         <button
-                          onClick={() => {
-                            setSignTarget(loan);
-                            setSignerName('');
-                          }}
-                          className="text-xs text-amber-600 dark:text-amber-400 underline hover:text-amber-700"
+                          onClick={() => handleDelete(loan, loan.status === 'active')}
+                          className="text-xs px-2 py-1 rounded bg-red-100 dark:bg-red-900/30 text-red-700 dark:text-red-300 hover:bg-red-200 dark:hover:bg-red-900/50"
                         >
-                          未签 · 补签
+                          删除
                         </button>
-                      )}
-                    </td>
-                    <td className="px-3 py-2 text-center">
-                      <span className={`badge ${loan.status === 'active' ? 'badge-warning' : 'badge-success'}`}>
-                        {loan.status === 'active' ? '进行中' : '已结清'}
-                      </span>
-                    </td>
-                    <td className="px-3 py-2 text-center whitespace-nowrap">
-                      {loan.status === 'active' && (
-                        <button
-                          onClick={() => {
-                            setRepayTarget(loan);
-                            setRepayAmount(Math.ceil(loan.currentDebt));
-                          }}
-                          className="text-xs px-2 py-1 rounded bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-300 hover:bg-green-200 dark:hover:bg-green-900/50 mr-1"
-                        >
-                          还款
-                        </button>
-                      )}
-                      <button
-                        onClick={() => handleDelete(loan, loan.status === 'active')}
-                        className="text-xs px-2 py-1 rounded bg-red-100 dark:bg-red-900/30 text-red-700 dark:text-red-300 hover:bg-red-200 dark:hover:bg-red-900/50"
-                      >
-                        删除
-                      </button>
-                    </td>
-                  </tr>
-                ))}
+                      </td>
+                    </tr>
+                  );
+                })}
               </tbody>
             </table>
           </div>
         )}
       </div>
 
-      {/* 新建借款弹窗 */}
+      {/* 新建借款弹窗（步骤1） */}
       {showCreate && (
         <div className="fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4" onClick={() => setShowCreate(false)}>
           <div className="bg-white dark:bg-gray-800 rounded-xl shadow-xl max-w-lg w-full p-6 max-h-[90vh] overflow-y-auto" onClick={(e) => e.stopPropagation()}>
-            <h3 className="text-lg font-semibold mb-4 flex items-center gap-2">
+            <h3 className="text-lg font-semibold mb-1 flex items-center gap-2">
               <span className="w-8 h-8 bg-purple-100 dark:bg-purple-900/40 rounded-lg flex items-center justify-center">
                 <svg className="w-4 h-4 text-purple-600 dark:text-purple-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1" />
@@ -379,6 +414,7 @@ export default function LoanManagement({ students, onRefresh, showToast }: Props
               </span>
               新建借款
             </h3>
+            <p className="text-xs text-gray-500 mb-4">步骤 1/2 · 填写借款信息，创建后将进入合同签署</p>
             <form onSubmit={handleCreate} className="space-y-4">
               <div>
                 <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">学生 *</label>
@@ -433,37 +469,14 @@ export default function LoanManagement({ students, onRefresh, showToast }: Props
                   required
                 />
               </div>
-              <div className="border-t border-gray-200 dark:border-gray-700 pt-3">
-                <label className="flex items-center gap-2 cursor-pointer">
-                  <input
-                    type="checkbox"
-                    checked={createForm.contractSigned}
-                    onChange={(e) => setCreateForm({ ...createForm, contractSigned: e.target.checked })}
-                    className="rounded"
-                  />
-                  <span className="text-sm text-gray-700 dark:text-gray-300">同时签署电子合同</span>
-                </label>
-                {createForm.contractSigned && (
-                  <div className="mt-3">
-                    <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">签署人姓名 *</label>
-                    <input
-                      type="text"
-                      value={createForm.signer}
-                      onChange={(e) => setCreateForm({ ...createForm, signer: e.target.value })}
-                      className="input-control"
-                      placeholder="管理员或学生本人姓名"
-                      required
-                    />
-                    <p className="text-xs text-gray-500 mt-1">
-                      签署即表示已知悉利率、复利计算方式与还款义务。
-                    </p>
-                  </div>
-                )}
+              <div className="bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-900/40 rounded-lg p-3 text-xs text-amber-700 dark:text-amber-300">
+                <strong>下一步：</strong>创建借款后将弹出仪式感合同页面，
+                由学生本人或管理员代为手写签名，签署后可下载合同图片保存。
               </div>
               <div className="flex gap-2 pt-2">
                 <button type="button" onClick={() => setShowCreate(false)} className="btn btn-outline flex-1">取消</button>
                 <button type="submit" disabled={submitting} className="btn btn-primary flex-1">
-                  {submitting ? '提交中...' : '确认借款'}
+                  {submitting ? '创建中...' : '创建并签署合同'}
                 </button>
               </div>
             </form>
@@ -528,41 +541,34 @@ export default function LoanManagement({ students, onRefresh, showToast }: Props
         </div>
       )}
 
-      {/* 签署合同弹窗 */}
-      {signTarget && (
-        <div className="fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4" onClick={() => setSignTarget(null)}>
-          <div className="bg-white dark:bg-gray-800 rounded-xl shadow-xl max-w-md w-full p-6" onClick={(e) => e.stopPropagation()}>
-            <h3 className="text-lg font-semibold mb-2">补签借款合同</h3>
-            <div className="text-sm text-gray-600 dark:text-gray-300 space-y-1 mb-4 p-3 rounded-lg bg-gray-50 dark:bg-gray-700/50">
-              <div>学生：{signTarget.studentName}</div>
-              <div>本金：{fmt(signTarget.principal)} 积分</div>
-              <div>周利率：{pct(signTarget.weeklyInterestRate)}</div>
-              <div>借款时间：{signTarget.borrowTime}</div>
-              <div>借款用途：{signTarget.purpose}</div>
-            </div>
-            <div className="mb-4 p-3 rounded-lg bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-900/40 text-xs text-amber-700 dark:text-amber-300">
-              <strong>合同条款：</strong>
-              借款人已知悉上述本金、周利率及复利计息方式（欠款 = 本金 × (1 + 周利率)^周数），
-              承诺按期还款。逾期利息按周复利累计。
-            </div>
-            <div className="mb-4">
-              <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">签署人姓名 *</label>
-              <input
-                type="text"
-                value={signerName}
-                onChange={(e) => setSignerName(e.target.value)}
-                className="input-control"
-                placeholder="签署人姓名"
-              />
-            </div>
-            <div className="flex gap-2">
-              <button type="button" onClick={() => setSignTarget(null)} className="btn btn-outline flex-1">取消</button>
-              <button type="button" onClick={handleSign} disabled={submitting} className="btn btn-primary flex-1">
-                {submitting ? '处理中...' : '确认签署'}
-              </button>
-            </div>
-          </div>
-        </div>
+      {/* 新建借款后的合同签约弹窗（步骤2） */}
+      {pendingLoan && pendingStudent && (
+        <LoanContract
+          loan={pendingLoan}
+          student={pendingStudent}
+          defaultSigner={createForm.signer || pendingStudent.name}
+          onClose={() => {
+            // 关闭即视为放弃签约（贷款已创建为未签状态）
+            if (confirm('放弃签署合同？借款已创建为未签状态，可稍后补签。')) {
+              setPendingLoan(null);
+              setPendingStudent(null);
+            }
+          }}
+          onSigned={handlePendingSigned}
+        />
+      )}
+
+      {/* 查看已有合同/补签弹窗 */}
+      {viewLoan && (
+        <LoanContract
+          loan={viewLoan}
+          student={students.find((s) => s.id === viewLoan.studentId)}
+          defaultSigner={viewLoan.contractSigner || students.find((s) => s.id === viewLoan.studentId)?.name || ''}
+          existingSignature={viewLoan.contractSignature}
+          readOnly={viewLoan.contractSigned}
+          onClose={() => setViewLoan(null)}
+          onSigned={handleViewSigned}
+        />
       )}
     </div>
   );

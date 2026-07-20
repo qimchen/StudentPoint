@@ -11,7 +11,7 @@ export async function POST(
   { params }: { params: { id: string } }
 ) {
   try {
-    const { signer } = (await request.json()) as { signer: string };
+    const { signer, signature } = (await request.json()) as { signer: string; signature?: string };
 
     if (!signer || signer.trim().length === 0) {
       return NextResponse.json({ success: false, message: '请填写签署人姓名' }, { status: 400 });
@@ -34,6 +34,10 @@ export async function POST(
     loan.contractSigned = true;
     loan.contractSignTime = getNowInGMT8();
     loan.contractSigner = signer.trim();
+    // 保存签名图片（dataURL）。注意：KV 单 key 限制 25MB，单条签名通常 10-50KB
+    if (signature && typeof signature === 'string' && signature.startsWith('data:image/')) {
+      loan.contractSignature = signature;
+    }
 
     loans[index] = loan;
     await setValue('loans', loans);

@@ -42,9 +42,10 @@ export async function POST(request: Request) {
       weeklyInterestRate?: number;
       purpose: string;
       signer?: string;       // 合同签署人姓名（管理员代签）
+      signature?: string;    // 手写签名 dataURL
     };
 
-    const { studentId, principal, purpose, signer } = body;
+    const { studentId, principal, purpose, signer, signature } = body;
 
     // 参数校验
     if (!studentId) {
@@ -92,6 +93,8 @@ export async function POST(request: Request) {
       contractSigned: !!signer,
       contractSignTime: signer ? nowStr : undefined,
       contractSigner: signer || undefined,
+      // 保存手写签名图片
+      contractSignature: signer && signature && signature.startsWith('data:image/') ? signature : undefined,
     };
 
     loans.push(loan);

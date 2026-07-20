@@ -77,4 +77,5 @@ export interface Loan {
   contractSigned?: boolean;
   contractSignTime?: string;     // 'YYYY-MM-DD HH:mm:ss'
   contractSigner?: string;       // 签署人姓名
+  contractSignature?: string;    // 签名图片 dataURL（PNG base64），可选保存
 }
