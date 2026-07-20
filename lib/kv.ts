@@ -7,13 +7,13 @@ import type {
   Config,
 } from './types';
 
-// ✅ 使用 Cloudflare KV（Pages 项目已绑定 KV_NAMESPACE）
+// ✅ 使用 Cloudflare KV（Pages 项目已绑定 KV namespace，绑定名 KV）
 // Edge Runtime 通过 getRequestContext().env 访问绑定资源
-// KV_NAMESPACE 绑定通过 env.d.ts 中的 Env 接口声明
+// Env 类型声明见 env.d.ts
 
 function kv(): KVNamespace {
   const env = getRequestContext().env as unknown as Env;
-  return env.KV_NAMESPACE;
+  return env.KV;
 }
 
 /**
