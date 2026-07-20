@@ -85,7 +85,7 @@
       "continue": true
     },
     {
-      "src": "^/student/_next/data/c8GGIht61GBqn2UB7f_UZ/(.*).json",
+      "src": "^/student/_next/data/xF5HbdMNTJay8sqQWJ7Vw/(.*).json",
       "dest": "/student/$1",
       "override": true,
       "continue": true,
@@ -122,7 +122,7 @@
         {
           "type": "header",
           "key": "x-prerender-revalidate",
-          "value": "ed59a87641b68b5b40b6831a778bcb15"
+          "value": "2b44927d837441b72e15373db151f36d"
         }
       ],
       "middlewarePath": "student/middleware",
@@ -138,7 +138,7 @@
         {
           "type": "header",
           "key": "x-prerender-revalidate",
-          "value": "ed59a87641b68b5b40b6831a778bcb15"
+          "value": "2b44927d837441b72e15373db151f36d"
         }
       ],
       "middlewarePath": "student/middleware",
@@ -155,7 +155,7 @@
           "key": "x-nextjs-data"
         }
       ],
-      "dest": "/student/_next/data/c8GGIht61GBqn2UB7f_UZ/index.json",
+      "dest": "/student/_next/data/xF5HbdMNTJay8sqQWJ7Vw/index.json",
       "continue": true,
       "override": true
     },
@@ -167,7 +167,7 @@
           "key": "x-nextjs-data"
         }
       ],
-      "dest": "/student/_next/data/c8GGIht61GBqn2UB7f_UZ/$1.json",
+      "dest": "/student/_next/data/xF5HbdMNTJay8sqQWJ7Vw/$1.json",
       "continue": true,
       "override": true
     },
@@ -207,7 +207,7 @@
       "handle": "filesystem"
     },
     {
-      "src": "^/student/_next/data/c8GGIht61GBqn2UB7f_UZ/(.*).json",
+      "src": "^/student/_next/data/xF5HbdMNTJay8sqQWJ7Vw/(.*).json",
       "dest": "/student/$1",
       "continue": true,
       "has": [
@@ -288,7 +288,7 @@
           "key": "x-nextjs-data"
         }
       ],
-      "dest": "/student/_next/data/c8GGIht61GBqn2UB7f_UZ/index.json",
+      "dest": "/student/_next/data/xF5HbdMNTJay8sqQWJ7Vw/index.json",
       "continue": true
     },
     {
@@ -299,23 +299,23 @@
           "key": "x-nextjs-data"
         }
       ],
-      "dest": "/student/_next/data/c8GGIht61GBqn2UB7f_UZ/$1.json",
+      "dest": "/student/_next/data/xF5HbdMNTJay8sqQWJ7Vw/$1.json",
       "continue": true
     },
     {
-      "src": "^/student/_next/data/c8GGIht61GBqn2UB7f_UZ/api/exchange\\-records/(?<nxtPid>[^/]+?)(?:/)?.json$",
+      "src": "^/student/_next/data/xF5HbdMNTJay8sqQWJ7Vw/api/exchange\\-records/(?<nxtPid>[^/]+?)(?:/)?.json$",
       "dest": "/student/api/exchange-records/[id]?nxtPid=$nxtPid"
     },
     {
-      "src": "^/student/_next/data/c8GGIht61GBqn2UB7f_UZ/api/score\\-items/(?<nxtPid>[^/]+?)(?:/)?.json$",
+      "src": "^/student/_next/data/xF5HbdMNTJay8sqQWJ7Vw/api/score\\-items/(?<nxtPid>[^/]+?)(?:/)?.json$",
       "dest": "/student/api/score-items/[id]?nxtPid=$nxtPid"
     },
     {
-      "src": "^/student/_next/data/c8GGIht61GBqn2UB7f_UZ/api/score\\-records/(?<nxtPid>[^/]+?)(?:/)?.json$",
+      "src": "^/student/_next/data/xF5HbdMNTJay8sqQWJ7Vw/api/score\\-records/(?<nxtPid>[^/]+?)(?:/)?.json$",
       "dest": "/student/api/score-records/[id]?nxtPid=$nxtPid"
     },
     {
-      "src": "^/student/_next/data/c8GGIht61GBqn2UB7f_UZ/api/students/(?<nxtPid>[^/]+?)/rate(?:/)?.json$",
+      "src": "^/student/_next/data/xF5HbdMNTJay8sqQWJ7Vw/api/students/(?<nxtPid>[^/]+?)/rate(?:/)?.json$",
       "dest": "/student/api/students/[id]/rate?nxtPid=$nxtPid"
     },
     {
@@ -351,7 +351,7 @@
       "dest": "/student/api/students/[id]/rate?nxtPid=$nxtPid"
     },
     {
-      "src": "^/student/_next/data/c8GGIht61GBqn2UB7f_UZ/(.*).json",
+      "src": "^/student/_next/data/xF5HbdMNTJay8sqQWJ7Vw/(.*).json",
       "headers": {
         "x-nextjs-matched-path": "/$1"
       },
@@ -359,14 +359,14 @@
       "override": true
     },
     {
-      "src": "^/student/_next/data/c8GGIht61GBqn2UB7f_UZ/(.*).json",
+      "src": "^/student/_next/data/xF5HbdMNTJay8sqQWJ7Vw/(.*).json",
       "dest": "__next_data_catchall"
     },
     {
       "handle": "hit"
     },
     {
-      "src": "/student/_next/static/(?:[^/]+/pages|pages|chunks|runtime|css|image|media|c8GGIht61GBqn2UB7f_UZ)/.+",
+      "src": "/student/_next/static/(?:[^/]+/pages|pages|chunks|runtime|css|image|media|xF5HbdMNTJay8sqQWJ7Vw)/.+",
       "headers": {
         "cache-control": "public,max-age=31536000,immutable"
       },

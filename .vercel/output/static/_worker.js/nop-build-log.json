@@ -1,5 +1,5 @@
 {
-  "timestamp": 1784516534750,
+  "timestamp": 1784518284012,
   "outputDir": ".vercel/output/static/_worker.js",
   "versions": {
     "@cloudflare/next-on-pages": "1.13.16"
@@ -24,11 +24,11 @@
               "version": "14.2.35"
             },
             "environment": {
-              "__NEXT_BUILD_ID": "c8GGIht61GBqn2UB7f_UZ",
-              "NEXT_SERVER_ACTIONS_ENCRYPTION_KEY": "ETzstLaUea2jXEGrl4jF8hoo1D5rVCvjEXv8mrFTx7M=",
-              "__NEXT_PREVIEW_MODE_ID": "ed59a87641b68b5b40b6831a778bcb15",
-              "__NEXT_PREVIEW_MODE_ENCRYPTION_KEY": "8df3ff1a4775dd77c181d2fb18eff96e7f4fdb6cb744e6b9f23263867ad46d24",
-              "__NEXT_PREVIEW_MODE_SIGNING_KEY": "35840d3d7b5f1b681f0d6385a8770fc676706565a1d8fac0f97c85db06d9963d"
+              "__NEXT_BUILD_ID": "xF5HbdMNTJay8sqQWJ7Vw",
+              "NEXT_SERVER_ACTIONS_ENCRYPTION_KEY": "3alrRcnr+yTf3zdDN2OlB1QU7FdXxHhG6xkrvkp+YEM=",
+              "__NEXT_PREVIEW_MODE_ID": "2b44927d837441b72e15373db151f36d",
+              "__NEXT_PREVIEW_MODE_ENCRYPTION_KEY": "3f252a7651fd119962e1767fa7dbc3a05414547a8304fc3d943301af8c3c6a7e",
+              "__NEXT_PREVIEW_MODE_SIGNING_KEY": "c36040d41d4edf80ecdf643517497f21654b0edef073379a4529ed29e96fde57"
             }
           },
           "route": {
@@ -38,7 +38,7 @@
             ]
           },
           "outputPath": "__next-on-pages-dist__/functions/student/api/admin/password.func.js",
-          "outputByteSize": 10411
+          "outputByteSize": 10463
         },
         {
           "relativePath": "/student/api/avatar.func",
@@ -53,11 +53,11 @@
               "version": "14.2.35"
             },
             "environment": {
-              "__NEXT_BUILD_ID": "c8GGIht61GBqn2UB7f_UZ",
-              "NEXT_SERVER_ACTIONS_ENCRYPTION_KEY": "ETzstLaUea2jXEGrl4jF8hoo1D5rVCvjEXv8mrFTx7M=",
-              "__NEXT_PREVIEW_MODE_ID": "ed59a87641b68b5b40b6831a778bcb15",
-              "__NEXT_PREVIEW_MODE_ENCRYPTION_KEY": "8df3ff1a4775dd77c181d2fb18eff96e7f4fdb6cb744e6b9f23263867ad46d24",
-              "__NEXT_PREVIEW_MODE_SIGNING_KEY": "35840d3d7b5f1b681f0d6385a8770fc676706565a1d8fac0f97c85db06d9963d"
+              "__NEXT_BUILD_ID": "xF5HbdMNTJay8sqQWJ7Vw",
+              "NEXT_SERVER_ACTIONS_ENCRYPTION_KEY": "3alrRcnr+yTf3zdDN2OlB1QU7FdXxHhG6xkrvkp+YEM=",
+              "__NEXT_PREVIEW_MODE_ID": "2b44927d837441b72e15373db151f36d",
+              "__NEXT_PREVIEW_MODE_ENCRYPTION_KEY": "3f252a7651fd119962e1767fa7dbc3a05414547a8304fc3d943301af8c3c6a7e",
+              "__NEXT_PREVIEW_MODE_SIGNING_KEY": "c36040d41d4edf80ecdf643517497f21654b0edef073379a4529ed29e96fde57"
             }
           },
           "route": {
@@ -67,7 +67,7 @@
             ]
           },
           "outputPath": "__next-on-pages-dist__/functions/student/api/avatar.func.js",
-          "outputByteSize": 10507
+          "outputByteSize": 10559
         },
         {
           "relativePath": "/student/api/exchange-records/[id].func",
@@ -82,11 +82,11 @@
               "version": "14.2.35"
             },
             "environment": {
-              "__NEXT_BUILD_ID": "c8GGIht61GBqn2UB7f_UZ",
-              "NEXT_SERVER_ACTIONS_ENCRYPTION_KEY": "ETzstLaUea2jXEGrl4jF8hoo1D5rVCvjEXv8mrFTx7M=",
-              "__NEXT_PREVIEW_MODE_ID": "ed59a87641b68b5b40b6831a778bcb15",
-              "__NEXT_PREVIEW_MODE_ENCRYPTION_KEY": "8df3ff1a4775dd77c181d2fb18eff96e7f4fdb6cb744e6b9f23263867ad46d24",
-              "__NEXT_PREVIEW_MODE_SIGNING_KEY": "35840d3d7b5f1b681f0d6385a8770fc676706565a1d8fac0f97c85db06d9963d"
+              "__NEXT_BUILD_ID": "xF5HbdMNTJay8sqQWJ7Vw",
+              "NEXT_SERVER_ACTIONS_ENCRYPTION_KEY": "3alrRcnr+yTf3zdDN2OlB1QU7FdXxHhG6xkrvkp+YEM=",
+              "__NEXT_PREVIEW_MODE_ID": "2b44927d837441b72e15373db151f36d",
+              "__NEXT_PREVIEW_MODE_ENCRYPTION_KEY": "3f252a7651fd119962e1767fa7dbc3a05414547a8304fc3d943301af8c3c6a7e",
+              "__NEXT_PREVIEW_MODE_SIGNING_KEY": "c36040d41d4edf80ecdf643517497f21654b0edef073379a4529ed29e96fde57"
             }
           },
           "route": {
@@ -96,7 +96,7 @@
             ]
           },
           "outputPath": "__next-on-pages-dist__/functions/student/api/exchange-records/[id].func.js",
-          "outputByteSize": 10850
+          "outputByteSize": 10902
         },
         {
           "relativePath": "/student/api/exchange-records.func",
@@ -111,11 +111,11 @@
               "version": "14.2.35"
             },
             "environment": {
-              "__NEXT_BUILD_ID": "c8GGIht61GBqn2UB7f_UZ",
-              "NEXT_SERVER_ACTIONS_ENCRYPTION_KEY": "ETzstLaUea2jXEGrl4jF8hoo1D5rVCvjEXv8mrFTx7M=",
-              "__NEXT_PREVIEW_MODE_ID": "ed59a87641b68b5b40b6831a778bcb15",
-              "__NEXT_PREVIEW_MODE_ENCRYPTION_KEY": "8df3ff1a4775dd77c181d2fb18eff96e7f4fdb6cb744e6b9f23263867ad46d24",
-              "__NEXT_PREVIEW_MODE_SIGNING_KEY": "35840d3d7b5f1b681f0d6385a8770fc676706565a1d8fac0f97c85db06d9963d"
+              "__NEXT_BUILD_ID": "xF5HbdMNTJay8sqQWJ7Vw",
+              "NEXT_SERVER_ACTIONS_ENCRYPTION_KEY": "3alrRcnr+yTf3zdDN2OlB1QU7FdXxHhG6xkrvkp+YEM=",
+              "__NEXT_PREVIEW_MODE_ID": "2b44927d837441b72e15373db151f36d",
+              "__NEXT_PREVIEW_MODE_ENCRYPTION_KEY": "3f252a7651fd119962e1767fa7dbc3a05414547a8304fc3d943301af8c3c6a7e",
+              "__NEXT_PREVIEW_MODE_SIGNING_KEY": "c36040d41d4edf80ecdf643517497f21654b0edef073379a4529ed29e96fde57"
             }
           },
           "route": {
@@ -125,7 +125,7 @@
             ]
           },
           "outputPath": "__next-on-pages-dist__/functions/student/api/exchange-records.func.js",
-          "outputByteSize": 10243
+          "outputByteSize": 10295
         },
         {
           "relativePath": "/student/api/exchange.func",
@@ -140,11 +140,11 @@
               "version": "14.2.35"
             },
             "environment": {
-              "__NEXT_BUILD_ID": "c8GGIht61GBqn2UB7f_UZ",
-              "NEXT_SERVER_ACTIONS_ENCRYPTION_KEY": "ETzstLaUea2jXEGrl4jF8hoo1D5rVCvjEXv8mrFTx7M=",
-              "__NEXT_PREVIEW_MODE_ID": "ed59a87641b68b5b40b6831a778bcb15",
-              "__NEXT_PREVIEW_MODE_ENCRYPTION_KEY": "8df3ff1a4775dd77c181d2fb18eff96e7f4fdb6cb744e6b9f23263867ad46d24",
-              "__NEXT_PREVIEW_MODE_SIGNING_KEY": "35840d3d7b5f1b681f0d6385a8770fc676706565a1d8fac0f97c85db06d9963d"
+              "__NEXT_BUILD_ID": "xF5HbdMNTJay8sqQWJ7Vw",
+              "NEXT_SERVER_ACTIONS_ENCRYPTION_KEY": "3alrRcnr+yTf3zdDN2OlB1QU7FdXxHhG6xkrvkp+YEM=",
+              "__NEXT_PREVIEW_MODE_ID": "2b44927d837441b72e15373db151f36d",
+              "__NEXT_PREVIEW_MODE_ENCRYPTION_KEY": "3f252a7651fd119962e1767fa7dbc3a05414547a8304fc3d943301af8c3c6a7e",
+              "__NEXT_PREVIEW_MODE_SIGNING_KEY": "c36040d41d4edf80ecdf643517497f21654b0edef073379a4529ed29e96fde57"
             }
           },
           "route": {
@@ -154,7 +154,7 @@
             ]
           },
           "outputPath": "__next-on-pages-dist__/functions/student/api/exchange.func.js",
-          "outputByteSize": 11765
+          "outputByteSize": 11817
         },
         {
           "relativePath": "/student/api/score-items/[id].func",
@@ -169,11 +169,11 @@
               "version": "14.2.35"
             },
             "environment": {
-              "__NEXT_BUILD_ID": "c8GGIht61GBqn2UB7f_UZ",
-              "NEXT_SERVER_ACTIONS_ENCRYPTION_KEY": "ETzstLaUea2jXEGrl4jF8hoo1D5rVCvjEXv8mrFTx7M=",
-              "__NEXT_PREVIEW_MODE_ID": "ed59a87641b68b5b40b6831a778bcb15",
-              "__NEXT_PREVIEW_MODE_ENCRYPTION_KEY": "8df3ff1a4775dd77c181d2fb18eff96e7f4fdb6cb744e6b9f23263867ad46d24",
-              "__NEXT_PREVIEW_MODE_SIGNING_KEY": "35840d3d7b5f1b681f0d6385a8770fc676706565a1d8fac0f97c85db06d9963d"
+              "__NEXT_BUILD_ID": "xF5HbdMNTJay8sqQWJ7Vw",
+              "NEXT_SERVER_ACTIONS_ENCRYPTION_KEY": "3alrRcnr+yTf3zdDN2OlB1QU7FdXxHhG6xkrvkp+YEM=",
+              "__NEXT_PREVIEW_MODE_ID": "2b44927d837441b72e15373db151f36d",
+              "__NEXT_PREVIEW_MODE_ENCRYPTION_KEY": "3f252a7651fd119962e1767fa7dbc3a05414547a8304fc3d943301af8c3c6a7e",
+              "__NEXT_PREVIEW_MODE_SIGNING_KEY": "c36040d41d4edf80ecdf643517497f21654b0edef073379a4529ed29e96fde57"
             }
           },
           "route": {
@@ -183,7 +183,7 @@
             ]
           },
           "outputPath": "__next-on-pages-dist__/functions/student/api/score-items/[id].func.js",
-          "outputByteSize": 10767
+          "outputByteSize": 10819
         },
         {
           "relativePath": "/student/api/score-items.func",
@@ -198,11 +198,11 @@
               "version": "14.2.35"
             },
             "environment": {
-              "__NEXT_BUILD_ID": "c8GGIht61GBqn2UB7f_UZ",
-              "NEXT_SERVER_ACTIONS_ENCRYPTION_KEY": "ETzstLaUea2jXEGrl4jF8hoo1D5rVCvjEXv8mrFTx7M=",
-              "__NEXT_PREVIEW_MODE_ID": "ed59a87641b68b5b40b6831a778bcb15",
-              "__NEXT_PREVIEW_MODE_ENCRYPTION_KEY": "8df3ff1a4775dd77c181d2fb18eff96e7f4fdb6cb744e6b9f23263867ad46d24",
-              "__NEXT_PREVIEW_MODE_SIGNING_KEY": "35840d3d7b5f1b681f0d6385a8770fc676706565a1d8fac0f97c85db06d9963d"
+              "__NEXT_BUILD_ID": "xF5HbdMNTJay8sqQWJ7Vw",
+              "NEXT_SERVER_ACTIONS_ENCRYPTION_KEY": "3alrRcnr+yTf3zdDN2OlB1QU7FdXxHhG6xkrvkp+YEM=",
+              "__NEXT_PREVIEW_MODE_ID": "2b44927d837441b72e15373db151f36d",
+              "__NEXT_PREVIEW_MODE_ENCRYPTION_KEY": "3f252a7651fd119962e1767fa7dbc3a05414547a8304fc3d943301af8c3c6a7e",
+              "__NEXT_PREVIEW_MODE_SIGNING_KEY": "c36040d41d4edf80ecdf643517497f21654b0edef073379a4529ed29e96fde57"
             }
           },
           "route": {
@@ -212,7 +212,7 @@
             ]
           },
           "outputPath": "__next-on-pages-dist__/functions/student/api/score-items.func.js",
-          "outputByteSize": 10542
+          "outputByteSize": 10594
         },
         {
           "relativePath": "/student/api/score-records/[id].func",
@@ -227,11 +227,11 @@
               "version": "14.2.35"
             },
             "environment": {
-              "__NEXT_BUILD_ID": "c8GGIht61GBqn2UB7f_UZ",
-              "NEXT_SERVER_ACTIONS_ENCRYPTION_KEY": "ETzstLaUea2jXEGrl4jF8hoo1D5rVCvjEXv8mrFTx7M=",
-              "__NEXT_PREVIEW_MODE_ID": "ed59a87641b68b5b40b6831a778bcb15",
-              "__NEXT_PREVIEW_MODE_ENCRYPTION_KEY": "8df3ff1a4775dd77c181d2fb18eff96e7f4fdb6cb744e6b9f23263867ad46d24",
-              "__NEXT_PREVIEW_MODE_SIGNING_KEY": "35840d3d7b5f1b681f0d6385a8770fc676706565a1d8fac0f97c85db06d9963d"
+              "__NEXT_BUILD_ID": "xF5HbdMNTJay8sqQWJ7Vw",
+              "NEXT_SERVER_ACTIONS_ENCRYPTION_KEY": "3alrRcnr+yTf3zdDN2OlB1QU7FdXxHhG6xkrvkp+YEM=",
+              "__NEXT_PREVIEW_MODE_ID": "2b44927d837441b72e15373db151f36d",
+              "__NEXT_PREVIEW_MODE_ENCRYPTION_KEY": "3f252a7651fd119962e1767fa7dbc3a05414547a8304fc3d943301af8c3c6a7e",
+              "__NEXT_PREVIEW_MODE_SIGNING_KEY": "c36040d41d4edf80ecdf643517497f21654b0edef073379a4529ed29e96fde57"
             }
           },
           "route": {
@@ -241,7 +241,7 @@
             ]
           },
           "outputPath": "__next-on-pages-dist__/functions/student/api/score-records/[id].func.js",
-          "outputByteSize": 10781
+          "outputByteSize": 10833
         },
         {
           "relativePath": "/student/api/score-records.func",
@@ -256,11 +256,11 @@
               "version": "14.2.35"
             },
             "environment": {
-              "__NEXT_BUILD_ID": "c8GGIht61GBqn2UB7f_UZ",
-              "NEXT_SERVER_ACTIONS_ENCRYPTION_KEY": "ETzstLaUea2jXEGrl4jF8hoo1D5rVCvjEXv8mrFTx7M=",
-              "__NEXT_PREVIEW_MODE_ID": "ed59a87641b68b5b40b6831a778bcb15",
-              "__NEXT_PREVIEW_MODE_ENCRYPTION_KEY": "8df3ff1a4775dd77c181d2fb18eff96e7f4fdb6cb744e6b9f23263867ad46d24",
-              "__NEXT_PREVIEW_MODE_SIGNING_KEY": "35840d3d7b5f1b681f0d6385a8770fc676706565a1d8fac0f97c85db06d9963d"
+              "__NEXT_BUILD_ID": "xF5HbdMNTJay8sqQWJ7Vw",
+              "NEXT_SERVER_ACTIONS_ENCRYPTION_KEY": "3alrRcnr+yTf3zdDN2OlB1QU7FdXxHhG6xkrvkp+YEM=",
+              "__NEXT_PREVIEW_MODE_ID": "2b44927d837441b72e15373db151f36d",
+              "__NEXT_PREVIEW_MODE_ENCRYPTION_KEY": "3f252a7651fd119962e1767fa7dbc3a05414547a8304fc3d943301af8c3c6a7e",
+              "__NEXT_PREVIEW_MODE_SIGNING_KEY": "c36040d41d4edf80ecdf643517497f21654b0edef073379a4529ed29e96fde57"
             }
           },
           "route": {
@@ -270,7 +270,7 @@
             ]
           },
           "outputPath": "__next-on-pages-dist__/functions/student/api/score-records.func.js",
-          "outputByteSize": 11226
+          "outputByteSize": 11278
         },
         {
           "relativePath": "/student/api/students/[id]/rate.func",
@@ -285,11 +285,11 @@
               "version": "14.2.35"
             },
             "environment": {
-              "__NEXT_BUILD_ID": "c8GGIht61GBqn2UB7f_UZ",
-              "NEXT_SERVER_ACTIONS_ENCRYPTION_KEY": "ETzstLaUea2jXEGrl4jF8hoo1D5rVCvjEXv8mrFTx7M=",
-              "__NEXT_PREVIEW_MODE_ID": "ed59a87641b68b5b40b6831a778bcb15",
-              "__NEXT_PREVIEW_MODE_ENCRYPTION_KEY": "8df3ff1a4775dd77c181d2fb18eff96e7f4fdb6cb744e6b9f23263867ad46d24",
-              "__NEXT_PREVIEW_MODE_SIGNING_KEY": "35840d3d7b5f1b681f0d6385a8770fc676706565a1d8fac0f97c85db06d9963d"
+              "__NEXT_BUILD_ID": "xF5HbdMNTJay8sqQWJ7Vw",
+              "NEXT_SERVER_ACTIONS_ENCRYPTION_KEY": "3alrRcnr+yTf3zdDN2OlB1QU7FdXxHhG6xkrvkp+YEM=",
+              "__NEXT_PREVIEW_MODE_ID": "2b44927d837441b72e15373db151f36d",
+              "__NEXT_PREVIEW_MODE_ENCRYPTION_KEY": "3f252a7651fd119962e1767fa7dbc3a05414547a8304fc3d943301af8c3c6a7e",
+              "__NEXT_PREVIEW_MODE_SIGNING_KEY": "c36040d41d4edf80ecdf643517497f21654b0edef073379a4529ed29e96fde57"
             }
           },
           "route": {
@@ -299,7 +299,7 @@
             ]
           },
           "outputPath": "__next-on-pages-dist__/functions/student/api/students/[id]/rate.func.js",
-          "outputByteSize": 10528
+          "outputByteSize": 10580
         },
         {
           "relativePath": "/student/api/students.func",
@@ -314,11 +314,11 @@
               "version": "14.2.35"
             },
             "environment": {
-              "__NEXT_BUILD_ID": "c8GGIht61GBqn2UB7f_UZ",
-              "NEXT_SERVER_ACTIONS_ENCRYPTION_KEY": "ETzstLaUea2jXEGrl4jF8hoo1D5rVCvjEXv8mrFTx7M=",
-              "__NEXT_PREVIEW_MODE_ID": "ed59a87641b68b5b40b6831a778bcb15",
-              "__NEXT_PREVIEW_MODE_ENCRYPTION_KEY": "8df3ff1a4775dd77c181d2fb18eff96e7f4fdb6cb744e6b9f23263867ad46d24",
-              "__NEXT_PREVIEW_MODE_SIGNING_KEY": "35840d3d7b5f1b681f0d6385a8770fc676706565a1d8fac0f97c85db06d9963d"
+              "__NEXT_BUILD_ID": "xF5HbdMNTJay8sqQWJ7Vw",
+              "NEXT_SERVER_ACTIONS_ENCRYPTION_KEY": "3alrRcnr+yTf3zdDN2OlB1QU7FdXxHhG6xkrvkp+YEM=",
+              "__NEXT_PREVIEW_MODE_ID": "2b44927d837441b72e15373db151f36d",
+              "__NEXT_PREVIEW_MODE_ENCRYPTION_KEY": "3f252a7651fd119962e1767fa7dbc3a05414547a8304fc3d943301af8c3c6a7e",
+              "__NEXT_PREVIEW_MODE_SIGNING_KEY": "c36040d41d4edf80ecdf643517497f21654b0edef073379a4529ed29e96fde57"
             }
           },
           "route": {
@@ -328,7 +328,7 @@
             ]
           },
           "outputPath": "__next-on-pages-dist__/functions/student/api/students.func.js",
-          "outputByteSize": 10166
+          "outputByteSize": 10218
         },
         {
           "relativePath": "/student/middleware.func",
@@ -343,11 +343,11 @@
               "version": "14.2.35"
             },
             "environment": {
-              "__NEXT_BUILD_ID": "c8GGIht61GBqn2UB7f_UZ",
-              "NEXT_SERVER_ACTIONS_ENCRYPTION_KEY": "ETzstLaUea2jXEGrl4jF8hoo1D5rVCvjEXv8mrFTx7M=",
-              "__NEXT_PREVIEW_MODE_ID": "ed59a87641b68b5b40b6831a778bcb15",
-              "__NEXT_PREVIEW_MODE_ENCRYPTION_KEY": "8df3ff1a4775dd77c181d2fb18eff96e7f4fdb6cb744e6b9f23263867ad46d24",
-              "__NEXT_PREVIEW_MODE_SIGNING_KEY": "35840d3d7b5f1b681f0d6385a8770fc676706565a1d8fac0f97c85db06d9963d"
+              "__NEXT_BUILD_ID": "xF5HbdMNTJay8sqQWJ7Vw",
+              "NEXT_SERVER_ACTIONS_ENCRYPTION_KEY": "3alrRcnr+yTf3zdDN2OlB1QU7FdXxHhG6xkrvkp+YEM=",
+              "__NEXT_PREVIEW_MODE_ID": "2b44927d837441b72e15373db151f36d",
+              "__NEXT_PREVIEW_MODE_ENCRYPTION_KEY": "3f252a7651fd119962e1767fa7dbc3a05414547a8304fc3d943301af8c3c6a7e",
+              "__NEXT_PREVIEW_MODE_SIGNING_KEY": "c36040d41d4edf80ecdf643517497f21654b0edef073379a4529ed29e96fde57"
             }
           },
           "route": {
@@ -370,11 +370,11 @@
               "version": "14.2.35"
             },
             "environment": {
-              "__NEXT_BUILD_ID": "c8GGIht61GBqn2UB7f_UZ",
-              "NEXT_SERVER_ACTIONS_ENCRYPTION_KEY": "ETzstLaUea2jXEGrl4jF8hoo1D5rVCvjEXv8mrFTx7M=",
-              "__NEXT_PREVIEW_MODE_ID": "ed59a87641b68b5b40b6831a778bcb15",
-              "__NEXT_PREVIEW_MODE_ENCRYPTION_KEY": "8df3ff1a4775dd77c181d2fb18eff96e7f4fdb6cb744e6b9f23263867ad46d24",
-              "__NEXT_PREVIEW_MODE_SIGNING_KEY": "35840d3d7b5f1b681f0d6385a8770fc676706565a1d8fac0f97c85db06d9963d"
+              "__NEXT_BUILD_ID": "xF5HbdMNTJay8sqQWJ7Vw",
+              "NEXT_SERVER_ACTIONS_ENCRYPTION_KEY": "3alrRcnr+yTf3zdDN2OlB1QU7FdXxHhG6xkrvkp+YEM=",
+              "__NEXT_PREVIEW_MODE_ID": "2b44927d837441b72e15373db151f36d",
+              "__NEXT_PREVIEW_MODE_ENCRYPTION_KEY": "3f252a7651fd119962e1767fa7dbc3a05414547a8304fc3d943301af8c3c6a7e",
+              "__NEXT_PREVIEW_MODE_SIGNING_KEY": "c36040d41d4edf80ecdf643517497f21654b0edef073379a4529ed29e96fde57"
             }
           },
           "route": {
@@ -384,7 +384,7 @@
             ]
           },
           "outputPath": "__next-on-pages-dist__/functions/student/rules.func.js",
-          "outputByteSize": 44171
+          "outputByteSize": 44223
         },
         {
           "relativePath": "/student.func",
@@ -399,11 +399,11 @@
               "version": "14.2.35"
             },
             "environment": {
-              "__NEXT_BUILD_ID": "c8GGIht61GBqn2UB7f_UZ",
-              "NEXT_SERVER_ACTIONS_ENCRYPTION_KEY": "ETzstLaUea2jXEGrl4jF8hoo1D5rVCvjEXv8mrFTx7M=",
-              "__NEXT_PREVIEW_MODE_ID": "ed59a87641b68b5b40b6831a778bcb15",
-              "__NEXT_PREVIEW_MODE_ENCRYPTION_KEY": "8df3ff1a4775dd77c181d2fb18eff96e7f4fdb6cb744e6b9f23263867ad46d24",
-              "__NEXT_PREVIEW_MODE_SIGNING_KEY": "35840d3d7b5f1b681f0d6385a8770fc676706565a1d8fac0f97c85db06d9963d"
+              "__NEXT_BUILD_ID": "xF5HbdMNTJay8sqQWJ7Vw",
+              "NEXT_SERVER_ACTIONS_ENCRYPTION_KEY": "3alrRcnr+yTf3zdDN2OlB1QU7FdXxHhG6xkrvkp+YEM=",
+              "__NEXT_PREVIEW_MODE_ID": "2b44927d837441b72e15373db151f36d",
+              "__NEXT_PREVIEW_MODE_ENCRYPTION_KEY": "3f252a7651fd119962e1767fa7dbc3a05414547a8304fc3d943301af8c3c6a7e",
+              "__NEXT_PREVIEW_MODE_SIGNING_KEY": "c36040d41d4edf80ecdf643517497f21654b0edef073379a4529ed29e96fde57"
             }
           },
           "route": {
@@ -411,7 +411,7 @@
             "overrides": []
           },
           "outputPath": "__next-on-pages-dist__/functions/student.func.js",
-          "outputByteSize": 247426
+          "outputByteSize": 247480
         }
       ],
       "prerendered": [
@@ -538,7 +538,7 @@
               "node_modules/next/dist/client/components/request-async-storage-instance.js": "node_modules/next/dist/client/components/request-async-storage-instance.js",
               "node_modules/next/dist/client/components/request-async-storage.external.js": "node_modules/next/dist/client/components/request-async-storage.external.js",
               "node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js": "node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js",
-              ".next/server/chunks/133.js": ".next/server/chunks/133.js",
+              ".next/server/chunks/705.js": ".next/server/chunks/705.js",
               ".next/server/chunks/842.js": ".next/server/chunks/842.js",
               ".next/server/chunks/995.js": ".next/server/chunks/995.js",
               ".next/server/app/admin/page_client-reference-manifest.js": ".next/server/app/admin/page_client-reference-manifest.js",
@@ -687,7 +687,7 @@
               "node_modules/next/dist/client/components/request-async-storage-instance.js": "node_modules/next/dist/client/components/request-async-storage-instance.js",
               "node_modules/next/dist/client/components/request-async-storage.external.js": "node_modules/next/dist/client/components/request-async-storage.external.js",
               "node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js": "node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js",
-              ".next/server/chunks/133.js": ".next/server/chunks/133.js",
+              ".next/server/chunks/705.js": ".next/server/chunks/705.js",
               ".next/server/chunks/842.js": ".next/server/chunks/842.js",
               ".next/server/chunks/995.js": ".next/server/chunks/995.js",
               ".next/server/app/admin/page_client-reference-manifest.js": ".next/server/app/admin/page_client-reference-manifest.js",
@@ -834,7 +834,7 @@
               "node_modules/next/dist/client/components/request-async-storage-instance.js": "node_modules/next/dist/client/components/request-async-storage-instance.js",
               "node_modules/next/dist/client/components/request-async-storage.external.js": "node_modules/next/dist/client/components/request-async-storage.external.js",
               "node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js": "node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js",
-              ".next/server/chunks/133.js": ".next/server/chunks/133.js",
+              ".next/server/chunks/705.js": ".next/server/chunks/705.js",
               ".next/server/chunks/842.js": ".next/server/chunks/842.js",
               ".next/server/chunks/995.js": ".next/server/chunks/995.js",
               ".next/server/app/admin/page_client-reference-manifest.js": ".next/server/app/admin/page_client-reference-manifest.js",
@@ -983,7 +983,7 @@
               "node_modules/next/dist/client/components/request-async-storage-instance.js": "node_modules/next/dist/client/components/request-async-storage-instance.js",
               "node_modules/next/dist/client/components/request-async-storage.external.js": "node_modules/next/dist/client/components/request-async-storage.external.js",
               "node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js": "node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js",
-              ".next/server/chunks/133.js": ".next/server/chunks/133.js",
+              ".next/server/chunks/705.js": ".next/server/chunks/705.js",
               ".next/server/chunks/842.js": ".next/server/chunks/842.js",
               ".next/server/chunks/995.js": ".next/server/chunks/995.js",
               ".next/server/app/admin/page_client-reference-manifest.js": ".next/server/app/admin/page_client-reference-manifest.js",
@@ -1023,11 +1023,11 @@
               "version": "14.2.35"
             },
             "environment": {
-              "__NEXT_BUILD_ID": "c8GGIht61GBqn2UB7f_UZ",
-              "NEXT_SERVER_ACTIONS_ENCRYPTION_KEY": "ETzstLaUea2jXEGrl4jF8hoo1D5rVCvjEXv8mrFTx7M=",
-              "__NEXT_PREVIEW_MODE_ID": "ed59a87641b68b5b40b6831a778bcb15",
-              "__NEXT_PREVIEW_MODE_ENCRYPTION_KEY": "8df3ff1a4775dd77c181d2fb18eff96e7f4fdb6cb744e6b9f23263867ad46d24",
-              "__NEXT_PREVIEW_MODE_SIGNING_KEY": "35840d3d7b5f1b681f0d6385a8770fc676706565a1d8fac0f97c85db06d9963d"
+              "__NEXT_BUILD_ID": "xF5HbdMNTJay8sqQWJ7Vw",
+              "NEXT_SERVER_ACTIONS_ENCRYPTION_KEY": "3alrRcnr+yTf3zdDN2OlB1QU7FdXxHhG6xkrvkp+YEM=",
+              "__NEXT_PREVIEW_MODE_ID": "2b44927d837441b72e15373db151f36d",
+              "__NEXT_PREVIEW_MODE_ENCRYPTION_KEY": "3f252a7651fd119962e1767fa7dbc3a05414547a8304fc3d943301af8c3c6a7e",
+              "__NEXT_PREVIEW_MODE_SIGNING_KEY": "c36040d41d4edf80ecdf643517497f21654b0edef073379a4529ed29e96fde57"
             }
           },
           "route": {
@@ -1049,11 +1049,11 @@
               "version": "14.2.35"
             },
             "environment": {
-              "__NEXT_BUILD_ID": "c8GGIht61GBqn2UB7f_UZ",
-              "NEXT_SERVER_ACTIONS_ENCRYPTION_KEY": "ETzstLaUea2jXEGrl4jF8hoo1D5rVCvjEXv8mrFTx7M=",
-              "__NEXT_PREVIEW_MODE_ID": "ed59a87641b68b5b40b6831a778bcb15",
-              "__NEXT_PREVIEW_MODE_ENCRYPTION_KEY": "8df3ff1a4775dd77c181d2fb18eff96e7f4fdb6cb744e6b9f23263867ad46d24",
-              "__NEXT_PREVIEW_MODE_SIGNING_KEY": "35840d3d7b5f1b681f0d6385a8770fc676706565a1d8fac0f97c85db06d9963d"
+              "__NEXT_BUILD_ID": "xF5HbdMNTJay8sqQWJ7Vw",
+              "NEXT_SERVER_ACTIONS_ENCRYPTION_KEY": "3alrRcnr+yTf3zdDN2OlB1QU7FdXxHhG6xkrvkp+YEM=",
+              "__NEXT_PREVIEW_MODE_ID": "2b44927d837441b72e15373db151f36d",
+              "__NEXT_PREVIEW_MODE_ENCRYPTION_KEY": "3f252a7651fd119962e1767fa7dbc3a05414547a8304fc3d943301af8c3c6a7e",
+              "__NEXT_PREVIEW_MODE_SIGNING_KEY": "c36040d41d4edf80ecdf643517497f21654b0edef073379a4529ed29e96fde57"
             }
           },
           "route": {
@@ -1075,11 +1075,11 @@
               "version": "14.2.35"
             },
             "environment": {
-              "__NEXT_BUILD_ID": "c8GGIht61GBqn2UB7f_UZ",
-              "NEXT_SERVER_ACTIONS_ENCRYPTION_KEY": "ETzstLaUea2jXEGrl4jF8hoo1D5rVCvjEXv8mrFTx7M=",
-              "__NEXT_PREVIEW_MODE_ID": "ed59a87641b68b5b40b6831a778bcb15",
-              "__NEXT_PREVIEW_MODE_ENCRYPTION_KEY": "8df3ff1a4775dd77c181d2fb18eff96e7f4fdb6cb744e6b9f23263867ad46d24",
-              "__NEXT_PREVIEW_MODE_SIGNING_KEY": "35840d3d7b5f1b681f0d6385a8770fc676706565a1d8fac0f97c85db06d9963d"
+              "__NEXT_BUILD_ID": "xF5HbdMNTJay8sqQWJ7Vw",
+              "NEXT_SERVER_ACTIONS_ENCRYPTION_KEY": "3alrRcnr+yTf3zdDN2OlB1QU7FdXxHhG6xkrvkp+YEM=",
+              "__NEXT_PREVIEW_MODE_ID": "2b44927d837441b72e15373db151f36d",
+              "__NEXT_PREVIEW_MODE_ENCRYPTION_KEY": "3f252a7651fd119962e1767fa7dbc3a05414547a8304fc3d943301af8c3c6a7e",
+              "__NEXT_PREVIEW_MODE_SIGNING_KEY": "c36040d41d4edf80ecdf643517497f21654b0edef073379a4529ed29e96fde57"
             }
           },
           "route": {
@@ -1101,11 +1101,11 @@
               "version": "14.2.35"
             },
             "environment": {
-              "__NEXT_BUILD_ID": "c8GGIht61GBqn2UB7f_UZ",
-              "NEXT_SERVER_ACTIONS_ENCRYPTION_KEY": "ETzstLaUea2jXEGrl4jF8hoo1D5rVCvjEXv8mrFTx7M=",
-              "__NEXT_PREVIEW_MODE_ID": "ed59a87641b68b5b40b6831a778bcb15",
-              "__NEXT_PREVIEW_MODE_ENCRYPTION_KEY": "8df3ff1a4775dd77c181d2fb18eff96e7f4fdb6cb744e6b9f23263867ad46d24",
-              "__NEXT_PREVIEW_MODE_SIGNING_KEY": "35840d3d7b5f1b681f0d6385a8770fc676706565a1d8fac0f97c85db06d9963d"
+              "__NEXT_BUILD_ID": "xF5HbdMNTJay8sqQWJ7Vw",
+              "NEXT_SERVER_ACTIONS_ENCRYPTION_KEY": "3alrRcnr+yTf3zdDN2OlB1QU7FdXxHhG6xkrvkp+YEM=",
+              "__NEXT_PREVIEW_MODE_ID": "2b44927d837441b72e15373db151f36d",
+              "__NEXT_PREVIEW_MODE_ENCRYPTION_KEY": "3f252a7651fd119962e1767fa7dbc3a05414547a8304fc3d943301af8c3c6a7e",
+              "__NEXT_PREVIEW_MODE_SIGNING_KEY": "c36040d41d4edf80ecdf643517497f21654b0edef073379a4529ed29e96fde57"
             }
           },
           "route": {
@@ -1127,11 +1127,11 @@
               "version": "14.2.35"
             },
             "environment": {
-              "__NEXT_BUILD_ID": "c8GGIht61GBqn2UB7f_UZ",
-              "NEXT_SERVER_ACTIONS_ENCRYPTION_KEY": "ETzstLaUea2jXEGrl4jF8hoo1D5rVCvjEXv8mrFTx7M=",
-              "__NEXT_PREVIEW_MODE_ID": "ed59a87641b68b5b40b6831a778bcb15",
-              "__NEXT_PREVIEW_MODE_ENCRYPTION_KEY": "8df3ff1a4775dd77c181d2fb18eff96e7f4fdb6cb744e6b9f23263867ad46d24",
-              "__NEXT_PREVIEW_MODE_SIGNING_KEY": "35840d3d7b5f1b681f0d6385a8770fc676706565a1d8fac0f97c85db06d9963d"
+              "__NEXT_BUILD_ID": "xF5HbdMNTJay8sqQWJ7Vw",
+              "NEXT_SERVER_ACTIONS_ENCRYPTION_KEY": "3alrRcnr+yTf3zdDN2OlB1QU7FdXxHhG6xkrvkp+YEM=",
+              "__NEXT_PREVIEW_MODE_ID": "2b44927d837441b72e15373db151f36d",
+              "__NEXT_PREVIEW_MODE_ENCRYPTION_KEY": "3f252a7651fd119962e1767fa7dbc3a05414547a8304fc3d943301af8c3c6a7e",
+              "__NEXT_PREVIEW_MODE_SIGNING_KEY": "c36040d41d4edf80ecdf643517497f21654b0edef073379a4529ed29e96fde57"
             }
           },
           "route": {
@@ -1153,11 +1153,11 @@
               "version": "14.2.35"
             },
             "environment": {
-              "__NEXT_BUILD_ID": "c8GGIht61GBqn2UB7f_UZ",
-              "NEXT_SERVER_ACTIONS_ENCRYPTION_KEY": "ETzstLaUea2jXEGrl4jF8hoo1D5rVCvjEXv8mrFTx7M=",
-              "__NEXT_PREVIEW_MODE_ID": "ed59a87641b68b5b40b6831a778bcb15",
-              "__NEXT_PREVIEW_MODE_ENCRYPTION_KEY": "8df3ff1a4775dd77c181d2fb18eff96e7f4fdb6cb744e6b9f23263867ad46d24",
-              "__NEXT_PREVIEW_MODE_SIGNING_KEY": "35840d3d7b5f1b681f0d6385a8770fc676706565a1d8fac0f97c85db06d9963d"
+              "__NEXT_BUILD_ID": "xF5HbdMNTJay8sqQWJ7Vw",
+              "NEXT_SERVER_ACTIONS_ENCRYPTION_KEY": "3alrRcnr+yTf3zdDN2OlB1QU7FdXxHhG6xkrvkp+YEM=",
+              "__NEXT_PREVIEW_MODE_ID": "2b44927d837441b72e15373db151f36d",
+              "__NEXT_PREVIEW_MODE_ENCRYPTION_KEY": "3f252a7651fd119962e1767fa7dbc3a05414547a8304fc3d943301af8c3c6a7e",
+              "__NEXT_PREVIEW_MODE_SIGNING_KEY": "c36040d41d4edf80ecdf643517497f21654b0edef073379a4529ed29e96fde57"
             }
           },
           "route": {
@@ -1179,11 +1179,11 @@
               "version": "14.2.35"
             },
             "environment": {
-              "__NEXT_BUILD_ID": "c8GGIht61GBqn2UB7f_UZ",
-              "NEXT_SERVER_ACTIONS_ENCRYPTION_KEY": "ETzstLaUea2jXEGrl4jF8hoo1D5rVCvjEXv8mrFTx7M=",
-              "__NEXT_PREVIEW_MODE_ID": "ed59a87641b68b5b40b6831a778bcb15",
-              "__NEXT_PREVIEW_MODE_ENCRYPTION_KEY": "8df3ff1a4775dd77c181d2fb18eff96e7f4fdb6cb744e6b9f23263867ad46d24",
-              "__NEXT_PREVIEW_MODE_SIGNING_KEY": "35840d3d7b5f1b681f0d6385a8770fc676706565a1d8fac0f97c85db06d9963d"
+              "__NEXT_BUILD_ID": "xF5HbdMNTJay8sqQWJ7Vw",
+              "NEXT_SERVER_ACTIONS_ENCRYPTION_KEY": "3alrRcnr+yTf3zdDN2OlB1QU7FdXxHhG6xkrvkp+YEM=",
+              "__NEXT_PREVIEW_MODE_ID": "2b44927d837441b72e15373db151f36d",
+              "__NEXT_PREVIEW_MODE_ENCRYPTION_KEY": "3f252a7651fd119962e1767fa7dbc3a05414547a8304fc3d943301af8c3c6a7e",
+              "__NEXT_PREVIEW_MODE_SIGNING_KEY": "c36040d41d4edf80ecdf643517497f21654b0edef073379a4529ed29e96fde57"
             }
           },
           "route": {
@@ -1205,11 +1205,11 @@
               "version": "14.2.35"
             },
             "environment": {
-              "__NEXT_BUILD_ID": "c8GGIht61GBqn2UB7f_UZ",
-              "NEXT_SERVER_ACTIONS_ENCRYPTION_KEY": "ETzstLaUea2jXEGrl4jF8hoo1D5rVCvjEXv8mrFTx7M=",
-              "__NEXT_PREVIEW_MODE_ID": "ed59a87641b68b5b40b6831a778bcb15",
-              "__NEXT_PREVIEW_MODE_ENCRYPTION_KEY": "8df3ff1a4775dd77c181d2fb18eff96e7f4fdb6cb744e6b9f23263867ad46d24",
-              "__NEXT_PREVIEW_MODE_SIGNING_KEY": "35840d3d7b5f1b681f0d6385a8770fc676706565a1d8fac0f97c85db06d9963d"
+              "__NEXT_BUILD_ID": "xF5HbdMNTJay8sqQWJ7Vw",
+              "NEXT_SERVER_ACTIONS_ENCRYPTION_KEY": "3alrRcnr+yTf3zdDN2OlB1QU7FdXxHhG6xkrvkp+YEM=",
+              "__NEXT_PREVIEW_MODE_ID": "2b44927d837441b72e15373db151f36d",
+              "__NEXT_PREVIEW_MODE_ENCRYPTION_KEY": "3f252a7651fd119962e1767fa7dbc3a05414547a8304fc3d943301af8c3c6a7e",
+              "__NEXT_PREVIEW_MODE_SIGNING_KEY": "c36040d41d4edf80ecdf643517497f21654b0edef073379a4529ed29e96fde57"
             }
           },
           "route": {
@@ -1231,11 +1231,11 @@
               "version": "14.2.35"
             },
             "environment": {
-              "__NEXT_BUILD_ID": "c8GGIht61GBqn2UB7f_UZ",
-              "NEXT_SERVER_ACTIONS_ENCRYPTION_KEY": "ETzstLaUea2jXEGrl4jF8hoo1D5rVCvjEXv8mrFTx7M=",
-              "__NEXT_PREVIEW_MODE_ID": "ed59a87641b68b5b40b6831a778bcb15",
-              "__NEXT_PREVIEW_MODE_ENCRYPTION_KEY": "8df3ff1a4775dd77c181d2fb18eff96e7f4fdb6cb744e6b9f23263867ad46d24",
-              "__NEXT_PREVIEW_MODE_SIGNING_KEY": "35840d3d7b5f1b681f0d6385a8770fc676706565a1d8fac0f97c85db06d9963d"
+              "__NEXT_BUILD_ID": "xF5HbdMNTJay8sqQWJ7Vw",
+              "NEXT_SERVER_ACTIONS_ENCRYPTION_KEY": "3alrRcnr+yTf3zdDN2OlB1QU7FdXxHhG6xkrvkp+YEM=",
+              "__NEXT_PREVIEW_MODE_ID": "2b44927d837441b72e15373db151f36d",
+              "__NEXT_PREVIEW_MODE_ENCRYPTION_KEY": "3f252a7651fd119962e1767fa7dbc3a05414547a8304fc3d943301af8c3c6a7e",
+              "__NEXT_PREVIEW_MODE_SIGNING_KEY": "c36040d41d4edf80ecdf643517497f21654b0edef073379a4529ed29e96fde57"
             }
           },
           "route": {
@@ -1257,11 +1257,11 @@
               "version": "14.2.35"
             },
             "environment": {
-              "__NEXT_BUILD_ID": "c8GGIht61GBqn2UB7f_UZ",
-              "NEXT_SERVER_ACTIONS_ENCRYPTION_KEY": "ETzstLaUea2jXEGrl4jF8hoo1D5rVCvjEXv8mrFTx7M=",
-              "__NEXT_PREVIEW_MODE_ID": "ed59a87641b68b5b40b6831a778bcb15",
-              "__NEXT_PREVIEW_MODE_ENCRYPTION_KEY": "8df3ff1a4775dd77c181d2fb18eff96e7f4fdb6cb744e6b9f23263867ad46d24",
-              "__NEXT_PREVIEW_MODE_SIGNING_KEY": "35840d3d7b5f1b681f0d6385a8770fc676706565a1d8fac0f97c85db06d9963d"
+              "__NEXT_BUILD_ID": "xF5HbdMNTJay8sqQWJ7Vw",
+              "NEXT_SERVER_ACTIONS_ENCRYPTION_KEY": "3alrRcnr+yTf3zdDN2OlB1QU7FdXxHhG6xkrvkp+YEM=",
+              "__NEXT_PREVIEW_MODE_ID": "2b44927d837441b72e15373db151f36d",
+              "__NEXT_PREVIEW_MODE_ENCRYPTION_KEY": "3f252a7651fd119962e1767fa7dbc3a05414547a8304fc3d943301af8c3c6a7e",
+              "__NEXT_PREVIEW_MODE_SIGNING_KEY": "c36040d41d4edf80ecdf643517497f21654b0edef073379a4529ed29e96fde57"
             }
           },
           "route": {
@@ -1283,11 +1283,11 @@
               "version": "14.2.35"
             },
             "environment": {
-              "__NEXT_BUILD_ID": "c8GGIht61GBqn2UB7f_UZ",
-              "NEXT_SERVER_ACTIONS_ENCRYPTION_KEY": "ETzstLaUea2jXEGrl4jF8hoo1D5rVCvjEXv8mrFTx7M=",
-              "__NEXT_PREVIEW_MODE_ID": "ed59a87641b68b5b40b6831a778bcb15",
-              "__NEXT_PREVIEW_MODE_ENCRYPTION_KEY": "8df3ff1a4775dd77c181d2fb18eff96e7f4fdb6cb744e6b9f23263867ad46d24",
-              "__NEXT_PREVIEW_MODE_SIGNING_KEY": "35840d3d7b5f1b681f0d6385a8770fc676706565a1d8fac0f97c85db06d9963d"
+              "__NEXT_BUILD_ID": "xF5HbdMNTJay8sqQWJ7Vw",
+              "NEXT_SERVER_ACTIONS_ENCRYPTION_KEY": "3alrRcnr+yTf3zdDN2OlB1QU7FdXxHhG6xkrvkp+YEM=",
+              "__NEXT_PREVIEW_MODE_ID": "2b44927d837441b72e15373db151f36d",
+              "__NEXT_PREVIEW_MODE_ENCRYPTION_KEY": "3f252a7651fd119962e1767fa7dbc3a05414547a8304fc3d943301af8c3c6a7e",
+              "__NEXT_PREVIEW_MODE_SIGNING_KEY": "c36040d41d4edf80ecdf643517497f21654b0edef073379a4529ed29e96fde57"
             }
           },
           "route": {
@@ -1309,11 +1309,11 @@
               "version": "14.2.35"
             },
             "environment": {
-              "__NEXT_BUILD_ID": "c8GGIht61GBqn2UB7f_UZ",
-              "NEXT_SERVER_ACTIONS_ENCRYPTION_KEY": "ETzstLaUea2jXEGrl4jF8hoo1D5rVCvjEXv8mrFTx7M=",
-              "__NEXT_PREVIEW_MODE_ID": "ed59a87641b68b5b40b6831a778bcb15",
-              "__NEXT_PREVIEW_MODE_ENCRYPTION_KEY": "8df3ff1a4775dd77c181d2fb18eff96e7f4fdb6cb744e6b9f23263867ad46d24",
-              "__NEXT_PREVIEW_MODE_SIGNING_KEY": "35840d3d7b5f1b681f0d6385a8770fc676706565a1d8fac0f97c85db06d9963d"
+              "__NEXT_BUILD_ID": "xF5HbdMNTJay8sqQWJ7Vw",
+              "NEXT_SERVER_ACTIONS_ENCRYPTION_KEY": "3alrRcnr+yTf3zdDN2OlB1QU7FdXxHhG6xkrvkp+YEM=",
+              "__NEXT_PREVIEW_MODE_ID": "2b44927d837441b72e15373db151f36d",
+              "__NEXT_PREVIEW_MODE_ENCRYPTION_KEY": "3f252a7651fd119962e1767fa7dbc3a05414547a8304fc3d943301af8c3c6a7e",
+              "__NEXT_PREVIEW_MODE_SIGNING_KEY": "c36040d41d4edf80ecdf643517497f21654b0edef073379a4529ed29e96fde57"
             }
           },
           "route": {
@@ -1599,13 +1599,11 @@
       "/_error.rsc.json",
       "/student/404.html",
       "/student/500.html",
-      "/student/_next/static/c8GGIht61GBqn2UB7f_UZ/_buildManifest.js",
-      "/student/_next/static/c8GGIht61GBqn2UB7f_UZ/_ssgManifest.js",
       "/student/_next/static/chunks/30-f4fe16ce9adf923f.js",
       "/student/_next/static/chunks/448-c3d1b8ae72fe88ed.js",
       "/student/_next/static/chunks/840-712ecdde1614059b.js",
       "/student/_next/static/chunks/app/_not-found/page-1660405c12df7f93.js",
-      "/student/_next/static/chunks/app/admin/page-bd33a4efcc86bed9.js",
+      "/student/_next/static/chunks/app/admin/page-39f322b4e26fc0c5.js",
       "/student/_next/static/chunks/app/layout-72afab949ee2bdb7.js",
       "/student/_next/static/chunks/app/login/page-f73e0e898a48b23d.js",
       "/student/_next/static/chunks/app/page-8cf03da1fa371aa6.js",
@@ -1620,7 +1618,9 @@
       "/student/_next/static/chunks/polyfills-42372ed130431b0a.js",
       "/student/_next/static/chunks/webpack-653dcda7acb94c8d.js",
       "/student/_next/static/css/ee59540f11bb0ce1.css",
-      "/student/_next/static/not-found.txt"
+      "/student/_next/static/not-found.txt",
+      "/student/_next/static/xF5HbdMNTJay8sqQWJ7Vw/_buildManifest.js",
+      "/student/_next/static/xF5HbdMNTJay8sqQWJ7Vw/_ssgManifest.js"
     ],
     "identifiers": {
       "wasm": {},
@@ -1794,8 +1794,8 @@
         },
         "796": {
           "consumers": 13,
-          "groupedPath": "eb3b0df7738f1111725b5a4b9bec0658",
-          "newDest": "__next-on-pages-dist__/webpack/eb3b0df7738f1111725b5a4b9bec0658.js",
+          "groupedPath": "3554552fd4afeabe931f48b3b3c5ec1b",
+          "newDest": "__next-on-pages-dist__/webpack/3554552fd4afeabe931f48b3b3c5ec1b.js",
           "byteLength": 80,
           "consumersList": [
             "/student.func/index.js",
@@ -1815,8 +1815,8 @@
         },
         "828": {
           "consumers": 13,
-          "groupedPath": "eb3b0df7738f1111725b5a4b9bec0658",
-          "newDest": "__next-on-pages-dist__/webpack/eb3b0df7738f1111725b5a4b9bec0658.js",
+          "groupedPath": "3554552fd4afeabe931f48b3b3c5ec1b",
+          "newDest": "__next-on-pages-dist__/webpack/3554552fd4afeabe931f48b3b3c5ec1b.js",
           "byteLength": 1990,
           "consumersList": [
             "/student.func/index.js",
@@ -1954,8 +1954,8 @@
         },
         "1583": {
           "consumers": 13,
-          "groupedPath": "eb3b0df7738f1111725b5a4b9bec0658",
-          "newDest": "__next-on-pages-dist__/webpack/eb3b0df7738f1111725b5a4b9bec0658.js",
+          "groupedPath": "3554552fd4afeabe931f48b3b3c5ec1b",
+          "newDest": "__next-on-pages-dist__/webpack/3554552fd4afeabe931f48b3b3c5ec1b.js",
           "byteLength": 1474,
           "consumersList": [
             "/student.func/index.js",
@@ -1985,8 +1985,8 @@
         },
         "1651": {
           "consumers": 13,
-          "groupedPath": "eb3b0df7738f1111725b5a4b9bec0658",
-          "newDest": "__next-on-pages-dist__/webpack/eb3b0df7738f1111725b5a4b9bec0658.js",
+          "groupedPath": "3554552fd4afeabe931f48b3b3c5ec1b",
+          "newDest": "__next-on-pages-dist__/webpack/3554552fd4afeabe931f48b3b3c5ec1b.js",
           "byteLength": 26769,
           "consumersList": [
             "/student.func/index.js",
@@ -2193,8 +2193,8 @@
         },
         "2296": {
           "consumers": 13,
-          "groupedPath": "eb3b0df7738f1111725b5a4b9bec0658",
-          "newDest": "__next-on-pages-dist__/webpack/eb3b0df7738f1111725b5a4b9bec0658.js",
+          "groupedPath": "3554552fd4afeabe931f48b3b3c5ec1b",
+          "newDest": "__next-on-pages-dist__/webpack/3554552fd4afeabe931f48b3b3c5ec1b.js",
           "byteLength": 102,
           "consumersList": [
             "/student.func/index.js",
@@ -2427,6 +2427,27 @@
           "byteLength": 1168,
           "consumersList": [
             "/student.func/index.js",
+            "/student/rules.func/index.js"
+          ]
+        },
+        "3417": {
+          "consumers": 13,
+          "groupedPath": "3554552fd4afeabe931f48b3b3c5ec1b",
+          "newDest": "__next-on-pages-dist__/webpack/3554552fd4afeabe931f48b3b3c5ec1b.js",
+          "byteLength": 2422,
+          "consumersList": [
+            "/student.func/index.js",
+            "/student/api/admin/password.func/index.js",
+            "/student/api/avatar.func/index.js",
+            "/student/api/exchange-records.func/index.js",
+            "/student/api/exchange-records/[id].func/index.js",
+            "/student/api/exchange.func/index.js",
+            "/student/api/score-items.func/index.js",
+            "/student/api/score-items/[id].func/index.js",
+            "/student/api/score-records.func/index.js",
+            "/student/api/score-records/[id].func/index.js",
+            "/student/api/students.func/index.js",
+            "/student/api/students/[id]/rate.func/index.js",
             "/student/rules.func/index.js"
           ]
         },
@@ -2683,8 +2704,8 @@
         },
         "4363": {
           "consumers": 13,
-          "groupedPath": "eb3b0df7738f1111725b5a4b9bec0658",
-          "newDest": "__next-on-pages-dist__/webpack/eb3b0df7738f1111725b5a4b9bec0658.js",
+          "groupedPath": "3554552fd4afeabe931f48b3b3c5ec1b",
+          "newDest": "__next-on-pages-dist__/webpack/3554552fd4afeabe931f48b3b3c5ec1b.js",
           "byteLength": 370,
           "consumersList": [
             "/student.func/index.js",
@@ -2803,8 +2824,8 @@
         },
         "4828": {
           "consumers": 13,
-          "groupedPath": "eb3b0df7738f1111725b5a4b9bec0658",
-          "newDest": "__next-on-pages-dist__/webpack/eb3b0df7738f1111725b5a4b9bec0658.js",
+          "groupedPath": "3554552fd4afeabe931f48b3b3c5ec1b",
+          "newDest": "__next-on-pages-dist__/webpack/3554552fd4afeabe931f48b3b3c5ec1b.js",
           "byteLength": 196,
           "consumersList": [
             "/student.func/index.js",
@@ -2880,8 +2901,8 @@
         },
         "5105": {
           "consumers": 13,
-          "groupedPath": "eb3b0df7738f1111725b5a4b9bec0658",
-          "newDest": "__next-on-pages-dist__/webpack/eb3b0df7738f1111725b5a4b9bec0658.js",
+          "groupedPath": "3554552fd4afeabe931f48b3b3c5ec1b",
+          "newDest": "__next-on-pages-dist__/webpack/3554552fd4afeabe931f48b3b3c5ec1b.js",
           "byteLength": 81,
           "consumersList": [
             "/student.func/index.js",
@@ -3014,8 +3035,8 @@
         },
         "5405": {
           "consumers": 13,
-          "groupedPath": "eb3b0df7738f1111725b5a4b9bec0658",
-          "newDest": "__next-on-pages-dist__/webpack/eb3b0df7738f1111725b5a4b9bec0658.js",
+          "groupedPath": "3554552fd4afeabe931f48b3b3c5ec1b",
+          "newDest": "__next-on-pages-dist__/webpack/3554552fd4afeabe931f48b3b3c5ec1b.js",
           "byteLength": 96,
           "consumersList": [
             "/student.func/index.js",
@@ -3165,8 +3186,8 @@
         },
         "5927": {
           "consumers": 13,
-          "groupedPath": "eb3b0df7738f1111725b5a4b9bec0658",
-          "newDest": "__next-on-pages-dist__/webpack/eb3b0df7738f1111725b5a4b9bec0658.js",
+          "groupedPath": "3554552fd4afeabe931f48b3b3c5ec1b",
+          "newDest": "__next-on-pages-dist__/webpack/3554552fd4afeabe931f48b3b3c5ec1b.js",
           "byteLength": 1150,
           "consumersList": [
             "/student.func/index.js",
@@ -3284,8 +3305,8 @@
         },
         "6202": {
           "consumers": 13,
-          "groupedPath": "eb3b0df7738f1111725b5a4b9bec0658",
-          "newDest": "__next-on-pages-dist__/webpack/eb3b0df7738f1111725b5a4b9bec0658.js",
+          "groupedPath": "3554552fd4afeabe931f48b3b3c5ec1b",
+          "newDest": "__next-on-pages-dist__/webpack/3554552fd4afeabe931f48b3b3c5ec1b.js",
           "byteLength": 170,
           "consumersList": [
             "/student.func/index.js",
@@ -3305,9 +3326,9 @@
         },
         "6286": {
           "consumers": 13,
-          "groupedPath": "eb3b0df7738f1111725b5a4b9bec0658",
-          "newDest": "__next-on-pages-dist__/webpack/eb3b0df7738f1111725b5a4b9bec0658.js",
-          "byteLength": 1873,
+          "groupedPath": "3554552fd4afeabe931f48b3b3c5ec1b",
+          "newDest": "__next-on-pages-dist__/webpack/3554552fd4afeabe931f48b3b3c5ec1b.js",
+          "byteLength": 1493,
           "consumersList": [
             "/student.func/index.js",
             "/student/api/admin/password.func/index.js",
@@ -3376,8 +3397,8 @@
         },
         "6631": {
           "consumers": 13,
-          "groupedPath": "eb3b0df7738f1111725b5a4b9bec0658",
-          "newDest": "__next-on-pages-dist__/webpack/eb3b0df7738f1111725b5a4b9bec0658.js",
+          "groupedPath": "3554552fd4afeabe931f48b3b3c5ec1b",
+          "newDest": "__next-on-pages-dist__/webpack/3554552fd4afeabe931f48b3b3c5ec1b.js",
           "byteLength": 9221,
           "consumersList": [
             "/student.func/index.js",
@@ -3455,8 +3476,8 @@
         },
         "6991": {
           "consumers": 13,
-          "groupedPath": "eb3b0df7738f1111725b5a4b9bec0658",
-          "newDest": "__next-on-pages-dist__/webpack/eb3b0df7738f1111725b5a4b9bec0658.js",
+          "groupedPath": "3554552fd4afeabe931f48b3b3c5ec1b",
+          "newDest": "__next-on-pages-dist__/webpack/3554552fd4afeabe931f48b3b3c5ec1b.js",
           "byteLength": 2707,
           "consumersList": [
             "/student.func/index.js",
@@ -3543,6 +3564,27 @@
             "/student/rules.func/index.js"
           ]
         },
+        "7185": {
+          "consumers": 13,
+          "groupedPath": "3554552fd4afeabe931f48b3b3c5ec1b",
+          "newDest": "__next-on-pages-dist__/webpack/3554552fd4afeabe931f48b3b3c5ec1b.js",
+          "byteLength": 46,
+          "consumersList": [
+            "/student.func/index.js",
+            "/student/api/admin/password.func/index.js",
+            "/student/api/avatar.func/index.js",
+            "/student/api/exchange-records.func/index.js",
+            "/student/api/exchange-records/[id].func/index.js",
+            "/student/api/exchange.func/index.js",
+            "/student/api/score-items.func/index.js",
+            "/student/api/score-items/[id].func/index.js",
+            "/student/api/score-records.func/index.js",
+            "/student/api/score-records/[id].func/index.js",
+            "/student/api/students.func/index.js",
+            "/student/api/students/[id]/rate.func/index.js",
+            "/student/rules.func/index.js"
+          ]
+        },
         "7206": {
           "consumers": 2,
           "groupedPath": "ab7d3e6c0bed41c6f49fcc11b3310726",
@@ -3595,8 +3637,8 @@
         },
         "7322": {
           "consumers": 13,
-          "groupedPath": "eb3b0df7738f1111725b5a4b9bec0658",
-          "newDest": "__next-on-pages-dist__/webpack/eb3b0df7738f1111725b5a4b9bec0658.js",
+          "groupedPath": "3554552fd4afeabe931f48b3b3c5ec1b",
+          "newDest": "__next-on-pages-dist__/webpack/3554552fd4afeabe931f48b3b3c5ec1b.js",
           "byteLength": 96,
           "consumersList": [
             "/student.func/index.js",
@@ -3762,8 +3804,8 @@
         },
         "7908": {
           "consumers": 13,
-          "groupedPath": "eb3b0df7738f1111725b5a4b9bec0658",
-          "newDest": "__next-on-pages-dist__/webpack/eb3b0df7738f1111725b5a4b9bec0658.js",
+          "groupedPath": "3554552fd4afeabe931f48b3b3c5ec1b",
+          "newDest": "__next-on-pages-dist__/webpack/3554552fd4afeabe931f48b3b3c5ec1b.js",
           "byteLength": 81,
           "consumersList": [
             "/student.func/index.js",
@@ -3852,8 +3894,8 @@
         },
         "8042": {
           "consumers": 13,
-          "groupedPath": "eb3b0df7738f1111725b5a4b9bec0658",
-          "newDest": "__next-on-pages-dist__/webpack/eb3b0df7738f1111725b5a4b9bec0658.js",
+          "groupedPath": "3554552fd4afeabe931f48b3b3c5ec1b",
+          "newDest": "__next-on-pages-dist__/webpack/3554552fd4afeabe931f48b3b3c5ec1b.js",
           "byteLength": 322,
           "consumersList": [
             "/student.func/index.js",
@@ -3902,8 +3944,8 @@
         },
         "8264": {
           "consumers": 13,
-          "groupedPath": "eb3b0df7738f1111725b5a4b9bec0658",
-          "newDest": "__next-on-pages-dist__/webpack/eb3b0df7738f1111725b5a4b9bec0658.js",
+          "groupedPath": "3554552fd4afeabe931f48b3b3c5ec1b",
+          "newDest": "__next-on-pages-dist__/webpack/3554552fd4afeabe931f48b3b3c5ec1b.js",
           "byteLength": 117,
           "consumersList": [
             "/student.func/index.js",
@@ -4001,8 +4043,8 @@
         },
         "8816": {
           "consumers": 13,
-          "groupedPath": "eb3b0df7738f1111725b5a4b9bec0658",
-          "newDest": "__next-on-pages-dist__/webpack/eb3b0df7738f1111725b5a4b9bec0658.js",
+          "groupedPath": "3554552fd4afeabe931f48b3b3c5ec1b",
+          "newDest": "__next-on-pages-dist__/webpack/3554552fd4afeabe931f48b3b3c5ec1b.js",
           "byteLength": 3925,
           "consumersList": [
             "/student.func/index.js",
@@ -4022,8 +4064,8 @@
         },
         "8819": {
           "consumers": 13,
-          "groupedPath": "eb3b0df7738f1111725b5a4b9bec0658",
-          "newDest": "__next-on-pages-dist__/webpack/eb3b0df7738f1111725b5a4b9bec0658.js",
+          "groupedPath": "3554552fd4afeabe931f48b3b3c5ec1b",
+          "newDest": "__next-on-pages-dist__/webpack/3554552fd4afeabe931f48b3b3c5ec1b.js",
           "byteLength": 24501,
           "consumersList": [
             "/student.func/index.js",
@@ -4063,8 +4105,8 @@
         },
         "8949": {
           "consumers": 13,
-          "groupedPath": "eb3b0df7738f1111725b5a4b9bec0658",
-          "newDest": "__next-on-pages-dist__/webpack/eb3b0df7738f1111725b5a4b9bec0658.js",
+          "groupedPath": "3554552fd4afeabe931f48b3b3c5ec1b",
+          "newDest": "__next-on-pages-dist__/webpack/3554552fd4afeabe931f48b3b3c5ec1b.js",
           "byteLength": 7039,
           "consumersList": [
             "/student.func/index.js",
@@ -4265,8 +4307,8 @@
         },
         "9642": {
           "consumers": 13,
-          "groupedPath": "eb3b0df7738f1111725b5a4b9bec0658",
-          "newDest": "__next-on-pages-dist__/webpack/eb3b0df7738f1111725b5a4b9bec0658.js",
+          "groupedPath": "3554552fd4afeabe931f48b3b3c5ec1b",
+          "newDest": "__next-on-pages-dist__/webpack/3554552fd4afeabe931f48b3b3c5ec1b.js",
           "byteLength": 2253,
           "consumersList": [
             "/student.func/index.js",

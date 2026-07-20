@@ -20,6 +20,17 @@
       "sourceUrl": "https://registry.npmjs.org"
     },
     {
+      "name": "@cloudflare/workers-types",
+      "type": "direct",
+      "scopes": [
+        "dev"
+      ],
+      "requested": "^5.20260719.1",
+      "resolved": "5.20260719.1",
+      "source": "registry",
+      "sourceUrl": "https://registry.npmjs.org"
+    },
+    {
       "name": "@types/chart.js",
       "type": "direct",
       "scopes": [

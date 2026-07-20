@@ -35,10 +35,10 @@ export default function AdminPage() {
         apiFetch('/api/exchange-records'),
       ]);
       const [studentsData, itemsData, recordsData, exchangesData] = await Promise.all([
-        studentsRes.json(),
-        itemsRes.json(),
-        recordsRes.json(),
-        exchangesRes.json(),
+        studentsRes.json() as Promise<Student[]>,
+        itemsRes.json() as Promise<ScoreItem[]>,
+        recordsRes.json() as Promise<ScoreRecord[]>,
+        exchangesRes.json() as Promise<ExchangeRecord[]>,
       ]);
       setStudents(studentsData);
       setScoreItems(itemsData);
@@ -183,7 +183,7 @@ function PasswordTab({ showToast }: { showToast: (msg: string, type: 'success' |
         method: 'POST',
         body: JSON.stringify({ newPassword: newPwd }),
       });
-      const data = await res.json();
+      const data = await res.json() as { success: boolean; message: string; details?: string };
       if (data.success) {
         showToast('密码修改成功', 'success');
         setNewPwd('');
@@ -295,7 +295,7 @@ function ScoreItemsTab({
         method,
         body: JSON.stringify(body),
       });
-      const data = await res.json();
+      const data = await res.json() as { success: boolean; message: string; details?: string };
       if (data.success) {
         showToast(editingItem ? '修改成功' : '添加成功', 'success');
         setShowModal(false);
@@ -314,7 +314,7 @@ function ScoreItemsTab({
     setSubmitting(true);
     try {
       const res = await apiFetch(`/api/score-items/${id}`, { method: 'DELETE' });
-      const data = await res.json();
+      const data = await res.json() as { success: boolean; message: string; details?: string };
       if (data.success) {
         showToast('删除成功', 'success');
         setDeleteConfirm(null);
@@ -503,7 +503,7 @@ function ScoreEntryTab({
           week,
         }),
       });
-      const data = await res.json();
+      const data = await res.json() as { success: boolean; message: string; details?: string };
       if (data.success) {
         showToast(data.message, 'success');
         setShowConfirm(false);
@@ -668,7 +668,7 @@ function ExchangeTab({
           reason,
         }),
       });
-      const data = await res.json();
+      const data = await res.json() as { success: boolean; message: string; details?: string };
       if (data.success) {
         showToast(data.message, 'success');
         setShowConfirm(false);
@@ -678,7 +678,8 @@ function ExchangeTab({
       } else {
         showToast(data.message, 'error');
         if (data.details) {
-          setTimeout(() => showToast(data.details, 'error'), 500);
+          const details = data.details;
+          setTimeout(() => showToast(details, 'error'), 500);
         }
       }
     } catch {
@@ -700,7 +701,7 @@ function ExchangeTab({
         method: 'PUT',
         body: JSON.stringify({ rate: rateNum }),
       });
-      const data = await res.json();
+      const data = await res.json() as { success: boolean; message: string; details?: string };
       if (data.success) {
         showToast('兑换比例修改成功', 'success');
         setEditingRate(null);
@@ -893,7 +894,7 @@ function RecordsTab({
         ? `/api/score-records/${deleteConfirm.id}`
         : `/api/exchange-records/${deleteConfirm.id}`;
       const res = await apiFetch(url, { method: 'DELETE' });
-      const data = await res.json();
+      const data = await res.json() as { success: boolean; message: string; details?: string };
       if (data.success) {
         showToast(data.message, 'success');
         setDeleteConfirm(null);

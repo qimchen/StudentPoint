@@ -9,7 +9,7 @@ export async function PUT(
   { params }: { params: { id: string } }
 ) {
   try {
-    const { rate } = await request.json();
+    const { rate } = (await request.json()) as { rate: number };
     const students = await getValue<Student[]>('students', []);
     const index = students.findIndex((s) => s.id === params.id);
     

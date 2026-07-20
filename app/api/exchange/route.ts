@@ -8,7 +8,7 @@ export const dynamic = 'force-dynamic';
 
 export async function POST(request: Request) {
   try {
-    const { studentId, points, reason } = await request.json();
+    const { studentId, points, reason } = (await request.json()) as { studentId: string; points: number; reason: string };
     
     const [students, exRecords] = await Promise.all([
       getValue<Student[]>('students', []),

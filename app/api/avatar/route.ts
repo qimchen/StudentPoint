@@ -6,7 +6,7 @@ export const runtime = 'edge';
 
 export async function POST(request: NextRequest) {
   try {
-    const { studentId, avatarUrl } = await request.json();
+    const { studentId, avatarUrl } = (await request.json()) as { studentId: string; avatarUrl: string };
     
     if (!studentId || !avatarUrl) {
       return NextResponse.json({ error: '缺少参数' }, { status: 400 });

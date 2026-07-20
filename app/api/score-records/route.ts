@@ -21,7 +21,7 @@ export async function GET() {
 
 export async function POST(request: Request) {
   try {
-    const { studentId, itemId, week } = await request.json();
+    const { studentId, itemId, week } = (await request.json()) as { studentId: string; itemId: string; week: string };
     
     const [students, items, records] = await Promise.all([
       getValue<Student[]>('students', []),

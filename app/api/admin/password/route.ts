@@ -6,7 +6,7 @@ export const runtime = 'edge';
 
 export async function POST(request: Request) {
   try {
-    const { newPassword } = await request.json();
+    const { newPassword } = (await request.json()) as { newPassword: string };
     
     if (!newPassword || newPassword.length < 4) {
       return NextResponse.json({ success: false, message: '密码长度至少4位' });

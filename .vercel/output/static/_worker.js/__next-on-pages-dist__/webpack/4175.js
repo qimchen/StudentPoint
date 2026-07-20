@@ -1,1 +1,1 @@
-var e={},l=(o,s,c)=>(e.__chunk_4175=(a,t,n)=>{"use strict";function r(){return new Date(new Date().getTime()+288e5).toISOString().slice(0,19).replace("T"," ")}n.d(t,{v:()=>r})},e);export{l as __getNamedExports};
+var e={},l=(s,o,c)=>(e.__chunk_4175=(a,t,n)=>{"use strict";function r(){return new Date(new Date().getTime()+288e5).toISOString().slice(0,19).replace("T"," ")}n.d(t,{v:()=>r})},e);export{l as __getNamedExports};

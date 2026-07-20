@@ -9,7 +9,7 @@ export async function PUT(
   { params }: { params: { id: string } }
 ) {
   try {
-    const body = await request.json();
+    const body = (await request.json()) as Partial<Omit<ScoreItem, 'id'>>;
     const items = await getValue<ScoreItem[]>('scoreItems', []);
     const index = items.findIndex((i) => i.id === params.id);
     

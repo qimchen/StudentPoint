@@ -16,7 +16,7 @@ export async function GET() {
 
 export async function POST(request: Request) {
   try {
-    const { subject, name, points } = await request.json();
+    const { subject, name, points } = (await request.json()) as { subject: ScoreItem['subject']; name: string; points: number };
     
     const items = await getValue<ScoreItem[]>('scoreItems', []);
     const newItem: ScoreItem = {
