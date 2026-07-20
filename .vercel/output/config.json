@@ -85,7 +85,7 @@
       "continue": true
     },
     {
-      "src": "^/student/_next/data/2I4xmPBwpUtw42mP6aikR/(.*).json",
+      "src": "^/student/_next/data/zyedbZuUFOgIQVlZwyWfo/(.*).json",
       "dest": "/student/$1",
       "override": true,
       "continue": true,
@@ -116,13 +116,20 @@
       "status": 308
     },
     {
+      "src": "^(?!/student/_next)/(?:/)?$",
+      "headers": {
+        "Location": "/student"
+      },
+      "status": 307
+    },
+    {
       "continue": true,
       "src": "^\\/student(?:\\/(_next\\/data\\/[^/]{1,}))?\\/admin(.json)?[\\/#\\?]?$",
       "missing": [
         {
           "type": "header",
           "key": "x-prerender-revalidate",
-          "value": "5035dca93b138bffa182b17f5b9a9eb5"
+          "value": "ba74ee97433f41a7c2499cc1c5bfd2e2"
         }
       ],
       "middlewarePath": "student/middleware",
@@ -138,7 +145,7 @@
         {
           "type": "header",
           "key": "x-prerender-revalidate",
-          "value": "5035dca93b138bffa182b17f5b9a9eb5"
+          "value": "ba74ee97433f41a7c2499cc1c5bfd2e2"
         }
       ],
       "middlewarePath": "student/middleware",
@@ -155,7 +162,7 @@
           "key": "x-nextjs-data"
         }
       ],
-      "dest": "/student/_next/data/2I4xmPBwpUtw42mP6aikR/index.json",
+      "dest": "/student/_next/data/zyedbZuUFOgIQVlZwyWfo/index.json",
       "continue": true,
       "override": true
     },
@@ -167,7 +174,7 @@
           "key": "x-nextjs-data"
         }
       ],
-      "dest": "/student/_next/data/2I4xmPBwpUtw42mP6aikR/$1.json",
+      "dest": "/student/_next/data/zyedbZuUFOgIQVlZwyWfo/$1.json",
       "continue": true,
       "override": true
     },
@@ -207,7 +214,7 @@
       "handle": "filesystem"
     },
     {
-      "src": "^/student/_next/data/2I4xmPBwpUtw42mP6aikR/(.*).json",
+      "src": "^/student/_next/data/zyedbZuUFOgIQVlZwyWfo/(.*).json",
       "dest": "/student/$1",
       "continue": true,
       "has": [
@@ -288,7 +295,7 @@
           "key": "x-nextjs-data"
         }
       ],
-      "dest": "/student/_next/data/2I4xmPBwpUtw42mP6aikR/index.json",
+      "dest": "/student/_next/data/zyedbZuUFOgIQVlZwyWfo/index.json",
       "continue": true
     },
     {
@@ -299,23 +306,23 @@
           "key": "x-nextjs-data"
         }
       ],
-      "dest": "/student/_next/data/2I4xmPBwpUtw42mP6aikR/$1.json",
+      "dest": "/student/_next/data/zyedbZuUFOgIQVlZwyWfo/$1.json",
       "continue": true
     },
     {
-      "src": "^/student/_next/data/2I4xmPBwpUtw42mP6aikR/api/exchange\\-records/(?<nxtPid>[^/]+?)(?:/)?.json$",
+      "src": "^/student/_next/data/zyedbZuUFOgIQVlZwyWfo/api/exchange\\-records/(?<nxtPid>[^/]+?)(?:/)?.json$",
       "dest": "/student/api/exchange-records/[id]?nxtPid=$nxtPid"
     },
     {
-      "src": "^/student/_next/data/2I4xmPBwpUtw42mP6aikR/api/score\\-items/(?<nxtPid>[^/]+?)(?:/)?.json$",
+      "src": "^/student/_next/data/zyedbZuUFOgIQVlZwyWfo/api/score\\-items/(?<nxtPid>[^/]+?)(?:/)?.json$",
       "dest": "/student/api/score-items/[id]?nxtPid=$nxtPid"
     },
     {
-      "src": "^/student/_next/data/2I4xmPBwpUtw42mP6aikR/api/score\\-records/(?<nxtPid>[^/]+?)(?:/)?.json$",
+      "src": "^/student/_next/data/zyedbZuUFOgIQVlZwyWfo/api/score\\-records/(?<nxtPid>[^/]+?)(?:/)?.json$",
       "dest": "/student/api/score-records/[id]?nxtPid=$nxtPid"
     },
     {
-      "src": "^/student/_next/data/2I4xmPBwpUtw42mP6aikR/api/students/(?<nxtPid>[^/]+?)/rate(?:/)?.json$",
+      "src": "^/student/_next/data/zyedbZuUFOgIQVlZwyWfo/api/students/(?<nxtPid>[^/]+?)/rate(?:/)?.json$",
       "dest": "/student/api/students/[id]/rate?nxtPid=$nxtPid"
     },
     {
@@ -351,7 +358,7 @@
       "dest": "/student/api/students/[id]/rate?nxtPid=$nxtPid"
     },
     {
-      "src": "^/student/_next/data/2I4xmPBwpUtw42mP6aikR/(.*).json",
+      "src": "^/student/_next/data/zyedbZuUFOgIQVlZwyWfo/(.*).json",
       "headers": {
         "x-nextjs-matched-path": "/$1"
       },
@@ -359,14 +366,14 @@
       "override": true
     },
     {
-      "src": "^/student/_next/data/2I4xmPBwpUtw42mP6aikR/(.*).json",
+      "src": "^/student/_next/data/zyedbZuUFOgIQVlZwyWfo/(.*).json",
       "dest": "__next_data_catchall"
     },
     {
       "handle": "hit"
     },
     {
-      "src": "/student/_next/static/(?:[^/]+/pages|pages|chunks|runtime|css|image|media|2I4xmPBwpUtw42mP6aikR)/.+",
+      "src": "/student/_next/static/(?:[^/]+/pages|pages|chunks|runtime|css|image|media|zyedbZuUFOgIQVlZwyWfo)/.+",
       "headers": {
         "cache-control": "public,max-age=31536000,immutable"
       },
