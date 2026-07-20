@@ -86,6 +86,17 @@
       "sourceUrl": "https://registry.npmmirror.com"
     },
     {
+      "name": "html-to-image",
+      "type": "direct",
+      "scopes": [
+        "prod"
+      ],
+      "requested": "^1.11.13",
+      "resolved": "1.11.13",
+      "source": "registry",
+      "sourceUrl": "https://registry.npmjs.org"
+    },
+    {
       "name": "next",
       "type": "direct",
       "scopes": [
