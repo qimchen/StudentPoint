@@ -1,0 +1,30 @@
+{
+  "type": "Prerender",
+  "expiration": false,
+  "sourcePath": "/login",
+  "isDynamicRoute": false,
+  "htmlSize": 16369,
+  "group": 2,
+  "bypassToken": "ed59a87641b68b5b40b6831a778bcb15",
+  "experimentalBypassFor": [
+    {
+      "type": "header",
+      "key": "Next-Action"
+    },
+    {
+      "type": "header",
+      "key": "content-type",
+      "value": "multipart/form-data;.*"
+    }
+  ],
+  "fallback": {
+    "type": "FileFsRef",
+    "mode": 33188,
+    "fsPath": "login.prerender-fallback.html"
+  },
+  "initialHeaders": {
+    "x-next-cache-tags": "_N_T_/layout,_N_T_/login/layout,_N_T_/login/page,_N_T_/login",
+    "vary": "RSC, Next-Router-State-Tree, Next-Router-Prefetch"
+  },
+  "allowQuery": []
+}

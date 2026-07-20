@@ -1,0 +1,18 @@
+{
+  "runtime": "edge",
+  "name": "student/api/score-records/[id]",
+  "deploymentTarget": "v8-worker",
+  "entrypoint": "index.js",
+  "assets": [],
+  "framework": {
+    "slug": "nextjs",
+    "version": "14.2.35"
+  },
+  "environment": {
+    "__NEXT_BUILD_ID": "c8GGIht61GBqn2UB7f_UZ",
+    "NEXT_SERVER_ACTIONS_ENCRYPTION_KEY": "ETzstLaUea2jXEGrl4jF8hoo1D5rVCvjEXv8mrFTx7M=",
+    "__NEXT_PREVIEW_MODE_ID": "ed59a87641b68b5b40b6831a778bcb15",
+    "__NEXT_PREVIEW_MODE_ENCRYPTION_KEY": "8df3ff1a4775dd77c181d2fb18eff96e7f4fdb6cb744e6b9f23263867ad46d24",
+    "__NEXT_PREVIEW_MODE_SIGNING_KEY": "35840d3d7b5f1b681f0d6385a8770fc676706565a1d8fac0f97c85db06d9963d"
+  }
+}
