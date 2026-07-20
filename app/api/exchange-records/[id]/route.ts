@@ -2,6 +2,8 @@ import { NextResponse } from 'next/server';
 import { getValue, setValue } from '@/lib/kv';
 import type { ExchangeRecord, Student } from '@/lib/types';
 
+export const runtime = 'edge';
+
 export async function DELETE(
   request: Request,
   { params }: { params: { id: string } }

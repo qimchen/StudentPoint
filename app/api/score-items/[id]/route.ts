@@ -2,6 +2,8 @@ import { NextResponse } from 'next/server';
 import { getValue, setValue } from '@/lib/kv';
 import type { ScoreItem } from '@/lib/types';
 
+export const runtime = 'edge';
+
 export async function PUT(
   request: Request,
   { params }: { params: { id: string } }

@@ -2,6 +2,8 @@ import { NextResponse } from 'next/server';
 import { setValue } from '@/lib/kv';
 import type { Config } from '@/lib/types';
 
+export const runtime = 'edge';
+
 export async function POST(request: Request) {
   try {
     const { newPassword } = await request.json();

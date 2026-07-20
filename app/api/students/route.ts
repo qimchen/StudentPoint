@@ -2,6 +2,7 @@ import { NextResponse } from 'next/server';
 import { getValue } from '@/lib/kv';
 import type { Student } from '@/lib/types';
 
+export const runtime = 'edge';
 export const dynamic = 'force-dynamic';
 
 export async function GET() {

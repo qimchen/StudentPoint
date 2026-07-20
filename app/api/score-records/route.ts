@@ -3,6 +3,7 @@ import { getValue, setValue } from '@/lib/kv';
 import { getNowInGMT8 } from '@/lib/utils/date';
 import type { ScoreRecord, Student, ScoreItem } from '@/lib/types';
 
+export const runtime = 'edge';
 export const dynamic = 'force-dynamic';
 
 export async function GET() {

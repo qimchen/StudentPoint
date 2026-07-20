@@ -2,6 +2,7 @@ import { initData, getValue } from '../lib/kv';
 import type { Student, ScoreRecord, ExchangeRecord, ScoreItem } from '../lib/types';
 import HomeClient from './components/HomeClient';
 
+export const runtime = 'edge';
 export const dynamic = 'force-dynamic';
 
 export default async function Home() {
