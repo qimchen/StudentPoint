@@ -1,4 +1,3 @@
-import Redis from 'ioredis';
 import type {
   Student,
   ScoreItem,
@@ -7,15 +6,37 @@ import type {
   Config,
 } from './types';
 
-// ✅ 直接用 Vercel 自动注入的 student_REDIS_URL 初始化原生 Redis 客户端
-const redis = new Redis(process.env.student_REDIS_URL || '');
+// ✅ Cloudflare Pages Edge Runtime 只能使用 HTTP 协议访问 Redis
+// 使用 Upstash Redis REST API（基于 fetch），不能再用 ioredis（依赖 TCP）
+const REDIS_REST_URL = process.env.UPSTASH_REDIS_REST_URL || '';
+const REDIS_REST_TOKEN = process.env.UPSTASH_REDIS_REST_TOKEN || '';
+
+async function redisCommand<T = unknown>(args: string[]): Promise<T | null> {
+  if (!REDIS_REST_URL || !REDIS_REST_TOKEN) {
+    throw new Error('Missing UPSTASH_REDIS_REST_URL or UPSTASH_REDIS_REST_TOKEN');
+  }
+  const res = await fetch(`${REDIS_REST_URL}`, {
+    method: 'POST',
+    headers: {
+      Authorization: `Bearer ${REDIS_REST_TOKEN}`,
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(args),
+  });
+  if (!res.ok) {
+    const text = await res.text();
+    throw new Error(`Redis REST error ${res.status}: ${text}`);
+  }
+  const data = (await res.json()) as { result?: T | null };
+  return data.result ?? null;
+}
 
 /**
- * 获取指定 key 的值（原生 Redis 需要手动序列化/反序列化）
+ * 获取指定 key 的值（Redis REST 返回字符串，需手动反序列化）
  */
 export async function getValue<T>(key: string, fallback: T): Promise<T> {
   try {
-    const value = await redis.get(key);
+    const value = await redisCommand<string>(['GET', key]);
     return value ? (JSON.parse(value) as T) : fallback;
   } catch (error) {
     console.error('Redis 获取数据失败:', error);
@@ -24,14 +45,14 @@ export async function getValue<T>(key: string, fallback: T): Promise<T> {
 }
 
 /**
- * 写入 KV（原生 Redis 需要手动序列化）
+ * 写入 KV（手动序列化为 JSON 字符串）
  */
 export async function setValue(
   key: 'students' | 'scoreItems' | 'scoreRecords' | 'exchangeRecords' | 'config',
   value: unknown,
 ): Promise<void> {
   try {
-    await redis.set(key, JSON.stringify(value));
+    await redisCommand(['SET', key, JSON.stringify(value)]);
   } catch (error) {
     console.error('Redis 写入数据失败:', error);
     throw error;
