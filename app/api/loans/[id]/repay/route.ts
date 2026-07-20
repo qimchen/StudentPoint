@@ -37,10 +37,33 @@ export async function POST(
     const weeks = Math.max(0, Math.floor(elapsed / WEEK_MS));
     const newPrincipalAfterInterest = loan.currentPrincipal * Math.pow(1 + loan.weeklyInterestRate, weeks);
 
-    // 2. 还款扣减
+    // 2. 校验学生现有积分：还款金额不能超过学生当前积分，也不能超过当前总欠款
+    //    教育意义：必须先攒够积分才能还款，有多少才能还多少
+    const students = await getValue<Student[]>('students', []);
+    const sIndex = students.findIndex((s) => s.id === loan.studentId);
+    const student = sIndex !== -1 ? students[sIndex] : null;
+    const studentPoints = student?.totalPoints ?? 0;
+
+    if (amount > studentPoints) {
+      return NextResponse.json({
+        success: false,
+        message: `积分不足：本次需还 ${amount}，但学生当前仅有 ${studentPoints} 积分。请先增加积分或减少还款金额。`,
+      }, { status: 400 });
+    }
+
+    // 还款金额不能超过当前总欠款（含利息）
+    const maxRepay = Math.ceil(newPrincipalAfterInterest);
+    if (amount > maxRepay) {
+      return NextResponse.json({
+        success: false,
+        message: `还款金额超过当前欠款：当前欠款 ${maxRepay}，输入还款 ${amount}`,
+      }, { status: 400 });
+    }
+
+    // 3. 还款扣减（amount 已校验：≤ 学生积分 且 ≤ 当前欠款）
     const newBalance = newPrincipalAfterInterest - amount;
 
-    // 3. 记录还款
+    // 4. 记录还款
     const nowStr = getNowInGMT8();
     const repayment: Repayment = {
       id: `repay-${now}`,
@@ -50,13 +73,14 @@ export async function POST(
     };
     loan.repayments.push(repayment);
 
-    if (newBalance <= 0) {
-      // 结清
+    if (newBalance <= 0.005) {
+      // 结清（含浮点误差容忍）
       loan.currentPrincipal = 0;
       loan.lastResetTimestamp = now;
       loan.status = 'closed';
     } else {
       // 仍有欠款：重置 currentPrincipal 为结息后扣减的余额，刷新 lastResetTimestamp
+      // 下次计息从 now 开始按周复利
       loan.currentPrincipal = newBalance;
       loan.lastResetTimestamp = now;
     }
@@ -64,28 +88,20 @@ export async function POST(
     loans[index] = loan;
     await setValue('loans', loans);
 
-    // 虚拟信用额度方案：还款扣减学生现有积分
-    const students = await getValue<Student[]>('students', []);
-    const sIndex = students.findIndex((s) => s.id === loan.studentId);
-    if (sIndex !== -1) {
-      const student = students[sIndex];
-      // 限制实际扣减金额不超过学生当前积分（避免出现负数）
-      const actualDeduct = Math.min(amount, student.totalPoints);
-      if (actualDeduct > 0) {
-        student.totalPoints = Math.max(0, student.totalPoints - actualDeduct);
-        // 按科目从高到低扣减
-        const subjects: Array<'语文' | '数学' | '英语'> = ['语文', '数学', '英语'];
-        subjects.sort((a, b) => student.subjectPoints[b] - student.subjectPoints[a]);
-        let toDeduct = actualDeduct;
-        for (const subj of subjects) {
-          if (toDeduct <= 0) break;
-          const deduct = Math.min(student.subjectPoints[subj], toDeduct);
-          student.subjectPoints[subj] -= deduct;
-          toDeduct -= deduct;
-        }
-        students[sIndex] = student;
-        await setValue('students', students);
+    // 5. 虚拟信用额度方案：等额扣减学生现有积分（按科目从高到低扣）
+    if (student) {
+      student.totalPoints = Math.max(0, student.totalPoints - amount);
+      const subjects: Array<'语文' | '数学' | '英语'> = ['语文', '数学', '英语'];
+      subjects.sort((a, b) => student.subjectPoints[b] - student.subjectPoints[a]);
+      let toDeduct = amount;
+      for (const subj of subjects) {
+        if (toDeduct <= 0) break;
+        const deduct = Math.min(student.subjectPoints[subj], toDeduct);
+        student.subjectPoints[subj] -= deduct;
+        toDeduct -= deduct;
       }
+      students[sIndex] = student;
+      await setValue('students', students);
     }
 
     const currentDebt = calcCurrentDebt(loan, now);
@@ -97,6 +113,7 @@ export async function POST(
       currentDebt,
       repaid: amount,
       newBalance: loan.currentPrincipal,
+      studentPointsAfter: student?.totalPoints ?? 0,
     });
   } catch {
     return NextResponse.json({ success: false, message: '还款失败' }, { status: 500 });

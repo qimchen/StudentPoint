@@ -485,61 +485,106 @@ export default function LoanManagement({ students, onRefresh, showToast }: Props
       )}
 
       {/* 还款弹窗 */}
-      {repayTarget && (
-        <div className="fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4" onClick={() => setRepayTarget(null)}>
-          <div className="bg-white dark:bg-gray-800 rounded-xl shadow-xl max-w-md w-full p-6" onClick={(e) => e.stopPropagation()}>
-            <h3 className="text-lg font-semibold mb-4">还款 - {repayTarget.studentName}</h3>
-            <div className="space-y-2 text-sm mb-4">
-              <div className="flex justify-between">
-                <span className="text-gray-500">当前欠款</span>
-                <span className="text-red-600 dark:text-red-400 font-bold">{fmt(repayTarget.currentDebt)}</span>
+      {repayTarget && (() => {
+        const stu = students.find((s) => s.id === repayTarget.studentId);
+        const studentPoints = stu?.totalPoints ?? 0;
+        const maxDebt = Math.ceil(repayTarget.currentDebt);
+        const maxRepay = Math.min(studentPoints, maxDebt); // 实际能还的最大金额
+        const insufficient = repayAmount > studentPoints;
+        const overDebt = repayAmount > maxDebt;
+        return (
+          <div className="fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4" onClick={() => setRepayTarget(null)}>
+            <div className="bg-white dark:bg-gray-800 rounded-xl shadow-xl max-w-md w-full p-6" onClick={(e) => e.stopPropagation()}>
+              <h3 className="text-lg font-semibold mb-4">还款 - {repayTarget.studentName}</h3>
+              <div className="space-y-2 text-sm mb-4">
+                <div className="flex justify-between">
+                  <span className="text-gray-500">当前欠款（含利息）</span>
+                  <span className="text-red-600 dark:text-red-400 font-bold">{fmt(repayTarget.currentDebt)}</span>
+                </div>
+                <div className="flex justify-between">
+                  <span className="text-gray-500">　其中利息</span>
+                  <span className="text-amber-600 dark:text-amber-400">{fmt(repayTarget.accruedInterest)}</span>
+                </div>
+                <div className="flex justify-between">
+                  <span className="text-gray-500">学生当前积分</span>
+                  <span className={`font-bold ${studentPoints >= repayTarget.currentDebt ? 'text-green-600 dark:text-green-400' : 'text-orange-600 dark:text-orange-400'}`}>
+                    {studentPoints}
+                  </span>
+                </div>
+                <div className="flex justify-between">
+                  <span className="text-gray-500">已还款次数</span>
+                  <span>{repayTarget.repayments.length} 次</span>
+                </div>
               </div>
-              <div className="flex justify-between">
-                <span className="text-gray-500">其中利息</span>
-                <span className="text-amber-600 dark:text-amber-400">{fmt(repayTarget.accruedInterest)}</span>
+
+              {/* 积分不足提示 */}
+              {studentPoints < repayTarget.currentDebt && (
+                <div className="mb-3 p-3 rounded-lg bg-orange-50 dark:bg-orange-900/20 border border-orange-200 dark:border-orange-900/40 text-xs text-orange-700 dark:text-orange-300">
+                  ⚠️ 积分不足：当前欠款 {fmt(repayTarget.currentDebt)}，但学生只有 {studentPoints} 积分。
+                  最多可还 <strong>{maxRepay}</strong> 分，剩余欠款将继续按周累计利息。
+                </div>
+              )}
+
+              <div className="mb-4">
+                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+                  还款金额（最多 {maxRepay}）
+                </label>
+                <input
+                  type="number"
+                  min={1}
+                  max={maxRepay}
+                  step={1}
+                  value={repayAmount}
+                  onChange={(e) => setRepayAmount(Number(e.target.value))}
+                  className={`input-control ${insufficient || overDebt ? 'border-red-500 focus:ring-red-500' : ''}`}
+                />
+                {insufficient && (
+                  <p className="text-xs text-red-500 mt-1">⚠️ 超过学生现有积分 {studentPoints}</p>
+                )}
+                {overDebt && !insufficient && (
+                  <p className="text-xs text-red-500 mt-1">⚠️ 超过当前欠款 {maxDebt}</p>
+                )}
+                <div className="flex gap-2 mt-2 flex-wrap">
+                  <button
+                    onClick={() => setRepayAmount(maxRepay)}
+                    className="text-xs px-2 py-1 rounded bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-300 hover:bg-green-200"
+                  >
+                    最大可还 ({maxRepay})
+                  </button>
+                  <button
+                    onClick={() => setRepayAmount(Math.min(Math.ceil(repayTarget.currentDebt), studentPoints))}
+                    disabled={studentPoints < 1}
+                    className="text-xs px-2 py-1 rounded bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 hover:bg-gray-200 disabled:opacity-40"
+                  >
+                    全部还清 ({fmt(repayTarget.currentDebt)})
+                  </button>
+                  <button
+                    onClick={() => setRepayAmount(Math.min(Math.ceil(repayTarget.currentPrincipal), studentPoints))}
+                    disabled={studentPoints < 1}
+                    className="text-xs px-2 py-1 rounded bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 hover:bg-gray-200 disabled:opacity-40"
+                  >
+                    仅还本金 ({fmt(repayTarget.currentPrincipal)})
+                  </button>
+                </div>
+                <p className="text-xs text-gray-500 mt-2">
+                  💡 还款将等额扣减学生现有积分（按科目从高到低扣）。还款后剩余欠款会重新按周计息。
+                </p>
               </div>
-              <div className="flex justify-between">
-                <span className="text-gray-500">已还款次数</span>
-                <span>{repayTarget.repayments.length} 次</span>
-              </div>
-            </div>
-            <div className="mb-4">
-              <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">还款金额</label>
-              <input
-                type="number"
-                min={1}
-                step={1}
-                value={repayAmount}
-                onChange={(e) => setRepayAmount(Number(e.target.value))}
-                className="input-control"
-              />
-              <div className="flex gap-2 mt-2">
+              <div className="flex gap-2">
+                <button type="button" onClick={() => setRepayTarget(null)} className="btn btn-outline flex-1">取消</button>
                 <button
-                  onClick={() => setRepayAmount(Math.ceil(repayTarget.currentDebt))}
-                  className="text-xs px-2 py-1 rounded bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 hover:bg-gray-200"
+                  type="button"
+                  onClick={handleRepay}
+                  disabled={submitting || insufficient || overDebt || repayAmount <= 0}
+                  className="btn btn-primary flex-1"
                 >
-                  全部还清 ({fmt(repayTarget.currentDebt)})
-                </button>
-                <button
-                  onClick={() => setRepayAmount(Math.ceil(repayTarget.currentPrincipal))}
-                  className="text-xs px-2 py-1 rounded bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 hover:bg-gray-200"
-                >
-                  仅还本金 ({fmt(repayTarget.currentPrincipal)})
+                  {submitting ? '处理中...' : '确认还款'}
                 </button>
               </div>
-              <p className="text-xs text-gray-500 mt-2">
-                还款将等额扣减学生现有积分（按科目从高到低扣）。
-              </p>
-            </div>
-            <div className="flex gap-2">
-              <button type="button" onClick={() => setRepayTarget(null)} className="btn btn-outline flex-1">取消</button>
-              <button type="button" onClick={handleRepay} disabled={submitting} className="btn btn-primary flex-1">
-                {submitting ? '处理中...' : '确认还款'}
-              </button>
             </div>
           </div>
-        </div>
-      )}
+        );
+      })()}
 
       {/* 新建借款后的合同签约弹窗（步骤2） */}
       {pendingLoan && pendingStudent && (
