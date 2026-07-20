@@ -1,0 +1,18 @@
+{
+  "runtime": "edge",
+  "name": "student/api/loans",
+  "deploymentTarget": "v8-worker",
+  "entrypoint": "index.js",
+  "assets": [],
+  "framework": {
+    "slug": "nextjs",
+    "version": "14.2.35"
+  },
+  "environment": {
+    "__NEXT_BUILD_ID": "aWBsyJvY3g8M_PMFyQQAc",
+    "NEXT_SERVER_ACTIONS_ENCRYPTION_KEY": "/8jyaydtSCOGTcWapUwoUvXBdkny6Zwyyd2SwrNWoK4=",
+    "__NEXT_PREVIEW_MODE_ID": "88cd553a045c138a09f33a01d28cbf0b",
+    "__NEXT_PREVIEW_MODE_ENCRYPTION_KEY": "e75731510f6de607d9a067d733e232def59ee09e7b09e794684391f41a5bb152",
+    "__NEXT_PREVIEW_MODE_SIGNING_KEY": "b97cfbbca1c176053405ee40d6494a8021ffea4e74b4b2955df51429ca6d654b"
+  }
+}

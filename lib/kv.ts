@@ -5,6 +5,7 @@ import type {
   ScoreRecord,
   ExchangeRecord,
   Config,
+  Loan,
 } from './types';
 
 // ✅ 使用 Cloudflare KV（Pages 项目已绑定 KV namespace，绑定名 KV）
@@ -33,7 +34,7 @@ export async function getValue<T>(key: string, fallback: T): Promise<T> {
  * 写入 KV（手动序列化为 JSON 字符串）
  */
 export async function setValue(
-  key: 'students' | 'scoreItems' | 'scoreRecords' | 'exchangeRecords' | 'config',
+  key: 'students' | 'scoreItems' | 'scoreRecords' | 'exchangeRecords' | 'config' | 'loans',
   value: unknown,
 ): Promise<void> {
   try {
@@ -115,5 +116,11 @@ export async function initData(): Promise<void> {
   const exchangeRecords = await getValue<ExchangeRecord[]>('exchangeRecords', []);
   if (exchangeRecords.length === 0) {
     await setValue('exchangeRecords', []);
+  }
+
+  // 贷款数据（KV 中可能已有历史数据，仅在不存在时初始化空数组）
+  const loans = await getValue<Loan[]>('loans', []);
+  if (loans.length === 0) {
+    await setValue('loans', []);
   }
 }

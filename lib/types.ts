@@ -10,6 +10,8 @@ export interface Student {
     英语: number;
   };
   avatarUrl?: string;
+  // 贷款默认周利率（小数，0.025 = 2.5%）。未设置时按 0.025 处理
+  weeklyInterestRate?: number;
 }
 
 // 积分项
@@ -48,4 +50,31 @@ export interface ExchangeRecord {
 // 管理员配置
 export interface Config {
   password: string;
+}
+
+// 还款记录
+export interface Repayment {
+  id: string;
+  amount: number;
+  time: string;          // 'YYYY-MM-DD HH:mm:ss'
+  timestamp: number;
+}
+
+// 贷款
+export interface Loan {
+  id: string;                    // 'loan-{timestamp}'
+  studentId: string;
+  principal: number;             // 初始本金
+  currentPrincipal: number;      // 当前剩余本金（结息后含累计利息，随还款递减）
+  weeklyInterestRate: number;    // 周利率（小数，0.025 = 2.5%）
+  borrowTime: string;            // 'YYYY-MM-DD HH:mm:ss'
+  borrowTimestamp: number;
+  lastResetTimestamp: number;    // 上次结息时间戳
+  status: 'active' | 'closed';
+  repayments: Repayment[];
+  purpose: string;               // 借款用途
+  // 合同签署
+  contractSigned?: boolean;
+  contractSignTime?: string;     // 'YYYY-MM-DD HH:mm:ss'
+  contractSigner?: string;       // 签署人姓名
 }

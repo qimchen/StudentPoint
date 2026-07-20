@@ -1,5 +1,5 @@
 {
-  "timestamp": 1784521068423,
+  "timestamp": 1784522101705,
   "outputDir": ".vercel/output/static/_worker.js",
   "versions": {
     "@cloudflare/next-on-pages": "1.13.16"
@@ -24,11 +24,11 @@
               "version": "14.2.35"
             },
             "environment": {
-              "__NEXT_BUILD_ID": "zyedbZuUFOgIQVlZwyWfo",
-              "NEXT_SERVER_ACTIONS_ENCRYPTION_KEY": "TNVuTXzIaqDUoWsXZQzDq+CpZGowpuqNtRD1Uglb9yo=",
-              "__NEXT_PREVIEW_MODE_ID": "ba74ee97433f41a7c2499cc1c5bfd2e2",
-              "__NEXT_PREVIEW_MODE_ENCRYPTION_KEY": "450c5d02317766790807da100d7b8a8a5e8c8f0d422f633f8edc116b204c862c",
-              "__NEXT_PREVIEW_MODE_SIGNING_KEY": "1057dae48b6c76a1f097ef4847dc5c6d713ec4efa48cdea8fcbc5c9d1ae55292"
+              "__NEXT_BUILD_ID": "aWBsyJvY3g8M_PMFyQQAc",
+              "NEXT_SERVER_ACTIONS_ENCRYPTION_KEY": "/8jyaydtSCOGTcWapUwoUvXBdkny6Zwyyd2SwrNWoK4=",
+              "__NEXT_PREVIEW_MODE_ID": "88cd553a045c138a09f33a01d28cbf0b",
+              "__NEXT_PREVIEW_MODE_ENCRYPTION_KEY": "e75731510f6de607d9a067d733e232def59ee09e7b09e794684391f41a5bb152",
+              "__NEXT_PREVIEW_MODE_SIGNING_KEY": "b97cfbbca1c176053405ee40d6494a8021ffea4e74b4b2955df51429ca6d654b"
             }
           },
           "route": {
@@ -38,7 +38,7 @@
             ]
           },
           "outputPath": "__next-on-pages-dist__/functions/student/api/admin/password.func.js",
-          "outputByteSize": 10463
+          "outputByteSize": 10911
         },
         {
           "relativePath": "/student/api/avatar.func",
@@ -53,11 +53,11 @@
               "version": "14.2.35"
             },
             "environment": {
-              "__NEXT_BUILD_ID": "zyedbZuUFOgIQVlZwyWfo",
-              "NEXT_SERVER_ACTIONS_ENCRYPTION_KEY": "TNVuTXzIaqDUoWsXZQzDq+CpZGowpuqNtRD1Uglb9yo=",
-              "__NEXT_PREVIEW_MODE_ID": "ba74ee97433f41a7c2499cc1c5bfd2e2",
-              "__NEXT_PREVIEW_MODE_ENCRYPTION_KEY": "450c5d02317766790807da100d7b8a8a5e8c8f0d422f633f8edc116b204c862c",
-              "__NEXT_PREVIEW_MODE_SIGNING_KEY": "1057dae48b6c76a1f097ef4847dc5c6d713ec4efa48cdea8fcbc5c9d1ae55292"
+              "__NEXT_BUILD_ID": "aWBsyJvY3g8M_PMFyQQAc",
+              "NEXT_SERVER_ACTIONS_ENCRYPTION_KEY": "/8jyaydtSCOGTcWapUwoUvXBdkny6Zwyyd2SwrNWoK4=",
+              "__NEXT_PREVIEW_MODE_ID": "88cd553a045c138a09f33a01d28cbf0b",
+              "__NEXT_PREVIEW_MODE_ENCRYPTION_KEY": "e75731510f6de607d9a067d733e232def59ee09e7b09e794684391f41a5bb152",
+              "__NEXT_PREVIEW_MODE_SIGNING_KEY": "b97cfbbca1c176053405ee40d6494a8021ffea4e74b4b2955df51429ca6d654b"
             }
           },
           "route": {
@@ -67,7 +67,7 @@
             ]
           },
           "outputPath": "__next-on-pages-dist__/functions/student/api/avatar.func.js",
-          "outputByteSize": 10559
+          "outputByteSize": 11009
         },
         {
           "relativePath": "/student/api/exchange-records/[id].func",
@@ -82,11 +82,11 @@
               "version": "14.2.35"
             },
             "environment": {
-              "__NEXT_BUILD_ID": "zyedbZuUFOgIQVlZwyWfo",
-              "NEXT_SERVER_ACTIONS_ENCRYPTION_KEY": "TNVuTXzIaqDUoWsXZQzDq+CpZGowpuqNtRD1Uglb9yo=",
-              "__NEXT_PREVIEW_MODE_ID": "ba74ee97433f41a7c2499cc1c5bfd2e2",
-              "__NEXT_PREVIEW_MODE_ENCRYPTION_KEY": "450c5d02317766790807da100d7b8a8a5e8c8f0d422f633f8edc116b204c862c",
-              "__NEXT_PREVIEW_MODE_SIGNING_KEY": "1057dae48b6c76a1f097ef4847dc5c6d713ec4efa48cdea8fcbc5c9d1ae55292"
+              "__NEXT_BUILD_ID": "aWBsyJvY3g8M_PMFyQQAc",
+              "NEXT_SERVER_ACTIONS_ENCRYPTION_KEY": "/8jyaydtSCOGTcWapUwoUvXBdkny6Zwyyd2SwrNWoK4=",
+              "__NEXT_PREVIEW_MODE_ID": "88cd553a045c138a09f33a01d28cbf0b",
+              "__NEXT_PREVIEW_MODE_ENCRYPTION_KEY": "e75731510f6de607d9a067d733e232def59ee09e7b09e794684391f41a5bb152",
+              "__NEXT_PREVIEW_MODE_SIGNING_KEY": "b97cfbbca1c176053405ee40d6494a8021ffea4e74b4b2955df51429ca6d654b"
             }
           },
           "route": {
@@ -96,7 +96,7 @@
             ]
           },
           "outputPath": "__next-on-pages-dist__/functions/student/api/exchange-records/[id].func.js",
-          "outputByteSize": 10902
+          "outputByteSize": 11352
         },
         {
           "relativePath": "/student/api/exchange-records.func",
@@ -111,11 +111,11 @@
               "version": "14.2.35"
             },
             "environment": {
-              "__NEXT_BUILD_ID": "zyedbZuUFOgIQVlZwyWfo",
-              "NEXT_SERVER_ACTIONS_ENCRYPTION_KEY": "TNVuTXzIaqDUoWsXZQzDq+CpZGowpuqNtRD1Uglb9yo=",
-              "__NEXT_PREVIEW_MODE_ID": "ba74ee97433f41a7c2499cc1c5bfd2e2",
-              "__NEXT_PREVIEW_MODE_ENCRYPTION_KEY": "450c5d02317766790807da100d7b8a8a5e8c8f0d422f633f8edc116b204c862c",
-              "__NEXT_PREVIEW_MODE_SIGNING_KEY": "1057dae48b6c76a1f097ef4847dc5c6d713ec4efa48cdea8fcbc5c9d1ae55292"
+              "__NEXT_BUILD_ID": "aWBsyJvY3g8M_PMFyQQAc",
+              "NEXT_SERVER_ACTIONS_ENCRYPTION_KEY": "/8jyaydtSCOGTcWapUwoUvXBdkny6Zwyyd2SwrNWoK4=",
+              "__NEXT_PREVIEW_MODE_ID": "88cd553a045c138a09f33a01d28cbf0b",
+              "__NEXT_PREVIEW_MODE_ENCRYPTION_KEY": "e75731510f6de607d9a067d733e232def59ee09e7b09e794684391f41a5bb152",
+              "__NEXT_PREVIEW_MODE_SIGNING_KEY": "b97cfbbca1c176053405ee40d6494a8021ffea4e74b4b2955df51429ca6d654b"
             }
           },
           "route": {
@@ -125,7 +125,7 @@
             ]
           },
           "outputPath": "__next-on-pages-dist__/functions/student/api/exchange-records.func.js",
-          "outputByteSize": 10295
+          "outputByteSize": 10745
         },
         {
           "relativePath": "/student/api/exchange.func",
@@ -140,11 +140,11 @@
               "version": "14.2.35"
             },
             "environment": {
-              "__NEXT_BUILD_ID": "zyedbZuUFOgIQVlZwyWfo",
-              "NEXT_SERVER_ACTIONS_ENCRYPTION_KEY": "TNVuTXzIaqDUoWsXZQzDq+CpZGowpuqNtRD1Uglb9yo=",
-              "__NEXT_PREVIEW_MODE_ID": "ba74ee97433f41a7c2499cc1c5bfd2e2",
-              "__NEXT_PREVIEW_MODE_ENCRYPTION_KEY": "450c5d02317766790807da100d7b8a8a5e8c8f0d422f633f8edc116b204c862c",
-              "__NEXT_PREVIEW_MODE_SIGNING_KEY": "1057dae48b6c76a1f097ef4847dc5c6d713ec4efa48cdea8fcbc5c9d1ae55292"
+              "__NEXT_BUILD_ID": "aWBsyJvY3g8M_PMFyQQAc",
+              "NEXT_SERVER_ACTIONS_ENCRYPTION_KEY": "/8jyaydtSCOGTcWapUwoUvXBdkny6Zwyyd2SwrNWoK4=",
+              "__NEXT_PREVIEW_MODE_ID": "88cd553a045c138a09f33a01d28cbf0b",
+              "__NEXT_PREVIEW_MODE_ENCRYPTION_KEY": "e75731510f6de607d9a067d733e232def59ee09e7b09e794684391f41a5bb152",
+              "__NEXT_PREVIEW_MODE_SIGNING_KEY": "b97cfbbca1c176053405ee40d6494a8021ffea4e74b4b2955df51429ca6d654b"
             }
           },
           "route": {
@@ -154,7 +154,123 @@
             ]
           },
           "outputPath": "__next-on-pages-dist__/functions/student/api/exchange.func.js",
-          "outputByteSize": 11817
+          "outputByteSize": 12267
+        },
+        {
+          "relativePath": "/student/api/loans/[id]/repay.func",
+          "config": {
+            "runtime": "edge",
+            "name": "student/api/loans/[id]/repay",
+            "deploymentTarget": "v8-worker",
+            "entrypoint": "index.js",
+            "assets": [],
+            "framework": {
+              "slug": "nextjs",
+              "version": "14.2.35"
+            },
+            "environment": {
+              "__NEXT_BUILD_ID": "aWBsyJvY3g8M_PMFyQQAc",
+              "NEXT_SERVER_ACTIONS_ENCRYPTION_KEY": "/8jyaydtSCOGTcWapUwoUvXBdkny6Zwyyd2SwrNWoK4=",
+              "__NEXT_PREVIEW_MODE_ID": "88cd553a045c138a09f33a01d28cbf0b",
+              "__NEXT_PREVIEW_MODE_ENCRYPTION_KEY": "e75731510f6de607d9a067d733e232def59ee09e7b09e794684391f41a5bb152",
+              "__NEXT_PREVIEW_MODE_SIGNING_KEY": "b97cfbbca1c176053405ee40d6494a8021ffea4e74b4b2955df51429ca6d654b"
+            }
+          },
+          "route": {
+            "path": "/student/api/loans/[id]/repay",
+            "overrides": [
+              "/student/api/loans/[id]/repay.rsc"
+            ]
+          },
+          "outputPath": "__next-on-pages-dist__/functions/student/api/loans/[id]/repay.func.js",
+          "outputByteSize": 12516
+        },
+        {
+          "relativePath": "/student/api/loans/[id]/sign.func",
+          "config": {
+            "runtime": "edge",
+            "name": "student/api/loans/[id]/sign",
+            "deploymentTarget": "v8-worker",
+            "entrypoint": "index.js",
+            "assets": [],
+            "framework": {
+              "slug": "nextjs",
+              "version": "14.2.35"
+            },
+            "environment": {
+              "__NEXT_BUILD_ID": "aWBsyJvY3g8M_PMFyQQAc",
+              "NEXT_SERVER_ACTIONS_ENCRYPTION_KEY": "/8jyaydtSCOGTcWapUwoUvXBdkny6Zwyyd2SwrNWoK4=",
+              "__NEXT_PREVIEW_MODE_ID": "88cd553a045c138a09f33a01d28cbf0b",
+              "__NEXT_PREVIEW_MODE_ENCRYPTION_KEY": "e75731510f6de607d9a067d733e232def59ee09e7b09e794684391f41a5bb152",
+              "__NEXT_PREVIEW_MODE_SIGNING_KEY": "b97cfbbca1c176053405ee40d6494a8021ffea4e74b4b2955df51429ca6d654b"
+            }
+          },
+          "route": {
+            "path": "/student/api/loans/[id]/sign",
+            "overrides": [
+              "/student/api/loans/[id]/sign.rsc"
+            ]
+          },
+          "outputPath": "__next-on-pages-dist__/functions/student/api/loans/[id]/sign.func.js",
+          "outputByteSize": 11603
+        },
+        {
+          "relativePath": "/student/api/loans/[id].func",
+          "config": {
+            "runtime": "edge",
+            "name": "student/api/loans/[id]",
+            "deploymentTarget": "v8-worker",
+            "entrypoint": "index.js",
+            "assets": [],
+            "framework": {
+              "slug": "nextjs",
+              "version": "14.2.35"
+            },
+            "environment": {
+              "__NEXT_BUILD_ID": "aWBsyJvY3g8M_PMFyQQAc",
+              "NEXT_SERVER_ACTIONS_ENCRYPTION_KEY": "/8jyaydtSCOGTcWapUwoUvXBdkny6Zwyyd2SwrNWoK4=",
+              "__NEXT_PREVIEW_MODE_ID": "88cd553a045c138a09f33a01d28cbf0b",
+              "__NEXT_PREVIEW_MODE_ENCRYPTION_KEY": "e75731510f6de607d9a067d733e232def59ee09e7b09e794684391f41a5bb152",
+              "__NEXT_PREVIEW_MODE_SIGNING_KEY": "b97cfbbca1c176053405ee40d6494a8021ffea4e74b4b2955df51429ca6d654b"
+            }
+          },
+          "route": {
+            "path": "/student/api/loans/[id]",
+            "overrides": [
+              "/student/api/loans/[id].rsc"
+            ]
+          },
+          "outputPath": "__next-on-pages-dist__/functions/student/api/loans/[id].func.js",
+          "outputByteSize": 11892
+        },
+        {
+          "relativePath": "/student/api/loans.func",
+          "config": {
+            "runtime": "edge",
+            "name": "student/api/loans",
+            "deploymentTarget": "v8-worker",
+            "entrypoint": "index.js",
+            "assets": [],
+            "framework": {
+              "slug": "nextjs",
+              "version": "14.2.35"
+            },
+            "environment": {
+              "__NEXT_BUILD_ID": "aWBsyJvY3g8M_PMFyQQAc",
+              "NEXT_SERVER_ACTIONS_ENCRYPTION_KEY": "/8jyaydtSCOGTcWapUwoUvXBdkny6Zwyyd2SwrNWoK4=",
+              "__NEXT_PREVIEW_MODE_ID": "88cd553a045c138a09f33a01d28cbf0b",
+              "__NEXT_PREVIEW_MODE_ENCRYPTION_KEY": "e75731510f6de607d9a067d733e232def59ee09e7b09e794684391f41a5bb152",
+              "__NEXT_PREVIEW_MODE_SIGNING_KEY": "b97cfbbca1c176053405ee40d6494a8021ffea4e74b4b2955df51429ca6d654b"
+            }
+          },
+          "route": {
+            "path": "/student/api/loans",
+            "overrides": [
+              "/student/api/loans.rsc"
+            ]
+          },
+          "outputPath": "__next-on-pages-dist__/functions/student/api/loans.func.js",
+          "outputByteSize": 12636
         },
         {
           "relativePath": "/student/api/score-items/[id].func",
@@ -169,11 +285,11 @@
               "version": "14.2.35"
             },
             "environment": {
-              "__NEXT_BUILD_ID": "zyedbZuUFOgIQVlZwyWfo",
-              "NEXT_SERVER_ACTIONS_ENCRYPTION_KEY": "TNVuTXzIaqDUoWsXZQzDq+CpZGowpuqNtRD1Uglb9yo=",
-              "__NEXT_PREVIEW_MODE_ID": "ba74ee97433f41a7c2499cc1c5bfd2e2",
-              "__NEXT_PREVIEW_MODE_ENCRYPTION_KEY": "450c5d02317766790807da100d7b8a8a5e8c8f0d422f633f8edc116b204c862c",
-              "__NEXT_PREVIEW_MODE_SIGNING_KEY": "1057dae48b6c76a1f097ef4847dc5c6d713ec4efa48cdea8fcbc5c9d1ae55292"
+              "__NEXT_BUILD_ID": "aWBsyJvY3g8M_PMFyQQAc",
+              "NEXT_SERVER_ACTIONS_ENCRYPTION_KEY": "/8jyaydtSCOGTcWapUwoUvXBdkny6Zwyyd2SwrNWoK4=",
+              "__NEXT_PREVIEW_MODE_ID": "88cd553a045c138a09f33a01d28cbf0b",
+              "__NEXT_PREVIEW_MODE_ENCRYPTION_KEY": "e75731510f6de607d9a067d733e232def59ee09e7b09e794684391f41a5bb152",
+              "__NEXT_PREVIEW_MODE_SIGNING_KEY": "b97cfbbca1c176053405ee40d6494a8021ffea4e74b4b2955df51429ca6d654b"
             }
           },
           "route": {
@@ -183,7 +299,7 @@
             ]
           },
           "outputPath": "__next-on-pages-dist__/functions/student/api/score-items/[id].func.js",
-          "outputByteSize": 10819
+          "outputByteSize": 11267
         },
         {
           "relativePath": "/student/api/score-items.func",
@@ -198,11 +314,11 @@
               "version": "14.2.35"
             },
             "environment": {
-              "__NEXT_BUILD_ID": "zyedbZuUFOgIQVlZwyWfo",
-              "NEXT_SERVER_ACTIONS_ENCRYPTION_KEY": "TNVuTXzIaqDUoWsXZQzDq+CpZGowpuqNtRD1Uglb9yo=",
-              "__NEXT_PREVIEW_MODE_ID": "ba74ee97433f41a7c2499cc1c5bfd2e2",
-              "__NEXT_PREVIEW_MODE_ENCRYPTION_KEY": "450c5d02317766790807da100d7b8a8a5e8c8f0d422f633f8edc116b204c862c",
-              "__NEXT_PREVIEW_MODE_SIGNING_KEY": "1057dae48b6c76a1f097ef4847dc5c6d713ec4efa48cdea8fcbc5c9d1ae55292"
+              "__NEXT_BUILD_ID": "aWBsyJvY3g8M_PMFyQQAc",
+              "NEXT_SERVER_ACTIONS_ENCRYPTION_KEY": "/8jyaydtSCOGTcWapUwoUvXBdkny6Zwyyd2SwrNWoK4=",
+              "__NEXT_PREVIEW_MODE_ID": "88cd553a045c138a09f33a01d28cbf0b",
+              "__NEXT_PREVIEW_MODE_ENCRYPTION_KEY": "e75731510f6de607d9a067d733e232def59ee09e7b09e794684391f41a5bb152",
+              "__NEXT_PREVIEW_MODE_SIGNING_KEY": "b97cfbbca1c176053405ee40d6494a8021ffea4e74b4b2955df51429ca6d654b"
             }
           },
           "route": {
@@ -212,7 +328,7 @@
             ]
           },
           "outputPath": "__next-on-pages-dist__/functions/student/api/score-items.func.js",
-          "outputByteSize": 10594
+          "outputByteSize": 11044
         },
         {
           "relativePath": "/student/api/score-records/[id].func",
@@ -227,11 +343,11 @@
               "version": "14.2.35"
             },
             "environment": {
-              "__NEXT_BUILD_ID": "zyedbZuUFOgIQVlZwyWfo",
-              "NEXT_SERVER_ACTIONS_ENCRYPTION_KEY": "TNVuTXzIaqDUoWsXZQzDq+CpZGowpuqNtRD1Uglb9yo=",
-              "__NEXT_PREVIEW_MODE_ID": "ba74ee97433f41a7c2499cc1c5bfd2e2",
-              "__NEXT_PREVIEW_MODE_ENCRYPTION_KEY": "450c5d02317766790807da100d7b8a8a5e8c8f0d422f633f8edc116b204c862c",
-              "__NEXT_PREVIEW_MODE_SIGNING_KEY": "1057dae48b6c76a1f097ef4847dc5c6d713ec4efa48cdea8fcbc5c9d1ae55292"
+              "__NEXT_BUILD_ID": "aWBsyJvY3g8M_PMFyQQAc",
+              "NEXT_SERVER_ACTIONS_ENCRYPTION_KEY": "/8jyaydtSCOGTcWapUwoUvXBdkny6Zwyyd2SwrNWoK4=",
+              "__NEXT_PREVIEW_MODE_ID": "88cd553a045c138a09f33a01d28cbf0b",
+              "__NEXT_PREVIEW_MODE_ENCRYPTION_KEY": "e75731510f6de607d9a067d733e232def59ee09e7b09e794684391f41a5bb152",
+              "__NEXT_PREVIEW_MODE_SIGNING_KEY": "b97cfbbca1c176053405ee40d6494a8021ffea4e74b4b2955df51429ca6d654b"
             }
           },
           "route": {
@@ -241,7 +357,7 @@
             ]
           },
           "outputPath": "__next-on-pages-dist__/functions/student/api/score-records/[id].func.js",
-          "outputByteSize": 10833
+          "outputByteSize": 11283
         },
         {
           "relativePath": "/student/api/score-records.func",
@@ -256,11 +372,11 @@
               "version": "14.2.35"
             },
             "environment": {
-              "__NEXT_BUILD_ID": "zyedbZuUFOgIQVlZwyWfo",
-              "NEXT_SERVER_ACTIONS_ENCRYPTION_KEY": "TNVuTXzIaqDUoWsXZQzDq+CpZGowpuqNtRD1Uglb9yo=",
-              "__NEXT_PREVIEW_MODE_ID": "ba74ee97433f41a7c2499cc1c5bfd2e2",
-              "__NEXT_PREVIEW_MODE_ENCRYPTION_KEY": "450c5d02317766790807da100d7b8a8a5e8c8f0d422f633f8edc116b204c862c",
-              "__NEXT_PREVIEW_MODE_SIGNING_KEY": "1057dae48b6c76a1f097ef4847dc5c6d713ec4efa48cdea8fcbc5c9d1ae55292"
+              "__NEXT_BUILD_ID": "aWBsyJvY3g8M_PMFyQQAc",
+              "NEXT_SERVER_ACTIONS_ENCRYPTION_KEY": "/8jyaydtSCOGTcWapUwoUvXBdkny6Zwyyd2SwrNWoK4=",
+              "__NEXT_PREVIEW_MODE_ID": "88cd553a045c138a09f33a01d28cbf0b",
+              "__NEXT_PREVIEW_MODE_ENCRYPTION_KEY": "e75731510f6de607d9a067d733e232def59ee09e7b09e794684391f41a5bb152",
+              "__NEXT_PREVIEW_MODE_SIGNING_KEY": "b97cfbbca1c176053405ee40d6494a8021ffea4e74b4b2955df51429ca6d654b"
             }
           },
           "route": {
@@ -270,7 +386,7 @@
             ]
           },
           "outputPath": "__next-on-pages-dist__/functions/student/api/score-records.func.js",
-          "outputByteSize": 11278
+          "outputByteSize": 11728
         },
         {
           "relativePath": "/student/api/students/[id]/rate.func",
@@ -285,11 +401,11 @@
               "version": "14.2.35"
             },
             "environment": {
-              "__NEXT_BUILD_ID": "zyedbZuUFOgIQVlZwyWfo",
-              "NEXT_SERVER_ACTIONS_ENCRYPTION_KEY": "TNVuTXzIaqDUoWsXZQzDq+CpZGowpuqNtRD1Uglb9yo=",
-              "__NEXT_PREVIEW_MODE_ID": "ba74ee97433f41a7c2499cc1c5bfd2e2",
-              "__NEXT_PREVIEW_MODE_ENCRYPTION_KEY": "450c5d02317766790807da100d7b8a8a5e8c8f0d422f633f8edc116b204c862c",
-              "__NEXT_PREVIEW_MODE_SIGNING_KEY": "1057dae48b6c76a1f097ef4847dc5c6d713ec4efa48cdea8fcbc5c9d1ae55292"
+              "__NEXT_BUILD_ID": "aWBsyJvY3g8M_PMFyQQAc",
+              "NEXT_SERVER_ACTIONS_ENCRYPTION_KEY": "/8jyaydtSCOGTcWapUwoUvXBdkny6Zwyyd2SwrNWoK4=",
+              "__NEXT_PREVIEW_MODE_ID": "88cd553a045c138a09f33a01d28cbf0b",
+              "__NEXT_PREVIEW_MODE_ENCRYPTION_KEY": "e75731510f6de607d9a067d733e232def59ee09e7b09e794684391f41a5bb152",
+              "__NEXT_PREVIEW_MODE_SIGNING_KEY": "b97cfbbca1c176053405ee40d6494a8021ffea4e74b4b2955df51429ca6d654b"
             }
           },
           "route": {
@@ -299,7 +415,7 @@
             ]
           },
           "outputPath": "__next-on-pages-dist__/functions/student/api/students/[id]/rate.func.js",
-          "outputByteSize": 10580
+          "outputByteSize": 11028
         },
         {
           "relativePath": "/student/api/students.func",
@@ -314,11 +430,11 @@
               "version": "14.2.35"
             },
             "environment": {
-              "__NEXT_BUILD_ID": "zyedbZuUFOgIQVlZwyWfo",
-              "NEXT_SERVER_ACTIONS_ENCRYPTION_KEY": "TNVuTXzIaqDUoWsXZQzDq+CpZGowpuqNtRD1Uglb9yo=",
-              "__NEXT_PREVIEW_MODE_ID": "ba74ee97433f41a7c2499cc1c5bfd2e2",
-              "__NEXT_PREVIEW_MODE_ENCRYPTION_KEY": "450c5d02317766790807da100d7b8a8a5e8c8f0d422f633f8edc116b204c862c",
-              "__NEXT_PREVIEW_MODE_SIGNING_KEY": "1057dae48b6c76a1f097ef4847dc5c6d713ec4efa48cdea8fcbc5c9d1ae55292"
+              "__NEXT_BUILD_ID": "aWBsyJvY3g8M_PMFyQQAc",
+              "NEXT_SERVER_ACTIONS_ENCRYPTION_KEY": "/8jyaydtSCOGTcWapUwoUvXBdkny6Zwyyd2SwrNWoK4=",
+              "__NEXT_PREVIEW_MODE_ID": "88cd553a045c138a09f33a01d28cbf0b",
+              "__NEXT_PREVIEW_MODE_ENCRYPTION_KEY": "e75731510f6de607d9a067d733e232def59ee09e7b09e794684391f41a5bb152",
+              "__NEXT_PREVIEW_MODE_SIGNING_KEY": "b97cfbbca1c176053405ee40d6494a8021ffea4e74b4b2955df51429ca6d654b"
             }
           },
           "route": {
@@ -328,7 +444,7 @@
             ]
           },
           "outputPath": "__next-on-pages-dist__/functions/student/api/students.func.js",
-          "outputByteSize": 10218
+          "outputByteSize": 10668
         },
         {
           "relativePath": "/student/middleware.func",
@@ -343,11 +459,11 @@
               "version": "14.2.35"
             },
             "environment": {
-              "__NEXT_BUILD_ID": "zyedbZuUFOgIQVlZwyWfo",
-              "NEXT_SERVER_ACTIONS_ENCRYPTION_KEY": "TNVuTXzIaqDUoWsXZQzDq+CpZGowpuqNtRD1Uglb9yo=",
-              "__NEXT_PREVIEW_MODE_ID": "ba74ee97433f41a7c2499cc1c5bfd2e2",
-              "__NEXT_PREVIEW_MODE_ENCRYPTION_KEY": "450c5d02317766790807da100d7b8a8a5e8c8f0d422f633f8edc116b204c862c",
-              "__NEXT_PREVIEW_MODE_SIGNING_KEY": "1057dae48b6c76a1f097ef4847dc5c6d713ec4efa48cdea8fcbc5c9d1ae55292"
+              "__NEXT_BUILD_ID": "aWBsyJvY3g8M_PMFyQQAc",
+              "NEXT_SERVER_ACTIONS_ENCRYPTION_KEY": "/8jyaydtSCOGTcWapUwoUvXBdkny6Zwyyd2SwrNWoK4=",
+              "__NEXT_PREVIEW_MODE_ID": "88cd553a045c138a09f33a01d28cbf0b",
+              "__NEXT_PREVIEW_MODE_ENCRYPTION_KEY": "e75731510f6de607d9a067d733e232def59ee09e7b09e794684391f41a5bb152",
+              "__NEXT_PREVIEW_MODE_SIGNING_KEY": "b97cfbbca1c176053405ee40d6494a8021ffea4e74b4b2955df51429ca6d654b"
             }
           },
           "route": {
@@ -355,7 +471,7 @@
             "overrides": []
           },
           "outputPath": "__next-on-pages-dist__/functions/student/middleware.func.js",
-          "outputByteSize": 85153
+          "outputByteSize": 85603
         },
         {
           "relativePath": "/student/rules.func",
@@ -370,11 +486,11 @@
               "version": "14.2.35"
             },
             "environment": {
-              "__NEXT_BUILD_ID": "zyedbZuUFOgIQVlZwyWfo",
-              "NEXT_SERVER_ACTIONS_ENCRYPTION_KEY": "TNVuTXzIaqDUoWsXZQzDq+CpZGowpuqNtRD1Uglb9yo=",
-              "__NEXT_PREVIEW_MODE_ID": "ba74ee97433f41a7c2499cc1c5bfd2e2",
-              "__NEXT_PREVIEW_MODE_ENCRYPTION_KEY": "450c5d02317766790807da100d7b8a8a5e8c8f0d422f633f8edc116b204c862c",
-              "__NEXT_PREVIEW_MODE_SIGNING_KEY": "1057dae48b6c76a1f097ef4847dc5c6d713ec4efa48cdea8fcbc5c9d1ae55292"
+              "__NEXT_BUILD_ID": "aWBsyJvY3g8M_PMFyQQAc",
+              "NEXT_SERVER_ACTIONS_ENCRYPTION_KEY": "/8jyaydtSCOGTcWapUwoUvXBdkny6Zwyyd2SwrNWoK4=",
+              "__NEXT_PREVIEW_MODE_ID": "88cd553a045c138a09f33a01d28cbf0b",
+              "__NEXT_PREVIEW_MODE_ENCRYPTION_KEY": "e75731510f6de607d9a067d733e232def59ee09e7b09e794684391f41a5bb152",
+              "__NEXT_PREVIEW_MODE_SIGNING_KEY": "b97cfbbca1c176053405ee40d6494a8021ffea4e74b4b2955df51429ca6d654b"
             }
           },
           "route": {
@@ -384,7 +500,7 @@
             ]
           },
           "outputPath": "__next-on-pages-dist__/functions/student/rules.func.js",
-          "outputByteSize": 44223
+          "outputByteSize": 44671
         },
         {
           "relativePath": "/student.func",
@@ -399,11 +515,11 @@
               "version": "14.2.35"
             },
             "environment": {
-              "__NEXT_BUILD_ID": "zyedbZuUFOgIQVlZwyWfo",
-              "NEXT_SERVER_ACTIONS_ENCRYPTION_KEY": "TNVuTXzIaqDUoWsXZQzDq+CpZGowpuqNtRD1Uglb9yo=",
-              "__NEXT_PREVIEW_MODE_ID": "ba74ee97433f41a7c2499cc1c5bfd2e2",
-              "__NEXT_PREVIEW_MODE_ENCRYPTION_KEY": "450c5d02317766790807da100d7b8a8a5e8c8f0d422f633f8edc116b204c862c",
-              "__NEXT_PREVIEW_MODE_SIGNING_KEY": "1057dae48b6c76a1f097ef4847dc5c6d713ec4efa48cdea8fcbc5c9d1ae55292"
+              "__NEXT_BUILD_ID": "aWBsyJvY3g8M_PMFyQQAc",
+              "NEXT_SERVER_ACTIONS_ENCRYPTION_KEY": "/8jyaydtSCOGTcWapUwoUvXBdkny6Zwyyd2SwrNWoK4=",
+              "__NEXT_PREVIEW_MODE_ID": "88cd553a045c138a09f33a01d28cbf0b",
+              "__NEXT_PREVIEW_MODE_ENCRYPTION_KEY": "e75731510f6de607d9a067d733e232def59ee09e7b09e794684391f41a5bb152",
+              "__NEXT_PREVIEW_MODE_SIGNING_KEY": "b97cfbbca1c176053405ee40d6494a8021ffea4e74b4b2955df51429ca6d654b"
             }
           },
           "route": {
@@ -411,7 +527,7 @@
             "overrides": []
           },
           "outputPath": "__next-on-pages-dist__/functions/student.func.js",
-          "outputByteSize": 247480
+          "outputByteSize": 251861
         }
       ],
       "prerendered": [
@@ -1023,11 +1139,11 @@
               "version": "14.2.35"
             },
             "environment": {
-              "__NEXT_BUILD_ID": "zyedbZuUFOgIQVlZwyWfo",
-              "NEXT_SERVER_ACTIONS_ENCRYPTION_KEY": "TNVuTXzIaqDUoWsXZQzDq+CpZGowpuqNtRD1Uglb9yo=",
-              "__NEXT_PREVIEW_MODE_ID": "ba74ee97433f41a7c2499cc1c5bfd2e2",
-              "__NEXT_PREVIEW_MODE_ENCRYPTION_KEY": "450c5d02317766790807da100d7b8a8a5e8c8f0d422f633f8edc116b204c862c",
-              "__NEXT_PREVIEW_MODE_SIGNING_KEY": "1057dae48b6c76a1f097ef4847dc5c6d713ec4efa48cdea8fcbc5c9d1ae55292"
+              "__NEXT_BUILD_ID": "aWBsyJvY3g8M_PMFyQQAc",
+              "NEXT_SERVER_ACTIONS_ENCRYPTION_KEY": "/8jyaydtSCOGTcWapUwoUvXBdkny6Zwyyd2SwrNWoK4=",
+              "__NEXT_PREVIEW_MODE_ID": "88cd553a045c138a09f33a01d28cbf0b",
+              "__NEXT_PREVIEW_MODE_ENCRYPTION_KEY": "e75731510f6de607d9a067d733e232def59ee09e7b09e794684391f41a5bb152",
+              "__NEXT_PREVIEW_MODE_SIGNING_KEY": "b97cfbbca1c176053405ee40d6494a8021ffea4e74b4b2955df51429ca6d654b"
             }
           },
           "route": {
@@ -1049,11 +1165,11 @@
               "version": "14.2.35"
             },
             "environment": {
-              "__NEXT_BUILD_ID": "zyedbZuUFOgIQVlZwyWfo",
-              "NEXT_SERVER_ACTIONS_ENCRYPTION_KEY": "TNVuTXzIaqDUoWsXZQzDq+CpZGowpuqNtRD1Uglb9yo=",
-              "__NEXT_PREVIEW_MODE_ID": "ba74ee97433f41a7c2499cc1c5bfd2e2",
-              "__NEXT_PREVIEW_MODE_ENCRYPTION_KEY": "450c5d02317766790807da100d7b8a8a5e8c8f0d422f633f8edc116b204c862c",
-              "__NEXT_PREVIEW_MODE_SIGNING_KEY": "1057dae48b6c76a1f097ef4847dc5c6d713ec4efa48cdea8fcbc5c9d1ae55292"
+              "__NEXT_BUILD_ID": "aWBsyJvY3g8M_PMFyQQAc",
+              "NEXT_SERVER_ACTIONS_ENCRYPTION_KEY": "/8jyaydtSCOGTcWapUwoUvXBdkny6Zwyyd2SwrNWoK4=",
+              "__NEXT_PREVIEW_MODE_ID": "88cd553a045c138a09f33a01d28cbf0b",
+              "__NEXT_PREVIEW_MODE_ENCRYPTION_KEY": "e75731510f6de607d9a067d733e232def59ee09e7b09e794684391f41a5bb152",
+              "__NEXT_PREVIEW_MODE_SIGNING_KEY": "b97cfbbca1c176053405ee40d6494a8021ffea4e74b4b2955df51429ca6d654b"
             }
           },
           "route": {
@@ -1075,11 +1191,11 @@
               "version": "14.2.35"
             },
             "environment": {
-              "__NEXT_BUILD_ID": "zyedbZuUFOgIQVlZwyWfo",
-              "NEXT_SERVER_ACTIONS_ENCRYPTION_KEY": "TNVuTXzIaqDUoWsXZQzDq+CpZGowpuqNtRD1Uglb9yo=",
-              "__NEXT_PREVIEW_MODE_ID": "ba74ee97433f41a7c2499cc1c5bfd2e2",
-              "__NEXT_PREVIEW_MODE_ENCRYPTION_KEY": "450c5d02317766790807da100d7b8a8a5e8c8f0d422f633f8edc116b204c862c",
-              "__NEXT_PREVIEW_MODE_SIGNING_KEY": "1057dae48b6c76a1f097ef4847dc5c6d713ec4efa48cdea8fcbc5c9d1ae55292"
+              "__NEXT_BUILD_ID": "aWBsyJvY3g8M_PMFyQQAc",
+              "NEXT_SERVER_ACTIONS_ENCRYPTION_KEY": "/8jyaydtSCOGTcWapUwoUvXBdkny6Zwyyd2SwrNWoK4=",
+              "__NEXT_PREVIEW_MODE_ID": "88cd553a045c138a09f33a01d28cbf0b",
+              "__NEXT_PREVIEW_MODE_ENCRYPTION_KEY": "e75731510f6de607d9a067d733e232def59ee09e7b09e794684391f41a5bb152",
+              "__NEXT_PREVIEW_MODE_SIGNING_KEY": "b97cfbbca1c176053405ee40d6494a8021ffea4e74b4b2955df51429ca6d654b"
             }
           },
           "route": {
@@ -1101,11 +1217,11 @@
               "version": "14.2.35"
             },
             "environment": {
-              "__NEXT_BUILD_ID": "zyedbZuUFOgIQVlZwyWfo",
-              "NEXT_SERVER_ACTIONS_ENCRYPTION_KEY": "TNVuTXzIaqDUoWsXZQzDq+CpZGowpuqNtRD1Uglb9yo=",
-              "__NEXT_PREVIEW_MODE_ID": "ba74ee97433f41a7c2499cc1c5bfd2e2",
-              "__NEXT_PREVIEW_MODE_ENCRYPTION_KEY": "450c5d02317766790807da100d7b8a8a5e8c8f0d422f633f8edc116b204c862c",
-              "__NEXT_PREVIEW_MODE_SIGNING_KEY": "1057dae48b6c76a1f097ef4847dc5c6d713ec4efa48cdea8fcbc5c9d1ae55292"
+              "__NEXT_BUILD_ID": "aWBsyJvY3g8M_PMFyQQAc",
+              "NEXT_SERVER_ACTIONS_ENCRYPTION_KEY": "/8jyaydtSCOGTcWapUwoUvXBdkny6Zwyyd2SwrNWoK4=",
+              "__NEXT_PREVIEW_MODE_ID": "88cd553a045c138a09f33a01d28cbf0b",
+              "__NEXT_PREVIEW_MODE_ENCRYPTION_KEY": "e75731510f6de607d9a067d733e232def59ee09e7b09e794684391f41a5bb152",
+              "__NEXT_PREVIEW_MODE_SIGNING_KEY": "b97cfbbca1c176053405ee40d6494a8021ffea4e74b4b2955df51429ca6d654b"
             }
           },
           "route": {
@@ -1127,15 +1243,119 @@
               "version": "14.2.35"
             },
             "environment": {
-              "__NEXT_BUILD_ID": "zyedbZuUFOgIQVlZwyWfo",
-              "NEXT_SERVER_ACTIONS_ENCRYPTION_KEY": "TNVuTXzIaqDUoWsXZQzDq+CpZGowpuqNtRD1Uglb9yo=",
-              "__NEXT_PREVIEW_MODE_ID": "ba74ee97433f41a7c2499cc1c5bfd2e2",
-              "__NEXT_PREVIEW_MODE_ENCRYPTION_KEY": "450c5d02317766790807da100d7b8a8a5e8c8f0d422f633f8edc116b204c862c",
-              "__NEXT_PREVIEW_MODE_SIGNING_KEY": "1057dae48b6c76a1f097ef4847dc5c6d713ec4efa48cdea8fcbc5c9d1ae55292"
+              "__NEXT_BUILD_ID": "aWBsyJvY3g8M_PMFyQQAc",
+              "NEXT_SERVER_ACTIONS_ENCRYPTION_KEY": "/8jyaydtSCOGTcWapUwoUvXBdkny6Zwyyd2SwrNWoK4=",
+              "__NEXT_PREVIEW_MODE_ID": "88cd553a045c138a09f33a01d28cbf0b",
+              "__NEXT_PREVIEW_MODE_ENCRYPTION_KEY": "e75731510f6de607d9a067d733e232def59ee09e7b09e794684391f41a5bb152",
+              "__NEXT_PREVIEW_MODE_SIGNING_KEY": "b97cfbbca1c176053405ee40d6494a8021ffea4e74b4b2955df51429ca6d654b"
             }
           },
           "route": {
             "path": "/student/api/exchange.rsc",
+            "overrides": []
+          }
+        },
+        {
+          "reason": "unnecessary rsc function",
+          "relativePath": "/student/api/loans/[id]/repay.rsc.func",
+          "config": {
+            "runtime": "edge",
+            "name": "student/api/loans/[id]/repay",
+            "deploymentTarget": "v8-worker",
+            "entrypoint": "index.js",
+            "assets": [],
+            "framework": {
+              "slug": "nextjs",
+              "version": "14.2.35"
+            },
+            "environment": {
+              "__NEXT_BUILD_ID": "aWBsyJvY3g8M_PMFyQQAc",
+              "NEXT_SERVER_ACTIONS_ENCRYPTION_KEY": "/8jyaydtSCOGTcWapUwoUvXBdkny6Zwyyd2SwrNWoK4=",
+              "__NEXT_PREVIEW_MODE_ID": "88cd553a045c138a09f33a01d28cbf0b",
+              "__NEXT_PREVIEW_MODE_ENCRYPTION_KEY": "e75731510f6de607d9a067d733e232def59ee09e7b09e794684391f41a5bb152",
+              "__NEXT_PREVIEW_MODE_SIGNING_KEY": "b97cfbbca1c176053405ee40d6494a8021ffea4e74b4b2955df51429ca6d654b"
+            }
+          },
+          "route": {
+            "path": "/student/api/loans/[id]/repay.rsc",
+            "overrides": []
+          }
+        },
+        {
+          "reason": "unnecessary rsc function",
+          "relativePath": "/student/api/loans/[id]/sign.rsc.func",
+          "config": {
+            "runtime": "edge",
+            "name": "student/api/loans/[id]/sign",
+            "deploymentTarget": "v8-worker",
+            "entrypoint": "index.js",
+            "assets": [],
+            "framework": {
+              "slug": "nextjs",
+              "version": "14.2.35"
+            },
+            "environment": {
+              "__NEXT_BUILD_ID": "aWBsyJvY3g8M_PMFyQQAc",
+              "NEXT_SERVER_ACTIONS_ENCRYPTION_KEY": "/8jyaydtSCOGTcWapUwoUvXBdkny6Zwyyd2SwrNWoK4=",
+              "__NEXT_PREVIEW_MODE_ID": "88cd553a045c138a09f33a01d28cbf0b",
+              "__NEXT_PREVIEW_MODE_ENCRYPTION_KEY": "e75731510f6de607d9a067d733e232def59ee09e7b09e794684391f41a5bb152",
+              "__NEXT_PREVIEW_MODE_SIGNING_KEY": "b97cfbbca1c176053405ee40d6494a8021ffea4e74b4b2955df51429ca6d654b"
+            }
+          },
+          "route": {
+            "path": "/student/api/loans/[id]/sign.rsc",
+            "overrides": []
+          }
+        },
+        {
+          "reason": "unnecessary rsc function",
+          "relativePath": "/student/api/loans/[id].rsc.func",
+          "config": {
+            "runtime": "edge",
+            "name": "student/api/loans/[id]",
+            "deploymentTarget": "v8-worker",
+            "entrypoint": "index.js",
+            "assets": [],
+            "framework": {
+              "slug": "nextjs",
+              "version": "14.2.35"
+            },
+            "environment": {
+              "__NEXT_BUILD_ID": "aWBsyJvY3g8M_PMFyQQAc",
+              "NEXT_SERVER_ACTIONS_ENCRYPTION_KEY": "/8jyaydtSCOGTcWapUwoUvXBdkny6Zwyyd2SwrNWoK4=",
+              "__NEXT_PREVIEW_MODE_ID": "88cd553a045c138a09f33a01d28cbf0b",
+              "__NEXT_PREVIEW_MODE_ENCRYPTION_KEY": "e75731510f6de607d9a067d733e232def59ee09e7b09e794684391f41a5bb152",
+              "__NEXT_PREVIEW_MODE_SIGNING_KEY": "b97cfbbca1c176053405ee40d6494a8021ffea4e74b4b2955df51429ca6d654b"
+            }
+          },
+          "route": {
+            "path": "/student/api/loans/[id].rsc",
+            "overrides": []
+          }
+        },
+        {
+          "reason": "unnecessary rsc function",
+          "relativePath": "/student/api/loans.rsc.func",
+          "config": {
+            "runtime": "edge",
+            "name": "student/api/loans",
+            "deploymentTarget": "v8-worker",
+            "entrypoint": "index.js",
+            "assets": [],
+            "framework": {
+              "slug": "nextjs",
+              "version": "14.2.35"
+            },
+            "environment": {
+              "__NEXT_BUILD_ID": "aWBsyJvY3g8M_PMFyQQAc",
+              "NEXT_SERVER_ACTIONS_ENCRYPTION_KEY": "/8jyaydtSCOGTcWapUwoUvXBdkny6Zwyyd2SwrNWoK4=",
+              "__NEXT_PREVIEW_MODE_ID": "88cd553a045c138a09f33a01d28cbf0b",
+              "__NEXT_PREVIEW_MODE_ENCRYPTION_KEY": "e75731510f6de607d9a067d733e232def59ee09e7b09e794684391f41a5bb152",
+              "__NEXT_PREVIEW_MODE_SIGNING_KEY": "b97cfbbca1c176053405ee40d6494a8021ffea4e74b4b2955df51429ca6d654b"
+            }
+          },
+          "route": {
+            "path": "/student/api/loans.rsc",
             "overrides": []
           }
         },
@@ -1153,11 +1373,11 @@
               "version": "14.2.35"
             },
             "environment": {
-              "__NEXT_BUILD_ID": "zyedbZuUFOgIQVlZwyWfo",
-              "NEXT_SERVER_ACTIONS_ENCRYPTION_KEY": "TNVuTXzIaqDUoWsXZQzDq+CpZGowpuqNtRD1Uglb9yo=",
-              "__NEXT_PREVIEW_MODE_ID": "ba74ee97433f41a7c2499cc1c5bfd2e2",
-              "__NEXT_PREVIEW_MODE_ENCRYPTION_KEY": "450c5d02317766790807da100d7b8a8a5e8c8f0d422f633f8edc116b204c862c",
-              "__NEXT_PREVIEW_MODE_SIGNING_KEY": "1057dae48b6c76a1f097ef4847dc5c6d713ec4efa48cdea8fcbc5c9d1ae55292"
+              "__NEXT_BUILD_ID": "aWBsyJvY3g8M_PMFyQQAc",
+              "NEXT_SERVER_ACTIONS_ENCRYPTION_KEY": "/8jyaydtSCOGTcWapUwoUvXBdkny6Zwyyd2SwrNWoK4=",
+              "__NEXT_PREVIEW_MODE_ID": "88cd553a045c138a09f33a01d28cbf0b",
+              "__NEXT_PREVIEW_MODE_ENCRYPTION_KEY": "e75731510f6de607d9a067d733e232def59ee09e7b09e794684391f41a5bb152",
+              "__NEXT_PREVIEW_MODE_SIGNING_KEY": "b97cfbbca1c176053405ee40d6494a8021ffea4e74b4b2955df51429ca6d654b"
             }
           },
           "route": {
@@ -1179,11 +1399,11 @@
               "version": "14.2.35"
             },
             "environment": {
-              "__NEXT_BUILD_ID": "zyedbZuUFOgIQVlZwyWfo",
-              "NEXT_SERVER_ACTIONS_ENCRYPTION_KEY": "TNVuTXzIaqDUoWsXZQzDq+CpZGowpuqNtRD1Uglb9yo=",
-              "__NEXT_PREVIEW_MODE_ID": "ba74ee97433f41a7c2499cc1c5bfd2e2",
-              "__NEXT_PREVIEW_MODE_ENCRYPTION_KEY": "450c5d02317766790807da100d7b8a8a5e8c8f0d422f633f8edc116b204c862c",
-              "__NEXT_PREVIEW_MODE_SIGNING_KEY": "1057dae48b6c76a1f097ef4847dc5c6d713ec4efa48cdea8fcbc5c9d1ae55292"
+              "__NEXT_BUILD_ID": "aWBsyJvY3g8M_PMFyQQAc",
+              "NEXT_SERVER_ACTIONS_ENCRYPTION_KEY": "/8jyaydtSCOGTcWapUwoUvXBdkny6Zwyyd2SwrNWoK4=",
+              "__NEXT_PREVIEW_MODE_ID": "88cd553a045c138a09f33a01d28cbf0b",
+              "__NEXT_PREVIEW_MODE_ENCRYPTION_KEY": "e75731510f6de607d9a067d733e232def59ee09e7b09e794684391f41a5bb152",
+              "__NEXT_PREVIEW_MODE_SIGNING_KEY": "b97cfbbca1c176053405ee40d6494a8021ffea4e74b4b2955df51429ca6d654b"
             }
           },
           "route": {
@@ -1205,11 +1425,11 @@
               "version": "14.2.35"
             },
             "environment": {
-              "__NEXT_BUILD_ID": "zyedbZuUFOgIQVlZwyWfo",
-              "NEXT_SERVER_ACTIONS_ENCRYPTION_KEY": "TNVuTXzIaqDUoWsXZQzDq+CpZGowpuqNtRD1Uglb9yo=",
-              "__NEXT_PREVIEW_MODE_ID": "ba74ee97433f41a7c2499cc1c5bfd2e2",
-              "__NEXT_PREVIEW_MODE_ENCRYPTION_KEY": "450c5d02317766790807da100d7b8a8a5e8c8f0d422f633f8edc116b204c862c",
-              "__NEXT_PREVIEW_MODE_SIGNING_KEY": "1057dae48b6c76a1f097ef4847dc5c6d713ec4efa48cdea8fcbc5c9d1ae55292"
+              "__NEXT_BUILD_ID": "aWBsyJvY3g8M_PMFyQQAc",
+              "NEXT_SERVER_ACTIONS_ENCRYPTION_KEY": "/8jyaydtSCOGTcWapUwoUvXBdkny6Zwyyd2SwrNWoK4=",
+              "__NEXT_PREVIEW_MODE_ID": "88cd553a045c138a09f33a01d28cbf0b",
+              "__NEXT_PREVIEW_MODE_ENCRYPTION_KEY": "e75731510f6de607d9a067d733e232def59ee09e7b09e794684391f41a5bb152",
+              "__NEXT_PREVIEW_MODE_SIGNING_KEY": "b97cfbbca1c176053405ee40d6494a8021ffea4e74b4b2955df51429ca6d654b"
             }
           },
           "route": {
@@ -1231,11 +1451,11 @@
               "version": "14.2.35"
             },
             "environment": {
-              "__NEXT_BUILD_ID": "zyedbZuUFOgIQVlZwyWfo",
-              "NEXT_SERVER_ACTIONS_ENCRYPTION_KEY": "TNVuTXzIaqDUoWsXZQzDq+CpZGowpuqNtRD1Uglb9yo=",
-              "__NEXT_PREVIEW_MODE_ID": "ba74ee97433f41a7c2499cc1c5bfd2e2",
-              "__NEXT_PREVIEW_MODE_ENCRYPTION_KEY": "450c5d02317766790807da100d7b8a8a5e8c8f0d422f633f8edc116b204c862c",
-              "__NEXT_PREVIEW_MODE_SIGNING_KEY": "1057dae48b6c76a1f097ef4847dc5c6d713ec4efa48cdea8fcbc5c9d1ae55292"
+              "__NEXT_BUILD_ID": "aWBsyJvY3g8M_PMFyQQAc",
+              "NEXT_SERVER_ACTIONS_ENCRYPTION_KEY": "/8jyaydtSCOGTcWapUwoUvXBdkny6Zwyyd2SwrNWoK4=",
+              "__NEXT_PREVIEW_MODE_ID": "88cd553a045c138a09f33a01d28cbf0b",
+              "__NEXT_PREVIEW_MODE_ENCRYPTION_KEY": "e75731510f6de607d9a067d733e232def59ee09e7b09e794684391f41a5bb152",
+              "__NEXT_PREVIEW_MODE_SIGNING_KEY": "b97cfbbca1c176053405ee40d6494a8021ffea4e74b4b2955df51429ca6d654b"
             }
           },
           "route": {
@@ -1257,11 +1477,11 @@
               "version": "14.2.35"
             },
             "environment": {
-              "__NEXT_BUILD_ID": "zyedbZuUFOgIQVlZwyWfo",
-              "NEXT_SERVER_ACTIONS_ENCRYPTION_KEY": "TNVuTXzIaqDUoWsXZQzDq+CpZGowpuqNtRD1Uglb9yo=",
-              "__NEXT_PREVIEW_MODE_ID": "ba74ee97433f41a7c2499cc1c5bfd2e2",
-              "__NEXT_PREVIEW_MODE_ENCRYPTION_KEY": "450c5d02317766790807da100d7b8a8a5e8c8f0d422f633f8edc116b204c862c",
-              "__NEXT_PREVIEW_MODE_SIGNING_KEY": "1057dae48b6c76a1f097ef4847dc5c6d713ec4efa48cdea8fcbc5c9d1ae55292"
+              "__NEXT_BUILD_ID": "aWBsyJvY3g8M_PMFyQQAc",
+              "NEXT_SERVER_ACTIONS_ENCRYPTION_KEY": "/8jyaydtSCOGTcWapUwoUvXBdkny6Zwyyd2SwrNWoK4=",
+              "__NEXT_PREVIEW_MODE_ID": "88cd553a045c138a09f33a01d28cbf0b",
+              "__NEXT_PREVIEW_MODE_ENCRYPTION_KEY": "e75731510f6de607d9a067d733e232def59ee09e7b09e794684391f41a5bb152",
+              "__NEXT_PREVIEW_MODE_SIGNING_KEY": "b97cfbbca1c176053405ee40d6494a8021ffea4e74b4b2955df51429ca6d654b"
             }
           },
           "route": {
@@ -1283,11 +1503,11 @@
               "version": "14.2.35"
             },
             "environment": {
-              "__NEXT_BUILD_ID": "zyedbZuUFOgIQVlZwyWfo",
-              "NEXT_SERVER_ACTIONS_ENCRYPTION_KEY": "TNVuTXzIaqDUoWsXZQzDq+CpZGowpuqNtRD1Uglb9yo=",
-              "__NEXT_PREVIEW_MODE_ID": "ba74ee97433f41a7c2499cc1c5bfd2e2",
-              "__NEXT_PREVIEW_MODE_ENCRYPTION_KEY": "450c5d02317766790807da100d7b8a8a5e8c8f0d422f633f8edc116b204c862c",
-              "__NEXT_PREVIEW_MODE_SIGNING_KEY": "1057dae48b6c76a1f097ef4847dc5c6d713ec4efa48cdea8fcbc5c9d1ae55292"
+              "__NEXT_BUILD_ID": "aWBsyJvY3g8M_PMFyQQAc",
+              "NEXT_SERVER_ACTIONS_ENCRYPTION_KEY": "/8jyaydtSCOGTcWapUwoUvXBdkny6Zwyyd2SwrNWoK4=",
+              "__NEXT_PREVIEW_MODE_ID": "88cd553a045c138a09f33a01d28cbf0b",
+              "__NEXT_PREVIEW_MODE_ENCRYPTION_KEY": "e75731510f6de607d9a067d733e232def59ee09e7b09e794684391f41a5bb152",
+              "__NEXT_PREVIEW_MODE_SIGNING_KEY": "b97cfbbca1c176053405ee40d6494a8021ffea4e74b4b2955df51429ca6d654b"
             }
           },
           "route": {
@@ -1309,11 +1529,11 @@
               "version": "14.2.35"
             },
             "environment": {
-              "__NEXT_BUILD_ID": "zyedbZuUFOgIQVlZwyWfo",
-              "NEXT_SERVER_ACTIONS_ENCRYPTION_KEY": "TNVuTXzIaqDUoWsXZQzDq+CpZGowpuqNtRD1Uglb9yo=",
-              "__NEXT_PREVIEW_MODE_ID": "ba74ee97433f41a7c2499cc1c5bfd2e2",
-              "__NEXT_PREVIEW_MODE_ENCRYPTION_KEY": "450c5d02317766790807da100d7b8a8a5e8c8f0d422f633f8edc116b204c862c",
-              "__NEXT_PREVIEW_MODE_SIGNING_KEY": "1057dae48b6c76a1f097ef4847dc5c6d713ec4efa48cdea8fcbc5c9d1ae55292"
+              "__NEXT_BUILD_ID": "aWBsyJvY3g8M_PMFyQQAc",
+              "NEXT_SERVER_ACTIONS_ENCRYPTION_KEY": "/8jyaydtSCOGTcWapUwoUvXBdkny6Zwyyd2SwrNWoK4=",
+              "__NEXT_PREVIEW_MODE_ID": "88cd553a045c138a09f33a01d28cbf0b",
+              "__NEXT_PREVIEW_MODE_ENCRYPTION_KEY": "e75731510f6de607d9a067d733e232def59ee09e7b09e794684391f41a5bb152",
+              "__NEXT_PREVIEW_MODE_SIGNING_KEY": "b97cfbbca1c176053405ee40d6494a8021ffea4e74b4b2955df51429ca6d654b"
             }
           },
           "route": {
@@ -1599,34 +1819,34 @@
       "/_error.rsc.json",
       "/student/404.html",
       "/student/500.html",
+      "/student/_next/static/aWBsyJvY3g8M_PMFyQQAc/_buildManifest.js",
+      "/student/_next/static/aWBsyJvY3g8M_PMFyQQAc/_ssgManifest.js",
       "/student/_next/static/chunks/30-f4fe16ce9adf923f.js",
       "/student/_next/static/chunks/448-c3d1b8ae72fe88ed.js",
       "/student/_next/static/chunks/840-712ecdde1614059b.js",
       "/student/_next/static/chunks/app/_not-found/page-1660405c12df7f93.js",
-      "/student/_next/static/chunks/app/admin/page-39f322b4e26fc0c5.js",
+      "/student/_next/static/chunks/app/admin/page-15c5296cc0e5c37e.js",
       "/student/_next/static/chunks/app/layout-72afab949ee2bdb7.js",
       "/student/_next/static/chunks/app/login/page-f73e0e898a48b23d.js",
-      "/student/_next/static/chunks/app/page-8cf03da1fa371aa6.js",
+      "/student/_next/static/chunks/app/page-065b5654e6a85dc0.js",
       "/student/_next/static/chunks/app/rules/page-3c922479676a7fa1.js",
       "/student/_next/static/chunks/ca377847-f86781ecfae2ff5f.js",
       "/student/_next/static/chunks/fd9d1056-b3a986c7196f59b7.js",
       "/student/_next/static/chunks/framework-aec844d2ccbe7592.js",
-      "/student/_next/static/chunks/main-1609320cd5e262b6.js",
+      "/student/_next/static/chunks/main-7ec22a0dea5c01c2.js",
       "/student/_next/static/chunks/main-app-f891068f3e9c1a04.js",
       "/student/_next/static/chunks/pages/_app-72b849fbd24ac258.js",
       "/student/_next/static/chunks/pages/_error-7ba65e1336b92748.js",
       "/student/_next/static/chunks/polyfills-42372ed130431b0a.js",
       "/student/_next/static/chunks/webpack-653dcda7acb94c8d.js",
-      "/student/_next/static/css/ee59540f11bb0ce1.css",
-      "/student/_next/static/not-found.txt",
-      "/student/_next/static/zyedbZuUFOgIQVlZwyWfo/_buildManifest.js",
-      "/student/_next/static/zyedbZuUFOgIQVlZwyWfo/_ssgManifest.js"
+      "/student/_next/static/css/bde0e501a5c5213f.css",
+      "/student/_next/static/not-found.txt"
     ],
     "identifiers": {
       "wasm": {},
       "manifest": {
         "__REACT_LOADABLE_MANIFEST": {
-          "consumers": 13,
+          "consumers": 17,
           "groupedPath": "537259e2ed205f5a7994cb4f05664668",
           "newDest": "__next-on-pages-dist__/manifest/537259e2ed205f5a7994cb4f05664668.js",
           "byteLength": 89,
@@ -1637,6 +1857,10 @@
             "/student/api/exchange-records.func/index.js",
             "/student/api/exchange-records/[id].func/index.js",
             "/student/api/exchange.func/index.js",
+            "/student/api/loans.func/index.js",
+            "/student/api/loans/[id].func/index.js",
+            "/student/api/loans/[id]/repay.func/index.js",
+            "/student/api/loans/[id]/sign.func/index.js",
             "/student/api/score-items.func/index.js",
             "/student/api/score-items/[id].func/index.js",
             "/student/api/score-records.func/index.js",
@@ -1647,7 +1871,7 @@
           ]
         },
         "__NEXT_FONT_MANIFEST": {
-          "consumers": 13,
+          "consumers": 17,
           "groupedPath": "537259e2ed205f5a7994cb4f05664668",
           "newDest": "__next-on-pages-dist__/manifest/537259e2ed205f5a7994cb4f05664668.js",
           "byteLength": 154,
@@ -1658,6 +1882,10 @@
             "/student/api/exchange-records.func/index.js",
             "/student/api/exchange-records/[id].func/index.js",
             "/student/api/exchange.func/index.js",
+            "/student/api/loans.func/index.js",
+            "/student/api/loans/[id].func/index.js",
+            "/student/api/loans/[id]/repay.func/index.js",
+            "/student/api/loans/[id]/sign.func/index.js",
             "/student/api/score-items.func/index.js",
             "/student/api/score-items/[id].func/index.js",
             "/student/api/score-records.func/index.js",
@@ -1678,6 +1906,15 @@
         }
       },
       "webpack": {
+        "86": {
+          "consumers": 1,
+          "groupedPath": "4dbad664ecc87b8094352cf41cc3548d",
+          "inlined": true,
+          "byteLength": 226380,
+          "consumersList": [
+            "/student.func/index.js"
+          ]
+        },
         "340": {
           "consumers": 1,
           "groupedPath": "c066170d2cfdf4e98e7a1a5f4c41b711",
@@ -1755,7 +1992,7 @@
           ]
         },
         "662": {
-          "consumers": 11,
+          "consumers": 15,
           "groupedPath": "77008745290500da1d1cd37208376dfe",
           "newDest": "__next-on-pages-dist__/webpack/77008745290500da1d1cd37208376dfe.js",
           "byteLength": 1138,
@@ -1765,6 +2002,10 @@
             "/student/api/exchange-records.func/index.js",
             "/student/api/exchange-records/[id].func/index.js",
             "/student/api/exchange.func/index.js",
+            "/student/api/loans.func/index.js",
+            "/student/api/loans/[id].func/index.js",
+            "/student/api/loans/[id]/repay.func/index.js",
+            "/student/api/loans/[id]/sign.func/index.js",
             "/student/api/score-items.func/index.js",
             "/student/api/score-items/[id].func/index.js",
             "/student/api/score-records.func/index.js",
@@ -1774,7 +2015,7 @@
           ]
         },
         "676": {
-          "consumers": 11,
+          "consumers": 15,
           "groupedPath": "77008745290500da1d1cd37208376dfe",
           "newDest": "__next-on-pages-dist__/webpack/77008745290500da1d1cd37208376dfe.js",
           "byteLength": 4998,
@@ -1784,6 +2025,10 @@
             "/student/api/exchange-records.func/index.js",
             "/student/api/exchange-records/[id].func/index.js",
             "/student/api/exchange.func/index.js",
+            "/student/api/loans.func/index.js",
+            "/student/api/loans/[id].func/index.js",
+            "/student/api/loans/[id]/repay.func/index.js",
+            "/student/api/loans/[id]/sign.func/index.js",
             "/student/api/score-items.func/index.js",
             "/student/api/score-items/[id].func/index.js",
             "/student/api/score-records.func/index.js",
@@ -1793,7 +2038,7 @@
           ]
         },
         "796": {
-          "consumers": 13,
+          "consumers": 17,
           "groupedPath": "3554552fd4afeabe931f48b3b3c5ec1b",
           "newDest": "__next-on-pages-dist__/webpack/3554552fd4afeabe931f48b3b3c5ec1b.js",
           "byteLength": 80,
@@ -1804,6 +2049,10 @@
             "/student/api/exchange-records.func/index.js",
             "/student/api/exchange-records/[id].func/index.js",
             "/student/api/exchange.func/index.js",
+            "/student/api/loans.func/index.js",
+            "/student/api/loans/[id].func/index.js",
+            "/student/api/loans/[id]/repay.func/index.js",
+            "/student/api/loans/[id]/sign.func/index.js",
             "/student/api/score-items.func/index.js",
             "/student/api/score-items/[id].func/index.js",
             "/student/api/score-records.func/index.js",
@@ -1814,7 +2063,7 @@
           ]
         },
         "828": {
-          "consumers": 13,
+          "consumers": 17,
           "groupedPath": "3554552fd4afeabe931f48b3b3c5ec1b",
           "newDest": "__next-on-pages-dist__/webpack/3554552fd4afeabe931f48b3b3c5ec1b.js",
           "byteLength": 1990,
@@ -1825,6 +2074,10 @@
             "/student/api/exchange-records.func/index.js",
             "/student/api/exchange-records/[id].func/index.js",
             "/student/api/exchange.func/index.js",
+            "/student/api/loans.func/index.js",
+            "/student/api/loans/[id].func/index.js",
+            "/student/api/loans/[id]/repay.func/index.js",
+            "/student/api/loans/[id]/sign.func/index.js",
             "/student/api/score-items.func/index.js",
             "/student/api/score-items/[id].func/index.js",
             "/student/api/score-records.func/index.js",
@@ -1855,7 +2108,7 @@
           ]
         },
         "932": {
-          "consumers": 11,
+          "consumers": 15,
           "groupedPath": "77008745290500da1d1cd37208376dfe",
           "newDest": "__next-on-pages-dist__/webpack/77008745290500da1d1cd37208376dfe.js",
           "byteLength": 33144,
@@ -1865,6 +2118,10 @@
             "/student/api/exchange-records.func/index.js",
             "/student/api/exchange-records/[id].func/index.js",
             "/student/api/exchange.func/index.js",
+            "/student/api/loans.func/index.js",
+            "/student/api/loans/[id].func/index.js",
+            "/student/api/loans/[id]/repay.func/index.js",
+            "/student/api/loans/[id]/sign.func/index.js",
             "/student/api/score-items.func/index.js",
             "/student/api/score-items/[id].func/index.js",
             "/student/api/score-records.func/index.js",
@@ -1932,6 +2189,14 @@
             "/student/rules.func/index.js"
           ]
         },
+        "1571": {
+          "consumers": 1,
+          "inlined": true,
+          "byteLength": 1901,
+          "consumersList": [
+            "/student/api/loans/[id].func/index.js"
+          ]
+        },
         "1575": {
           "consumers": 2,
           "groupedPath": "ab7d3e6c0bed41c6f49fcc11b3310726",
@@ -1953,7 +2218,7 @@
           ]
         },
         "1583": {
-          "consumers": 13,
+          "consumers": 17,
           "groupedPath": "3554552fd4afeabe931f48b3b3c5ec1b",
           "newDest": "__next-on-pages-dist__/webpack/3554552fd4afeabe931f48b3b3c5ec1b.js",
           "byteLength": 1474,
@@ -1964,6 +2229,10 @@
             "/student/api/exchange-records.func/index.js",
             "/student/api/exchange-records/[id].func/index.js",
             "/student/api/exchange.func/index.js",
+            "/student/api/loans.func/index.js",
+            "/student/api/loans/[id].func/index.js",
+            "/student/api/loans/[id]/repay.func/index.js",
+            "/student/api/loans/[id]/sign.func/index.js",
             "/student/api/score-items.func/index.js",
             "/student/api/score-items/[id].func/index.js",
             "/student/api/score-records.func/index.js",
@@ -1984,7 +2253,7 @@
           ]
         },
         "1651": {
-          "consumers": 13,
+          "consumers": 17,
           "groupedPath": "3554552fd4afeabe931f48b3b3c5ec1b",
           "newDest": "__next-on-pages-dist__/webpack/3554552fd4afeabe931f48b3b3c5ec1b.js",
           "byteLength": 26769,
@@ -1995,6 +2264,10 @@
             "/student/api/exchange-records.func/index.js",
             "/student/api/exchange-records/[id].func/index.js",
             "/student/api/exchange.func/index.js",
+            "/student/api/loans.func/index.js",
+            "/student/api/loans/[id].func/index.js",
+            "/student/api/loans/[id]/repay.func/index.js",
+            "/student/api/loans/[id]/sign.func/index.js",
             "/student/api/score-items.func/index.js",
             "/student/api/score-items/[id].func/index.js",
             "/student/api/score-records.func/index.js",
@@ -2005,7 +2278,7 @@
           ]
         },
         "1730": {
-          "consumers": 11,
+          "consumers": 15,
           "groupedPath": "77008745290500da1d1cd37208376dfe",
           "newDest": "__next-on-pages-dist__/webpack/77008745290500da1d1cd37208376dfe.js",
           "byteLength": 422,
@@ -2015,6 +2288,10 @@
             "/student/api/exchange-records.func/index.js",
             "/student/api/exchange-records/[id].func/index.js",
             "/student/api/exchange.func/index.js",
+            "/student/api/loans.func/index.js",
+            "/student/api/loans/[id].func/index.js",
+            "/student/api/loans/[id]/repay.func/index.js",
+            "/student/api/loans/[id]/sign.func/index.js",
             "/student/api/score-items.func/index.js",
             "/student/api/score-items/[id].func/index.js",
             "/student/api/score-records.func/index.js",
@@ -2024,7 +2301,7 @@
           ]
         },
         "1863": {
-          "consumers": 11,
+          "consumers": 15,
           "groupedPath": "77008745290500da1d1cd37208376dfe",
           "newDest": "__next-on-pages-dist__/webpack/77008745290500da1d1cd37208376dfe.js",
           "byteLength": 91,
@@ -2034,6 +2311,10 @@
             "/student/api/exchange-records.func/index.js",
             "/student/api/exchange-records/[id].func/index.js",
             "/student/api/exchange.func/index.js",
+            "/student/api/loans.func/index.js",
+            "/student/api/loans/[id].func/index.js",
+            "/student/api/loans/[id]/repay.func/index.js",
+            "/student/api/loans/[id]/sign.func/index.js",
             "/student/api/score-items.func/index.js",
             "/student/api/score-items/[id].func/index.js",
             "/student/api/score-records.func/index.js",
@@ -2111,7 +2392,7 @@
           ]
         },
         "2039": {
-          "consumers": 11,
+          "consumers": 15,
           "groupedPath": "77008745290500da1d1cd37208376dfe",
           "newDest": "__next-on-pages-dist__/webpack/77008745290500da1d1cd37208376dfe.js",
           "byteLength": 192,
@@ -2121,6 +2402,10 @@
             "/student/api/exchange-records.func/index.js",
             "/student/api/exchange-records/[id].func/index.js",
             "/student/api/exchange.func/index.js",
+            "/student/api/loans.func/index.js",
+            "/student/api/loans/[id].func/index.js",
+            "/student/api/loans/[id]/repay.func/index.js",
+            "/student/api/loans/[id]/sign.func/index.js",
             "/student/api/score-items.func/index.js",
             "/student/api/score-items/[id].func/index.js",
             "/student/api/score-records.func/index.js",
@@ -2140,7 +2425,7 @@
           ]
         },
         "2067": {
-          "consumers": 14,
+          "consumers": 18,
           "groupedPath": "26df63ef8f6dd468813d90c00f151653",
           "newDest": "__next-on-pages-dist__/webpack/26df63ef8f6dd468813d90c00f151653.js",
           "byteLength": 95,
@@ -2151,6 +2436,10 @@
             "/student/api/exchange-records.func/index.js",
             "/student/api/exchange-records/[id].func/index.js",
             "/student/api/exchange.func/index.js",
+            "/student/api/loans.func/index.js",
+            "/student/api/loans/[id].func/index.js",
+            "/student/api/loans/[id]/repay.func/index.js",
+            "/student/api/loans/[id]/sign.func/index.js",
             "/student/api/score-items.func/index.js",
             "/student/api/score-items/[id].func/index.js",
             "/student/api/score-records.func/index.js",
@@ -2192,7 +2481,7 @@
           ]
         },
         "2296": {
-          "consumers": 13,
+          "consumers": 17,
           "groupedPath": "3554552fd4afeabe931f48b3b3c5ec1b",
           "newDest": "__next-on-pages-dist__/webpack/3554552fd4afeabe931f48b3b3c5ec1b.js",
           "byteLength": 102,
@@ -2203,6 +2492,10 @@
             "/student/api/exchange-records.func/index.js",
             "/student/api/exchange-records/[id].func/index.js",
             "/student/api/exchange.func/index.js",
+            "/student/api/loans.func/index.js",
+            "/student/api/loans/[id].func/index.js",
+            "/student/api/loans/[id]/repay.func/index.js",
+            "/student/api/loans/[id]/sign.func/index.js",
             "/student/api/score-items.func/index.js",
             "/student/api/score-items/[id].func/index.js",
             "/student/api/score-records.func/index.js",
@@ -2279,9 +2572,9 @@
         },
         "2544": {
           "consumers": 1,
-          "groupedPath": "806ea5cb9da6c4195e4fdc07b92ad313",
+          "groupedPath": "4dbad664ecc87b8094352cf41cc3548d",
           "inlined": true,
-          "byteLength": 456,
+          "byteLength": 487,
           "consumersList": [
             "/student.func/index.js"
           ]
@@ -2297,7 +2590,7 @@
           ]
         },
         "2561": {
-          "consumers": 11,
+          "consumers": 15,
           "groupedPath": "77008745290500da1d1cd37208376dfe",
           "newDest": "__next-on-pages-dist__/webpack/77008745290500da1d1cd37208376dfe.js",
           "byteLength": 68,
@@ -2307,6 +2600,10 @@
             "/student/api/exchange-records.func/index.js",
             "/student/api/exchange-records/[id].func/index.js",
             "/student/api/exchange.func/index.js",
+            "/student/api/loans.func/index.js",
+            "/student/api/loans/[id].func/index.js",
+            "/student/api/loans/[id]/repay.func/index.js",
+            "/student/api/loans/[id]/sign.func/index.js",
             "/student/api/score-items.func/index.js",
             "/student/api/score-items/[id].func/index.js",
             "/student/api/score-records.func/index.js",
@@ -2353,7 +2650,7 @@
           ]
         },
         "2988": {
-          "consumers": 11,
+          "consumers": 15,
           "groupedPath": "77008745290500da1d1cd37208376dfe",
           "newDest": "__next-on-pages-dist__/webpack/77008745290500da1d1cd37208376dfe.js",
           "byteLength": 2110,
@@ -2363,6 +2660,10 @@
             "/student/api/exchange-records.func/index.js",
             "/student/api/exchange-records/[id].func/index.js",
             "/student/api/exchange.func/index.js",
+            "/student/api/loans.func/index.js",
+            "/student/api/loans/[id].func/index.js",
+            "/student/api/loans/[id]/repay.func/index.js",
+            "/student/api/loans/[id]/sign.func/index.js",
             "/student/api/score-items.func/index.js",
             "/student/api/score-items/[id].func/index.js",
             "/student/api/score-records.func/index.js",
@@ -2382,7 +2683,7 @@
           ]
         },
         "3039": {
-          "consumers": 11,
+          "consumers": 15,
           "groupedPath": "77008745290500da1d1cd37208376dfe",
           "newDest": "__next-on-pages-dist__/webpack/77008745290500da1d1cd37208376dfe.js",
           "byteLength": 262,
@@ -2392,6 +2693,10 @@
             "/student/api/exchange-records.func/index.js",
             "/student/api/exchange-records/[id].func/index.js",
             "/student/api/exchange.func/index.js",
+            "/student/api/loans.func/index.js",
+            "/student/api/loans/[id].func/index.js",
+            "/student/api/loans/[id]/repay.func/index.js",
+            "/student/api/loans/[id]/sign.func/index.js",
             "/student/api/score-items.func/index.js",
             "/student/api/score-items/[id].func/index.js",
             "/student/api/score-records.func/index.js",
@@ -2431,7 +2736,7 @@
           ]
         },
         "3417": {
-          "consumers": 13,
+          "consumers": 17,
           "groupedPath": "3554552fd4afeabe931f48b3b3c5ec1b",
           "newDest": "__next-on-pages-dist__/webpack/3554552fd4afeabe931f48b3b3c5ec1b.js",
           "byteLength": 2422,
@@ -2442,6 +2747,10 @@
             "/student/api/exchange-records.func/index.js",
             "/student/api/exchange-records/[id].func/index.js",
             "/student/api/exchange.func/index.js",
+            "/student/api/loans.func/index.js",
+            "/student/api/loans/[id].func/index.js",
+            "/student/api/loans/[id]/repay.func/index.js",
+            "/student/api/loans/[id]/sign.func/index.js",
             "/student/api/score-items.func/index.js",
             "/student/api/score-items/[id].func/index.js",
             "/student/api/score-records.func/index.js",
@@ -2492,7 +2801,7 @@
           ]
         },
         "3665": {
-          "consumers": 11,
+          "consumers": 15,
           "groupedPath": "77008745290500da1d1cd37208376dfe",
           "newDest": "__next-on-pages-dist__/webpack/77008745290500da1d1cd37208376dfe.js",
           "byteLength": 1888,
@@ -2502,6 +2811,10 @@
             "/student/api/exchange-records.func/index.js",
             "/student/api/exchange-records/[id].func/index.js",
             "/student/api/exchange.func/index.js",
+            "/student/api/loans.func/index.js",
+            "/student/api/loans/[id].func/index.js",
+            "/student/api/loans/[id]/repay.func/index.js",
+            "/student/api/loans/[id]/sign.func/index.js",
             "/student/api/score-items.func/index.js",
             "/student/api/score-items/[id].func/index.js",
             "/student/api/score-records.func/index.js",
@@ -2541,7 +2854,7 @@
           ]
         },
         "3818": {
-          "consumers": 11,
+          "consumers": 15,
           "groupedPath": "77008745290500da1d1cd37208376dfe",
           "newDest": "__next-on-pages-dist__/webpack/77008745290500da1d1cd37208376dfe.js",
           "byteLength": 1748,
@@ -2551,6 +2864,10 @@
             "/student/api/exchange-records.func/index.js",
             "/student/api/exchange-records/[id].func/index.js",
             "/student/api/exchange.func/index.js",
+            "/student/api/loans.func/index.js",
+            "/student/api/loans/[id].func/index.js",
+            "/student/api/loans/[id]/repay.func/index.js",
+            "/student/api/loans/[id]/sign.func/index.js",
             "/student/api/score-items.func/index.js",
             "/student/api/score-items/[id].func/index.js",
             "/student/api/score-records.func/index.js",
@@ -2600,7 +2917,7 @@
           ]
         },
         "4101": {
-          "consumers": 11,
+          "consumers": 15,
           "groupedPath": "77008745290500da1d1cd37208376dfe",
           "newDest": "__next-on-pages-dist__/webpack/77008745290500da1d1cd37208376dfe.js",
           "byteLength": 159,
@@ -2610,6 +2927,10 @@
             "/student/api/exchange-records.func/index.js",
             "/student/api/exchange-records/[id].func/index.js",
             "/student/api/exchange.func/index.js",
+            "/student/api/loans.func/index.js",
+            "/student/api/loans/[id].func/index.js",
+            "/student/api/loans/[id]/repay.func/index.js",
+            "/student/api/loans/[id]/sign.func/index.js",
             "/student/api/score-items.func/index.js",
             "/student/api/score-items/[id].func/index.js",
             "/student/api/score-records.func/index.js",
@@ -2619,7 +2940,7 @@
           ]
         },
         "4155": {
-          "consumers": 11,
+          "consumers": 15,
           "groupedPath": "77008745290500da1d1cd37208376dfe",
           "newDest": "__next-on-pages-dist__/webpack/77008745290500da1d1cd37208376dfe.js",
           "byteLength": 16865,
@@ -2629,6 +2950,10 @@
             "/student/api/exchange-records.func/index.js",
             "/student/api/exchange-records/[id].func/index.js",
             "/student/api/exchange.func/index.js",
+            "/student/api/loans.func/index.js",
+            "/student/api/loans/[id].func/index.js",
+            "/student/api/loans/[id]/repay.func/index.js",
+            "/student/api/loans/[id]/sign.func/index.js",
             "/student/api/score-items.func/index.js",
             "/student/api/score-items/[id].func/index.js",
             "/student/api/score-records.func/index.js",
@@ -2648,11 +2973,14 @@
           ]
         },
         "4175": {
-          "consumers": 2,
+          "consumers": 5,
           "newDest": "__next-on-pages-dist__/webpack/4175.js",
           "byteLength": 180,
           "consumersList": [
             "/student/api/exchange.func/index.js",
+            "/student/api/loans.func/index.js",
+            "/student/api/loans/[id]/repay.func/index.js",
+            "/student/api/loans/[id]/sign.func/index.js",
             "/student/api/score-records.func/index.js"
           ]
         },
@@ -2684,7 +3012,7 @@
           ]
         },
         "4337": {
-          "consumers": 11,
+          "consumers": 15,
           "groupedPath": "77008745290500da1d1cd37208376dfe",
           "newDest": "__next-on-pages-dist__/webpack/77008745290500da1d1cd37208376dfe.js",
           "byteLength": 1705,
@@ -2694,6 +3022,10 @@
             "/student/api/exchange-records.func/index.js",
             "/student/api/exchange-records/[id].func/index.js",
             "/student/api/exchange.func/index.js",
+            "/student/api/loans.func/index.js",
+            "/student/api/loans/[id].func/index.js",
+            "/student/api/loans/[id]/repay.func/index.js",
+            "/student/api/loans/[id]/sign.func/index.js",
             "/student/api/score-items.func/index.js",
             "/student/api/score-items/[id].func/index.js",
             "/student/api/score-records.func/index.js",
@@ -2703,7 +3035,7 @@
           ]
         },
         "4363": {
-          "consumers": 13,
+          "consumers": 17,
           "groupedPath": "3554552fd4afeabe931f48b3b3c5ec1b",
           "newDest": "__next-on-pages-dist__/webpack/3554552fd4afeabe931f48b3b3c5ec1b.js",
           "byteLength": 370,
@@ -2714,6 +3046,10 @@
             "/student/api/exchange-records.func/index.js",
             "/student/api/exchange-records/[id].func/index.js",
             "/student/api/exchange.func/index.js",
+            "/student/api/loans.func/index.js",
+            "/student/api/loans/[id].func/index.js",
+            "/student/api/loans/[id]/repay.func/index.js",
+            "/student/api/loans/[id]/sign.func/index.js",
             "/student/api/score-items.func/index.js",
             "/student/api/score-items/[id].func/index.js",
             "/student/api/score-records.func/index.js",
@@ -2754,7 +3090,7 @@
           ]
         },
         "4591": {
-          "consumers": 11,
+          "consumers": 15,
           "groupedPath": "77008745290500da1d1cd37208376dfe",
           "newDest": "__next-on-pages-dist__/webpack/77008745290500da1d1cd37208376dfe.js",
           "byteLength": 779,
@@ -2764,6 +3100,10 @@
             "/student/api/exchange-records.func/index.js",
             "/student/api/exchange-records/[id].func/index.js",
             "/student/api/exchange.func/index.js",
+            "/student/api/loans.func/index.js",
+            "/student/api/loans/[id].func/index.js",
+            "/student/api/loans/[id]/repay.func/index.js",
+            "/student/api/loans/[id]/sign.func/index.js",
             "/student/api/score-items.func/index.js",
             "/student/api/score-items/[id].func/index.js",
             "/student/api/score-records.func/index.js",
@@ -2823,7 +3163,7 @@
           ]
         },
         "4828": {
-          "consumers": 13,
+          "consumers": 17,
           "groupedPath": "3554552fd4afeabe931f48b3b3c5ec1b",
           "newDest": "__next-on-pages-dist__/webpack/3554552fd4afeabe931f48b3b3c5ec1b.js",
           "byteLength": 196,
@@ -2834,6 +3174,10 @@
             "/student/api/exchange-records.func/index.js",
             "/student/api/exchange-records/[id].func/index.js",
             "/student/api/exchange.func/index.js",
+            "/student/api/loans.func/index.js",
+            "/student/api/loans/[id].func/index.js",
+            "/student/api/loans/[id]/repay.func/index.js",
+            "/student/api/loans/[id]/sign.func/index.js",
             "/student/api/score-items.func/index.js",
             "/student/api/score-items/[id].func/index.js",
             "/student/api/score-records.func/index.js",
@@ -2871,7 +3215,7 @@
           ]
         },
         "5028": {
-          "consumers": 11,
+          "consumers": 15,
           "groupedPath": "77008745290500da1d1cd37208376dfe",
           "newDest": "__next-on-pages-dist__/webpack/77008745290500da1d1cd37208376dfe.js",
           "byteLength": 1710,
@@ -2881,6 +3225,10 @@
             "/student/api/exchange-records.func/index.js",
             "/student/api/exchange-records/[id].func/index.js",
             "/student/api/exchange.func/index.js",
+            "/student/api/loans.func/index.js",
+            "/student/api/loans/[id].func/index.js",
+            "/student/api/loans/[id]/repay.func/index.js",
+            "/student/api/loans/[id]/sign.func/index.js",
             "/student/api/score-items.func/index.js",
             "/student/api/score-items/[id].func/index.js",
             "/student/api/score-records.func/index.js",
@@ -2900,7 +3248,7 @@
           ]
         },
         "5105": {
-          "consumers": 13,
+          "consumers": 17,
           "groupedPath": "3554552fd4afeabe931f48b3b3c5ec1b",
           "newDest": "__next-on-pages-dist__/webpack/3554552fd4afeabe931f48b3b3c5ec1b.js",
           "byteLength": 81,
@@ -2911,6 +3259,10 @@
             "/student/api/exchange-records.func/index.js",
             "/student/api/exchange-records/[id].func/index.js",
             "/student/api/exchange.func/index.js",
+            "/student/api/loans.func/index.js",
+            "/student/api/loans/[id].func/index.js",
+            "/student/api/loans/[id]/repay.func/index.js",
+            "/student/api/loans/[id]/sign.func/index.js",
             "/student/api/score-items.func/index.js",
             "/student/api/score-items/[id].func/index.js",
             "/student/api/score-records.func/index.js",
@@ -2941,7 +3293,7 @@
           ]
         },
         "5228": {
-          "consumers": 14,
+          "consumers": 18,
           "groupedPath": "26df63ef8f6dd468813d90c00f151653",
           "newDest": "__next-on-pages-dist__/webpack/26df63ef8f6dd468813d90c00f151653.js",
           "byteLength": 328,
@@ -2952,6 +3304,10 @@
             "/student/api/exchange-records.func/index.js",
             "/student/api/exchange-records/[id].func/index.js",
             "/student/api/exchange.func/index.js",
+            "/student/api/loans.func/index.js",
+            "/student/api/loans/[id].func/index.js",
+            "/student/api/loans/[id]/repay.func/index.js",
+            "/student/api/loans/[id]/sign.func/index.js",
             "/student/api/score-items.func/index.js",
             "/student/api/score-items/[id].func/index.js",
             "/student/api/score-records.func/index.js",
@@ -2963,7 +3319,7 @@
           ]
         },
         "5234": {
-          "consumers": 11,
+          "consumers": 15,
           "groupedPath": "77008745290500da1d1cd37208376dfe",
           "newDest": "__next-on-pages-dist__/webpack/77008745290500da1d1cd37208376dfe.js",
           "byteLength": 10083,
@@ -2973,6 +3329,10 @@
             "/student/api/exchange-records.func/index.js",
             "/student/api/exchange-records/[id].func/index.js",
             "/student/api/exchange.func/index.js",
+            "/student/api/loans.func/index.js",
+            "/student/api/loans/[id].func/index.js",
+            "/student/api/loans/[id]/repay.func/index.js",
+            "/student/api/loans/[id]/sign.func/index.js",
             "/student/api/score-items.func/index.js",
             "/student/api/score-items/[id].func/index.js",
             "/student/api/score-records.func/index.js",
@@ -2992,7 +3352,7 @@
           ]
         },
         "5303": {
-          "consumers": 14,
+          "consumers": 18,
           "groupedPath": "26df63ef8f6dd468813d90c00f151653",
           "newDest": "__next-on-pages-dist__/webpack/26df63ef8f6dd468813d90c00f151653.js",
           "byteLength": 102,
@@ -3003,6 +3363,10 @@
             "/student/api/exchange-records.func/index.js",
             "/student/api/exchange-records/[id].func/index.js",
             "/student/api/exchange.func/index.js",
+            "/student/api/loans.func/index.js",
+            "/student/api/loans/[id].func/index.js",
+            "/student/api/loans/[id]/repay.func/index.js",
+            "/student/api/loans/[id]/sign.func/index.js",
             "/student/api/score-items.func/index.js",
             "/student/api/score-items/[id].func/index.js",
             "/student/api/score-records.func/index.js",
@@ -3011,6 +3375,16 @@
             "/student/api/students/[id]/rate.func/index.js",
             "/student/middleware.func/index.js",
             "/student/rules.func/index.js"
+          ]
+        },
+        "5309": {
+          "consumers": 3,
+          "newDest": "__next-on-pages-dist__/webpack/5309.js",
+          "byteLength": 528,
+          "consumersList": [
+            "/student/api/loans.func/index.js",
+            "/student/api/loans/[id].func/index.js",
+            "/student/api/loans/[id]/repay.func/index.js"
           ]
         },
         "5358": {
@@ -3034,7 +3408,7 @@
           ]
         },
         "5405": {
-          "consumers": 13,
+          "consumers": 17,
           "groupedPath": "3554552fd4afeabe931f48b3b3c5ec1b",
           "newDest": "__next-on-pages-dist__/webpack/3554552fd4afeabe931f48b3b3c5ec1b.js",
           "byteLength": 96,
@@ -3045,6 +3419,10 @@
             "/student/api/exchange-records.func/index.js",
             "/student/api/exchange-records/[id].func/index.js",
             "/student/api/exchange.func/index.js",
+            "/student/api/loans.func/index.js",
+            "/student/api/loans/[id].func/index.js",
+            "/student/api/loans/[id]/repay.func/index.js",
+            "/student/api/loans/[id]/sign.func/index.js",
             "/student/api/score-items.func/index.js",
             "/student/api/score-items/[id].func/index.js",
             "/student/api/score-records.func/index.js",
@@ -3065,7 +3443,7 @@
           ]
         },
         "5558": {
-          "consumers": 14,
+          "consumers": 18,
           "groupedPath": "26df63ef8f6dd468813d90c00f151653",
           "newDest": "__next-on-pages-dist__/webpack/26df63ef8f6dd468813d90c00f151653.js",
           "byteLength": 102,
@@ -3076,6 +3454,10 @@
             "/student/api/exchange-records.func/index.js",
             "/student/api/exchange-records/[id].func/index.js",
             "/student/api/exchange.func/index.js",
+            "/student/api/loans.func/index.js",
+            "/student/api/loans/[id].func/index.js",
+            "/student/api/loans/[id]/repay.func/index.js",
+            "/student/api/loans/[id]/sign.func/index.js",
             "/student/api/score-items.func/index.js",
             "/student/api/score-items/[id].func/index.js",
             "/student/api/score-records.func/index.js",
@@ -3087,7 +3469,7 @@
           ]
         },
         "5577": {
-          "consumers": 11,
+          "consumers": 15,
           "groupedPath": "77008745290500da1d1cd37208376dfe",
           "newDest": "__next-on-pages-dist__/webpack/77008745290500da1d1cd37208376dfe.js",
           "byteLength": 126,
@@ -3097,6 +3479,10 @@
             "/student/api/exchange-records.func/index.js",
             "/student/api/exchange-records/[id].func/index.js",
             "/student/api/exchange.func/index.js",
+            "/student/api/loans.func/index.js",
+            "/student/api/loans/[id].func/index.js",
+            "/student/api/loans/[id]/repay.func/index.js",
+            "/student/api/loans/[id]/sign.func/index.js",
             "/student/api/score-items.func/index.js",
             "/student/api/score-items/[id].func/index.js",
             "/student/api/score-records.func/index.js",
@@ -3127,9 +3513,9 @@
         },
         "5701": {
           "consumers": 1,
-          "groupedPath": "806ea5cb9da6c4195e4fdc07b92ad313",
+          "groupedPath": "4dbad664ecc87b8094352cf41cc3548d",
           "inlined": true,
-          "byteLength": 49,
+          "byteLength": 47,
           "consumersList": [
             "/student.func/index.js"
           ]
@@ -3185,7 +3571,7 @@
           ]
         },
         "5927": {
-          "consumers": 13,
+          "consumers": 17,
           "groupedPath": "3554552fd4afeabe931f48b3b3c5ec1b",
           "newDest": "__next-on-pages-dist__/webpack/3554552fd4afeabe931f48b3b3c5ec1b.js",
           "byteLength": 1150,
@@ -3196,6 +3582,10 @@
             "/student/api/exchange-records.func/index.js",
             "/student/api/exchange-records/[id].func/index.js",
             "/student/api/exchange.func/index.js",
+            "/student/api/loans.func/index.js",
+            "/student/api/loans/[id].func/index.js",
+            "/student/api/loans/[id]/repay.func/index.js",
+            "/student/api/loans/[id]/sign.func/index.js",
             "/student/api/score-items.func/index.js",
             "/student/api/score-items/[id].func/index.js",
             "/student/api/score-records.func/index.js",
@@ -3225,7 +3615,7 @@
           ]
         },
         "5996": {
-          "consumers": 11,
+          "consumers": 15,
           "groupedPath": "77008745290500da1d1cd37208376dfe",
           "newDest": "__next-on-pages-dist__/webpack/77008745290500da1d1cd37208376dfe.js",
           "byteLength": 8428,
@@ -3235,6 +3625,10 @@
             "/student/api/exchange-records.func/index.js",
             "/student/api/exchange-records/[id].func/index.js",
             "/student/api/exchange.func/index.js",
+            "/student/api/loans.func/index.js",
+            "/student/api/loans/[id].func/index.js",
+            "/student/api/loans/[id]/repay.func/index.js",
+            "/student/api/loans/[id]/sign.func/index.js",
             "/student/api/score-items.func/index.js",
             "/student/api/score-items/[id].func/index.js",
             "/student/api/score-records.func/index.js",
@@ -3263,6 +3657,14 @@
             "/student/rules.func/index.js"
           ]
         },
+        "6084": {
+          "consumers": 1,
+          "inlined": true,
+          "byteLength": 1618,
+          "consumersList": [
+            "/student/api/loans/[id]/sign.func/index.js"
+          ]
+        },
         "6132": {
           "consumers": 1,
           "inlined": true,
@@ -3282,7 +3684,7 @@
           ]
         },
         "6195": {
-          "consumers": 14,
+          "consumers": 18,
           "groupedPath": "26df63ef8f6dd468813d90c00f151653",
           "newDest": "__next-on-pages-dist__/webpack/26df63ef8f6dd468813d90c00f151653.js",
           "byteLength": 90,
@@ -3293,6 +3695,10 @@
             "/student/api/exchange-records.func/index.js",
             "/student/api/exchange-records/[id].func/index.js",
             "/student/api/exchange.func/index.js",
+            "/student/api/loans.func/index.js",
+            "/student/api/loans/[id].func/index.js",
+            "/student/api/loans/[id]/repay.func/index.js",
+            "/student/api/loans/[id]/sign.func/index.js",
             "/student/api/score-items.func/index.js",
             "/student/api/score-items/[id].func/index.js",
             "/student/api/score-records.func/index.js",
@@ -3304,7 +3710,7 @@
           ]
         },
         "6202": {
-          "consumers": 13,
+          "consumers": 17,
           "groupedPath": "3554552fd4afeabe931f48b3b3c5ec1b",
           "newDest": "__next-on-pages-dist__/webpack/3554552fd4afeabe931f48b3b3c5ec1b.js",
           "byteLength": 170,
@@ -3315,6 +3721,10 @@
             "/student/api/exchange-records.func/index.js",
             "/student/api/exchange-records/[id].func/index.js",
             "/student/api/exchange.func/index.js",
+            "/student/api/loans.func/index.js",
+            "/student/api/loans/[id].func/index.js",
+            "/student/api/loans/[id]/repay.func/index.js",
+            "/student/api/loans/[id]/sign.func/index.js",
             "/student/api/score-items.func/index.js",
             "/student/api/score-items/[id].func/index.js",
             "/student/api/score-records.func/index.js",
@@ -3325,10 +3735,10 @@
           ]
         },
         "6286": {
-          "consumers": 13,
+          "consumers": 17,
           "groupedPath": "3554552fd4afeabe931f48b3b3c5ec1b",
           "newDest": "__next-on-pages-dist__/webpack/3554552fd4afeabe931f48b3b3c5ec1b.js",
-          "byteLength": 1483,
+          "byteLength": 1537,
           "consumersList": [
             "/student.func/index.js",
             "/student/api/admin/password.func/index.js",
@@ -3336,6 +3746,10 @@
             "/student/api/exchange-records.func/index.js",
             "/student/api/exchange-records/[id].func/index.js",
             "/student/api/exchange.func/index.js",
+            "/student/api/loans.func/index.js",
+            "/student/api/loans/[id].func/index.js",
+            "/student/api/loans/[id]/repay.func/index.js",
+            "/student/api/loans/[id]/sign.func/index.js",
             "/student/api/score-items.func/index.js",
             "/student/api/score-items/[id].func/index.js",
             "/student/api/score-records.func/index.js",
@@ -3396,7 +3810,7 @@
           ]
         },
         "6631": {
-          "consumers": 13,
+          "consumers": 17,
           "groupedPath": "3554552fd4afeabe931f48b3b3c5ec1b",
           "newDest": "__next-on-pages-dist__/webpack/3554552fd4afeabe931f48b3b3c5ec1b.js",
           "byteLength": 9221,
@@ -3407,6 +3821,10 @@
             "/student/api/exchange-records.func/index.js",
             "/student/api/exchange-records/[id].func/index.js",
             "/student/api/exchange.func/index.js",
+            "/student/api/loans.func/index.js",
+            "/student/api/loans/[id].func/index.js",
+            "/student/api/loans/[id]/repay.func/index.js",
+            "/student/api/loans/[id]/sign.func/index.js",
             "/student/api/score-items.func/index.js",
             "/student/api/score-items/[id].func/index.js",
             "/student/api/score-records.func/index.js",
@@ -3417,7 +3835,7 @@
           ]
         },
         "6776": {
-          "consumers": 11,
+          "consumers": 15,
           "groupedPath": "77008745290500da1d1cd37208376dfe",
           "newDest": "__next-on-pages-dist__/webpack/77008745290500da1d1cd37208376dfe.js",
           "byteLength": 1390,
@@ -3427,6 +3845,10 @@
             "/student/api/exchange-records.func/index.js",
             "/student/api/exchange-records/[id].func/index.js",
             "/student/api/exchange.func/index.js",
+            "/student/api/loans.func/index.js",
+            "/student/api/loans/[id].func/index.js",
+            "/student/api/loans/[id]/repay.func/index.js",
+            "/student/api/loans/[id]/sign.func/index.js",
             "/student/api/score-items.func/index.js",
             "/student/api/score-items/[id].func/index.js",
             "/student/api/score-records.func/index.js",
@@ -3436,7 +3858,7 @@
           ]
         },
         "6914": {
-          "consumers": 11,
+          "consumers": 15,
           "groupedPath": "77008745290500da1d1cd37208376dfe",
           "newDest": "__next-on-pages-dist__/webpack/77008745290500da1d1cd37208376dfe.js",
           "byteLength": 4382,
@@ -3446,6 +3868,10 @@
             "/student/api/exchange-records.func/index.js",
             "/student/api/exchange-records/[id].func/index.js",
             "/student/api/exchange.func/index.js",
+            "/student/api/loans.func/index.js",
+            "/student/api/loans/[id].func/index.js",
+            "/student/api/loans/[id]/repay.func/index.js",
+            "/student/api/loans/[id]/sign.func/index.js",
             "/student/api/score-items.func/index.js",
             "/student/api/score-items/[id].func/index.js",
             "/student/api/score-records.func/index.js",
@@ -3475,7 +3901,7 @@
           ]
         },
         "6991": {
-          "consumers": 13,
+          "consumers": 17,
           "groupedPath": "3554552fd4afeabe931f48b3b3c5ec1b",
           "newDest": "__next-on-pages-dist__/webpack/3554552fd4afeabe931f48b3b3c5ec1b.js",
           "byteLength": 2707,
@@ -3486,6 +3912,10 @@
             "/student/api/exchange-records.func/index.js",
             "/student/api/exchange-records/[id].func/index.js",
             "/student/api/exchange.func/index.js",
+            "/student/api/loans.func/index.js",
+            "/student/api/loans/[id].func/index.js",
+            "/student/api/loans/[id]/repay.func/index.js",
+            "/student/api/loans/[id]/sign.func/index.js",
             "/student/api/score-items.func/index.js",
             "/student/api/score-items/[id].func/index.js",
             "/student/api/score-records.func/index.js",
@@ -3516,7 +3946,7 @@
           ]
         },
         "7037": {
-          "consumers": 11,
+          "consumers": 15,
           "groupedPath": "77008745290500da1d1cd37208376dfe",
           "newDest": "__next-on-pages-dist__/webpack/77008745290500da1d1cd37208376dfe.js",
           "byteLength": 564,
@@ -3526,6 +3956,10 @@
             "/student/api/exchange-records.func/index.js",
             "/student/api/exchange-records/[id].func/index.js",
             "/student/api/exchange.func/index.js",
+            "/student/api/loans.func/index.js",
+            "/student/api/loans/[id].func/index.js",
+            "/student/api/loans/[id]/repay.func/index.js",
+            "/student/api/loans/[id]/sign.func/index.js",
             "/student/api/score-items.func/index.js",
             "/student/api/score-items/[id].func/index.js",
             "/student/api/score-records.func/index.js",
@@ -3565,7 +3999,7 @@
           ]
         },
         "7185": {
-          "consumers": 13,
+          "consumers": 17,
           "groupedPath": "3554552fd4afeabe931f48b3b3c5ec1b",
           "newDest": "__next-on-pages-dist__/webpack/3554552fd4afeabe931f48b3b3c5ec1b.js",
           "byteLength": 46,
@@ -3576,6 +4010,10 @@
             "/student/api/exchange-records.func/index.js",
             "/student/api/exchange-records/[id].func/index.js",
             "/student/api/exchange.func/index.js",
+            "/student/api/loans.func/index.js",
+            "/student/api/loans/[id].func/index.js",
+            "/student/api/loans/[id]/repay.func/index.js",
+            "/student/api/loans/[id]/sign.func/index.js",
             "/student/api/score-items.func/index.js",
             "/student/api/score-items/[id].func/index.js",
             "/student/api/score-records.func/index.js",
@@ -3636,7 +4074,7 @@
           ]
         },
         "7322": {
-          "consumers": 13,
+          "consumers": 17,
           "groupedPath": "3554552fd4afeabe931f48b3b3c5ec1b",
           "newDest": "__next-on-pages-dist__/webpack/3554552fd4afeabe931f48b3b3c5ec1b.js",
           "byteLength": 96,
@@ -3647,6 +4085,10 @@
             "/student/api/exchange-records.func/index.js",
             "/student/api/exchange-records/[id].func/index.js",
             "/student/api/exchange.func/index.js",
+            "/student/api/loans.func/index.js",
+            "/student/api/loans/[id].func/index.js",
+            "/student/api/loans/[id]/repay.func/index.js",
+            "/student/api/loans/[id]/sign.func/index.js",
             "/student/api/score-items.func/index.js",
             "/student/api/score-items/[id].func/index.js",
             "/student/api/score-records.func/index.js",
@@ -3656,18 +4098,9 @@
             "/student/rules.func/index.js"
           ]
         },
-        "7324": {
-          "consumers": 1,
-          "groupedPath": "806ea5cb9da6c4195e4fdc07b92ad313",
-          "inlined": true,
-          "byteLength": 222606,
-          "consumersList": [
-            "/student.func/index.js"
-          ]
-        },
         "7326": {
           "consumers": 1,
-          "groupedPath": "806ea5cb9da6c4195e4fdc07b92ad313",
+          "groupedPath": "4dbad664ecc87b8094352cf41cc3548d",
           "inlined": true,
           "byteLength": 5641,
           "consumersList": [
@@ -3675,7 +4108,7 @@
           ]
         },
         "7444": {
-          "consumers": 11,
+          "consumers": 15,
           "groupedPath": "77008745290500da1d1cd37208376dfe",
           "newDest": "__next-on-pages-dist__/webpack/77008745290500da1d1cd37208376dfe.js",
           "byteLength": 5600,
@@ -3685,6 +4118,10 @@
             "/student/api/exchange-records.func/index.js",
             "/student/api/exchange-records/[id].func/index.js",
             "/student/api/exchange.func/index.js",
+            "/student/api/loans.func/index.js",
+            "/student/api/loans/[id].func/index.js",
+            "/student/api/loans/[id]/repay.func/index.js",
+            "/student/api/loans/[id]/sign.func/index.js",
             "/student/api/score-items.func/index.js",
             "/student/api/score-items/[id].func/index.js",
             "/student/api/score-records.func/index.js",
@@ -3764,7 +4201,7 @@
           ]
         },
         "7701": {
-          "consumers": 11,
+          "consumers": 15,
           "groupedPath": "77008745290500da1d1cd37208376dfe",
           "newDest": "__next-on-pages-dist__/webpack/77008745290500da1d1cd37208376dfe.js",
           "byteLength": 1934,
@@ -3774,6 +4211,10 @@
             "/student/api/exchange-records.func/index.js",
             "/student/api/exchange-records/[id].func/index.js",
             "/student/api/exchange.func/index.js",
+            "/student/api/loans.func/index.js",
+            "/student/api/loans/[id].func/index.js",
+            "/student/api/loans/[id]/repay.func/index.js",
+            "/student/api/loans/[id]/sign.func/index.js",
             "/student/api/score-items.func/index.js",
             "/student/api/score-items/[id].func/index.js",
             "/student/api/score-records.func/index.js",
@@ -3803,7 +4244,7 @@
           ]
         },
         "7908": {
-          "consumers": 13,
+          "consumers": 17,
           "groupedPath": "3554552fd4afeabe931f48b3b3c5ec1b",
           "newDest": "__next-on-pages-dist__/webpack/3554552fd4afeabe931f48b3b3c5ec1b.js",
           "byteLength": 81,
@@ -3814,6 +4255,10 @@
             "/student/api/exchange-records.func/index.js",
             "/student/api/exchange-records/[id].func/index.js",
             "/student/api/exchange.func/index.js",
+            "/student/api/loans.func/index.js",
+            "/student/api/loans/[id].func/index.js",
+            "/student/api/loans/[id]/repay.func/index.js",
+            "/student/api/loans/[id]/sign.func/index.js",
             "/student/api/score-items.func/index.js",
             "/student/api/score-items/[id].func/index.js",
             "/student/api/score-records.func/index.js",
@@ -3834,7 +4279,7 @@
           ]
         },
         "7960": {
-          "consumers": 11,
+          "consumers": 15,
           "groupedPath": "77008745290500da1d1cd37208376dfe",
           "newDest": "__next-on-pages-dist__/webpack/77008745290500da1d1cd37208376dfe.js",
           "byteLength": 4224,
@@ -3844,6 +4289,10 @@
             "/student/api/exchange-records.func/index.js",
             "/student/api/exchange-records/[id].func/index.js",
             "/student/api/exchange.func/index.js",
+            "/student/api/loans.func/index.js",
+            "/student/api/loans/[id].func/index.js",
+            "/student/api/loans/[id]/repay.func/index.js",
+            "/student/api/loans/[id]/sign.func/index.js",
             "/student/api/score-items.func/index.js",
             "/student/api/score-items/[id].func/index.js",
             "/student/api/score-records.func/index.js",
@@ -3893,7 +4342,7 @@
           ]
         },
         "8042": {
-          "consumers": 13,
+          "consumers": 17,
           "groupedPath": "3554552fd4afeabe931f48b3b3c5ec1b",
           "newDest": "__next-on-pages-dist__/webpack/3554552fd4afeabe931f48b3b3c5ec1b.js",
           "byteLength": 322,
@@ -3904,6 +4353,10 @@
             "/student/api/exchange-records.func/index.js",
             "/student/api/exchange-records/[id].func/index.js",
             "/student/api/exchange.func/index.js",
+            "/student/api/loans.func/index.js",
+            "/student/api/loans/[id].func/index.js",
+            "/student/api/loans/[id]/repay.func/index.js",
+            "/student/api/loans/[id]/sign.func/index.js",
             "/student/api/score-items.func/index.js",
             "/student/api/score-items/[id].func/index.js",
             "/student/api/score-records.func/index.js",
@@ -3943,7 +4396,7 @@
           ]
         },
         "8264": {
-          "consumers": 13,
+          "consumers": 17,
           "groupedPath": "3554552fd4afeabe931f48b3b3c5ec1b",
           "newDest": "__next-on-pages-dist__/webpack/3554552fd4afeabe931f48b3b3c5ec1b.js",
           "byteLength": 117,
@@ -3954,6 +4407,10 @@
             "/student/api/exchange-records.func/index.js",
             "/student/api/exchange-records/[id].func/index.js",
             "/student/api/exchange.func/index.js",
+            "/student/api/loans.func/index.js",
+            "/student/api/loans/[id].func/index.js",
+            "/student/api/loans/[id]/repay.func/index.js",
+            "/student/api/loans/[id]/sign.func/index.js",
             "/student/api/score-items.func/index.js",
             "/student/api/score-items/[id].func/index.js",
             "/student/api/score-records.func/index.js",
@@ -4021,6 +4478,14 @@
             "/student/rules.func/index.js"
           ]
         },
+        "8756": {
+          "consumers": 1,
+          "inlined": true,
+          "byteLength": 2488,
+          "consumersList": [
+            "/student/api/loans.func/index.js"
+          ]
+        },
         "8794": {
           "consumers": 2,
           "groupedPath": "ab7d3e6c0bed41c6f49fcc11b3310726",
@@ -4042,7 +4507,7 @@
           ]
         },
         "8816": {
-          "consumers": 13,
+          "consumers": 17,
           "groupedPath": "3554552fd4afeabe931f48b3b3c5ec1b",
           "newDest": "__next-on-pages-dist__/webpack/3554552fd4afeabe931f48b3b3c5ec1b.js",
           "byteLength": 3925,
@@ -4053,6 +4518,10 @@
             "/student/api/exchange-records.func/index.js",
             "/student/api/exchange-records/[id].func/index.js",
             "/student/api/exchange.func/index.js",
+            "/student/api/loans.func/index.js",
+            "/student/api/loans/[id].func/index.js",
+            "/student/api/loans/[id]/repay.func/index.js",
+            "/student/api/loans/[id]/sign.func/index.js",
             "/student/api/score-items.func/index.js",
             "/student/api/score-items/[id].func/index.js",
             "/student/api/score-records.func/index.js",
@@ -4063,7 +4532,7 @@
           ]
         },
         "8819": {
-          "consumers": 13,
+          "consumers": 17,
           "groupedPath": "3554552fd4afeabe931f48b3b3c5ec1b",
           "newDest": "__next-on-pages-dist__/webpack/3554552fd4afeabe931f48b3b3c5ec1b.js",
           "byteLength": 24501,
@@ -4074,6 +4543,10 @@
             "/student/api/exchange-records.func/index.js",
             "/student/api/exchange-records/[id].func/index.js",
             "/student/api/exchange.func/index.js",
+            "/student/api/loans.func/index.js",
+            "/student/api/loans/[id].func/index.js",
+            "/student/api/loans/[id]/repay.func/index.js",
+            "/student/api/loans/[id]/sign.func/index.js",
             "/student/api/score-items.func/index.js",
             "/student/api/score-items/[id].func/index.js",
             "/student/api/score-records.func/index.js",
@@ -4104,7 +4577,7 @@
           ]
         },
         "8949": {
-          "consumers": 13,
+          "consumers": 17,
           "groupedPath": "3554552fd4afeabe931f48b3b3c5ec1b",
           "newDest": "__next-on-pages-dist__/webpack/3554552fd4afeabe931f48b3b3c5ec1b.js",
           "byteLength": 7039,
@@ -4115,6 +4588,10 @@
             "/student/api/exchange-records.func/index.js",
             "/student/api/exchange-records/[id].func/index.js",
             "/student/api/exchange.func/index.js",
+            "/student/api/loans.func/index.js",
+            "/student/api/loans/[id].func/index.js",
+            "/student/api/loans/[id]/repay.func/index.js",
+            "/student/api/loans/[id]/sign.func/index.js",
             "/student/api/score-items.func/index.js",
             "/student/api/score-items/[id].func/index.js",
             "/student/api/score-records.func/index.js",
@@ -4229,7 +4706,7 @@
           ]
         },
         "9548": {
-          "consumers": 11,
+          "consumers": 15,
           "groupedPath": "77008745290500da1d1cd37208376dfe",
           "newDest": "__next-on-pages-dist__/webpack/77008745290500da1d1cd37208376dfe.js",
           "byteLength": 4895,
@@ -4239,6 +4716,10 @@
             "/student/api/exchange-records.func/index.js",
             "/student/api/exchange-records/[id].func/index.js",
             "/student/api/exchange.func/index.js",
+            "/student/api/loans.func/index.js",
+            "/student/api/loans/[id].func/index.js",
+            "/student/api/loans/[id]/repay.func/index.js",
+            "/student/api/loans/[id]/sign.func/index.js",
             "/student/api/score-items.func/index.js",
             "/student/api/score-items/[id].func/index.js",
             "/student/api/score-records.func/index.js",
@@ -4287,7 +4768,7 @@
           ]
         },
         "9573": {
-          "consumers": 11,
+          "consumers": 15,
           "groupedPath": "77008745290500da1d1cd37208376dfe",
           "newDest": "__next-on-pages-dist__/webpack/77008745290500da1d1cd37208376dfe.js",
           "byteLength": 1157,
@@ -4297,6 +4778,10 @@
             "/student/api/exchange-records.func/index.js",
             "/student/api/exchange-records/[id].func/index.js",
             "/student/api/exchange.func/index.js",
+            "/student/api/loans.func/index.js",
+            "/student/api/loans/[id].func/index.js",
+            "/student/api/loans/[id]/repay.func/index.js",
+            "/student/api/loans/[id]/sign.func/index.js",
             "/student/api/score-items.func/index.js",
             "/student/api/score-items/[id].func/index.js",
             "/student/api/score-records.func/index.js",
@@ -4306,7 +4791,7 @@
           ]
         },
         "9642": {
-          "consumers": 13,
+          "consumers": 17,
           "groupedPath": "3554552fd4afeabe931f48b3b3c5ec1b",
           "newDest": "__next-on-pages-dist__/webpack/3554552fd4afeabe931f48b3b3c5ec1b.js",
           "byteLength": 2253,
@@ -4317,6 +4802,10 @@
             "/student/api/exchange-records.func/index.js",
             "/student/api/exchange-records/[id].func/index.js",
             "/student/api/exchange.func/index.js",
+            "/student/api/loans.func/index.js",
+            "/student/api/loans/[id].func/index.js",
+            "/student/api/loans/[id]/repay.func/index.js",
+            "/student/api/loans/[id]/sign.func/index.js",
             "/student/api/score-items.func/index.js",
             "/student/api/score-items/[id].func/index.js",
             "/student/api/score-records.func/index.js",
@@ -4334,6 +4823,14 @@
           "consumersList": [
             "/student.func/index.js",
             "/student/rules.func/index.js"
+          ]
+        },
+        "9655": {
+          "consumers": 1,
+          "inlined": true,
+          "byteLength": 2336,
+          "consumersList": [
+            "/student/api/loans/[id]/repay.func/index.js"
           ]
         },
         "9665": {
@@ -4387,7 +4884,7 @@
           ]
         },
         "9985": {
-          "consumers": 11,
+          "consumers": 15,
           "groupedPath": "77008745290500da1d1cd37208376dfe",
           "newDest": "__next-on-pages-dist__/webpack/77008745290500da1d1cd37208376dfe.js",
           "byteLength": 155,
@@ -4397,6 +4894,10 @@
             "/student/api/exchange-records.func/index.js",
             "/student/api/exchange-records/[id].func/index.js",
             "/student/api/exchange.func/index.js",
+            "/student/api/loans.func/index.js",
+            "/student/api/loans/[id].func/index.js",
+            "/student/api/loans/[id]/repay.func/index.js",
+            "/student/api/loans/[id]/sign.func/index.js",
             "/student/api/score-items.func/index.js",
             "/student/api/score-items/[id].func/index.js",
             "/student/api/score-records.func/index.js",
